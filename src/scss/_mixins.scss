@@ -12,11 +12,11 @@
   font-size: $_o-ft-form-field-big-fontsize;
   outline: none;
 }
-
+  
 @mixin commonFieldFocus() {
     border-color: oColorsGetColorFor(form-field-hover form-field-selected, border);
 }
-
+  
 @mixin commonFieldDisabled() {
     border-color: oColorsGetColorFor(form-field-disabled, border);
     background-color: oColorsGetColorFor(form-field-disabled, background);
@@ -35,24 +35,6 @@
   box-sizing: $value;
 }
 
-@mixin border-radius($radiusTop: $_o-ft-forms-field-borderradius, $radiusBottom: 0){
-
-  -webkit-border-top-left-radius: $radiusTop;
-  -webkit-border-top-right-radius: $radiusTop;
-  -webkit-border-bottom-right-radius: $radiusBottom;
-  -webkit-border-bottom-left-radius: $radiusBottom;
-
-  -moz-border-radius-topleft: $radiusTop;
-  -moz-border-radius-topright: $radiusTop;
-  -moz-border-radius-bottomright: $radiusBottom;
-  -moz-border-radius-bottomleft: $radiusBottom;
-
-  border-top-left-radius: $radiusTop;
-  border-top-right-radius: $radiusTop;
-  border-bottom-right-radius: $radiusBottom;
-  border-bottom-left-radius: $radiusBottom;
-}
-
 @mixin oFtFormsClass($classes...) {
   $aggregatedSelector: ();
   @each $class in $classes {
@@ -66,12 +48,6 @@
   }
 }
 
-/**
- * Creates a ruleset from the content for one or more placeholders
- * And optionally a set of selectors
- * @param {String} $placeholder One or more placeholders, separated by commas
- * @param {String} $selector Zero or more selectors, separated by commas
- */
 @mixin oFtFormsPlaceholderOptionalSelector($placeholder, $selector) {
   $aggregatedSelector: (unquote($placeholder));
   @if (not $o-ft-forms-is-silent) {
