@@ -1,5 +1,6 @@
 /**
  * Styles fieldset
+ * @group o-ft-forms
 */
 @mixin oFtFormsSection {
 	padding: 0;
@@ -9,6 +10,7 @@
 
 /**
  * Styles fieldset with a border
+ * @group o-ft-forms
  */
 @mixin oFtFormsSectionWithBorder {
 	@include oFtFormsSection;

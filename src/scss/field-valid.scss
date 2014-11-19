@@ -1,5 +1,6 @@
 /**
  * Style a valid input field
+ * @group o-ft-forms
  */
 @mixin oFtFormsFieldValid {
 	border-color: oColorsGetColorFor(o-ft-forms-field-valid, border);

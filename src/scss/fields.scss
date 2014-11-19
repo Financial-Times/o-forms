@@ -1,5 +1,7 @@
 /**
  * Add to a container of form fields
+ * @group o-ft-forms
+
 */
 @mixin oFtFormsFieldGroup{
 	position: relative;
@@ -10,6 +12,8 @@
 
 /**
  * Add to an element containing additional info about a fields
+  * @group o-ft-forms
+
 */
 @mixin oFtFormsAdditionalInfo{
 	display: block;
@@ -21,6 +25,8 @@
 
 /**
 * Style a form label
+ * @group o-ft-forms
+
 */
 @mixin oFtFormsLabel{
 	display: block;
@@ -33,6 +39,8 @@
 
 /**
  * Apply to all form fields
+  * @group o-ft-forms
+
 */
 @mixin oFtFormsField {
 	@include commonField;
@@ -40,6 +48,8 @@
 
 /**
  * Apply to labels of select elements
+  * @group o-ft-forms
+
 */
 @mixin oFtFormsLabelSelect {
 	@include commonField;
@@ -47,6 +57,8 @@
 
 /**
  * Apply to textarea labels
+  * @group o-ft-forms
+
  */
 @mixin oFtFormsLabelTextArea {
 	@include commonField;
@@ -54,6 +66,8 @@
 
 /**
  * Apply to disabled form fields
+  * @group o-ft-forms
+
 */
 @mixin oFtFormsFieldDisabled {
 	@include commonFieldDisabled;
@@ -61,6 +75,8 @@
 
 /**
  * Apply to form fields with :focus
+  * @group o-ft-forms
+
  */
 @mixin oFtFormsFieldFocus {
 	@include commonFieldFocus;
@@ -68,6 +84,8 @@
 
 /**
  * Styling select boxes
+  * @group o-ft-forms
+
  */
 // There is a bug here - with background-origin:content-box the arrow icon will overlap the text unless you give it a specific width
 // todo: find a way to avoid background-position:content-box
@@ -88,6 +106,8 @@
 
 /**
  * Styling textareas
+  * @group o-ft-forms
+
  */
 @mixin oFtFormsFieldTextarea {
 	vertical-align: top;
@@ -95,6 +115,8 @@
 
 /**
  * to make a field full-width
+  * @group o-ft-forms
+
  */
 @mixin oFtFormsFieldFullWidth {
 	width: 100%;
@@ -103,6 +125,8 @@
 /**
  * This is to hide Chrome's style for autocompleted fields
  * Apply using :-webkit-autofill
+  * @group o-ft-forms
+
  */
 @mixin oFtFormsFieldWebkitAutofill {
 	-webkit-box-shadow:inset 0 0 0 1000px oColorsGetColorFor(o-ft-forms-field-standard, background);

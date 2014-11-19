@@ -1,4 +1,8 @@
-// Hides radio buttons and checkboxes so they can be styled nicely
+/**
+ * Hides radio buttons and checkboxes so they can be styled nicely
+ * @group o-ft-forms
+*/
+//
 // @mixin hideInputs
 @mixin hideInputs {
 	.oft-forms__field[type="checkbox"],
@@ -8,8 +12,11 @@
 		opacity: 0;
 	}
 }
-// Styles the labels for checkboxes and radios - apply to the <label>
-// @mixin oFtFormsCheckboxRadioLabel
+
+/**
+ * Styles the labels for checkboxes and radios - apply to the <label>
+ * @group o-ft-forms
+*/
 @mixin oFtFormsCheckboxRadioLabel {
 	display: inline-block;
 	margin-right: 15px;
@@ -21,18 +28,22 @@
 	@include oUseragentPrefixer(user-select, none);
 }
 
-// Apply to labels on hover (or when the associated checkbox has focus)
-// @mixin oFtFormsCheckboxRadioLabelHover
-// @usage:
-//input[type="checkbox"] + label:hover, input[type="checkbox"]:focus + label{
-//    =oFtFormsCheckboxRadioLabelHover;
-//}
+/**
+ * Apply to labels on hover (or when the associated checkbox has focus)
+ * @group o-ft-forms
+ * @example scss
+ *  input[type="checkbox"] + label:hover, input[type="checkbox"]:focus + label{
+ *    @include oFtFormsCheckboxRadioLabelHover
+ *  }
+*/
 @mixin oFtFormsCheckboxRadioLabelHover{
 	color: oColorsGetColorFor(o-ft-forms-radiocheckbox-hover, text);
 }
 
-// Add a nice border to checkboxes
-// @mixin oFtFormsCheckboxBorder
+/**
+ * Adds a border to the checkbox
+ * @group o-ft-forms
+*/
 @mixin oFtFormsCheckboxBorder {
 	position: absolute;
 	left: 0;
@@ -45,21 +56,35 @@
 	content: '';
 }
 
-// Add a nice border to radio buttons
-// @mixin oFtFormsRadioBorder
+/**
+ * Add a nice border to radio buttons
+ * @group o-ft-forms
+ */
 @mixin oFtFormsRadioBorder {
 	@include oFtFormsCheckboxBorder;
 	border-radius: 50%;
 }
 
-// Apply to checkboxes/radio buttons on hover/focus to change the border
-// @mixin oFtFormsCheckboxRadioBorderHover
+/**
+ * Apply to checkboxes/radio buttons on hover/focus to change the border
+ * @group o-ft-forms
+ * @example scss
+ * input[type="checkbox"]:hover{
+ *   @include @mixin oFtFormsCheckboxRadioBorderHover
+ * }
+ */
 @mixin oFtFormsCheckboxRadioBorderHover {
 	border-color: oColorsGetColorFor(o-ft-forms-field-hover, border);
 }
 
-// apply to checked radio buttons
-// @mixin oFtFormsRadioChecked
+/**
+ * Apply to radio buttons when checked
+ * @group o-ft-forms
+ * @example scss
+ *   input[type="radio"]:checked {
+ *     @include oFtFormsRadioChecked;
+ *   }
+ */
 @mixin oFtFormsRadioChecked {
 	background-color: oColorsGetColorFor(o-ft-forms-radiocheckbox-checked, background);
 	content: '';
@@ -71,8 +96,14 @@
 	top: ($_o-ft-forms-radiocheckbox-size - $_o-ft-forms-radio-internal-size) / 2;
 }
 
-// Apply to checked checkboxes
-// @mixin oFtFormsCheckboxChecked
+/**
+ * Apply to checkboxes when checked
+ * @group o-ft-forms
+ * @example scss
+ *   input[type="checkbox"]:checked {
+ *     @include oFtFormsCheckboxChecked;
+ *   }
+ */
 @mixin oFtFormsCheckboxChecked{
 	content: '';
 	height: $_o-ft-forms-checkbox-ticksize;
