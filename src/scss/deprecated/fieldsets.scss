@@ -1,0 +1,8 @@
+@include oFtFormsClass(o-ft-forms__section, o-ft-forms__section--with-border) {
+    @include oFtFormsSection;
+}
+
+@include oFtFormsClass(o-ft-forms__section--with-border) {
+    @include oFtFormsSectionWithBorder;
+}
+
