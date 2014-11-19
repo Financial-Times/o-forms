@@ -69,13 +69,15 @@
 /**
  * Styling select boxes
  */
-// todo: I think there is some padding-right missing from this mixin
+// There is a bug here - with background-origin:content-box the arrow icon will overlap the text unless you give it a specific width
+// todo: find a way to avoid background-position:content-box
+//
 @mixin oFtFormsFieldSelect {
 	padding-top: $_o-ft-form-field-big-padding-topbottom - 1px;
 	padding-bottom: $_o-ft-form-field-big-padding-topbottom - 1px;
 	cursor: pointer;
 	background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
-	background-position: 100% center;
+	background-position: right center;
 	background-repeat: no-repeat;
 	background-origin: content-box;
 	background-size: 19px;
