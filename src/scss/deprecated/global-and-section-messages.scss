@@ -1,0 +1,16 @@
+@include oFtFormsClass(o-ft-forms__section--error) {
+	@include oFtFormsSectionError;
+}
+
+//Styling for form global and section error messages to be used in conjuction with o-ft-forms__section--error for for the form as a whole
+@include oFtFormsClass('o-ft-forms-section__message--error', 'o-ft-forms__global-message--error') {
+	@include oFtFormsMessageErrorBase;
+}
+
+@include oFtFormsClass('o-ft-forms-section__message--error') {
+	@include oFtFormsSectionMessageError;
+}
+
+@include oFtFormsClass('o-ft-forms__global-message--error') {
+	@include oFtFormsGlobalMessageError;
+}
