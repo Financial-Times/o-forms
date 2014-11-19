@@ -1,6 +1,15 @@
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--valid, %o-ft-forms__label--select--valid, %o-ft-forms__label--textarea--valid',
-  '.o-ft-forms--valid .o-ft-forms__field--text, 
-  .o-ft-forms--valid .o-ft-forms__field--select, 
-  .o-ft-forms--valid .o-ft-forms__field--textarea') {
-  border-color: oColorsGetColorFor(o-ft-forms-field-valid, border);
+/**
+ * Style a valid input field
+ */
+@mixin oFtFormsFieldValid {
+	border-color: oColorsGetColorFor(o-ft-forms-field-valid, border);
+}
+
+@if $o-ft-forms-is-silent {
+	.o-ft-forms--valid .o-ft-forms__field--text,
+	.o-ft-forms--valid .o-ft-forms__field--select,
+	.o-ft-forms--valid .o-ft-forms__field--textarea
+	{
+		@include oFtFormsFieldValid;
+	}
 }
