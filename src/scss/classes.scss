@@ -1,0 +1,150 @@
+@if not $o-ft-forms-is-silent and not $o-ft-forms-classes-output {
+	@debug "Silent mode is off - outputting classes";
+
+	//fieldsets
+	.o-ft-forms__section {
+		@include oFtFormsSection;
+	}
+	.o-ft-forms__section--with-border {
+		@include oFtFormsSectionWithBorder;
+	}
+	//fields
+	.o-ft-forms__field-group {
+		@include oFtFormsFieldGroup;
+	}
+	.o-ft-forms__additional-info {
+		@include oFtFormsAdditionalInfo;
+	}
+	.o-ft-forms__label {
+		@include oFtFormsLabel;
+	}
+	.o-ft-forms__field--text,
+	.o-ft-forms__field--select,
+	.o-ft-forms__field--textarea {
+		@include oFtFormsField;
+	}
+	.o-ft-forms__field--text:disabled,
+	.o-ft-forms__field--select:disabled,
+	.o-ft-forms__field--textarea:disabled {
+		@include oFtFormsFieldDisabled;
+
+	}
+	.o-ft-forms__field--text:focus,
+	.o-ft-forms__field--select:focus,
+	.o-ft-forms__field--textarea:focus {
+		@include oFtFormsFieldFocus;
+	}
+	.o-ft-forms__field--select {
+		@include oFtFormsFieldSelect;
+	}
+	.o-ft-forms__field--textarea {
+		@include oFtFormsFieldTextarea;
+	}
+	.o-ft-forms__field--full-width {
+		@include oFtFormsFieldFullWidth;
+	}
+	.o-ft-forms__field--select:-webkit-autofill,
+	.o-ft-forms__field--textarea:-webkit-autofill {
+		@include oFtFormsFieldWebkitAutofill;
+	}
+
+	//field errors
+	.o-ft-forms--error .o-ft-forms__field--text,
+	.o-ft-forms--error .o-ft-forms__field--select,
+	.o-ft-forms--error .o-ft-forms__field--textarea {
+		@include oFtFormsFieldError;
+	}
+	.o-ft-forms__errortext {
+		@include oFtFormsErrorText;
+	}
+
+	//valid fields
+	.o-ft-forms--valid .o-ft-forms__field--text,
+	.o-ft-forms--valid .o-ft-forms__field--select,
+	.o-ft-forms--valid .o-ft-forms__field--textarea {
+		@include oFtFormsFieldValid;
+	}
+
+	// messages
+	.o-ft-forms-section__message--error {
+		@include oFtFormsSectionMessageError;
+	}
+	.o-ft-forms__global-message--error {
+		@include oFtFormsGlobalMessageError;
+	}
+
+	// prefixs/suffixes
+	.o-ft-forms__prefix button,
+	.o-ft-forms__suffix button {
+		@include oFtFormsAffixButton;
+	}
+	.o-ft-forms__affix-wrapper {
+		@include oFtFormsAffixWrapper;
+	}
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--text,
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--select {
+		@include oFtFormsFieldAffixed;
+	}
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--text:first-child,
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--select:first-child {
+		@include oFtFormsFieldPrefixed;
+	}
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--text:last-child,
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--select:last-child {
+		@include oFtFormsFieldSuffixed;
+	}
+	.o-ft-forms__prefix {
+		@include oFtFormsPrefix;
+	}
+	.o-ft-forms__suffix {
+		@include oFtFormsSuffix;
+	}
+	.o-ft-forms--error .o-ft-forms__prefix,
+	.o-ft-forms--error .o-ft-forms__suffix {
+		@include oFtFormsPrefixSuffixError;
+	}
+	.o-ft-forms--valid .o-ft-forms__prefix,
+	.o-ft-forms--valid .o-ft-forms__suffix {
+		@include oFtFormsPrefixSuffixValid;
+	}
+
+	//radio buttons & checkboxes
+	@include hideInputs;
+
+	.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label,
+	.o-ft-forms__field[type="radio"] + .o-ft-forms__label {
+		@include oFtFormsCheckboxRadioLabel;
+	}
+
+	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:hover,
+	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"] + .o-ft-forms__label:hover,
+	.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label,
+	.o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label {
+		@include oFtFormsCheckboxRadioLabelHover;
+	}
+
+	.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label::before {
+		@include oFtFormsCheckboxBorder;
+	}
+
+	.o-ft-forms__field[type="radio"] + .o-ft-forms__label::before {
+		@include oFtFormsRadioBorder;
+	}
+
+	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"]:hover + .o-ft-forms__label::before,
+	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"]:hover + .o-ft-forms__label::before,
+	.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label::before,
+	.o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label::before {
+		@include oFtFormsCheckboxRadioBorderHover;
+	}
+
+	.o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label::after {
+		@include oFtFormsRadioChecked;
+	}
+
+	.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label::after {
+		@include oFtFormsCheckboxChecked;
+	}
+
+	$o-ft-forms-classes-output : true;
+}

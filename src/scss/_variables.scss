@@ -5,7 +5,7 @@
 /**
  * Set this to false to disable silent mode and output concrete classes
  */
-$o-ft-forms-is-silent: true !default;
+$o-ft-forms-is-silent: false !default;
 
 $_o-ft-forms-fieldborder-width: 1px;
 $_o-ft-forms-fieldborder: $_o-ft-forms-fieldborder-width solid oColorsGetColorFor(o-ft-forms-field-standard, border);

@@ -20,12 +20,3 @@
 	border-bottom-style: dotted;
 	border-bottom-width: 2px;
 }
-
-@if not $o-ft-forms-is-silent and not $o-ft-forms-classes-output {
-	.o-ft-forms__section {
-		@include oFtFormsSection;
-	}
-	.o-ft-forms__section--with-border {
-		@include oFtFormsSectionWithBorder;
-	}
-}

@@ -3,5 +3,7 @@
 @import "fieldsets";
 @import "global-and-section-messages";
 @import "prefix-suffix";
+@import "field-errors";
+@import "field-valid";
 
 $o-ft-forms-classes-output : true;
