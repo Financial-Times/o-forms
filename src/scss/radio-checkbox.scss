@@ -7,8 +7,7 @@
 */
 @mixin hideInputs {
 	.oft-forms__field[type="checkbox"],
-	.oft-forms__field[type="radio"]
-	{
+	.oft-forms__field[type="radio"] {
 		position: absolute;
 		opacity: 0;
 	}
@@ -35,7 +34,7 @@
  *    @include oFtFormsCheckboxRadioLabelHover
  *  }
 */
-@mixin oFtFormsCheckboxRadioLabelHover{
+@mixin oFtFormsCheckboxRadioLabelHover {
 	color: oColorsGetColorFor(o-ft-forms-radiocheckbox-hover, text);
 }
 
@@ -99,7 +98,7 @@
  *     @include oFtFormsCheckboxChecked;
  *   }
  */
-@mixin oFtFormsCheckboxChecked{
+@mixin oFtFormsCheckboxChecked {
 	content: '';
 	height: $_o-ft-forms-checkbox-ticksize;
 	width: $_o-ft-forms-checkbox-ticksize;
@@ -116,16 +115,14 @@
 	@include hideInputs;
 
 	.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label,
-	.o-ft-forms__field[type="radio"] + .o-ft-forms__label
-	{
+	.o-ft-forms__field[type="radio"] + .o-ft-forms__label {
 		@include oFtFormsCheckboxRadioLabel;
 	}
 
 	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:hover,
 	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"] + .o-ft-forms__label:hover,
 	.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label,
-	.o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label
-	{
+	.o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label {
 		@include oFtFormsCheckboxRadioLabelHover;
 	}
 
@@ -140,8 +137,7 @@
 	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"]:hover + .o-ft-forms__label::before,
 	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"]:hover + .o-ft-forms__label::before,
 	.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label::before,
-	.o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label::before
-	{
+	.o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label::before {
 		@include oFtFormsCheckboxRadioBorderHover;
 	}
 

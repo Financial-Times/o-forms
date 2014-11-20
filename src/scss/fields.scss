@@ -1,11 +1,12 @@
 /**
 	@group o-ft-forms
+	@link http://registry.origami.ft.com/components/o-ft-forms
 **/
 
 /**
  * Add to a container of form fields
 */
-@mixin oFtFormsFieldGroup{
+@mixin oFtFormsFieldGroup {
 	position: relative;
 	padding-right: $_o-ft-forms-fieldgroup-padding;
 	padding-left: $_o-ft-forms-fieldgroup-padding;
@@ -15,7 +16,7 @@
 /**
  * Add to an element containing additional info about a fields
 */
-@mixin oFtFormsAdditionalInfo{
+@mixin oFtFormsAdditionalInfo {
 	display: block;
 	margin-top: -2px;
 	margin-bottom: 4px;
@@ -26,7 +27,7 @@
 /**
 * Style a form label
 */
-@mixin oFtFormsLabel{
+@mixin oFtFormsLabel {
 	display: block;
 	@include oFtTypographyLabelMedium;
 	margin-bottom: $_o-ft-forms-label-marginbottom;
@@ -109,7 +110,7 @@
  * Apply using :-webkit-autofill
  */
 @mixin oFtFormsFieldWebkitAutofill {
-	-webkit-box-shadow:inset 0 0 0 1000px oColorsGetColorFor(o-ft-forms-field-standard, background);
+	-webkit-box-shadow: inset 0 0 0 1000px oColorsGetColorFor(o-ft-forms-field-standard, background);
 }
 
 
@@ -125,21 +126,18 @@
 	}
 	.o-ft-forms__field--text,
 	.o-ft-forms__field--select,
-	.o-ft-forms__field--textarea
-	{
+	.o-ft-forms__field--textarea {
 		@include oFtFormsField;
 	}
 	.o-ft-forms__field--text:disabled,
 	.o-ft-forms__field--select:disabled,
-	.o-ft-forms__field--textarea:disabled
-	{
+	.o-ft-forms__field--textarea:disabled {
 		@include oFtFormsFieldDisabled;
 
 	}
 	.o-ft-forms__field--text:focus,
 	.o-ft-forms__field--select:focus,
-	.o-ft-forms__field--textarea:focus
-	{
+	.o-ft-forms__field--textarea:focus {
 		@include oFtFormsFieldFocus;
 	}
 	.o-ft-forms__field--select {
@@ -156,4 +154,3 @@
 		@include oFtFormsFieldWebkitAutofill;
 	}
 }
-

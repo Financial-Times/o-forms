@@ -12,8 +12,7 @@
 @if $o-ft-forms-is-silent {
 	.o-ft-forms--valid .o-ft-forms__field--text,
 	.o-ft-forms--valid .o-ft-forms__field--select,
-	.o-ft-forms--valid .o-ft-forms__field--textarea
-	{
+	.o-ft-forms--valid .o-ft-forms__field--textarea {
 		@include oFtFormsFieldValid;
 	}
 }

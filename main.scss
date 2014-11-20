@@ -11,8 +11,8 @@
 @import "src/scss/deprecated/mixins";
 
 @if (not $o-ft-forms-is-silent) {
-  @include oFtTypographyIncludeFont(label);
-  @include oFtIconsFontFace();
+	@include oFtTypographyIncludeFont(label);
+	@include oFtIconsFontFace();
 }
 
 @import "src/scss/fieldsets";

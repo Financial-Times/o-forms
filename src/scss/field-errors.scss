@@ -1,6 +1,7 @@
 /**
  * @group o-ft-forms
- */
+ * @link http://registry.origami.ft.com/components/o-ft-forms
+**/
 
 /**
  * Style a field with an error
@@ -28,12 +29,10 @@
 @if not $o-ft-forms-is-silent and not $o-ft-forms-classes-output{
 	.o-ft-forms--error .o-ft-forms__field--text,
 	.o-ft-forms--error .o-ft-forms__field--select,
-	.o-ft-forms--error .o-ft-forms__field--textarea
-	{
+	.o-ft-forms--error .o-ft-forms__field--textarea {
 		@include oFtFormsFieldError;
 	}
 	.o-ft-forms__errortext {
 		@include oFtFormsErrorText;
 	}
 }
-

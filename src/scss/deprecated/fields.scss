@@ -14,32 +14,32 @@
 
 @include oFtFormsPlaceholderOptionalSelector(
 	'%o-ft-forms__field,
-  %o-ft-forms__label--select,
-  %o-ft-forms__label--textarea',
+	%o-ft-forms__label--select,
+	%o-ft-forms__label--textarea',
 	'.o-ft-forms__field--text,
-  .o-ft-forms__field--select,
-  .o-ft-forms__field--textarea'
+	.o-ft-forms__field--select,
+	.o-ft-forms__field--textarea'
 ) {
 	@include commonField();
 }
 
 @include oFtFormsPlaceholderOptionalSelector(
 	'%o-ft-forms__field:disabled,
-  %o-ft-forms__label--select:disabled,
-  %o-ft-forms__label--textarea:disabled',
+	%o-ft-forms__label--select:disabled,
+	%o-ft-forms__label--textarea:disabled',
 	'.o-ft-forms__field--text:disabled,
-  .o-ft-forms__field--select:disabled,
-  .o-ft-forms__field--textarea:disabled') {
+	.o-ft-forms__field--select:disabled,
+	.o-ft-forms__field--textarea:disabled') {
 	@include commonFieldDisabled();
 }
 
 @include oFtFormsPlaceholderOptionalSelector(
 	'%o-ft-forms__field:focus,
-  %o-ft-forms__label--select:focus,
-  %o-ft-forms__label--textarea:focus',
+	%o-ft-forms__label--select:focus,
+	%o-ft-forms__label--textarea:focus',
 	'.o-ft-forms__field--text:focus,
-  .o-ft-forms__field--select:focus,
-  .o-ft-forms__field--textarea:focus') {
+	.o-ft-forms__field--select:focus,
+	.o-ft-forms__field--textarea:focus') {
 	@include commonFieldFocus();
 }
 
@@ -69,7 +69,7 @@
 @include oFtFormsPlaceholderOptionalSelector(
 	'%o-ft-forms__field:-webkit-autofill',
 	'.o-ft-forms__field:-webkit-autofill,
-  .o-ft-forms__field--select:-webkit-autofill,
-  .o-ft-forms__field--textarea:-webkit-autofill') {
+	.o-ft-forms__field--select:-webkit-autofill,
+	.o-ft-forms__field--textarea:-webkit-autofill') {
 	@include oFtFormsFieldWebkitAutofill;
 }
