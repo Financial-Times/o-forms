@@ -1,3 +1,10 @@
+/**
+ * @group o-ft-forms
+**/
+
+/**
+ * Set this to false to disable silent mode and output concrete classes
+ */
 $o-ft-forms-is-silent: true !default;
 
 $_o-ft-forms-fieldborder-width: 1px;
@@ -20,3 +27,5 @@ $_o-ft-forms-radio-internal-size: 12px;
 $_o-ft-forms-checkbox-ticksize: 17px;
 
 $_o-ft-forms-label-marginbottom: 5px;
+
+$o-ft-forms-classes-output: false !default;

@@ -1,9 +1,10 @@
 /**
- * Hides radio buttons and checkboxes so they can be styled nicely
  * @group o-ft-forms
+**/
+
+/**
+ * Hides radio buttons and checkboxes so they can be styled nicely
 */
-//
-// @mixin hideInputs
 @mixin hideInputs {
 	.oft-forms__field[type="checkbox"],
 	.oft-forms__field[type="radio"]
@@ -15,7 +16,6 @@
 
 /**
  * Styles the labels for checkboxes and radios - apply to the <label>
- * @group o-ft-forms
 */
 @mixin oFtFormsCheckboxRadioLabel {
 	display: inline-block;
@@ -30,7 +30,6 @@
 
 /**
  * Apply to labels on hover (or when the associated checkbox has focus)
- * @group o-ft-forms
  * @example scss
  *  input[type="checkbox"] + label:hover, input[type="checkbox"]:focus + label{
  *    @include oFtFormsCheckboxRadioLabelHover
@@ -42,7 +41,6 @@
 
 /**
  * Adds a border to the checkbox
- * @group o-ft-forms
 */
 @mixin oFtFormsCheckboxBorder {
 	position: absolute;
@@ -58,7 +56,6 @@
 
 /**
  * Add a nice border to radio buttons
- * @group o-ft-forms
  */
 @mixin oFtFormsRadioBorder {
 	@include oFtFormsCheckboxBorder;
@@ -79,7 +76,6 @@
 
 /**
  * Apply to radio buttons when checked
- * @group o-ft-forms
  * @example scss
  *   input[type="radio"]:checked {
  *     @include oFtFormsRadioChecked;
@@ -98,7 +94,6 @@
 
 /**
  * Apply to checkboxes when checked
- * @group o-ft-forms
  * @example scss
  *   input[type="checkbox"]:checked {
  *     @include oFtFormsCheckboxChecked;
@@ -117,7 +112,7 @@
 }
 
 
-@if not $o-ft-forms-is-silent{
+@if not $o-ft-forms-is-silent and not $o-ft-forms-classes-output {
 	@include hideInputs;
 
 	.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label,

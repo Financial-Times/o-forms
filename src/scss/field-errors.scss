@@ -1,6 +1,9 @@
 /**
- * Style a field with an error
  * @group o-ft-forms
+ */
+
+/**
+ * Style a field with an error
  */
 @mixin oFtFormsFieldError {
 	border-color: oColorsGetColorFor(o-ft-forms-field-invalid, border);
@@ -9,7 +12,6 @@
 
 /**
  * Style a validation error message
- * @group o-ft-forms
  */
 @mixin oFtFormsErrorText {
 	clear: both;
@@ -23,7 +25,7 @@
 	color: oColorsGetColorFor(o-ft-forms-field-invalid, text);
 }
 
-@if not $o-ft-forms-is-silent {
+@if not $o-ft-forms-is-silent and not $o-ft-forms-classes-output{
 	.o-ft-forms--error .o-ft-forms__field--text,
 	.o-ft-forms--error .o-ft-forms__field--select,
 	.o-ft-forms--error .o-ft-forms__field--textarea

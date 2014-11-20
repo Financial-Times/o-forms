@@ -1,107 +1,151 @@
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__affix-wrapper',
-  '.o-ft-forms__affix-wrapper'
-) {
-  display: table;
-  width: 100%;
-  box-sizing: border-box;
+/**
+ * @link http://build.origami.ft.com/files/o-ft-forms@0.11.0/demos/prefix-suffix.html
+ * @group o-ft-forms
+**/
+
+/**
+ * Apply this to the wrapper around the field element with a prefix/suffix
+ */
+@mixin oFtFormsAffixWrapper {
+	display: table;
+	width: 100%;
+	box-sizing: border-box;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--affixed',
-  '.o-ft-forms__affix-wrapper .o-ft-forms__field--text,
-  .o-ft-forms__affix-wrapper .o-ft-forms__field--select'
-) {
-  display: table-cell;
-  border-radius: 0;
+/**
+ * what does this one do? it doesn't seem to be in the demo
+ * @todo document or remove this mixin
+ */
+@mixin oFtFormsFieldAffixed {
+	display: table-cell;
+	border-radius: 0;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--prefixed',
-  '.o-ft-forms__affix-wrapper .o-ft-forms__field--text:first-child,
-  .o-ft-forms__affix-wrapper .o-ft-forms__field--select:first-child'
-) {
-  border-top-left-radius: $_o-ft-forms-field-borderradius;
-  border-bottom-left-radius: $_o-ft-forms-field-borderradius;
+/**
+ * Not sure this one is in use
+ @todo document or remove
+ */
+@mixin oFtFormsFieldPrefixed {
+	border-top-left-radius: $_o-ft-forms-field-borderradius;
+	border-bottom-left-radius: $_o-ft-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field-suffixed',
-  '.o-ft-forms__affix-wrapper .o-ft-forms__field--text:last-child,
-  .o-ft-forms__affix-wrapper .o-ft-forms__field--select:last-child'
-) {
-  border-top-right-radius: $_o-ft-forms-field-borderradius;
-  border-bottom-right-radius: $_o-ft-forms-field-borderradius;
+/**
+ * Add this to a form field with a prefix using :last-child
+ * @example
+ * .o-ft-forms__affix-wrapper input:last-child {
+ *   @include oFtFormsFieldSuffixed;
+ * }
+ */
+@mixin oFtFormsFieldSuffixed {
+	border-top-right-radius: $_o-ft-forms-field-borderradius;
+	border-bottom-right-radius: $_o-ft-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__prefix,
-  %o-ft-forms__suffix',
-  '.o-ft-forms__prefix,
-  .o-ft-forms__suffix'
-) {
-  display: table-cell;
-  width: 1%;
-  white-space: nowrap;
-  border-top: $_o-ft-forms-fieldborder;
-  border-bottom: $_o-ft-forms-fieldborder;
-  padding: $_o-ft-form-field-big-padding-topbottom $_o-ft-form-field-big-padding-leftright;
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-size: $_o-ft-form-field-big-fontsize;
-  text-align: center;
-  background-color: oColorsGetColorFor(o-ft-forms-prefixsuffix, background);
-  color: oColorsGetColorFor(o-ft-forms--prefixsuffix o-ft-forms-field-standard, text);
+/**
+ * base mixin for prefixes and suffixes - use oFtFormsPrefix or oFtFormsSuffix
+ * @access private
+ */
+@mixin oFtFormsPrefixSuffixBase {
+	display: table-cell;
+	width: 1%;
+	white-space: nowrap;
+	border-top: $_o-ft-forms-fieldborder;
+	border-bottom: $_o-ft-forms-fieldborder;
+	padding: $_o-ft-form-field-big-padding-topbottom $_o-ft-form-field-big-padding-leftright;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-size: $_o-ft-form-field-big-fontsize;
+	text-align: center;
+	background-color: oColorsGetColorFor(o-ft-forms-prefixsuffix, background);
+	color: oColorsGetColorFor(o-ft-forms--prefixsuffix o-ft-forms-field-standard, text);
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__prefix',
-  '.o-ft-forms__prefix'
-) {
-  border-left: $_o-ft-forms-fieldborder;
-  border-right: 0;
-  border-top-left-radius: $_o-ft-forms-field-borderradius;
-  border-bottom-left-radius: $_o-ft-forms-field-borderradius;
+/**
+ * Apply this mixin to a span in front of a input to make it a prefix
+ *
+ */
+@mixin oFtFormsPrefix {
+	@include oFtFormsPrefixSuffixBase;
+	border-left: $_o-ft-forms-fieldborder;
+	border-right: 0;
+	border-top-left-radius: $_o-ft-forms-field-borderradius;
+	border-bottom-left-radius: $_o-ft-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__suffix',
-  '.o-ft-forms__suffix'
-) {
-  border-right: $_o-ft-forms-fieldborder;
-  border-left: 0;
-  border-top-right-radius: $_o-ft-forms-field-borderradius;
-  border-bottom-right-radius: $_o-ft-forms-field-borderradius;
+/**
+ * Apply this to an element after an input to make it a suffix
+ *
+ */
+@mixin oFtFormsSuffix {
+	@include oFtFormsPrefixSuffixBase;
+	border-right: $_o-ft-forms-fieldborder;
+	border-left: 0;
+	border-top-right-radius: $_o-ft-forms-field-borderradius;
+	border-bottom-right-radius: $_o-ft-forms-field-borderradius;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__prefix--error,
-  %o-ft-forms__suffix--error',
-  '.o-ft-forms--error .o-ft-forms__prefix,
-  .o-ft-forms--error .o-ft-forms__suffix'
-) {
-  border-color: oColorsGetColorFor(o-ft-forms-field-invalid, border);
-  color: oColorsGetColorFor(o-ft-forms-field-invalid, text);
+/**
+ * Use for prefixes/suffixes inside a form/field with errors
+ */
+@mixin oFtFormsPrefixSuffixError {
+	border-color: oColorsGetColorFor(o-ft-forms-field-invalid, border);
+	color: oColorsGetColorFor(o-ft-forms-field-invalid, text);
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__prefix--valid,
-  %o-ft-forms__suffix--valid',
-  '.o-ft-forms--valid .o-ft-forms__prefix,
-  .o-ft-forms--valid .o-ft-forms__suffix'
-) {
-  @include oColorsFor(o-ft-forms-field-valid, border text);
+/**
+ * Use for prefixes/suffixes inside a form or field with has passed validation
+ */
+@mixin oFtFormsPrefixSuffixValid {
+	@include oColorsFor(o-ft-forms-field-valid, border text);
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__affix__button',
-  '.o-ft-forms__prefix button,
-  .o-ft-forms__suffix button'
-) {
-  border-width: 0;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-  cursor: pointer;
-  font: inherit;
-  color: inherit;
+/**
+ * use this to style a button inside a prefix or suffix
+ */
+@mixin oFtFormsAffixButton {
+	border-width: 0;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+	font: inherit;
+	color: inherit;
+}
+
+@if not $o-ft-forms-is-silent and not $o-ft-forms-classes-output {
+
+	.o-ft-forms__prefix button,
+	.o-ft-forms__suffix button {
+		@include oFtFormsAffixButton;
+	}
+	.o-ft-forms__affix-wrapper {
+		@include oFtFormsAffixWrapper;
+	}
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--text,
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--select {
+		@include oFtFormsFieldAffixed;
+	}
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--text:first-child,
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--select:first-child {
+		@include oFtFormsFieldPrefixed;
+	}
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--text:last-child,
+	.o-ft-forms__affix-wrapper .o-ft-forms__field--select:last-child {
+		@include oFtFormsFieldSuffixed;
+	}
+	.o-ft-forms__prefix {
+		@include oFtFormsPrefix;
+	}
+	.o-ft-forms__suffix {
+		@include oFtFormsSuffix;
+	}
+	.o-ft-forms--error .o-ft-forms__prefix,
+	.o-ft-forms--error .o-ft-forms__suffix {
+		@include oFtFormsPrefixSuffixError;
+	}
+	.o-ft-forms--valid .o-ft-forms__prefix,
+	.o-ft-forms--valid .o-ft-forms__suffix {
+		@include oFtFormsPrefixSuffixValid;
+	}
+	$o-ft-forms-classes-output : true;
 }
