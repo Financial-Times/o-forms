@@ -1,6 +1,10 @@
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--valid, %o-ft-forms__label--select--valid, %o-ft-forms__label--textarea--valid',
-  '.o-ft-forms--valid .o-ft-forms__field--text, 
-  .o-ft-forms--valid .o-ft-forms__field--select, 
-  .o-ft-forms--valid .o-ft-forms__field--textarea') {
-  border-color: oColorsGetColorFor(o-ft-forms-field-valid, border);
+/**
+ * @group o-ft-forms
+**/
+
+/**
+ * Style a valid input field
+ */
+@mixin oFtFormsFieldValid {
+	border-color: oColorsGetColorFor(o-ft-forms-field-valid, border);
 }

@@ -1,19 +1,27 @@
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__field--error, %o-ft-forms__label--select--error, %o-ft-forms__label--textarea--error',
-  '.o-ft-forms--error .o-ft-forms__field--text, 
-  .o-ft-forms--error .o-ft-forms__field--select, 
-  .o-ft-forms--error .o-ft-forms__field--textarea') {
-    border-color: oColorsGetColorFor(o-ft-forms-field-invalid, border);
-    color: oColorsGetColorFor(o-ft-forms-field-invalid o-ft-forms-field-standard, text);
+/**
+ * @group o-ft-forms
+ * @link http://registry.origami.ft.com/components/o-ft-forms
+**/
+
+/**
+ * Style a field with an error
+ */
+@mixin oFtFormsFieldError {
+	border-color: oColorsGetColorFor(o-ft-forms-field-invalid, border);
+	color: oColorsGetColorFor(o-ft-forms-field-invalid o-ft-forms-field-standard, text);
 }
 
-@include oFtFormsPlaceholderOptionalSelector('%o-ft-forms__errortext', '.o-ft-forms__errortext') {
-  clear: both;
-  display: block;
-  margin-top: -1px;
-  padding: 3px 5px;
-  font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: bold;
-  color: oColorsGetColorFor(o-ft-forms-field-invalid, text);
+/**
+ * Style a validation error message
+ */
+@mixin oFtFormsErrorText {
+	clear: both;
+	display: block;
+	margin-top: -1px;
+	padding: 3px 5px;
+	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	color: oColorsGetColorFor(o-ft-forms-field-invalid, text);
 }

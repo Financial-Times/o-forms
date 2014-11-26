@@ -1,95 +1,114 @@
-@include oFtFormsClass(o-ft-forms__field-group) {
-    position: relative;
-    padding-right: $_o-ft-forms-fieldgroup-padding;
-    padding-left: $_o-ft-forms-fieldgroup-padding;
-    margin-bottom: 20px;
+/**
+	@group o-ft-forms
+	@link http://registry.origami.ft.com/components/o-ft-forms
+**/
+
+/**
+ * Add to a container of form fields
+*/
+@mixin oFtFormsFieldGroup {
+	position: relative;
+	padding-right: $_o-ft-forms-fieldgroup-padding;
+	padding-left: $_o-ft-forms-fieldgroup-padding;
+	margin-bottom: 20px;
 }
 
-@include oFtFormsClass(o-ft-forms__additional-info) {
-  display: block;
-  margin-top: -2px;
-  margin-bottom: 4px;
-  color: oColorsGetColorFor(o-ft-forms-field-additional-info body, text);
-  @extend %o-ft-typography-label-small;
+/**
+ * Add to an element containing additional info about a fields
+*/
+@mixin oFtFormsAdditionalInfo {
+	display: block;
+	margin-top: -2px;
+	margin-bottom: 4px;
+	color: oColorsGetColorFor(o-ft-forms-field-additional-info body, text);
+	@include oFtTypographyLabelSmall;
 }
 
-@include oFtFormsClass(o-ft-forms__label) {
-    display: block;
-    @extend %o-ft-typography-label-medium;
-    margin-bottom: $_o-ft-forms-label-marginbottom;
-    color: oColorsGetColorFor(o-ft-forms-field-label body, text);
+/**
+* Style a form label
+*/
+@mixin oFtFormsLabel {
+	display: block;
+	@include oFtTypographyLabelMedium;
+	margin-bottom: $_o-ft-forms-label-marginbottom;
+	color: oColorsGetColorFor(o-ft-forms-field-label body, text);
 }
 
 //=============TEXT INPUTS, SELECTS AND TEXTAREAS=============
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field,
-  %o-ft-forms__label--select,
-  %o-ft-forms__label--textarea',
-  '.o-ft-forms__field--text,
-  .o-ft-forms__field--select,
-  .o-ft-forms__field--textarea'
-) {
-    @include commonField();
+/**
+ * Apply to all form fields
+*/
+@mixin oFtFormsField {
+	@include commonField;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field:disabled,
-  %o-ft-forms__label--select:disabled,
-  %o-ft-forms__label--textarea:disabled',
-  '.o-ft-forms__field--text:disabled,
-  .o-ft-forms__field--select:disabled,
-  .o-ft-forms__field--textarea:disabled') {
-    @include commonFieldDisabled();
+/**
+ * Apply to labels of select elements
+*/
+@mixin oFtFormsLabelSelect {
+	@include commonField;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field:focus,
-  %o-ft-forms__label--select:focus,
-  %o-ft-forms__label--textarea:focus',
-  '.o-ft-forms__field--text:focus,
-  .o-ft-forms__field--select:focus,
-  .o-ft-forms__field--textarea:focus') {
-    @include commonFieldFocus();
+/**
+ * Apply to textarea labels
+ */
+@mixin oFtFormsLabelTextArea {
+	@include commonField;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--select',
-  '.o-ft-forms__field--select'
-) {
-    padding-top: $_o-ft-form-field-big-padding-topbottom - 1px;
-    padding-bottom: $_o-ft-form-field-big-padding-topbottom - 1px;
-    cursor: pointer;
-    background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
-    background-position: 100% center;
-    background-repeat: no-repeat;
-    background-origin: content-box;
-    background-size: 19px;
-    //Code below hides default select arrow in FF
-    text-indent: 0.01px;
-    text-overflow: '';
+/**
+ * Apply to disabled form fields
+*/
+@mixin oFtFormsFieldDisabled {
+	@include commonFieldDisabled;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--textarea',
-  '.o-ft-forms__field--textarea'
-) {
-    vertical-align: top;
+/**
+ * Apply to form fields with :focus
+ */
+@mixin oFtFormsFieldFocus {
+	@include commonFieldFocus;
 }
 
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field--full-width',
-  '.o-ft-forms__field--full-width'
-) {
-    width: 100%;
+/**
+ * Styling select boxes
+ */
+// There is a bug here - with background-origin:content-box the arrow icon will overlap the text unless you give it a specific width
+// todo: find a way to avoid background-position:content-box
+//
+@mixin oFtFormsFieldSelect {
+	padding-top: $_o-ft-form-field-big-padding-topbottom - 1px;
+	padding-bottom: $_o-ft-form-field-big-padding-topbottom - 1px;
+	cursor: pointer;
+	background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	background-size: 19px;
+	//Code below hides default select arrow in FF
+	text-indent: 0.01px;
+	text-overflow: '';
 }
 
+/**
+ * Styling textareas
+ */
+@mixin oFtFormsFieldTextarea {
+	vertical-align: top;
+}
 
-// TBC - This is to hide Chrome's style for autocompleted fields
-@include oFtFormsPlaceholderOptionalSelector(
-  '%o-ft-forms__field:-webkit-autofill',
-  '.o-ft-forms__field:-webkit-autofill,
-  .o-ft-forms__field--select:-webkit-autofill,
-  .o-ft-forms__field--textarea:-webkit-autofill') {
-    -webkit-box-shadow: 0 0 0px 1000px oColorsGetColorFor(o-ft-forms-field-standard, background) inset;
+/**
+ * to make a field full-width
+ */
+@mixin oFtFormsFieldFullWidth {
+	width: 100%;
+}
+
+/**
+ * This is to hide Chrome's style for autocompleted fields
+ * Apply using :-webkit-autofill
+ */
+@mixin oFtFormsFieldWebkitAutofill {
+	-webkit-box-shadow: inset 0 0 0 1000px oColorsGetColorFor(o-ft-forms-field-standard, background);
 }

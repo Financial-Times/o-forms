@@ -8,10 +8,11 @@
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
 @import "src/scss/mixins";
+@import "src/scss/deprecated/mixins";
 
 @if (not $o-ft-forms-is-silent) {
-  @include oFtTypographyIncludeFont(label);
-  @include oFtIconsFontFace();
+	@include oFtTypographyIncludeFont(label);
+	@include oFtIconsFontFace();
 }
 
 @import "src/scss/fieldsets";
@@ -21,3 +22,8 @@
 @import "src/scss/field-errors";
 @import "src/scss/field-valid";
 @import "src/scss/global-and-section-messages";
+
+@import "src/scss/deprecated/index";
+
+// when deprecated placeholder classes are removed uncomment the line below
+// @import "src/scss/classes";

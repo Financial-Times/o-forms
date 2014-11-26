@@ -1,0 +1,70 @@
+@include oFtFormsClass(
+	'o-ft-forms__field[type="checkbox"]',
+	'o-ft-forms__field[type="radio"]'
+) {
+	position: absolute;
+	opacity: 0; // better than display:none as it allows tabbing
+}
+
+// styling for checkbox and radio button labels
+@include oFtFormsPlaceholderOptionalSelector(
+	'%o-ft-forms__checkboxradiolabel',
+	'.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label,
+	.o-ft-forms__field[type="radio"] + .o-ft-forms__label'
+) {
+	@include oFtFormsCheckboxRadioLabel;
+}
+
+// apply different text colour to checkboxes and radio labels on hover and focus
+@include oFtFormsPlaceholderOptionalSelector(
+	'%o-ft-froms__checkboxradiolabel--hover',
+	'#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"] + .o-ft-forms__label:hover,
+	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"] + .o-ft-forms__label:hover,
+	.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label,
+	.o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label'
+) {
+	@include oFtFormsCheckboxRadioLabelHover;
+}
+
+// styling for the border of checkboxes
+@include oFtFormsPlaceholderOptionalSelector(
+	'%o-ft-forms__checkboxborder',
+	'.o-ft-forms__field[type="checkbox"] + .o-ft-forms__label::before'
+) {
+	@include oFtFormsCheckboxBorder;
+}
+
+// radio button border styles
+@include oFtFormsPlaceholderOptionalSelector(
+	'%o-ft-forms__radioborder',
+	'.o-ft-forms__field[type="radio"] + .o-ft-forms__label::before'
+) {
+	@include oFtFormsRadioBorder;
+}
+
+// apply different border colour to checkboxes and radio labels on hover and focus
+@include oFtFormsPlaceholderOptionalSelector(
+	'%o-ft-forms__checkboxradioborder--hover',
+	'#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="checkbox"]:hover + .o-ft-forms__label::before,
+	#{$o-hoverable-if-hover-enabled} .o-ft-forms__field[type="radio"]:hover + .o-ft-forms__label::before,
+	.o-ft-forms__field[type="checkbox"]:focus + .o-ft-forms__label::before,
+	.o-ft-forms__field[type="radio"]:focus + .o-ft-forms__label::before'
+) {
+	@include oFtFormsCheckboxRadioBorderHover;
+}
+
+// styling for checked radio button
+@include oFtFormsPlaceholderOptionalSelector(
+	'%o-ft-forms__radio--checked',
+	'.o-ft-forms__field[type="radio"]:checked + .o-ft-forms__label::after'
+) {
+	@include oFtFormsRadioChecked;
+}
+
+// styling for checked checkbox
+@include oFtFormsPlaceholderOptionalSelector(
+	'%o-ft-forms__checkbox--checked',
+	'.o-ft-forms__field[type="checkbox"]:checked + .o-ft-forms__label::after'
+) {
+	@include oFtFormsCheckboxChecked;
+}
