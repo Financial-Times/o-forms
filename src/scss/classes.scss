@@ -1,4 +1,4 @@
-@if not $o-ft-forms-is-silent and not $o-ft-forms-classes-output {
+@if not $o-ft-forms-is-silent {
 	@debug "Silent mode is off - outputting classes";
 
 	//fieldsets
