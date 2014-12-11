@@ -61,9 +61,10 @@
     padding-bottom: $_o-ft-form-field-big-padding-topbottom - 1px;
     cursor: pointer;
     background-image: url(oAssetsResolve("svg/arrow-up-down.svg", o-ft-icons));
-    background-position: 100% center;
+    background-position: 99% center;
     background-repeat: no-repeat;
-    background-origin: content-box;
+    padding-right: 24px;
+    background-origin: padding-box;
     background-size: 19px;
     //Code below hides default select arrow in FF
     text-indent: 0.01px;
