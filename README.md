@@ -43,11 +43,11 @@ All the standard form elements follow this basic structure, with some variation 
 ### Selects
 
 Using the basic structure defined above, selects are styled by applying `.o-ft-forms__field--select` on the `select` element itself.
-    
+
 ### Textareas
 
 Textareas are styled by applying `.o-ft-forms__field--textarea` to the `textarea` element itself.
-    
+
 ###Checkboxes and radio buttons
 
 In order for checkboxes and radio buttons to be styled correctly, their `type` attribute must be set.
@@ -120,3 +120,6 @@ All of the above can be used in silent mode by extending your own class using th
 	// custom styles
 }
 ```
+
+### Browser quirks
+There are a number of inconsistencies in how browsers handle form events, validation and auto-fill. The Membership team has [documented the quirks](https://sites.google.com/a/ft.com/membership-subscriptions/sign-up-registration/technical-documentation/front-end-development-notes/browser-inconsistencies) we ran into during the development of the Sign Up app.
