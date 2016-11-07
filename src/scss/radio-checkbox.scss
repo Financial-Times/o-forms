@@ -158,7 +158,9 @@
 	}
 
 	#{$checkbox} + #{$label}::after {
-		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSI0NiI+PHBhdGggZmlsbD0iIzUwNTA1MCIgZD0iTTQzLjM5MSAxLjU1N2wtMjMuMDkyIDIzLjA4OS05Ljc3LTkuNzc0LTkuNjM1IDkuNjQ0IDE5LjM5NSAxOS4zOTcuMDEtLjAyNy4wMzMuMDI3IDMyLjY5My0zMi43Mjl6Ii8+PC9zdmc+');
+		$check-color: oColorsGetPaletteColor('grey-tint5');
+		$image-url: str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon:tick?source=o-icons&tint=%23#{$check-color},%23#{$check-color}&format=svg", "#", "");
+		background-image: url($image-url);
 		background-repeat: no-repeat;
 		height: $_o-forms-radiocheckbox-default-size;
 		width: $_o-forms-radiocheckbox-default-size;
@@ -167,7 +169,9 @@
 	}
 
 	#{$checkbox}--highlight + #{$label}::after {
-		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSI0NiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTQzLjM5MSAxLjU1N2wtMjMuMDkyIDIzLjA4OS05Ljc3LTkuNzc0LTkuNjM1IDkuNjQ0IDE5LjM5NSAxOS4zOTcuMDEtLjAyNy4wMzMuMDI3IDMyLjY5My0zMi43Mjl6Ii8+PC9zdmc+');
+		$check-color: oColorsGetPaletteColor('white');
+		$image-url: str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon:tick?source=o-icons&tint=%23#{$check-color},%23#{$check-color}&format=svg", "#", "");
+		background-image: url($image-url);
 	}
 
 	#{$checkbox}--small + #{$label}::after {
