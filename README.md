@@ -203,7 +203,7 @@ There are a number of inconsistencies in how browsers handle form events, valida
 
 <a name="upgrade-to-v3"></a>
 
-## Upgrading from v1.x.x or v2.x.x
+## Upgrading from v2.x.x or v3.x.x
 
 The main change in `v2` is that classes provided by `o-forms` now conform more strictly to the [BEM naming convention][bem]. All form field classes now follow the element convention, so `o-forms-text` is now `o-forms__text`.
 
