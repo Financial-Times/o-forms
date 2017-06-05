@@ -1,10 +1,11 @@
 {
   "name": "o-forms",
   "main": [
-    "main.scss"
+    "main.scss",
+    "main.js"
   ],
   "dependencies": {
-    "o-colors": ">=2.5.0 <4",
+    "o-colors": "^4",
     "o-grid": "^4.0.0",
     "o-normalise": "^1.2.0"
   }
