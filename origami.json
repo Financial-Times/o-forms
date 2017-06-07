@@ -70,7 +70,10 @@
             "name": "pa11y",
             "template": "/demos/src/pa11y.mustache",
             "hidden": true,
-            "description": ""
+            "description": "",
+            "dependencies": [
+                "o-buttons@^4.3.0"
+            ]
         },
         {
             "name": "js-validation",
