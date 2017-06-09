@@ -66,8 +66,26 @@
 	}
 }
 
+@mixin oFormsAffixCheckbox($class: 'o-forms') {
+	// .#{$class}__label
+	.#{$class}__prefix .#{$class}__checkbox + .#{$class}__label::before,
+	.#{$class}__suffix .#{$class}__checkbox + .#{$class}__label::before,
+	.#{$class}__prefix .#{$class}__checkbox + .#{$class}__label::after,
+	.#{$class}__suffix .#{$class}__checkbox + .#{$class}__label::after {
+		top: -3px;
+		left: -4px;
+	}
+
+	.#{$class}__prefix .#{$class}__checkbox + .#{$class}__label,
+	.#{$class}__suffix .#{$class}__checkbox + .#{$class}__label {
+		padding-left: 30px;
+		padding-top: 2px;
+	}
+}
+
 @mixin oFormsPrefixSuffix($class: 'o-forms', $support-button: true) {
 	@include oFormsAffixWrapper($class);
+	@include oFormsAffixCheckbox($class);
 
 	.#{$class}__prefix,
 	.#{$class}__suffix {

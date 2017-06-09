@@ -30,7 +30,7 @@
 		padding-left: $_o-forms__radiocheckbox-default-size + 16px; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 		position: relative;
 		cursor: pointer;
-		@include oTypographySans($scale: -1, $line-height: 15px);
+		@include oTypographySans($scale: -1);
 		font-weight: 400;
 		padding-top: 4px; // To align the text with the center of the checkbox/radio
 		// sass-lint:disable no-vendor-prefixes
