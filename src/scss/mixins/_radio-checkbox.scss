@@ -65,9 +65,7 @@
 
 	// Apply different border colour to checkboxes and radio labels on focus
 	#{$checkbox}:focus + #{$label}::before,
-	#{$radio}:focus + #{$label}::before,
-	#{$checkbox}:focus + #{$label}::after,
-	#{$radio}:focus + #{$label}::after {
+	#{$radio}:focus + #{$label}::before {
 		@include oFormsCommonFieldFocus;
 	}
 
