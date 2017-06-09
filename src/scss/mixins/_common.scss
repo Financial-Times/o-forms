@@ -71,7 +71,7 @@
 @mixin oFormsCommonSmall {
 	height: $_o-forms-field-small-height;
 	padding-top: 0;
-	padding-bottom: 0;
+	padding-bottom: 2px;
 	background-size: $_o-forms-select-small-iconsize;
 	line-height: $_o-forms-field-small-height - ($_o-forms-field-border-width * 2);
 }
