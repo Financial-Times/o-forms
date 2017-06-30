@@ -55,6 +55,10 @@
 	}
 
 	.#{$class}__errortext {
+		display: none;
+	}
+
+	.#{$class}--error .#{$class}__errortext {
 		@include oFormsErrorText;
 	}
 }
