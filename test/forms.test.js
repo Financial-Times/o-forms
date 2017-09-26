@@ -236,13 +236,13 @@ describe("Forms", () => {
 			const spys = [];
 			const inputs = Array.from(formEl.querySelectorAll('input, select, textarea, button'));
 
-			inputs.map((input) => {
+			inputs.forEach((input) => {
 				spys.push(sinon.spy(input, 'removeEventListener'));
 			});
 
 			testForms.destroy();
 
-			spys.map((spy) => {
+			spys.forEach((spy) => {
 				proclaim.isTrue(spy.calledTwice);
 			});
 
