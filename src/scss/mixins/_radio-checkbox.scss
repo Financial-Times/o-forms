@@ -133,37 +133,70 @@
 	
 	#{$label} {
 		@include _oFormsRadioCheckboxLabel();
-		padding-left: ($_o-forms__radiocheckbox-default-size * 1.5) + $_o-forms__label-padding-left;
-		min-height: $_o-forms__radiocheckbox-default-size;
 		&:before {
 			position: absolute;
 			content: '';
 			background-color: oColorsGetColorFor(o-forms-field-label, text);
-			width: $_o-forms__radiocheckbox-default-size * 1.5;
-			height: $_o-forms__radiocheckbox-default-size;
 			top: 0;
 			left: 0;
-			border-radius: $_o-forms__radiocheckbox-default-size / 1.5;
 		}
 		&:after {
 			position: absolute;
 			content: '';
 			background-color: oColorsGetColorFor(page, background);
-			width: $_o-forms__radiocheckbox-default-size - 4px;
-			height: $_o-forms__radiocheckbox-default-size - 4px;
 			top: 2px;
 			left: 2px;
-			border-radius: $_o-forms__radiocheckbox-default-size / 2;
 			transition: left 0.075s ease-in-out;
 		}
 	}
 
-	& input[type="checkbox"]:checked + #{$label}:after {
-		left: $_o-forms__radiocheckbox-default-size * 0.5 + 2px;
-	}
+	@include oFormsCheckboxToggleSize();
 
 	& input[type="checkbox"] {
 		display: none;
+	}
+}
+
+@mixin oFormsCheckboxToggleInverse($selectors: (label: '.o-forms__label')) {
+	$label: unquote(map-get($selectors, label));
+	#{$label} {
+		&:before {
+			background-color: oColorsGetPaletteColor('white');
+		}
+		&:after {
+			background-color: oColorsGetPaletteColor('teal');
+		}
+	}
+	& input[type="checkbox"]:checked + #{$label}:before {
+		background-color: oColorsGetPaletteColor('teal-100');
+	}
+	#{$label} {
+		color: oColorsGetPaletteColor('white');
+	}
+}
+
+@mixin oFormsCheckboxToggleSize($selectors: (label: '.o-forms__label'), $height: $_o-forms__radiocheckbox-default-size) {
+	$label: unquote(map-get($selectors, label));
+	#{$label} {
+		padding-top: $height / 2 - 8px; // To align the text with the center of the toggle checkbox
+		padding-left: ($height * 1.6) + $_o-forms__label-padding-left;
+		min-height: $height;
+		&:before {
+			width: $height * 1.6;
+			height: $height;
+			border-radius: ($height * 1.6);
+		}
+		&:after {
+			width: $height - 4px;
+			height: $height - 4px;
+			top: 2px;
+			left: 2px;
+			border-radius: $height - 4px;
+		}
+	}
+
+	& input[type="checkbox"]:checked + #{$label}:after {
+		left: $height * 0.6 + 2px;
 	}
 }
 
