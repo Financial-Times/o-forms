@@ -29,7 +29,7 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Text input examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/text-inputs.html)
+[Text input examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/text-inputs)
 
 #### Select boxes
 
@@ -45,7 +45,7 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Select boxes examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/select-boxes.html)
+[Select boxes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/select-boxes)
 
 #### Textareas
 
@@ -56,7 +56,7 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Textarea examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/textareas.html)
+[Textarea examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/textareas)
 
 #### Checkboxes and radio controls
 
@@ -95,9 +95,9 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 </form>
 ```
 
-[Radio control examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/radios.html)
-[Checkbox examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/checkboxes.html)
-[Toggle Checkbox examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/checkbox-toggle.html)
+[Radio control examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/radios)
+[Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkboxes)
+[Toggle Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkbox-toggle)
 
 #### Validation states
 
@@ -131,7 +131,7 @@ You can wrap a group of fields to highlight it or show it is not valid:
 </div>
 ```
 
-[Wrapper examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/wrappers.html)
+[Wrapper examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/wrappers)
 
 #### Messages
 
@@ -145,7 +145,7 @@ You can wrap a group of fields to highlight it or show it is not valid:
 </div>
 ```
 
-[Messages examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/messages.html)
+[Messages examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/messages)
 
 #### Prefixes and suffixes
 
@@ -163,7 +163,7 @@ Prefixes and suffixes are used for prepending or appending static text to a form
 </div>
 ```
 
-[Prefixes and suffixes examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/prefix-suffix.html)
+[Prefixes and suffixes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/prefix-suffix)
 
 #### "unskin" a form element
 
@@ -286,7 +286,7 @@ There are a number of inconsistencies in how browsers handle form events, valida
 ## Migration Guide
 
 ## Upgrading from v3.x.x or v4.x.x
-- A dependency on [o-typography](http://github.com/financial-times/o-icons) v5 has been introduced. This will break any builds that use o-typography <v5. __Resolution__: Update to o-typography v5.
+- A dependency on [o-typography](http://github.com/financial-times/o-typography) v5 has been introduced. This will break any builds that use o-typography <v5. __Resolution__: Update to o-typography v5.
 - The o-colors dependency has been updated to `^4`. This could create bower conflicts which should be resolved by updating to the newest release of o-colors.
 - The design for o-forms has changed in v4. This could create issues on your pages which make use of o-forms. Ensure that the updated design does not break the layout on your webpage.
 
@@ -344,7 +344,7 @@ Solution: products must load webfonts themselves (tipically, with [o-fonts](http
 
 ```html
 <!-- Load web fonts and icons with @font-face declarations  -->
-<link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-fonts@^1,o-ft-icons@^2.3.4" />
+<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-fonts@^3.0.0,o-icons@^5.0.0" />
 
 <!-- Set the font family on the whole document -->
 <style>
