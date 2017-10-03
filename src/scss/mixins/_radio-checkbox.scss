@@ -158,16 +158,12 @@
 		}
 	}
 
-	& input[type="checkbox"] {
-		display: none;
-	}
-
-	& input[type="checkbox"] + #{$label} {
-		font-weight: oFontsWeight('normal');
-	}
-
 	& input[type="checkbox"]:checked + #{$label}:after {
 		left: $_o-forms__radiocheckbox-default-size * 0.5 + 2px;
+	}
+
+	& input[type="checkbox"] {
+		display: none;
 	}
 }
 

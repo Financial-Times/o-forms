@@ -32,6 +32,20 @@
 		@include oFormsCheckboxToggle();
 	}
 
+	.#{$class}__checkbox-toggle--inverse {
+		.o-forms__label {
+			&:before {
+				background-color: oColorsGetPaletteColor('white');
+			}
+			&:after {
+				background-color: oColorsGetPaletteColor('teal');
+			}
+		}
+		& input[type="checkbox"]:checked + .o-forms__label:before {
+			background-color: oColorsGetPaletteColor('teal-100');
+		}
+	}
+
 	.#{$class}--error .#{$class}__text,
 	.#{$class}--error .#{$class}__select,
 	.#{$class}--error .#{$class}__textarea {
