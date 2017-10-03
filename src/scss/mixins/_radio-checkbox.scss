@@ -10,8 +10,8 @@
 /// IE 8: in this mixin we're using ::before and ::after (instead of :before and :after)
 /// so that IE 8 doesn't get enhanced checkboxes (which it wouldn't render correctly anyway)
 ///
-/// @param {map} $selectors [(radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')]
-@mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')) {
+/// @param {map} $selectors [(radio: '.o-forms__radio', checkbox: '.o-forms__checkbo-toggle__checkbox', label: '.o-forms__label')]
+@mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbo-toggle__checkbox', label: '.o-forms__label')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$radio: unquote(map-get($selectors, radio));
 	$label: unquote(map-get($selectors, label));
@@ -127,8 +127,8 @@
 	}
 }
 
-@mixin oFormsCheckboxToggle($selectors: (label: '.o-forms__label')) {
-	
+@mixin oFormsCheckboxToggle($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbo-toggle__checkbox')) {
+	$checkbox: unquote(map-get($selectors, checkbox));
 	$label: unquote(map-get($selectors, label));
 	
 	#{$label} {
@@ -152,13 +152,14 @@
 
 	@include oFormsCheckboxToggleSize();
 
-	& input[type="checkbox"] {
+	& #{$checkbox} {
 		display: none;
 	}
 }
 
-@mixin oFormsCheckboxToggleInverse($selectors: (label: '.o-forms__label')) {
+@mixin oFormsCheckboxToggleInverse($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbo-toggle__checkbox')) {
 	$label: unquote(map-get($selectors, label));
+	$checkbox: unquote(map-get($selectors, checkbox));
 	#{$label} {
 		&:before {
 			background-color: oColorsGetPaletteColor('white');
@@ -167,7 +168,7 @@
 			background-color: oColorsGetPaletteColor('teal');
 		}
 	}
-	& input[type="checkbox"]:checked + #{$label}:before {
+	& #{$checkbox}:checked + #{$label}:before {
 		background-color: oColorsGetPaletteColor('teal-100');
 	}
 	#{$label} {
@@ -175,8 +176,9 @@
 	}
 }
 
-@mixin oFormsCheckboxToggleSize($selectors: (label: '.o-forms__label'), $height: $_o-forms__radiocheckbox-default-size) {
+@mixin oFormsCheckboxToggleSize($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbo-toggle__checkbox'), $height: $_o-forms__radiocheckbox-default-size) {
 	$label: unquote(map-get($selectors, label));
+	$checkbox: unquote(map-get($selectors, checkbox));
 	#{$label} {
 		padding-top: $height / 2 - 8px; // To align the text with the center of the toggle checkbox
 		padding-left: ($height * 1.6) + $_o-forms__label-padding-left;
@@ -195,7 +197,7 @@
 		}
 	}
 
-	& input[type="checkbox"]:checked + #{$label}:after {
+	& #{$checkbox}:checked + #{$label}:after {
 		left: $height * 0.6 + 2px;
 	}
 }
