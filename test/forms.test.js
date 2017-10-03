@@ -88,8 +88,8 @@ describe("Forms", () => {
 			const checkboxToggle = document.querySelector('[data-o-form-toggle]');
 			testForms = new Forms(formEl);
 
-			// We expect an oForm toggled event.
-			formEl.addEventListener('oForm.toggled', (event) => {
+			// We expect an oForms toggled event.
+			formEl.addEventListener('oForms.toggled', (event) => {
 				event.preventDefault();
 				proclaim.isTrue(event.target.checked, 'The toggle checkbox should be checked on click.');
 				done();
