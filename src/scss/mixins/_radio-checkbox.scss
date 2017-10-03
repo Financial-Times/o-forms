@@ -147,3 +147,42 @@
 		}
 	}
 }
+
+@mixin oFormsCheckboxToggle($selectors: (label: '.o-forms__label')) {
+	
+	$label: unquote(map-get($selectors, label));
+	
+	#{$label} {
+		position: relative;
+		padding-left: 2.5em;
+		&:before {
+			position: absolute;
+			content: '';
+			background-color: red;
+			width: 2em;
+			height: 1em;
+			left: 0;
+		}
+		&:after {
+			position: absolute;
+			content: '';
+			background-color: blue;
+			width: 1em;
+			height: 1em;
+			left: 0;
+			border-radius: 0.5em;
+		}
+	}
+
+	& input[type="checkbox"] {
+		display: none;
+	}
+
+	& input[type="checkbox"] + $label {
+		font-weight: 400;
+	}
+
+	& input[type="checkbox"]:checked + #{$label}:after {
+		left: 1em;
+	}
+}

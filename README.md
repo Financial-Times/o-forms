@@ -60,7 +60,7 @@ Each form field is made up of at least 3 elements:
 
 #### Checkboxes and radio controls
 
-Couple the checkboxes and radio controls with a label to obtain the desired styles:
+Couple the checkboxes and radio controls with a label to obtain the desired styles. Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them look like toggles:
 
 ```html
 <!-- Radio -->
@@ -78,10 +78,26 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 	<input id="a" type="checkbox" class="o-forms__checkbox" checked="checked" />
 	<label for="a">Checked</label>
 </div>
+
+<!-- Checkbox Toggles -->
+<form action="" data-o-component="o-forms">
+	<fieldset class="o-forms">
+		<legend class="o-forms__label">Checkbox Toggle</legend>
+		<div class="o-forms__checkbox-toggle">
+			<input data-o-form-toggle type="checkbox" id="a" checked="checked" />
+			<label for="a" class="o-forms__label">Checkbox Toggle a</label>
+		</div>
+		<div class="o-forms__checkbox-toggle">
+			<input data-o-form-toggle type="checkbox" id="b" />
+			<label for="b" class="o-forms__label">Checkbox Toggle b</label>
+		</div>
+	</fieldset>
+</form>
 ```
 
 [Radio control examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/radios.html)
 [Checkbox examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/checkboxes.html)
+[Toggle Checkbox examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/checkbox-toggle.html)
 
 #### Validation states
 
@@ -207,6 +223,8 @@ For more details on specific mixins [browse the SassDoc documentation of the mod
 
 By default, `o-forms` listens to the `blur` event of an input field, when a user leaves a field, the input will be validated and if an invalid input is found, the error class will be added to the input.
 
+Additionally `o-forms` fires an event `oForms.toggled` when a toggle checkbox is clicked.
+
 #### Constructing
 
 An o-forms object must be constructed for every `<form>` element you have on your page that you want to validate with this module. You can do this for explicit elements like so:
@@ -244,6 +262,14 @@ Or you can set an attribute on the `<form>` element to declaratively set the tes
 <form data-o-component="o-forms" data-o-forms-test-event="submit">
 	[...]
 </form>
+```
+
+#### Listening to a toggle change
+Listening for the `oTable.toggled` event we can react to the status of a toggle checkbox. This event is fired when the toggle checkbox is clicked.
+```
+document.addEventListener('oTable.toggled', (event) => {
+	console.log(`${event.target.id} is ${(event.target.checked ? 'on' : 'off')}`);
+}, false);
 ```
 
 ## Troubleshooting:
