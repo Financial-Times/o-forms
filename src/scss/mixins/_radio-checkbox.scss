@@ -24,28 +24,7 @@
 
 	#{$checkbox} + #{$label},
 	#{$radio} + #{$label} {
-		display: inline-block;
-		@include oTypographyMargin($top: 3, $bottom: 3);
-		margin-right: 15px;
-		padding-left: $_o-forms__radiocheckbox-default-size + 16px; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
-		position: relative;
-		cursor: pointer;
-		@include oTypographySans($scale: -1);
-		font-weight: 400;
-		padding-top: 4px; // To align the text with the center of the checkbox/radio
-		// sass-lint:disable no-vendor-prefixes
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		-ms-user-select: none;
-		// sass-lint:enable no-vendor-prefixes
-
-		// When in a prefix/suffix, clear the margins
-		// and reduce the font size
-		.o-forms__prefix &,
-		.o-forms__suffix & {
-			margin: 0;
-			font-size: 12px;
-		}
+		@include _oFormsRadioCheckboxLabel();
 	}
 
 	#{$checkbox} + #{$label}::before,
@@ -153,24 +132,29 @@
 	$label: unquote(map-get($selectors, label));
 	
 	#{$label} {
-		position: relative;
-		padding-left: 2.5em;
+		@include _oFormsRadioCheckboxLabel();
+		padding-left: ($_o-forms__radiocheckbox-default-size * 1.5) + $_o-forms__label-padding-left;
+		min-height: $_o-forms__radiocheckbox-default-size;
 		&:before {
 			position: absolute;
 			content: '';
-			background-color: red;
-			width: 2em;
-			height: 1em;
+			background-color: oColorsGetColorFor(o-forms-field-label, text);
+			width: $_o-forms__radiocheckbox-default-size * 1.5;
+			height: $_o-forms__radiocheckbox-default-size;
+			top: 0;
 			left: 0;
+			border-radius: $_o-forms__radiocheckbox-default-size / 1.5;
 		}
 		&:after {
 			position: absolute;
 			content: '';
-			background-color: blue;
-			width: 1em;
-			height: 1em;
-			left: 0;
-			border-radius: 0.5em;
+			background-color: oColorsGetColorFor(page, background);
+			width: $_o-forms__radiocheckbox-default-size - 4px;
+			height: $_o-forms__radiocheckbox-default-size - 4px;
+			top: 2px;
+			left: 2px;
+			border-radius: $_o-forms__radiocheckbox-default-size / 2;
+			transition: left 0.075s ease-in-out;
 		}
 	}
 
@@ -178,11 +162,28 @@
 		display: none;
 	}
 
-	& input[type="checkbox"] + $label {
-		font-weight: 400;
+	& input[type="checkbox"] + #{$label} {
+		font-weight: oFontsWeight('normal');
 	}
 
 	& input[type="checkbox"]:checked + #{$label}:after {
-		left: 1em;
+		left: $_o-forms__radiocheckbox-default-size * 0.5 + 2px;
 	}
+}
+
+@mixin _oFormsRadioCheckboxLabel {
+	display: inline-block;
+	@include oTypographyMargin($top: 3, $bottom: 3);
+	margin-right: 15px;
+	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
+	position: relative;
+	cursor: pointer;
+	@include oTypographySans($scale: -1);
+	font-weight: oFontsWeight('normal');
+	padding-top: 4px; // To align the text with the center of the checkbox/radio
+	// sass-lint:disable no-vendor-prefixes
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	// sass-lint:enable no-vendor-prefixes
 }
