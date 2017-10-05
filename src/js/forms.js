@@ -81,7 +81,7 @@ class Forms {
 		return true;
 	}
 
-	static invalidInput(input) {
+	invalidInput(input) {
 		input.closest('.o-forms').classList.add('o-forms--error');
 	}
 
@@ -97,7 +97,7 @@ class Forms {
 		this.validateInput(input);
 	}
 
-	static handleClickEvent(event) {
+	handleClickEvent(event) {
 		const input = event.target;
 		// Fire an event when toggle checkboxes are clicked (toggled).
 		if (input && input.hasAttribute('data-o-form-toggle')) {
