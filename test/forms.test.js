@@ -172,7 +172,7 @@ describe("Forms", () => {
 
 			setTimeout(() => {
 				done();
-			}, 1000);
+			}, 10);
 
 			submitButton.click();
 		});
