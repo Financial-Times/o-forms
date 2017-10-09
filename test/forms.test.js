@@ -185,11 +185,10 @@ describe("Forms", () => {
 			it('submits form when inputs are valid', (done) => {
 				const submitButton = document.querySelector('input[type="submit"]');
 
-				oFormsEl.value = 'some input';
+				input.value = 'valid';
 
 				formEl.addEventListener('submit', (event) => {
 					event.preventDefault();
-
 					done();
 				}, false);
 
@@ -200,7 +199,7 @@ describe("Forms", () => {
 				oFormsEl.classList.add('o-forms--error');
 
 				input.focus();
-				input.value = 'some input';
+				input.value = 'valid';
 				input.blur();
 
 				proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
