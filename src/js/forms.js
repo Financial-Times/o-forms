@@ -81,7 +81,7 @@ class Forms {
 		return true;
 	}
 
-	invalidInput(input) {
+	invalidInput(input) { // eslint-disable-line class-methods-use-this
 		input.closest('.o-forms').classList.add('o-forms--error');
 	}
 
