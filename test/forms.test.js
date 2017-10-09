@@ -158,6 +158,25 @@ describe("Forms", () => {
 			submitButton.click();
 		});
 
+		it('does not submit the form when an input is invalid on submit', (done) => {
+			const submitButton = document.querySelector('input[type="submit"]');
+			testForms = new Forms(formEl, { testEvent: 'submit' });
+
+			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+			input.value = 'test';
+
+			formEl.addEventListener('submit', (event) => {
+				event.preventDefault();
+				throw new Error('Expected form to not be submitted');
+			}, false);
+
+			setTimeout(() => {
+				done();
+			}, 1000);
+
+			submitButton.click();
+		});
+
 		describe("handles valid inputs", () => {
 			beforeEach(() => {
 				testForms = new Forms(formEl);
