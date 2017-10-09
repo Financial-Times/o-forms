@@ -97,7 +97,7 @@ class Forms {
 		this.validateInput(input);
 	}
 
-	handleClickEvent(event) {
+	handleClickEvent(event) { // eslint-disable-line class-methods-use-this
 		const input = event.target;
 		// Fire an event when toggle checkboxes are clicked (toggled).
 		if (input && input.hasAttribute('data-o-form-toggle')) {
