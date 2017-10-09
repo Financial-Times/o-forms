@@ -141,10 +141,16 @@ describe("Forms", () => {
 			testForms = new Forms(formEl, { testEvent: 'submit' });
 
 			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+			input.value = 'test';
 
 			formEl.addEventListener('submit', (event) => {
 				event.preventDefault();
+				proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
+				done();
+			}, false);
 
+			input.addEventListener('invalid', (event) => {
+				event.preventDefault();
 				proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
 				done();
 			}, false);
