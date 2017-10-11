@@ -1,9 +1,9 @@
 @mixin oFormsAffixWrapper($class: 'o-forms') {
 	.#{$class}__affix-wrapper {
-		display: table;
+		display: inline-flex;
 		width: 100%;
 		box-sizing: border-box;
-		@include oTypographyMargin($top: 1);
+		@include oTypographyMargin($top: 2);
 	}
 
 	.#{$class}__affix-wrapper .#{$class}__text,
@@ -14,7 +14,7 @@
 
 	.#{$class}__affix-wrapper .#{$class}__text,
 	.#{$class}__affix-wrapper .#{$class}__select {
-		display: table-cell;
+		display: inline-block;
 		border-radius: 0;
 	}
 
@@ -89,14 +89,13 @@
 
 	.#{$class}__prefix,
 	.#{$class}__suffix {
-		display: table-cell;
+		display: inline-block;
 		vertical-align: top;
 		box-sizing: border-box;
-		@include oTypographyMargin($top: 1);
-		width: 1%;
+		width: fit-content;
 		white-space: nowrap;
-		border-top: $_o-forms-field-border;
-		border-bottom: $_o-forms-field-border;
+		border: $_o-forms-field-border;
+		height: 40px;
 		padding: $_o-forms-field-default-padding-top - 2px $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
 		font-family: $o-forms-font-family;
 		font-size: $_o-forms-field-default-font-size;
@@ -112,15 +111,14 @@
 
 	.#{$class}__prefix {
 		border-left: $_o-forms-field-border;
-		border-right: 0;
+		margin-right: 12px;
 		border-top-left-radius: $_o-forms-field-border-radius;
 		border-bottom-left-radius: $_o-forms-field-border-radius;
-		@include oTypographyMargin($top: 1);
 	}
 
 	.#{$class}__suffix {
 		border-right: $_o-forms-field-border;
-		border-left: 0;
+		margin-left: 12px;
 		border-top-right-radius: $_o-forms-field-border-radius;
 		border-bottom-right-radius: $_o-forms-field-border-radius;
 	}

@@ -130,7 +130,7 @@
 @mixin oFormsCheckboxToggle($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbox-toggle__checkbox')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$label: unquote(map-get($selectors, label));
-	
+
 	#{$label} {
 		@include _oFormsRadioCheckboxLabel();
 		&:before {
@@ -204,7 +204,7 @@
 
 @mixin _oFormsRadioCheckboxLabel {
 	display: inline-block;
-	@include oTypographyMargin($top: 3, $bottom: 3);
+	@include oTypographyMargin($top: 2, $bottom: 3);
 	margin-right: 15px;
 	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 	position: relative;
@@ -223,6 +223,9 @@
 	.o-forms__prefix &,
 	.o-forms__suffix & {
 		margin: 0;
-		font-size: 12px;
+		font-size: 16px;
+	}
+	p {
+		@include oTypographyMargin($top: 0, $bottom: 2);
 	}
 }
