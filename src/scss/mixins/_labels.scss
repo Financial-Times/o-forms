@@ -32,11 +32,9 @@
 	color: oColorsGetColorFor(o-forms-field-invalid, text);
 }
 
-@mixin oFormsOptionalField {
-	&::after {
-		content:" (optional)";
-		@include oFormsAdditionalInfo;
+@mixin oFormsOptionalField::after {
+	@include oFormsAdditionalInfo;
+		content: " (optional)";
 		font-weight: oFontsWeight(regular);
 		display: inline;
-	}
 }

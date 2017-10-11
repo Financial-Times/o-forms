@@ -203,8 +203,8 @@
 }
 
 @mixin _oFormsRadioCheckboxLabel {
-	display: inline-block;
 	@include oTypographyMargin($top: 2, $bottom: 3);
+	display: inline-block;
 	margin-right: 15px;
 	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 	position: relative;

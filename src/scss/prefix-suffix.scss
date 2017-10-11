@@ -1,16 +1,9 @@
 @mixin oFormsAffixWrapper($class: 'o-forms') {
 	.#{$class}__affix-wrapper {
-<<<<<<< HEAD
+		@include oTypographyMargin($top: 2);
 		display: inline-flex;
 		width: 100%;
 		box-sizing: border-box;
-		@include oTypographyMargin($top: 2);
-=======
-		@include oTypographyMargin($top: 1);
-		display: table;
-		width: 100%;
-		box-sizing: border-box;
->>>>>>> 2e55afd639522c6918a4a460632ef3264ad23cd6
 	}
 
 	.#{$class}__affix-wrapper .#{$class}__text,
