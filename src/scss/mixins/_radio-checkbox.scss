@@ -222,7 +222,7 @@
 	.o-forms__prefix &,
 	.o-forms__suffix & {
 		margin: 0;
-		font-size: 16px;
+		font-size: 14px;
 	}
 	p {
 		@include oTypographyMargin($top: 0, $bottom: 2);

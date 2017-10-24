@@ -28,13 +28,15 @@
 	margin-top: -1px;
 	padding: 3px 0;
 	font-family: $o-forms-font-family;
-	font-size: 16px;
+	font-size: 14px;
 	color: oColorsGetColorFor(o-forms-field-invalid, text);
 }
 
-@mixin oFormsOptionalField::after {
+@mixin oFormsOptionalField {
+	&::after {
 	@include oFormsAdditionalInfo;
 		content: " (optional)";
 		font-weight: oFontsWeight(regular);
 		display: inline;
+	}
 }
