@@ -5,7 +5,7 @@
 
 /// Common field styles
 @mixin oFormsCommonFieldBase {
-	@include oTypographyMargin($top: 3);
+	@include oTypographyMargin($top: 2);
 	box-sizing: border-box;
 	width: 100%;
 	max-width: $_o-forms-field-max-width;

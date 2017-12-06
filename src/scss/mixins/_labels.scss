@@ -31,3 +31,12 @@
 	font-size: 14px;
 	color: oColorsGetColorFor(o-forms-field-invalid, text);
 }
+
+@mixin oFormsOptionalField {
+	&::after {
+	@include oFormsAdditionalInfo;
+		content: " (optional)";
+		font-weight: oFontsWeight(regular);
+		display: inline;
+	}
+}
