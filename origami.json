@@ -91,7 +91,8 @@
         "js": "demos/src/demo.js",
         "dependencies": [
             "o-fonts@^3",
-            "o-buttons@^5"
+            "o-buttons@^5",
+            "o-normalise@1"
         ]
     }
 }
