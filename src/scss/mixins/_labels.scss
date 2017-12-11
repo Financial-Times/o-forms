@@ -16,9 +16,9 @@
 
 /// Additional info
 @mixin oFormsAdditionalInfo {
-	@include oTypographySans(0);
 	display: block;
 	color: oColorsGetColorFor(o-forms-field-additional-info body, text);
+	font-size: $_o-forms-font-size-small;
 }
 
 /// Error text
