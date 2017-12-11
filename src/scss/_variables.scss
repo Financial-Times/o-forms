@@ -1,3 +1,8 @@
+@function oFormsGetFontSize($scale) {
+	$font-size: (nth($scale, 1)) * 1px;
+	@return $font-size;
+}
+
 ////
 /// @group o-forms
 /// @link http://registry.origami.ft.com/components/o-forms
@@ -14,6 +19,18 @@ $o-forms-is-silent: true !default;
 ///
 /// @type String
 $o-forms-font-family: MetricWeb, sans-serif !default;
+
+/// Typography handling
+/// These use the oTypography scale but save us having repeated generated CSS
+$_o-forms-typography-scale-small: oTypographyGetScale(-1);
+$_o-forms-typography-scale-regular: oTypographyGetScale(0);
+$_o-forms-typography-scale-large: oTypographyGetScale(1);
+
+$_o-forms-font-size-default: oFormsGetFontSize($_o-forms-typography-scale-regular); // 16px
+$_o-forms-font-size-small: oFormsGetFontSize($_o-forms-typography-scale-small); // 14px
+$_o-forms-font-size-large: oFormsGetFontSize($_o-forms-typography-scale-large); // 18px
+
+$_o-forms-typography-spacing-size: oTypographySpacingSize(2);
 
 $_o-forms-field-border-width: 1px;
 $_o-forms-field-border: $_o-forms-field-border-width solid oColorsGetColorFor(o-forms-field-standard, border);
