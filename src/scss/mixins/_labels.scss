@@ -1,6 +1,6 @@
 /// Label styles
 @mixin oFormsLabel {
-	@include oTypographySansBold(1);
+	@include oTypographyBold('sans');
 	display: block;
 	padding: 0; // Reset legend default styling
 	color: oColorsGetColorFor(o-forms-field-label body, text);
