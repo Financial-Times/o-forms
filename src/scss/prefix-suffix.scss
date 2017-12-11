@@ -99,7 +99,7 @@
 		border-bottom: $_o-forms-field-border;
 		padding: $_o-forms-field-default-padding-top - 2px $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
 		font-family: $o-forms-font-family;
-		font-size: $_o-forms-field-default-font-size;
+		font-size: $_o-forms-font-size-default;
 		text-align: center;
 		background-color: oColorsGetColorFor(o-forms__prefixsuffix, background);
 		color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);

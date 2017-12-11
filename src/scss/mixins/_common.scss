@@ -17,7 +17,7 @@
 	background-clip: padding-box;
 	color: oColorsGetColorFor(o-forms-field-standard, text);
 	font-family: $o-forms-font-family;
-	font-size: $_o-forms-field-default-font-size;
+	font-size: $_o-forms-font-size-default;
 	outline: none;
 	transition: 0.15s box-shadow ease-in;
 
