@@ -16,7 +16,7 @@
 @include oColorsSetUseCase(o-forms-field-standard, border, 'black-30');
 @include oColorsSetUseCase(o-forms-field-standard, background, 'white');
 
-@include oColorsSetUseCase(o-forms-field-placholder, text, 'black-60');
+@include oColorsSetUseCase(o-forms-field-placholder, text, 'black-60'); // This differs from design (black-50) but the design fails WCAG AA
 
 @include oColorsSetUseCase(o-forms-field-disabled, text, 'black-60');
 @include oColorsSetUseCase(o-forms-field-disabled, border, 'black-10');
