@@ -5,7 +5,7 @@
 
 /// Common field styles
 @mixin oFormsCommonFieldBase {
-	@include oTypographyMargin($top: 3);
+	margin-top: $_o-forms-spacing-size;
 	box-sizing: border-box;
 	width: 100%;
 	max-width: $_o-forms-field-max-width;
@@ -82,7 +82,7 @@
 @mixin oFormsGroup {
 	position: relative;
 	max-width: $_o-forms-field-max-width;
-	margin: 0 0 20px; // Reset top and side margins for fieldset usage
+	margin: 0 0 oTypographySpacingSize(5); // Reset top and side margins for fieldset usage
 	// reset <fieldset> defaults
 	padding: 0;
 	border: 0;

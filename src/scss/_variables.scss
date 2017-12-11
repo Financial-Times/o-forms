@@ -30,7 +30,7 @@ $_o-forms-font-size-default: oFormsGetFontSize($_o-forms-typography-scale-regula
 $_o-forms-font-size-small: oFormsGetFontSize($_o-forms-typography-scale-small); // 14px
 $_o-forms-font-size-large: oFormsGetFontSize($_o-forms-typography-scale-large); // 18px
 
-$_o-forms-typography-spacing-size: oTypographySpacingSize(2);
+$_o-forms-spacing-size: oTypographySpacingSize(3); // 12px
 
 $_o-forms-field-border-width: 1px;
 $_o-forms-field-border: $_o-forms-field-border-width solid oColorsGetColorFor(o-forms-field-standard, border);

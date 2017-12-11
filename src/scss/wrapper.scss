@@ -2,7 +2,7 @@
 @mixin oFormsWrapper($class: 'o-forms') {
 	.#{$class}__wrapper {
 		max-width: $_o-forms-field-max-width;
-		margin-bottom: 20px;
+		margin-bottom: $_o-forms-spacing-size;
 		margin-right: $_o-forms-padding * -1;
 		margin-left: $_o-forms-padding * -1;
 		padding-right: $_o-forms-padding;
@@ -39,14 +39,14 @@
 		}
 
 		.#{$class} {
-			margin-top: 12px;
-			margin-bottom: 12px;
+			margin-top: $_o-forms-spacing-size;
+			margin-bottom: $_o-forms-spacing-size;
 		}
 
 		.#{$class}__message {
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
-			margin-bottom: 12px;
+			margin-bottom: $_o-forms-spacing-size;
 		}
 	}
 }

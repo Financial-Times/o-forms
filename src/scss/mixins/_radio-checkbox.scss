@@ -203,7 +203,7 @@
 }
 
 @mixin _oFormsRadioCheckboxLabel {
-	@include oTypographyMargin($top: 3, $bottom: 3); // TODO
+	margin: $_o-forms-spacing-size 0;
 	font-size: $_o-forms-font-size-default;
 	display: inline-block;
 	margin-right: 15px;
