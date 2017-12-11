@@ -86,7 +86,8 @@
 
 	#{$radio} + #{$label}::after {
 		background-color: oColorsGetPaletteColor('teal');
-		border-radius: 50%;
+		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
+		border-radius: 9999px;
 		height: $_o-forms__radio-internal-default-size;
 		width: $_o-forms__radio-internal-default-size;
 		left: ($_o-forms__radiocheckbox-default-size - $_o-forms__radio-internal-default-size) / 2;
