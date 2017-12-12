@@ -1,10 +1,9 @@
 /// Label styles
 @mixin oFormsLabel {
 	@include oTypographyBold('sans');
+	@include oColorsFor(o-forms-field-label body, text);
 	display: block;
 	padding: 0; // Reset legend default styling
-	color: oColorsGetColorFor(o-forms-field-label body, text);
-
 	p {
 		margin-top: 0;
 
@@ -16,17 +15,17 @@
 
 /// Additional info
 @mixin oFormsAdditionalInfo {
+	@include oColorsFor(o-forms-field-additional-info body, text);
 	display: block;
-	color: oColorsGetColorFor(o-forms-field-additional-info body, text);
 	font-size: $_o-forms-font-size-small;
 }
 
 /// Error text
 @mixin oFormsErrorText {
+	@include oColorsFor(o-forms-field-invalid, text);
 	clear: both;
 	display: block;
 	margin-top: -1px;
 	padding: 3px 0;
 	font-size:  $_o-forms-font-size-small;
-	color: oColorsGetColorFor(o-forms-field-invalid, text);
 }

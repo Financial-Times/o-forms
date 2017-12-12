@@ -2,9 +2,10 @@
 ///
 /// To be used in combination with oFormsCommonField
 @mixin oFormsSelect {
-	$icon-color: oColorsGetPaletteColor('black-80');
+	$icon-color: oColorsGetColorFor(o-forms-field-standard, text);
+
 	cursor: pointer;
-	color: oColorsGetPaletteColor('black-80');
+	@include oColorsFor(o-forms-field-standard, text);
 	background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23#{$icon-color}&format=svg", "#", ""));
 	// For iOS 6 that doesn't support 4-value background-position
 	// sass-lint:disable no-duplicate-properties
@@ -45,7 +46,7 @@
 	// sass-lint:enable no-vendor-prefixes
 
 	&:disabled {
-		$icon-color: oColorsGetPaletteColor('black-60');
+		$icon-color: oColorsGetColorFor(o-forms-field-placholder, text);
 		background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23#{$icon-color}&format=svg", "#", ""));
 	}
 }

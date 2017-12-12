@@ -81,11 +81,11 @@
 
 	#{$radio}:checked + #{$label}::before {
 		// Outer ring changes to teal when the radio button is checked
-		border: 2px solid oColorsGetPaletteColor('teal');
+		border: 2px solid oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
 	}
 
 	#{$radio} + #{$label}::after {
-		background-color: oColorsGetPaletteColor('teal');
+		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
 		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
 		border-radius: 9999px;
 		height: $_o-forms__radio-internal-default-size;
@@ -98,7 +98,7 @@
 		$check-color: oColorsGetPaletteColor('white');
 		background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23#{$check-color}&format=svg", "#", ""));
 		background-repeat: no-repeat;
-		background-color: oColorsGetPaletteColor('teal');
+		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
 		height: $_o-forms__radiocheckbox-default-size;
 		width: $_o-forms__radiocheckbox-default-size;
 		background-size: $_o-forms__radiocheckbox-default-size;
@@ -131,7 +131,7 @@
 @mixin oFormsCheckboxToggle($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbox-toggle__checkbox')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$label: unquote(map-get($selectors, label));
-	
+
 	#{$label} {
 		@include _oFormsRadioCheckboxLabel();
 		&:before {
@@ -163,17 +163,17 @@
 	$checkbox: unquote(map-get($selectors, checkbox));
 	#{$label} {
 		&:before {
-			background-color: oColorsGetPaletteColor('white');
+			@include oColorsFor(o-forms-toggle-inverse, background);
 		}
 		&:after {
-			background-color: oColorsGetPaletteColor('teal');
+			@include oColorsFor(o-forms-toggle-inverse-switch-knob, background);
 		}
 	}
 	& #{$checkbox}:checked + #{$label}:before {
-		background-color: oColorsGetPaletteColor('teal-100');
+		@include oColorsFor(o-forms-toggle-inverse-selected, background);
 	}
 	#{$label} {
-		color: oColorsGetPaletteColor('white');
+		@include oColorsFor(o-forms-toggle-inverse, text);
 	}
 }
 

@@ -101,8 +101,8 @@
 		font-family: $o-forms-font-family;
 		font-size: $_o-forms-font-size-default;
 		text-align: center;
-		background-color: oColorsGetColorFor(o-forms__prefixsuffix, background);
-		color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
+		@include oColorsFor(o-forms__prefixsuffix, background);
+		@include oColorsFor(o-forms--prefixsuffix o-forms-field-standard, text);
 		// sass-lint:disable no-vendor-prefixes
 		-moz-user-select: none;
 		-webkit-user-select: none;

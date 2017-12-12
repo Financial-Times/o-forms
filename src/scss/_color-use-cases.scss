@@ -31,3 +31,11 @@
 @include oColorsSetUseCase(o-forms-field-invalid, text, 'crimson');
 @include oColorsSetUseCase(o-forms-field-invalid, border, 'crimson');
 @include oColorsSetUseCase(o-forms-field-invalid, background, 'white');
+
+@include oColorsSetUseCase(o-forms-toggle-inverse, background, 'white');
+@include oColorsSetUseCase(o-forms-toggle-inverse, text, 'white');
+
+@include oColorsSetUseCase(o-forms-toggle-inverse-selected, background, 'teal-100');
+@include oColorsSetUseCase(o-forms-toggle-inverse-switch-knob, background, 'teal');
+
+@include oColorsSetUseCase(o-forms-checkbox-radio-checked, background, 'teal');

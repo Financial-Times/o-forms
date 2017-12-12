@@ -5,6 +5,7 @@
 
 /// Common field styles
 @mixin oFormsCommonFieldBase {
+	@include oColorsFor(o-forms-field-standard);
 	margin-top: $_o-forms-spacing-size;
 	box-sizing: border-box;
 	width: 100%;
@@ -13,9 +14,7 @@
 	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
 	border: $_o-forms-field-border;
 	border-radius: $_o-forms-field-border-radius;
-	background-color: oColorsGetColorFor(o-forms-field-standard, background);
 	background-clip: padding-box;
-	color: oColorsGetColorFor(o-forms-field-standard, text);
 	font-family: $o-forms-font-family;
 	font-size: $_o-forms-font-size-default;
 	outline: none;
@@ -35,7 +34,7 @@
 	}
 
 	&::placeholder {
-		color: oColorsGetColorFor(o-forms-field-placholder, text);
+		@include oColorsFor(o-forms-field-placholder);
 	}
 }
 
@@ -62,9 +61,8 @@
 
 /// Common field styles: valid state
 @mixin oFormsCommonFieldValid {
-	border-color: oColorsGetColorFor(o-forms-field-valid, border);
+	@include oColorsFor(o-forms-field-valid);
 	background-color: rgba(oColorsGetColorFor(o-forms-field-valid, background), 0.05);
-	color: oColorsGetColorFor(o-forms-field-valid, text);
 }
 
 /// Common field styles: small

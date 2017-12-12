@@ -28,10 +28,10 @@
 		}
 
 		&--highlight {
-			background-color: oColorsGetColorFor(o-forms__wrapper-highlight, background);
+			@include oColorsFor(o-forms__wrapper-highlight, background);
 		}
 		&--error {
-			background-color: #f8d9d9;
+			background-color: oColorsMix(oColorsGetColorFor(o-forms__message-error, background), 'paper', 10);
 		}
 
 		&--wide {

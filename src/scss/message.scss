@@ -13,7 +13,7 @@
 		margin-right: $_o-forms-padding * -1;
 		color: oColorGetColorFor('o-forms__message-default', text);
 		font-size: $_o-forms-font-size-large;
-		background-color: oColorsGetColorFor(o-forms__wrapper-highlight, background);
+		@include oColorsFor(o-forms__wrapper-highlight, background);
 
 		// sass-lint:disable mixins-before-declarations
 		@include _oFormsBreakpoint {
@@ -30,8 +30,7 @@
 		}
 
 		&--error {
-			background-color: oColorsGetColorFor(o-forms__message-error, background);
-			color: oColorsGetColorFor(o-forms__message-error, text);
+			@include oColorsFor(o-forms__message-error);
 		}
 
 		&--wide {
