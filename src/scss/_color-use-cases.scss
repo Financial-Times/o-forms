@@ -1,7 +1,6 @@
 @include oColorsSetUseCase(o-forms__message-default, text, 'black-80');
 @include oColorsSetUseCase(o-forms__message-error, background, 'crimson');
 @include oColorsSetUseCase(o-forms__message-error, text, 'white');
-@include oColorsSetUseCase(o-forms__message-error-fallback, background, 'crimson-tint5');
 
 @include oColorsSetUseCase(o-forms__wrapper-highlight, background, 'black-10');
 
