@@ -35,7 +35,7 @@
 		left: 0;
 		width: $_o-forms__radiocheckbox-default-size;
 		height: $_o-forms__radiocheckbox-default-size;
-		border: 2px solid oColorsGetColorFor(o-forms-field-standard, border);
+		border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
 		box-sizing: border-box;
 		content: '';
 		background-color: oColorsGetColorFor(o-forms-field-standard, background);
@@ -81,7 +81,7 @@
 
 	#{$radio}:checked + #{$label}::before {
 		// Outer ring changes to teal when the radio button is checked
-		border: 2px solid oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
+		border: 1px solid oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
 	}
 
 	#{$radio} + #{$label}::after {
