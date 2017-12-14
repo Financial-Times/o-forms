@@ -38,8 +38,8 @@
 		margin: $_o-forms-field-default-padding-top * -1 $_o-forms-field-default-padding-leftright * -1 $_o-forms-field-default-padding-bottom * -1;
 		padding: $_o-forms-field-default-padding-top + 1 $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom + 3;
 		cursor: pointer;
-		font-size: 18px;
-		line-height: 12px;
+		font-size: 18px; // TODO BUTTONS
+		line-height: 12px; // TODO
 
 		// sass-lint:disable no-vendor-prefixes
 		-moz-appearance: none;
@@ -89,7 +89,7 @@
 
 	.#{$class}__prefix,
 	.#{$class}__suffix {
-		@include oTypographyMargin($top: 1);
+		@include oTypographyMargin($top: 1); // TODO
 		display: table-cell;
 		vertical-align: top;
 		box-sizing: border-box;
@@ -111,7 +111,7 @@
 	}
 
 	.#{$class}__prefix {
-		@include oTypographyMargin($top: 1);
+		@include oTypographyMargin($top: 1); // TODO
 		border-left: $_o-forms-field-border;
 		border-right: 0;
 		border-top-left-radius: $_o-forms-field-border-radius;

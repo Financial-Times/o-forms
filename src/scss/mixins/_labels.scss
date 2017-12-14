@@ -29,3 +29,7 @@
 	padding: 3px 0;
 	font-size:  $_o-forms-font-size-small;
 }
+
+@mixin oFormsLabelLong {
+	font-size: $_o-forms-font-size-small;
+}
