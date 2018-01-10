@@ -59,6 +59,9 @@
 	.#{$class}__additional-info {
 		@include oFormsAdditionalInfo;
 	}
+    .#{$class}__radio-buttons-group {
+      @include oFormsRadioButtonsStyled;
+    }
 	// Errors and validation.
 	.#{$class}--error .#{$class}__text,
 	.#{$class}--error .#{$class}__select,
