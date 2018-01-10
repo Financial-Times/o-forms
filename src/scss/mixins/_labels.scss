@@ -33,3 +33,10 @@
 @mixin oFormsLabelLong {
 	font-size: $_o-forms-font-size-small;
 }
+
+@mixin oFormsLabelOptional {
+	content: ' (optional)';
+	@include oColorsFor(o-forms-field-additional-info body, text);
+	font-size: $_o-forms-font-size-small;
+	font-weight: oFontsWeight('normal');
+}

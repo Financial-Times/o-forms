@@ -66,6 +66,10 @@
 		@include oFormsLabelLong;
 	}
 
+	.#{$class}__label--optional:after {
+		@include oFormsLabelOptional;
+	}
+
 	.#{$class}__errortext {
 		@include oFormsErrorText;
 	}
