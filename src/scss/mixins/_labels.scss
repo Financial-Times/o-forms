@@ -32,6 +32,9 @@
 
 @mixin oFormsLabelLong {
 	font-size: $_o-forms-font-size-small;
+	p {
+		margin-bottom: oTypographySpacingSize($units: 2);
+	}
 }
 
 @mixin oFormsLabelOptional {

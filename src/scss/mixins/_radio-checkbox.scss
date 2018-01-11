@@ -31,7 +31,6 @@
 	#{$radio} + #{$label}--long {
 		@include oFormsLabelLong();
 		padding-top: 0px;
-
 	}
 
 	#{$checkbox} + #{$label}::before,
