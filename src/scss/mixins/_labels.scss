@@ -35,8 +35,8 @@
 }
 
 @mixin oFormsLabelOptional {
-	content: ' (optional)';
 	@include oColorsFor(o-forms-field-additional-info body, text);
+	content: ' (optional)';
 	font-size: $_o-forms-font-size-small;
 	font-weight: oFontsWeight('normal');
 }
