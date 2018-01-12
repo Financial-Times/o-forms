@@ -214,7 +214,7 @@
 }
 
 @mixin _oFormsRadioCheckboxLabel {
-	margin: $_o-forms-spacing-size 0;
+	margin: 8px 0 ($_o-forms-spacing-size + ($_o-forms-spacing-size - 8px)) 0;
 	font-size: $_o-forms-font-size-default;
 	display: inline-block;
 	margin-right: 15px;

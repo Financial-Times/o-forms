@@ -95,6 +95,11 @@
 	&--wide {
 		@include oFormsFullWidth;
 	}
+
+	&--checkbox-group,
+	&--radio-group {
+		margin-bottom: oTypographySpacingSize(5) - $_o-forms-spacing-size;
+	}
 }
 
 /// All the field to extend to the full width
