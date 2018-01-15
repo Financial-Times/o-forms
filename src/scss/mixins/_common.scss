@@ -101,7 +101,7 @@
 
 	&__checkboxes,
 	&__radios {
-		margin: 0 0 #{-$_o-forms-spacing} 0;
+		margin: 0 0 #{-$_o-forms-spacing};
 		#{$radio} + #{$label},
 		#{$checkbox} + #{$label} {
 			width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
