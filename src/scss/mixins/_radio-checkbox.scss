@@ -217,7 +217,7 @@
 	$top-margin: $_o-forms-checkbox-ledgend-spacing;
 	font-size: $_o-forms-font-size-default;
 	display: inline-block;
-	margin: $top-margin 15px ($_o-forms-spacing + ($_o-forms-spacing - $top-margin)) 0; // space between checkboxes $_o-forms-spacing (the margins do not collapse)
+	margin: $top-margin 15px ($_o-forms-spacing + ($_o-forms-spacing - $top-margin)) 0; // make the space between checkboxes equal to `$_o-forms-spacing`, their margins do not collapse
 	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 	position: relative;
 	cursor: pointer;
