@@ -84,8 +84,31 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 	</div>
 </fieldset>
 
+<!-- Inline Radio -->
+<fieldset class="o-forms">
+	<label class="o-forms__label">Radio controls</label>
+	<div class="o-forms__radios o-forms__radios--inline">
+		<input id="a" type="radio" class="o-forms__radio" />
+		<label for="a">Unchecked (default)</label>
+		<input id="a" type="radio" class="o-forms__radio" checked="checked" />
+		<label for="a">Checked</label>
+	</div>
+</fieldset>
+
+<!-- Inline Checkboxes -->
+<fieldset class="o-forms">
+	<div class="o-forms__checkboxes o-forms__checkboxes--inline">
+		<input id="a" type="checkbox" class="o-forms__checkbox" />
+		<label for="a">Unchecked (default)</label>
+		<input id="a" type="checkbox" class="o-forms__checkbox" checked="checked" />
+		<label for="a">Checked</label>
+	</div>
+</fieldset>
+```
+
 Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them look like toggles
 
+```html
 <!-- Checkbox Toggles -->
 <form action="" data-o-component="o-forms">
 	<fieldset class="o-forms">
