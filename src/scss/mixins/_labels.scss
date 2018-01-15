@@ -31,7 +31,6 @@
 }
 
 @mixin oFormsLabelLong {
-	display: block; // so margins collapse
 	font-size: $_o-forms-font-size-small;
 	p {
 		margin-bottom: oTypographySpacingSize($units: 2);
