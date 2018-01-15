@@ -1,6 +1,6 @@
 @mixin oFormsAffixWrapper($class: 'o-forms') {
 	.#{$class}__affix-wrapper {
-		@include oTypographyMargin($top: 1);
+		@include oTypographyMargin($top: 2);
 		display: table;
 		width: 100%;
 		box-sizing: border-box;

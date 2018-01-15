@@ -6,7 +6,7 @@
 /// Common field styles
 @mixin oFormsCommonFieldBase {
 	@include oColorsFor(o-forms-field-standard);
-	margin-top: $_o-forms-spacing-size;
+	margin-top: $_o-forms-spacing;
 	box-sizing: border-box;
 	width: 100%;
 	max-width: $_o-forms-field-max-width;
@@ -77,7 +77,10 @@
 
 
 /// Group styles
-@mixin oFormsGroup {
+@mixin oFormsGroup($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')) {
+	$checkbox: unquote(map-get($selectors, checkbox));
+	$radio: unquote(map-get($selectors, radio));
+	$label: unquote(map-get($selectors, label));
 	position: relative;
 	max-width: $_o-forms-field-max-width;
 	margin: 0 0 oTypographySpacingSize(5); // Reset top and side margins for fieldset usage
@@ -96,9 +99,19 @@
 		@include oFormsFullWidth;
 	}
 
-	&--checkbox-group,
-	&--radio-group {
-		margin-bottom: oTypographySpacingSize(5) - $_o-forms-spacing-size;
+	&__checkboxes,
+	&__radios {
+		margin: 0 0 #{-$_o-forms-spacing} 0;
+		#{$radio} + #{$label},
+		#{$checkbox} + #{$label} {
+			width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
+		}
+		&--inline {
+			#{$radio} + #{$label},
+			#{$checkbox} + #{$label} {
+				width: auto;
+			}
+		}
 	}
 }
 

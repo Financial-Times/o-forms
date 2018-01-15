@@ -214,10 +214,10 @@
 }
 
 @mixin _oFormsRadioCheckboxLabel {
-	margin: 8px 0 ($_o-forms-spacing-size + ($_o-forms-spacing-size - 8px)) 0;
+	$top-margin: $_o-forms-checkbox-ledgend-spacing;
 	font-size: $_o-forms-font-size-default;
 	display: inline-block;
-	margin-right: 15px;
+	margin: $top-margin 15px ($_o-forms-spacing + ($_o-forms-spacing - $top-margin)) 0; // space between checkboxes $_o-forms-spacing (the margins do not collapse)
 	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 	position: relative;
 	cursor: pointer;
@@ -228,7 +228,9 @@
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	// sass-lint:enable no-vendor-prefixes
-
+	&:last-of-type {
+		margin-right: 0;
+	}
 	// When in a prefix/suffix, clear the margins
 	// and reduce the font size
 	.o-forms__prefix &,

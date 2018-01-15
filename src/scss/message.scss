@@ -9,7 +9,7 @@
 		@include oColorsFor(o-forms__wrapper-highlight, background);
 		max-width: $_o-forms-field-max-width;
 		padding: 0 $_o-forms-padding;
-		margin-bottom: $_o-forms-spacing-size;
+		margin-bottom: $_o-forms-spacing;
 		margin-left: $_o-forms-padding * -1;
 		margin-right: $_o-forms-padding * -1;
 		color: oColorGetColorFor('o-forms__message-default', text);
