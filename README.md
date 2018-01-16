@@ -67,20 +67,20 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 <fieldset class="o-forms">
 	<label class="o-forms__label">Radio controls</label>
 	<div class="o-forms__radios">
-		<input id="a" type="radio" class="o-forms__radio" />
-		<label for="a">Unchecked (default)</label>
-		<input id="a" type="radio" class="o-forms__radio" checked="checked" />
-		<label for="a">Checked</label>
+		<input id="radioA" type="radio" class="o-forms__radio" />
+		<label for="radioA">Unchecked (default)</label>
+		<input id="radioB" type="radio" class="o-forms__radio" checked="checked" />
+		<label for="radioB">Checked</label>
 	</div>
 </fieldset>
 
 <!-- Checkboxes -->
 <fieldset class="o-forms">
 	<div class="o-forms__checkboxes">
-		<input id="a" type="checkbox" class="o-forms__checkbox" />
-		<label for="a">Unchecked (default)</label>
-		<input id="a" type="checkbox" class="o-forms__checkbox" checked="checked" />
-		<label for="a">Checked</label>
+		<input id="checkboxA" type="checkbox" class="o-forms__checkbox" />
+		<label for="checkboxA">Unchecked (default)</label>
+		<input id="checkboxB" type="checkbox" class="o-forms__checkbox" checked="checked" />
+		<label for="checkboxB">Checked</label>
 	</div>
 </fieldset>
 
@@ -88,20 +88,20 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 <fieldset class="o-forms">
 	<label class="o-forms__label">Radio controls</label>
 	<div class="o-forms__radios o-forms__radios--inline">
-		<input id="a" type="radio" class="o-forms__radio" />
-		<label for="a">Unchecked (default)</label>
-		<input id="a" type="radio" class="o-forms__radio" checked="checked" />
-		<label for="a">Checked</label>
+		<input id="inlineRadioA" type="radio" class="o-forms__radio" />
+		<label for="inlineRadioA">Unchecked (default)</label>
+		<input id="inlineRadioB" type="radio" class="o-forms__radio" checked="checked" />
+		<label for="inlineRadioB">Checked</label>
 	</div>
 </fieldset>
 
 <!-- Inline Checkboxes -->
 <fieldset class="o-forms">
 	<div class="o-forms__checkboxes o-forms__checkboxes--inline">
-		<input id="a" type="checkbox" class="o-forms__checkbox" />
-		<label for="a">Unchecked (default)</label>
-		<input id="a" type="checkbox" class="o-forms__checkbox" checked="checked" />
-		<label for="a">Checked</label>
+		<input id="inlineCheckboxA" type="checkbox" class="o-forms__checkbox" />
+		<label for="inlineCheckboxA">Unchecked (default)</label>
+		<input id="inlineCheckboxB" type="checkbox" class="o-forms__checkbox" checked="checked" />
+		<label for="inlineCheckboxB">Checked</label>
 	</div>
 </fieldset>
 ```

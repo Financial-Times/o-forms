@@ -219,7 +219,7 @@
 @mixin _oFormsRadioCheckboxLabel {
 	@include oTypographySize($_o-forms-typography-scale-regular);
 	display: inline-block;
-	$top-margin: $_o-forms-checkbox-ledgend-spacing;
+	$top-margin: $_o-forms-checkbox-legend-spacing;
 	margin: $top-margin 15px $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
 	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 	position: relative;
