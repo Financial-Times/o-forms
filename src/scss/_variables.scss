@@ -30,11 +30,11 @@ $_o-forms-field-border-radius: $o-normalise-border-radius;
 
 $_o-forms-field-default-font-size: 14px;
 
-$_o-forms-field-default-padding-leftright: 10px;
-$_o-forms-field-default-padding-top: 10px;
-$_o-forms-field-default-padding-bottom: 10px;
-$_o-forms-field-default-height: 40px;
+$_o-forms-field-default-padding-leftright: oTypographySpacingSize(2);
+$_o-forms-field-default-padding-top: oTypographySpacingSize(2);
+$_o-forms-field-default-padding-bottom: oTypographySpacingSize(2);
 
+$_o-forms-field-default-height: 40px;  // align it to the big button size
 $_o-forms-field-small-height: 28px; // align it to the regular button size
 
 $_o-forms-field-max-width: 380px; // This is meant to be 1/3 of the columns in the full grid, should probably be using an o-grid function
