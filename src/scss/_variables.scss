@@ -1,8 +1,3 @@
-@function oFormsGetFontSize($scale) {
-	$font-size: (nth($scale, 1)) * 1px;
-	@return $font-size;
-}
-
 ////
 /// @group o-forms
 /// @link http://registry.origami.ft.com/components/o-forms
@@ -21,15 +16,11 @@ $o-forms-is-silent: true !default;
 $o-forms-font-family: MetricWeb, sans-serif !default;
 
 /// Typography handling
-/// These use the oTypography scale but save us having repeated generated CSS
-$_o-forms-typography-scale-small: oTypographyGetScale(-1);
-$_o-forms-typography-scale-regular: oTypographyGetScale(0);
-$_o-forms-typography-scale-large: oTypographyGetScale(1);
+$_o-forms-typography-scale-small: -1;
+$_o-forms-typography-scale-regular: 0;
+$_o-forms-typography-scale-large: 1;
 
-$_o-forms-font-size-default: oFormsGetFontSize($_o-forms-typography-scale-regular); // 16px
-$_o-forms-font-size-small: oFormsGetFontSize($_o-forms-typography-scale-small); // 14px
-$_o-forms-font-size-large: oFormsGetFontSize($_o-forms-typography-scale-large); // 18px
-
+$_o-forms-group-spacing: oTypographySpacingSize(5); // 20px
 $_o-forms-spacing: oTypographySpacingSize(3); // 12px
 $_o-forms-checkbox-ledgend-spacing: oTypographySpacingSize(2); // 8px
 

@@ -16,22 +16,22 @@
 /// Additional info
 @mixin oFormsAdditionalInfo {
 	@include oColorsFor(o-forms-field-additional-info body, text);
+	@include oTypographySize($_o-forms-typography-scale-small);
 	display: block;
-	font-size: $_o-forms-font-size-small;
 }
 
 /// Error text
 @mixin oFormsErrorText {
 	@include oColorsFor(o-forms-field-invalid, text);
+	@include oTypographySize($_o-forms-typography-scale-small);
 	clear: both;
 	display: block;
 	margin-top: -1px;
 	padding: 3px 0;
-	font-size:  $_o-forms-font-size-small;
 }
 
 @mixin oFormsLabelLong {
-	font-size: $_o-forms-font-size-small;
+	@include oTypographySize($_o-forms-typography-scale-small);
 	p {
 		margin-bottom: oTypographySpacingSize($units: 2);
 	}
@@ -39,7 +39,7 @@
 
 @mixin oFormsLabelOptional {
 	@include oColorsFor(o-forms-field-additional-info body, text);
+	@include oTypographySize($_o-forms-typography-scale-small);
 	content: ' (optional)';
-	font-size: $_o-forms-font-size-small;
 	font-weight: oFontsWeight('normal');
 }

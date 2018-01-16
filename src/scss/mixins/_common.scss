@@ -6,6 +6,7 @@
 /// Common field styles
 @mixin oFormsCommonFieldBase {
 	@include oColorsFor(o-forms-field-standard);
+	@include oTypographySize($_o-forms-typography-scale-regular);
 	margin-top: $_o-forms-spacing;
 	box-sizing: border-box;
 	width: 100%;
@@ -16,7 +17,6 @@
 	border-radius: $_o-forms-field-border-radius;
 	background-clip: padding-box;
 	font-family: $o-forms-font-family;
-	font-size: $_o-forms-font-size-default;
 	outline: none;
 	transition: 0.15s box-shadow ease-in;
 
@@ -83,7 +83,7 @@
 	$label: unquote(map-get($selectors, label));
 	position: relative;
 	max-width: $_o-forms-field-max-width;
-	margin: 0 0 oTypographySpacingSize(5); // Reset top and side margins for fieldset usage
+	margin: 0 0 $_o-forms-group-spacing; // Reset top and side margins for fieldset usage
 	// reset <fieldset> defaults
 	padding: 0;
 	border: 0;
