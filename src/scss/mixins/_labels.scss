@@ -5,10 +5,10 @@
 	display: block;
 	padding: 0; // Reset legend default styling
 	p {
-		margin-top: 0;
+		@include oTypographyMargin($top: 0, $bottom: 2);
 
 		&:last-child {
-			margin-bottom: 0;
+			@include oTypographyMargin($bottom: 0);
 		}
 	}
 }
@@ -34,13 +34,6 @@
 // Use in combination with `oFormsErrorText`.
 @mixin _oFormsRadioCheckboxErrorText {
 	margin-top: $_o-forms-checkbox-legend-spacing;
-}
-
-@mixin oFormsLabelLong {
-	@include oTypographySize($_o-forms-typography-scale-small);
-	p {
-		margin-bottom: oTypographySpacingSize($units: 2);
-	}
 }
 
 @mixin oFormsLabelOptional {

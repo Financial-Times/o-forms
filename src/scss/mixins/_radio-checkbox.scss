@@ -27,13 +27,6 @@
 		@include _oFormsRadioCheckboxLabel();
 	}
 
-	#{$checkbox} + #{$label}--long,
-	#{$radio} + #{$label}--long {
-		@include oFormsLabelLong();
-		padding-top: 0px;
-		display: block; // so margins collapse
-	}
-
 	#{$checkbox} + #{$label}::before,
 	#{$radio} + #{$label}::before {
 		@include oColorsFor(o-forms-field-focus);
@@ -156,12 +149,6 @@
 			left: 2px;
 			transition: left 0.075s ease-in-out;
 		}
-	}
-
-	#{$label}--long {
-		@include oFormsLabelLong();
-		padding-top: 0px;
-		display: block; // so margins collapse
 	}
 
 	@include oFormsCheckboxToggleSize();
