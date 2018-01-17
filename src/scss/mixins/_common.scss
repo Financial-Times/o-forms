@@ -114,6 +114,11 @@
 			}
 		}
 	}
+
+	&__checkboxes + &__errortext,
+	&__radios + &__errortext {
+		@include _oFormsRadioCheckboxErrorText();
+	}
 }
 
 /// All the field to extend to the full width
