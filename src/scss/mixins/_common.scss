@@ -5,7 +5,9 @@
 
 /// Common field styles
 @mixin oFormsCommonFieldBase {
-	@include oTypographyMargin($top: 3);
+	@include oColorsFor(o-forms-field-standard);
+	@include oTypographySize($_o-forms-typography-scale-regular);
+	margin-top: $_o-forms-spacing;
 	box-sizing: border-box;
 	width: 100%;
 	max-width: $_o-forms-field-max-width;
@@ -13,11 +15,8 @@
 	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
 	border: $_o-forms-field-border;
 	border-radius: $_o-forms-field-border-radius;
-	background-color: oColorsGetColorFor(o-forms-field-standard, background);
 	background-clip: padding-box;
-	color: oColorsGetColorFor(o-forms-field-standard, text);
 	font-family: $o-forms-font-family;
-	font-size: $_o-forms-field-default-font-size;
 	outline: none;
 	transition: 0.15s box-shadow ease-in;
 
@@ -35,7 +34,7 @@
 	}
 
 	&::placeholder {
-		color: oColorsGetColorFor(o-forms-field-placholder, text);
+		@include oColorsFor(o-forms-field-placholder);
 	}
 }
 
@@ -62,9 +61,8 @@
 
 /// Common field styles: valid state
 @mixin oFormsCommonFieldValid {
-	border-color: oColorsGetColorFor(o-forms-field-valid, border);
+	@include oColorsFor(o-forms-field-valid);
 	background-color: rgba(oColorsGetColorFor(o-forms-field-valid, background), 0.05);
-	color: oColorsGetColorFor(o-forms-field-valid, text);
 }
 
 /// Common field styles: small
@@ -79,10 +77,13 @@
 
 
 /// Group styles
-@mixin oFormsGroup {
+@mixin oFormsGroup($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')) {
+	$checkbox: unquote(map-get($selectors, checkbox));
+	$radio: unquote(map-get($selectors, radio));
+	$label: unquote(map-get($selectors, label));
 	position: relative;
 	max-width: $_o-forms-field-max-width;
-	margin: 0 0 20px; // Reset top and side margins for fieldset usage
+	margin: 0 0 $_o-forms-group-spacing; // Reset top and side margins for fieldset usage
 	// reset <fieldset> defaults
 	padding: 0;
 	border: 0;
@@ -96,6 +97,27 @@
 
 	&--wide {
 		@include oFormsFullWidth;
+	}
+
+	&__checkboxes,
+	&__radios {
+		margin: 0 0 #{-$_o-forms-spacing};
+		#{$radio} + #{$label},
+		#{$checkbox} + #{$label} {
+			width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
+			box-sizing: border-box;
+		}
+		&--inline {
+			#{$radio} + #{$label},
+			#{$checkbox} + #{$label} {
+				width: auto;
+			}
+		}
+	}
+
+	&__checkboxes + &__errortext,
+	&__radios + &__errortext {
+		@include _oFormsRadioCheckboxErrorText();
 	}
 }
 

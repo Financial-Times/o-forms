@@ -1,6 +1,6 @@
 @mixin oFormsAffixWrapper($class: 'o-forms') {
 	.#{$class}__affix-wrapper {
-		@include oTypographyMargin($top: 1);
+		@include oTypographyMargin($top: 2);
 		display: table;
 		width: 100%;
 		box-sizing: border-box;
@@ -89,7 +89,10 @@
 
 	.#{$class}__prefix,
 	.#{$class}__suffix {
+		@include oTypographySize($_o-forms-typography-scale-regular);
 		@include oTypographyMargin($top: 1);
+		@include oColorsFor(o-forms__prefixsuffix, background);
+		@include oColorsFor(o-forms--prefixsuffix o-forms-field-standard, text);
 		display: table-cell;
 		vertical-align: top;
 		box-sizing: border-box;
@@ -99,10 +102,7 @@
 		border-bottom: $_o-forms-field-border;
 		padding: $_o-forms-field-default-padding-top - 2px $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom - 2px;
 		font-family: $o-forms-font-family;
-		font-size: $_o-forms-field-default-font-size;
 		text-align: center;
-		background-color: oColorsGetColorFor(o-forms__prefixsuffix, background);
-		color: oColorsGetColorFor(o-forms--prefixsuffix o-forms-field-standard, text);
 		// sass-lint:disable no-vendor-prefixes
 		-moz-user-select: none;
 		-webkit-user-select: none;

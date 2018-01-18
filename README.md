@@ -60,25 +60,55 @@ Each form field is made up of at least 3 elements:
 
 #### Checkboxes and radio controls
 
-Couple the checkboxes and radio controls with a label to obtain the desired styles. Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them look like toggles:
+Couple the checkboxes and radio controls with a label to obtain the desired styles. Nest within `o-forms__radios`/`o-forms__checkboxes` to ensure correct verticle spacing:
 
 ```html
 <!-- Radio -->
-<div class="o-forms">
-	<input id="a" type="radio" class="o-forms__radio" />
-	<label for="a">Unchecked (default)</label>
-	<input id="a" type="radio" class="o-forms__radio" checked="checked" />
-	<label for="a">Checked</label>
-</div>
+<fieldset class="o-forms">
+	<label class="o-forms__label">Radio controls</label>
+	<div class="o-forms__radios">
+		<input id="radioA" type="radio" class="o-forms__radio" />
+		<label for="radioA">Unchecked (default)</label>
+		<input id="radioB" type="radio" class="o-forms__radio" checked="checked" />
+		<label for="radioB">Checked</label>
+	</div>
+</fieldset>
 
 <!-- Checkboxes -->
-<div class="o-forms">
-	<input id="a" type="checkbox" class="o-forms__checkbox" />
-	<label for="a">Unchecked (default)</label>
-	<input id="a" type="checkbox" class="o-forms__checkbox" checked="checked" />
-	<label for="a">Checked</label>
-</div>
+<fieldset class="o-forms">
+	<div class="o-forms__checkboxes">
+		<input id="checkboxA" type="checkbox" class="o-forms__checkbox" />
+		<label for="checkboxA">Unchecked (default)</label>
+		<input id="checkboxB" type="checkbox" class="o-forms__checkbox" checked="checked" />
+		<label for="checkboxB">Checked</label>
+	</div>
+</fieldset>
 
+<!-- Inline Radio -->
+<fieldset class="o-forms">
+	<label class="o-forms__label">Radio controls</label>
+	<div class="o-forms__radios o-forms__radios--inline">
+		<input id="inlineRadioA" type="radio" class="o-forms__radio" />
+		<label for="inlineRadioA">Unchecked (default)</label>
+		<input id="inlineRadioB" type="radio" class="o-forms__radio" checked="checked" />
+		<label for="inlineRadioB">Checked</label>
+	</div>
+</fieldset>
+
+<!-- Inline Checkboxes -->
+<fieldset class="o-forms">
+	<div class="o-forms__checkboxes o-forms__checkboxes--inline">
+		<input id="inlineCheckboxA" type="checkbox" class="o-forms__checkbox" />
+		<label for="inlineCheckboxA">Unchecked (default)</label>
+		<input id="inlineCheckboxB" type="checkbox" class="o-forms__checkbox" checked="checked" />
+		<label for="inlineCheckboxB">Checked</label>
+	</div>
+</fieldset>
+```
+
+Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them look like toggles
+
+```html
 <!-- Checkbox Toggles -->
 <form action="" data-o-component="o-forms">
 	<fieldset class="o-forms">
@@ -98,6 +128,21 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 [Radio control examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/radios)
 [Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkboxes)
 [Toggle Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkbox-toggle)
+
+#### Optional Labels
+
+To indicated an input is optional apply the class `.o-forms__label--optional` to its label.
+
+```html
+<div class="o-forms">
+	<label for="a" class="o-forms__label o-forms__label--optional">Optional Field</label>
+	<input type="text" id="a" placeholder="placeholder" class="o-forms__text" />
+</div>
+```
+
+#### Long Labels
+
+Use the class `.o-forms__label--long` for more compact labels. This is useful for labels with long, paragraphed copy such as that for terms and conditions. See the [checkbox with long text demo](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkboxes).
 
 #### Validation states
 
@@ -213,6 +258,7 @@ The `oForms` mixin also allows customisation of the base classname:
 - `oFormsWrapper` - an area around the form, which can be coloured.
 - `oFormsMessage` - styles for global form messages.
 - `oFormsPrefixSuffix` - adds ability to affix information/buttons to form fields.
+- `oFormsLabelOptional` - styles to add an "optional" indicator to a label.
 - `oFormsUnskin` - removes all default styling from a field.
 
 For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).

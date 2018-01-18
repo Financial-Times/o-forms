@@ -45,12 +45,6 @@
             "description": "<strong>Usercase:</strong> These are the generic check boxes for most use cases."
         },
         {
-            "name": "checkbox-long-text",
-            "title": "Checkboxes with long text",
-            "template": "/demos/src/checkboxes-long-text.mustache",
-            "description": "<strong>Usercase:</strong> This is for a check box with longer copy. NB Width should not extend text input box components."
-        },
-        {
             "name": "checkbox-toggle",
             "title": "A checkbox which acts as a toggle",
             "template": "/demos/src/checkbox-toggle.mustache",
@@ -91,7 +85,8 @@
         "js": "demos/src/demo.js",
         "dependencies": [
             "o-fonts@^3",
-            "o-buttons@^5"
+            "o-buttons@^5",
+            "o-normalise@1"
         ]
     }
 }

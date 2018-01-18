@@ -35,7 +35,7 @@
 		left: 0;
 		width: $_o-forms__radiocheckbox-default-size;
 		height: $_o-forms__radiocheckbox-default-size;
-		border: 2px solid oColorsGetColorFor(o-forms-field-standard, border);
+		border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
 		box-sizing: border-box;
 		content: '';
 		background-color: oColorsGetColorFor(o-forms-field-standard, background);
@@ -81,12 +81,13 @@
 
 	#{$radio}:checked + #{$label}::before {
 		// Outer ring changes to teal when the radio button is checked
-		border: 2px solid oColorsGetPaletteColor('teal');
+		border: 1px solid oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
 	}
 
 	#{$radio} + #{$label}::after {
-		background-color: oColorsGetPaletteColor('teal');
-		border-radius: 50%;
+		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
+		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
+		border-radius: 9999px;
 		height: $_o-forms__radio-internal-default-size;
 		width: $_o-forms__radio-internal-default-size;
 		left: ($_o-forms__radiocheckbox-default-size - $_o-forms__radio-internal-default-size) / 2;
@@ -97,7 +98,7 @@
 		$check-color: oColorsGetPaletteColor('white');
 		background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23#{$check-color}&format=svg", "#", ""));
 		background-repeat: no-repeat;
-		background-color: oColorsGetPaletteColor('teal');
+		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
 		height: $_o-forms__radiocheckbox-default-size;
 		width: $_o-forms__radiocheckbox-default-size;
 		background-size: $_o-forms__radiocheckbox-default-size;
@@ -130,7 +131,7 @@
 @mixin oFormsCheckboxToggle($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbox-toggle__checkbox')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$label: unquote(map-get($selectors, label));
-	
+
 	#{$label} {
 		@include _oFormsRadioCheckboxLabel();
 		&:before {
@@ -162,17 +163,17 @@
 	$checkbox: unquote(map-get($selectors, checkbox));
 	#{$label} {
 		&:before {
-			background-color: oColorsGetPaletteColor('white');
+			@include oColorsFor(o-forms-toggle-inverse, background);
 		}
 		&:after {
-			background-color: oColorsGetPaletteColor('teal');
+			@include oColorsFor(o-forms-toggle-inverse-switch-knob, background);
 		}
 	}
 	& #{$checkbox}:checked + #{$label}:before {
-		background-color: oColorsGetPaletteColor('teal-100');
+		@include oColorsFor(o-forms-toggle-inverse-selected, background);
 	}
 	#{$label} {
-		color: oColorsGetPaletteColor('white');
+		@include oColorsFor(o-forms-toggle-inverse, text);
 	}
 }
 
@@ -180,7 +181,7 @@
 	$label: unquote(map-get($selectors, label));
 	$checkbox: unquote(map-get($selectors, checkbox));
 	#{$label} {
-		padding-top: $height / 2 - 8px; // To align the text with the center of the toggle checkbox
+		padding-top: $height / 2 - 10px; // To align the text with the center of the toggle checkbox
 		padding-left: ($height * 1.6) + $_o-forms__label-padding-left;
 		min-height: $height;
 		&:before {
@@ -203,26 +204,28 @@
 }
 
 @mixin _oFormsRadioCheckboxLabel {
-	@include oTypographyMargin($top: 3, $bottom: 3);
-	@include oTypographySans($scale: -1);
+	@include oTypographySize($_o-forms-typography-scale-regular);
 	display: inline-block;
-	margin-right: 15px;
+	$top-margin: $_o-forms-checkbox-legend-spacing;
+	margin: $top-margin 15px $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
 	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 	position: relative;
 	cursor: pointer;
 	font-weight: oFontsWeight('normal');
-	padding-top: 4px; // To align the text with the center of the checkbox/radio
+	padding-top: 2px; // To align the text with the center of the checkbox/radio
 	// sass-lint:disable no-vendor-prefixes
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	// sass-lint:enable no-vendor-prefixes
-
+	&:last-of-type {
+		margin-right: 0;
+	}
 	// When in a prefix/suffix, clear the margins
 	// and reduce the font size
 	.o-forms__prefix &,
 	.o-forms__suffix & {
+		@include oTypographySize($_o-forms-typography-scale-small);
 		margin: 0;
-		font-size: 12px;
 	}
 }
