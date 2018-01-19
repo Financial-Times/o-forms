@@ -4,8 +4,8 @@
 @mixin oFormsSelect {
 	@include oColorsFor(o-forms-field-standard, text);
 	$icon-color: oColorsGetColorFor(o-forms-field-standard, text);
-	cursor: pointer;
 	@include oIconsGetIcon('arrow-down', oColorsGetColorFor(o-forms-field-standard, text), $apply-base-styles: false, $apply-width-height: false);
+	cursor: pointer;
 	// For iOS 6 that doesn't support 4-value background-position
 	// sass-lint:disable no-duplicate-properties
 	background-position: right center;
