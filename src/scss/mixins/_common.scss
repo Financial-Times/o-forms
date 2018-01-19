@@ -97,7 +97,8 @@
 	}
 }
 
-@mixin oFormsRadioCheckboxGroup($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')) {
+@mixin oFormsRadioCheckboxGroup($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', checkbox-toggle: '.o-forms__checkbox-toggle__checkbox', label: '.o-forms__label')) {
+	$checkbox-toggle: unquote(map-get($selectors, checkbox-toggle));
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$radio: unquote(map-get($selectors, radio));
 	$label: unquote(map-get($selectors, label));
@@ -106,16 +107,24 @@
 	&__radios {
 		margin: 0 0 #{-$_o-forms-spacing};
 		#{$radio} + #{$label},
+		#{$checkbox-toggle} + #{$label},
 		#{$checkbox} + #{$label} {
 			width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
 			box-sizing: border-box;
 			margin: $_o-forms-checkbox-legend-spacing 15px $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
+			&:last-of-type {
+				margin-right: 0;
+			}
 		}
 
 		$align-right: '--right';
 		#{$radio}#{$align-right} + #{$label},
 		#{$checkbox}#{$align-right} + #{$label} {
-			margin: $_o-forms-checkbox-legend-spacing 0 $_o-forms-spacing 15px;
+			margin: $_o-forms-checkbox-legend-spacing 15px $_o-forms-spacing 0;
+			&:last-of-type {
+				margin-right: 15px;
+				margin-left: 0;
+			}
 		}
 
 		&--inline {

@@ -113,13 +113,15 @@ Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them
 <form action="" data-o-component="o-forms">
 	<fieldset class="o-forms">
 		<legend class="o-forms__label">Checkbox Toggle</legend>
-		<div class="o-forms__checkbox-toggle">
-			<input data-o-form-toggle type="checkbox" id="a" checked="checked" />
-			<label for="a" class="o-forms__label">Checkbox Toggle a</label>
-		</div>
-		<div class="o-forms__checkbox-toggle">
-			<input data-o-form-toggle type="checkbox" id="b" />
-			<label for="b" class="o-forms__label">Checkbox Toggle b</label>
+		<div class="o-forms__checkboxes">
+			<div class="o-forms__checkbox-toggle">
+				<input data-o-form-toggle type="checkbox" id="a" checked="checked" />
+				<label for="a" class="o-forms__label">Checkbox Toggle a</label>
+			</div>
+			<div class="o-forms__checkbox-toggle">
+				<input data-o-form-toggle type="checkbox" id="b" />
+				<label for="b" class="o-forms__label">Checkbox Toggle b</label>
+			</div>
 		</div>
 	</fieldset>
 </form>
