@@ -1,0 +1,57 @@
+@mixin oFormsAffixWrapper($class: 'o-forms') {
+	.#{$class}__affix-wrapper {
+		@include oTypographyMargin($top: 2);
+		display: table;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.#{$class}__affix-wrapper .#{$class}__text,
+	.#{$class}__affix-wrapper .#{$class}__select,
+	.#{$class}__affix-wrapper .#{$class}__textarea {
+		@include oTypographyMargin($top: 0);
+	}
+
+	.#{$class}__affix-wrapper .#{$class}__text,
+	.#{$class}__affix-wrapper .#{$class}__select {
+		display: table-cell;
+		border-radius: 0;
+	}
+
+	.#{$class}__affix-wrapper .#{$class}__text:first-child,
+	.#{$class}__affix-wrapper .#{$class}__select:first-child {
+		border-top-left-radius: $_o-forms-field-border-radius;
+		border-bottom-left-radius: $_o-forms-field-border-radius;
+	}
+
+	.#{$class}__affix-wrapper .#{$class}__text:last-child,
+	.#{$class}__affix-wrapper .#{$class}__select:last-child {
+		border-top-right-radius: $_o-forms-field-border-radius;
+		border-bottom-right-radius: $_o-forms-field-border-radius;
+	}
+}
+
+@mixin oFormsSuffix($class: 'o-forms') {
+	@include oFormsAffixWrapper($class);
+	.#{$class}__suffix {
+		@include oTypographySize($_o-forms-typography-scale-regular);
+		display: table-cell;
+		vertical-align: top;
+		box-sizing: border-box;
+		width: 1%;
+		white-space: nowrap;
+		padding-left:$_o-forms-field-default-padding-leftright;
+		font-family: $o-forms-font-family;
+		text-align: center;
+		vertical-align: middle;
+		// sass-lint:disable no-vendor-prefixes
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		// sass-lint:enable no-vendor-prefixes
+	}
+}
+
+@if not $o-forms-is-silent {
+	@include oFormsSuffix;
+} // /Silent mode

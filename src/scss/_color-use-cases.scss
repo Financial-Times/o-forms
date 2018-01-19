@@ -8,9 +8,6 @@
 
 @include oColorsSetUseCase(o-forms-field-additional-info, text, 'black-60');
 
-@include oColorsSetUseCase(o-forms__prefixsuffix, background, 'black-5');
-@include oColorsSetUseCase(o-forms__prefixsuffix, text, 'black-50');
-
 @include oColorsSetUseCase(o-forms-field-standard, text, 'black-80');
 @include oColorsSetUseCase(o-forms-field-standard, border, 'black-30');
 @include oColorsSetUseCase(o-forms-field-standard, background, 'white');
