@@ -64,10 +64,19 @@
 	}
 
 	// AO: Hack to make sass-lint pass, it doesn't like
-	// interpolation of selectors like #{$radio}--align-right
+	// interpolation of selectors like #{$radio}--right
 	// and throws a Fatal error, this however, works!
-	$align-right: '--align-right';
+	$align-right: '--right';
 
+	#{$radio}#{$align-right} + #{$label},
+	#{$checkbox}#{$align-right} + #{$label} {
+		padding-right: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left;
+		padding-left: 0;
+		text-align: right;
+	}
+
+	#{$radio}#{$align-right} + #{$label}::before,
+	#{$checkbox}#{$align-right} + #{$label}::before,
 	#{$radio}#{$align-right} + #{$label}::after,
 	#{$checkbox}#{$align-right} + #{$label}::after {
 		right: 0;
@@ -95,14 +104,8 @@
 	}
 
 	#{$checkbox} + #{$label}::after {
-		$check-color: oColorsGetPaletteColor('white');
-		background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23#{$check-color}&format=svg", "#", ""));
-		background-repeat: no-repeat;
+		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), $_o-forms__radiocheckbox-default-size);
 		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
-		height: $_o-forms__radiocheckbox-default-size;
-		width: $_o-forms__radiocheckbox-default-size;
-		background-size: $_o-forms__radiocheckbox-default-size;
-		background-position: 50% 50%;
 	}
 
 	#{$checkbox}:disabled + #{$label},
@@ -206,8 +209,6 @@
 @mixin _oFormsRadioCheckboxLabel {
 	@include oTypographySize($_o-forms-typography-scale-regular);
 	display: inline-block;
-	$top-margin: $_o-forms-checkbox-legend-spacing;
-	margin: $top-margin 15px $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
 	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 	position: relative;
 	cursor: pointer;
@@ -218,14 +219,4 @@
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	// sass-lint:enable no-vendor-prefixes
-	&:last-of-type {
-		margin-right: 0;
-	}
-	// When in a prefix/suffix, clear the margins
-	// and reduce the font size
-	.o-forms__prefix &,
-	.o-forms__suffix & {
-		@include oTypographySize($_o-forms-typography-scale-small);
-		margin: 0;
-	}
 }

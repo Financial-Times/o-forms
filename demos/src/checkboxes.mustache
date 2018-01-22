@@ -1,5 +1,6 @@
 <fieldset class="o-forms">
 	<legend class="o-forms__label">Default checkboxes</legend>
+	<div class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
 	<div class="o-forms__checkboxes">
 		<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox11" checked="checked" />
 		<label for="checkbox11" class="o-forms__label">Checkbox 1</label>
@@ -19,6 +20,16 @@
 		<label for="checkbox62" class="o-forms__label">Checkbox 2</label>
 		<input type="checkbox" name="checkbox" value="3" class="o-forms__checkbox" id="checkbox63" />
 		<label for="checkbox63" class="o-forms__label">Checkbox 3</label>
+	</div>
+</fieldset>
+
+<fieldset class="o-forms">
+	<label class="o-forms__label">Right side control checkbox</label>
+	<div class="o-forms__additional-info">Interface demo only, password hide/show functionality is not currently included in o-forms.</div>
+	<input type="password" id="o-forms-secret" placeholder="secret password" class="o-forms__text" required />
+	<div class="o-forms__checkboxes o-forms__checkboxes--inline">
+		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox o-forms__checkbox--right" id="checkbox22" />
+		<label for="checkbox22" class="o-forms__label">Show password</label>
 	</div>
 </fieldset>
 

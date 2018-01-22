@@ -113,13 +113,15 @@ Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them
 <form action="" data-o-component="o-forms">
 	<fieldset class="o-forms">
 		<legend class="o-forms__label">Checkbox Toggle</legend>
-		<div class="o-forms__checkbox-toggle">
-			<input data-o-form-toggle type="checkbox" id="a" checked="checked" />
-			<label for="a" class="o-forms__label">Checkbox Toggle a</label>
-		</div>
-		<div class="o-forms__checkbox-toggle">
-			<input data-o-form-toggle type="checkbox" id="b" />
-			<label for="b" class="o-forms__label">Checkbox Toggle b</label>
+		<div class="o-forms__checkboxes">
+			<div class="o-forms__checkbox-toggle">
+				<input data-o-form-toggle type="checkbox" id="a" checked="checked" />
+				<label for="a" class="o-forms__label">Checkbox Toggle a</label>
+			</div>
+			<div class="o-forms__checkbox-toggle">
+				<input data-o-form-toggle type="checkbox" id="b" />
+				<label for="b" class="o-forms__label">Checkbox Toggle b</label>
+			</div>
 		</div>
 	</fieldset>
 </form>
@@ -192,23 +194,22 @@ You can wrap a group of fields to highlight it or show it is not valid:
 
 [Messages examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/messages)
 
-#### Prefixes and suffixes
+#### Suffixes
 
-Prefixes and suffixes are used for prepending or appending static text to a form control. The form control should be wrapped in a block-level element with a class of `.o-forms__affix-wrapper`. Prefixes (defined by `.o-forms__prefix`) and suffixes (defined by `.o-forms__suffix`) can then be prepended/appended to this wrapper element.
+Suffixes are used to append content to an input, i.e. a button. The form control should be wrapped in a block-level element with a class of `.o-forms__affix-wrapper`. Suffixes (defined by `.o-forms__suffix`) can then be appended to this wrapper element.
 
 ```html
 <div class="o-forms">
 	<div class="o-forms__affix-wrapper">
-		<span class="o-forms__prefix">http://</span>
 		<input type="text" class="o-forms__text" />
 		<div class="o-forms__suffix">
-			<button type="button" class="o-buttons">Go</button>
+			<button type="button" class="o-buttons o-buttons--secondary o-buttons--big">Go</button>
 		</div>
 	</div>
 </div>
 ```
 
-[Prefixes and suffixes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/prefix-suffix)
+[Suffixes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/suffix)
 
 #### "unskin" a form element
 
@@ -257,7 +258,7 @@ The `oForms` mixin also allows customisation of the base classname:
 
 - `oFormsWrapper` - an area around the form, which can be coloured.
 - `oFormsMessage` - styles for global form messages.
-- `oFormsPrefixSuffix` - adds ability to affix information/buttons to form fields.
+- `oFormsSuffix` - adds ability to affix content to form fields, used to affix buttons.
 - `oFormsLabelOptional` - styles to add an "optional" indicator to a label.
 - `oFormsUnskin` - removes all default styling from a field.
 

@@ -2,6 +2,7 @@
 @import "o-normalise/main";
 @import "o-colors/main";
 @import "o-grid/main";
+@import "o-icons/main";
 
 @import "src/scss/deprecated";
 @import "src/scss/color-use-cases";
@@ -14,7 +15,7 @@
 @import "src/scss/mixins/labels";
 
 @import "src/scss/base";
-@import "src/scss/prefix-suffix";
+@import "src/scss/suffix";
 @import "src/scss/message";
 @import "src/scss/wrapper";
 @import "src/scss/unskin";

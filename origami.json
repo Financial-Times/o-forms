@@ -51,8 +51,8 @@
             "description": "<strong>Usercase:</strong> This is a checkbox which looks like a toggle, useful as an on/off e.g. for settings."
         },
         {
-            "name": "prefix-suffix",
-            "template": "/demos/src/prefix-suffix.mustache",
+            "name": "suffix",
+            "template": "/demos/src/suffix.mustache",
             "description": ""
         },
         {
