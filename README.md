@@ -258,7 +258,7 @@ The `oForms` mixin also allows customisation of the base classname:
 
 - `oFormsWrapper` - an area around the form, which can be coloured.
 - `oFormsMessage` - styles for global form messages.
-- `oFormsSuffix` - adds ability to affix information to form fields.
+- `oFormsSuffix` - adds ability to affix content to form fields, used to affix buttons.
 - `oFormsLabelOptional` - styles to add an "optional" indicator to a label.
 - `oFormsUnskin` - removes all default styling from a field.
 
