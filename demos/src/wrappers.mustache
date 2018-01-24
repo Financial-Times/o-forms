@@ -1,29 +1,28 @@
 <div class="o-forms__wrapper o-forms__wrapper--highlight">
-	<fieldset class="o-forms">
-		<legend for="o-text-default" class="o-forms__label">Legend</legend>
-		<div class="o-forms__additional-info">Additional field information</div>
-		<input type="text" placeholder="placeholder" id="o-text-default" class="o-forms__text" />
-	</fieldset>
+	<div class="o-forms">
+		<label for="o-forms-highlight" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-highlight" placeholder="placeholder" class="o-forms__text" required />
+	</div>
 </div>
+
 <div class="o-forms__wrapper o-forms__wrapper--error">
 	<div class="o-forms__message o-forms__message--error">
 		<p>This is a section error message</p>
 	</div>
 	<div class="o-forms o-forms--error">
-		<label for="o-text-error" class="o-forms__label">Field label</label>
-		<div class="o-forms__additional-info">Additional field information</div>
-		<input type="text" placeholder="placeholder" id="o-text-error" class="o-forms__text" />
+		<div class="o-forms">
+			<label for="o-forms-error" class="o-forms__label">Field Label</label>
+			<input type="text" id="o-forms-error" placeholder="placeholder" class="o-forms__text" required />
+		</div>
 	</div>
 </div>
 
-
 <div class="o-forms__wrapper o-forms__wrapper--wide o-forms__wrapper--error">
 	<div class="o-forms__message o-forms__message--wide o-forms__message--error">
-		<p>This is a section error message (wide</p>
+		<p>This is a section error message (wide)</p>
 	</div>
 	<div class="o-forms o-forms--wide">
-		<label for="o-text-wide" class="o-forms__label">Field label</label>
-		<div class="o-forms__additional-info">Additional field information</div>
-		<input type="text" placeholder="placeholder" id="o-text-wide" class="o-forms__text" />
+		<label for="o-forms-error-wide" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-error-wide" placeholder="placeholder" class="o-forms__text" required />
 	</div>
 </div>
