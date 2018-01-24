@@ -11,24 +11,6 @@
 	.#{$class}__affix-wrapper .#{$class}__textarea {
 		@include oTypographyMargin($top: 0);
 	}
-
-	.#{$class}__affix-wrapper .#{$class}__text,
-	.#{$class}__affix-wrapper .#{$class}__select {
-		display: table-cell;
-		border-radius: 0;
-	}
-
-	.#{$class}__affix-wrapper .#{$class}__text:first-child,
-	.#{$class}__affix-wrapper .#{$class}__select:first-child {
-		border-top-left-radius: $_o-forms-field-border-radius;
-		border-bottom-left-radius: $_o-forms-field-border-radius;
-	}
-
-	.#{$class}__affix-wrapper .#{$class}__text:last-child,
-	.#{$class}__affix-wrapper .#{$class}__select:last-child {
-		border-top-right-radius: $_o-forms-field-border-radius;
-		border-bottom-right-radius: $_o-forms-field-border-radius;
-	}
 }
 
 @mixin oFormsSuffix($class: 'o-forms') {
@@ -48,6 +30,9 @@
 		-webkit-user-select: none;
 		-ms-user-select: none;
 		// sass-lint:enable no-vendor-prefixes
+		> * {
+			display: table-cell; // IE9 hack for child with min-width & border-box
+		}
 	}
 }
 
