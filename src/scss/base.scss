@@ -1,120 +1,127 @@
-@mixin oForms($class: 'o-forms') {
-
+@mixin oFormsOutputBase($class: 'o-forms') {
 	.#{$class} {
 		@include oFormsGroup();
 	}
-
-	/// Common inputs
-
 	.#{$class}__text,
 	.#{$class}__select,
 	.#{$class}__textarea {
 		@include oFormsCommonFieldBase;
 	}
-
 	.#{$class}__select {
 		@include oFormsSelect;
 	}
-
 	.#{$class}__select[multiple] {
 		@include oFormsSelectMulti;
 	}
-
 	.#{$class}__textarea {
 		@include oFormsTextarea;
 	}
-
 	.#{$class}__text--small,
 	.#{$class}__select--small {
 		@include oFormsCommonSmall;
 	}
-
-	/// Radio and checkboxes
-
-	.#{$class}__checkboxes,
-	.#{$class}__radios {
-		@include oFormsRadioCheckboxContainer();
+	// Labeling.
+	.#{$class}__label {
+		@include oFormsLabel;
 	}
-
-	.#{$class}__radio,
-	.#{$class}__checkbox {
-		@include oFormsRadioCheckbox();
+	.#{$class}__label--optional:after {
+		@include oFormsLabelOptional;
 	}
-
-	.#{$class}__radio--right,
-	.#{$class}__checkbox--right {
-		@include oFormsRadioCheckboxRight();
+	.#{$class}__additional-info {
+		@include oFormsAdditionalInfo;
 	}
-
-	.#{$class}__radio {
-		@include oFormsRadio();
-	}
-
-	.#{$class}__checkbox {
-		@include oFormsCheckbox();
-	}
-
-	/// Input suffix support
-
-	.#{$class}__affix-wrapper {
-		@include oFormsAffixWrapper();
-	}
-
-	.#{$class}__suffix {
-		@include oFormsSuffix();
-	}
-
-	/// Toggles (checkbox toggles)
-
-	.#{$class}__toggle {
-		@include oFormsCheckboxToggle();
-	}
-
-	.#{$class}__toggle--inverse {
-		@include oFormsCheckboxToggleInverse();
-	}
-
-	/// Validation
-
+	// Errors and validation.
 	.#{$class}--error .#{$class}__text,
 	.#{$class}--error .#{$class}__select,
 	.#{$class}--error .#{$class}__textarea {
 		@include oFormsCommonFieldInvalid;
 	}
-
 	.#{$class}__errortext {
 		display: none;
 	}
-
 	.#{$class}--error .#{$class}__errortext {
 		@include oFormsErrorText;
 	}
-
-	.#{$class}__checkboxes + .#{$class}--error .#{$class}__errortext,
-	.#{$class}__radios + .#{$class}--error .#{$class}__errortext {
-		@include _oFormsRadioCheckboxErrorText();
-	}
-
 	.#{$class}--valid .#{$class}__text,
 	.#{$class}--valid .#{$class}__select,
 	.#{$class}--valid .#{$class}__textarea {
 		@include oFormsCommonFieldValid;
 	}
+}
 
-	/// Message
+@mixin oFormsOutputRadioCheckboxes($class: 'o-forms') {
+	.#{$class}__checkboxes,
+	.#{$class}__radios {
+		@include oFormsRadioCheckboxContainer();
+	}
+	.#{$class}__radio,
+	.#{$class}__checkbox {
+		@include oFormsRadioCheckbox();
+	}
+	.#{$class}__radio {
+		@include oFormsRadio();
+	}
+	.#{$class}__checkbox {
+		@include oFormsCheckbox();
+	}
+	// Align right modifier.
+	.#{$class}__radio--right,
+	.#{$class}__checkbox--right {
+		@include oFormsRadioCheckboxRight();
+	}
+	// Checkbox and radio validation.
+	.#{$class}__checkboxes + .#{$class}--error .#{$class}__errortext,
+	.#{$class}__radios + .#{$class}--error .#{$class}__errortext {
+		@include _oFormsRadioCheckboxErrorText();
+	}
+}
 
+@mixin oFormsOutputSuffix($class: 'o-forms') {
+	.#{$class}__affix-wrapper {
+		@include oFormsAffixWrapper();
+	}
+	.#{$class}__suffix {
+		@include oFormsSuffix();
+	}
+}
+
+@mixin oFormsOutputToggle($class: 'o-forms') {
+	.#{$class}__toggle {
+		@include oFormsCheckboxToggle();
+	}
+	.#{$class}__toggle--inverse {
+		@include oFormsCheckboxToggleInverse();
+	}
+}
+
+@mixin oFormsOutputToggle($class: 'o-forms') {
+	.#{$class}__toggle {
+		@include oFormsCheckboxToggle();
+	}
+	.#{$class}__toggle--inverse {
+		@include oFormsCheckboxToggleInverse();
+	}
+}
+
+@mixin oFormsOutputMessage($class: 'o-forms') {
 	.#{$class}__message {
 		@include oFormsMessage();
 	}
+}
 
-	/// Wrapper
+@mixin oFormsOutputMessage($class: 'o-forms') {
+	.#{$class}__message {
+		@include oFormsMessage();
+	}
+}
 
+@mixin oFormsOutputWrapper($class: 'o-forms') {
 	.#{$class}__wrapper {
 		@include oFormsWrapper();
 	}
+}
 
-	/// Wide modifier
-
+@mixin oFormsOutputWideModifier($class: 'o-forms') {
 	.#{$class}--wide,
 	.#{$class}--wide .#{$class}__text,
 	.#{$class}--wide .#{$class}__select,
@@ -122,19 +129,5 @@
 	.#{$class}__message--wide,
 	.#{$class}__wrapper--wide {
 		max-width: none;
-	}
-
-	/// Labeling
-
-	.#{$class}__label {
-		@include oFormsLabel;
-	}
-
-	.#{$class}__label--optional:after {
-		@include oFormsLabelOptional;
-	}
-
-	.#{$class}__additional-info {
-		@include oFormsAdditionalInfo;
 	}
 }
