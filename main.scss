@@ -12,6 +12,7 @@
 @import "src/scss/mixins/textarea";
 @import "src/scss/mixins/select";
 @import "src/scss/mixins/radio-checkbox";
+@import "src/scss/mixins/toggle";
 @import "src/scss/mixins/labels";
 
 @import "src/scss/base";
@@ -20,6 +21,24 @@
 @import "src/scss/wrapper";
 @import "src/scss/unskin";
 
+@mixin oForms($class: 'o-forms') {
+	// Common inputs.
+	@include oFormsOutputBase($class);
+	/// Radio and checkboxes.
+	@include oFormsOutputRadioCheckboxes();
+	/// Input suffix support.
+	@include oFormsOutputSuffix();
+	// Toggles (checkbox toggles).
+	@include oFormsOutputToggle();
+	// Message.
+	@include oFormsOutputMessage();
+	// Wrapper.
+	@include oFormsOutputWrapper();
+	/// Wide modifier.
+	@include oFormsOutputWideModifier();
+}
+
 @if $o-forms-is-silent == false {
+	@include oForms();
 	$o-forms-is-silent: true !global;
 }

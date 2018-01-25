@@ -1,81 +1,118 @@
-@mixin oForms($class: 'o-forms') {
+@mixin oFormsOutputBase($class: 'o-forms') {
 	.#{$class} {
 		@include oFormsGroup();
-		@include oFormsRadioCheckboxGroup((radio: '.#{$class}__radio', checkbox: '.#{$class}__checkbox', checkbox-toggle: '.#{$class}__checkbox-toggle__checkbox', label: '.#{$class}__label'));
 	}
-
 	.#{$class}__text,
 	.#{$class}__select,
 	.#{$class}__textarea {
 		@include oFormsCommonFieldBase;
 	}
-
 	.#{$class}__select {
 		@include oFormsSelect;
 	}
-
 	.#{$class}__select[multiple] {
 		@include oFormsSelectMulti;
 	}
-
 	.#{$class}__textarea {
 		@include oFormsTextarea;
 	}
-
 	.#{$class}__text--small,
 	.#{$class}__select--small {
 		@include oFormsCommonSmall;
 	}
-
-	@include oFormsRadioCheckbox();
-
-	.#{$class}__checkbox-toggle {
-		@include oFormsCheckboxToggle();
+	// Labeling.
+	.#{$class}__label {
+		@include oFormsLabel;
 	}
-
-	.#{$class}__checkbox-toggle--inverse {
-		@include oFormsCheckboxToggleInverse();
+	.#{$class}__label--optional:after {
+		@include oFormsLabelOptional;
 	}
-
+	.#{$class}__additional-info {
+		@include oFormsAdditionalInfo;
+	}
+	// Errors and validation.
 	.#{$class}--error .#{$class}__text,
 	.#{$class}--error .#{$class}__select,
 	.#{$class}--error .#{$class}__textarea {
 		@include oFormsCommonFieldInvalid;
 	}
-
+	.#{$class}__errortext {
+		display: none;
+	}
+	.#{$class}--error .#{$class}__errortext {
+		@include oFormsErrorText;
+	}
 	.#{$class}--valid .#{$class}__text,
 	.#{$class}--valid .#{$class}__select,
 	.#{$class}--valid .#{$class}__textarea {
 		@include oFormsCommonFieldValid;
 	}
+}
 
-	.#{$class}--wide .#{$class}__text,
-	.#{$class}--wide .#{$class}__select,
-	.#{$class}--wide .#{$class}__textarea {
-		@include oFormsFullWidth;
+@mixin oFormsOutputRadioCheckboxes($class: 'o-forms') {
+	.#{$class}__checkboxes,
+	.#{$class}__radios {
+		@include oFormsRadioCheckboxContainer();
 	}
-
-	.#{$class}__additional-info {
-		@include oFormsAdditionalInfo;
+	.#{$class}__radio,
+	.#{$class}__checkbox {
+		@include oFormsRadioCheckbox();
 	}
-
-	.#{$class}__label {
-		@include oFormsLabel;
+	.#{$class}__radio {
+		@include oFormsRadio();
 	}
-
-	.#{$class}__label--optional:after {
-		@include oFormsLabelOptional;
+	.#{$class}__checkbox {
+		@include oFormsCheckbox();
 	}
-
-	.#{$class}__errortext {
-		display: none;
+	// Align right modifier.
+	.#{$class}__radio--right,
+	.#{$class}__checkbox--right {
+		@include oFormsRadioCheckboxRight();
 	}
-
-	.#{$class}--error .#{$class}__errortext {
-		@include oFormsErrorText;
+	// Checkbox and radio validation.
+	.#{$class}--error .#{$class}__checkboxes + .#{$class}__errortext,
+	.#{$class}--error .#{$class}__radios + .#{$class}__errortext {
+		@include _oFormsRadioCheckboxErrorText();
 	}
 }
 
-@if $o-forms-is-silent == false {
-	@include oForms;
+@mixin oFormsOutputSuffix($class: 'o-forms') {
+	.#{$class}__affix-wrapper {
+		@include oFormsAffixWrapper();
+	}
+	.#{$class}__suffix {
+		@include oFormsSuffix();
+	}
+}
+
+@mixin oFormsOutputToggle($class: 'o-forms') {
+	.#{$class}__toggle {
+		@include oFormsCheckboxToggle();
+	}
+	.#{$class}__toggle--inverse {
+		@include oFormsCheckboxToggleInverse();
+	}
+}
+
+@mixin oFormsOutputMessage($class: 'o-forms') {
+	.#{$class}__message {
+		@include oFormsMessage();
+	}
+}
+
+@mixin oFormsOutputWrapper($class: 'o-forms') {
+	.#{$class}__wrapper {
+		@include oFormsWrapper();
+	}
+}
+
+@mixin oFormsOutputWideModifier($class: 'o-forms') {
+	.#{$class}--wide,
+	.#{$class}--wide .#{$class}__text,
+	.#{$class}--wide .#{$class}__select,
+	.#{$class}--wide .#{$class}__textarea,
+	.#{$class}__message--wide,
+	.#{$class}__wrapper--wide {
+		max-width: none;
+	}
 }

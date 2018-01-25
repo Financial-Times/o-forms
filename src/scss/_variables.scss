@@ -23,6 +23,7 @@ $_o-forms-typography-scale-large: 1;
 $_o-forms-group-spacing: oTypographySpacingSize(5); // 20px
 $_o-forms-spacing: oTypographySpacingSize(3); // 12px
 $_o-forms-checkbox-legend-spacing: oTypographySpacingSize(2); // 8px
+$_o-forms-checkbox-horizontal-spacing: 15px;
 
 $_o-forms-field-border-width: 1px;
 $_o-forms-field-border: $_o-forms-field-border-width solid oColorsGetColorFor(o-forms-field-standard, border);
@@ -48,8 +49,6 @@ $_o-forms__radiocheckbox-default-size: 24px;
 
 // Inner circle sizes
 $_o-forms__radio-internal-default-size: 12px;
-
-$_o-forms__label-margin-bottom: 4px;
 
 $_o-forms__label-padding-left: 12px;
 

@@ -45,9 +45,9 @@
             "description": "<strong>Usercase:</strong> These are the generic check boxes for most use cases."
         },
         {
-            "name": "checkbox-toggle",
+            "name": "toggle",
             "title": "A checkbox which acts as a toggle",
-            "template": "/demos/src/checkbox-toggle.mustache",
+            "template": "/demos/src/toggle.mustache",
             "description": "<strong>Usercase:</strong> This is a checkbox which looks like a toggle, useful as an on/off e.g. for settings."
         },
         {

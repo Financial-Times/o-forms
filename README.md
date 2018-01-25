@@ -114,11 +114,11 @@ Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them
 	<fieldset class="o-forms">
 		<legend class="o-forms__label">Checkbox Toggle</legend>
 		<div class="o-forms__checkboxes">
-			<div class="o-forms__checkbox-toggle">
+			<div class="o-forms__toggle">
 				<input data-o-form-toggle type="checkbox" id="a" checked="checked" />
 				<label for="a" class="o-forms__label">Checkbox Toggle a</label>
 			</div>
-			<div class="o-forms__checkbox-toggle">
+			<div class="o-forms__toggle">
 				<input data-o-form-toggle type="checkbox" id="b" />
 				<label for="b" class="o-forms__label">Checkbox Toggle b</label>
 			</div>
@@ -129,7 +129,7 @@ Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them
 
 [Radio control examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/radios)
 [Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkboxes)
-[Toggle Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkbox-toggle)
+[Toggle Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/toggle)
 
 #### Optional Labels
 
@@ -260,7 +260,6 @@ The `oForms` mixin also allows customisation of the base classname:
 - `oFormsMessage` - styles for global form messages.
 - `oFormsSuffix` - adds ability to affix content to form fields, used to affix buttons.
 - `oFormsLabelOptional` - styles to add an "optional" indicator to a label.
-- `oFormsUnskin` - removes all default styling from a field.
 
 For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).
 
