@@ -30,10 +30,10 @@
 	@include oFormsOutputSuffix();
 	// Toggles (checkbox toggles).
 	@include oFormsOutputToggle();
-	// Wide modiifer.
-	@include oFormsOutputToggle();
-	/// Message.
+	// Message.
 	@include oFormsOutputMessage();
+	// Wrapper.
+	@include oFormsOutputWrapper();
 	/// Wide modifier.
 	@include oFormsOutputWideModifier();
 }

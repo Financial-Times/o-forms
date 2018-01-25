@@ -94,21 +94,6 @@
 	}
 }
 
-@mixin oFormsOutputToggle($class: 'o-forms') {
-	.#{$class}__toggle {
-		@include oFormsCheckboxToggle();
-	}
-	.#{$class}__toggle--inverse {
-		@include oFormsCheckboxToggleInverse();
-	}
-}
-
-@mixin oFormsOutputMessage($class: 'o-forms') {
-	.#{$class}__message {
-		@include oFormsMessage();
-	}
-}
-
 @mixin oFormsOutputMessage($class: 'o-forms') {
 	.#{$class}__message {
 		@include oFormsMessage();
