@@ -1,8 +1,10 @@
 @mixin oForms($class: 'o-forms') {
+
 	.#{$class} {
 		@include oFormsGroup();
-		@include oFormsRadioCheckboxGroup((radio: '.#{$class}__radio', checkbox: '.#{$class}__checkbox', checkbox-toggle: '.#{$class}__checkbox-toggle__checkbox', label: '.#{$class}__label'));
 	}
+
+	/// Common inputs
 
 	.#{$class}__text,
 	.#{$class}__select,
@@ -27,44 +29,57 @@
 		@include oFormsCommonSmall;
 	}
 
-	@include oFormsRadioCheckbox();
+	/// Radio and checkboxes
 
-	.#{$class}__checkbox-toggle {
+	.#{$class}__checkboxes,
+	.#{$class}__radios {
+		@include oFormsRadioCheckboxContainer();
+	}
+
+	.#{$class}__radio,
+	.#{$class}__checkbox {
+		@include oFormsRadioCheckbox();
+	}
+
+	.#{$class}__radio--right,
+	.#{$class}__checkbox--right {
+		@include oFormsRadioCheckboxRight();
+	}
+
+	.#{$class}__radio {
+		@include oFormsRadio();
+	}
+
+	.#{$class}__checkbox {
+		@include oFormsCheckbox();
+	}
+
+	/// Input suffix support
+
+	.#{$class}__affix-wrapper {
+		@include oFormsAffixWrapper();
+	}
+
+	.#{$class}__suffix {
+		@include oFormsSuffix();
+	}
+
+	/// Toggles (checkbox toggles)
+
+	.#{$class}__toggle {
 		@include oFormsCheckboxToggle();
 	}
 
-	.#{$class}__checkbox-toggle--inverse {
+	.#{$class}__toggle--inverse {
 		@include oFormsCheckboxToggleInverse();
 	}
+
+	/// Validation
 
 	.#{$class}--error .#{$class}__text,
 	.#{$class}--error .#{$class}__select,
 	.#{$class}--error .#{$class}__textarea {
 		@include oFormsCommonFieldInvalid;
-	}
-
-	.#{$class}--valid .#{$class}__text,
-	.#{$class}--valid .#{$class}__select,
-	.#{$class}--valid .#{$class}__textarea {
-		@include oFormsCommonFieldValid;
-	}
-
-	.#{$class}--wide .#{$class}__text,
-	.#{$class}--wide .#{$class}__select,
-	.#{$class}--wide .#{$class}__textarea {
-		@include oFormsFullWidth;
-	}
-
-	.#{$class}__additional-info {
-		@include oFormsAdditionalInfo;
-	}
-
-	.#{$class}__label {
-		@include oFormsLabel;
-	}
-
-	.#{$class}__label--optional:after {
-		@include oFormsLabelOptional;
 	}
 
 	.#{$class}__errortext {
@@ -74,8 +89,52 @@
 	.#{$class}--error .#{$class}__errortext {
 		@include oFormsErrorText;
 	}
-}
 
-@if $o-forms-is-silent == false {
-	@include oForms;
+	.#{$class}__checkboxes + .#{$class}--error .#{$class}__errortext,
+	.#{$class}__radios + .#{$class}--error .#{$class}__errortext {
+		@include _oFormsRadioCheckboxErrorText();
+	}
+
+	.#{$class}--valid .#{$class}__text,
+	.#{$class}--valid .#{$class}__select,
+	.#{$class}--valid .#{$class}__textarea {
+		@include oFormsCommonFieldValid;
+	}
+
+	/// Message
+
+	.#{$class}__message {
+		@include oFormsMessage();
+	}
+
+	/// Wrapper
+
+	.#{$class}__wrapper {
+		@include oFormsWrapper();
+	}
+
+	/// Wide modifier
+
+	.#{$class}--wide,
+	.#{$class}--wide .#{$class}__text,
+	.#{$class}--wide .#{$class}__select,
+	.#{$class}--wide .#{$class}__textarea,
+	.#{$class}__message--wide,
+	.#{$class}__wrapper--wide {
+		max-width: none;
+	}
+
+	/// Labeling
+
+	.#{$class}__label {
+		@include oFormsLabel;
+	}
+
+	.#{$class}__label--optional:after {
+		@include oFormsLabelOptional;
+	}
+
+	.#{$class}__additional-info {
+		@include oFormsAdditionalInfo;
+	}
 }

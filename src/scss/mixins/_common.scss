@@ -86,85 +86,26 @@
 	border: 0;
 
 	// sass-lint:disable mixins-before-declarations
-	@include _oFormsBreakpoint {
+	@include oGridRespondTo(S) {
 		padding-right: $_o-forms-padding;
 		padding-left: $_o-forms-padding;
 	}
 	// sass-lint:enable mixins-before-declarations
-
-	&--wide {
-		@include oFormsFullWidth;
-	}
 }
 
-@mixin oFormsRadioCheckboxGroup($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', checkbox-toggle: '.o-forms__checkbox-toggle__checkbox', label: '.o-forms__label')) {
-	$checkbox-toggle: unquote(map-get($selectors, checkbox-toggle));
-	$checkbox: unquote(map-get($selectors, checkbox));
-	$radio: unquote(map-get($selectors, radio));
-	$label: unquote(map-get($selectors, label));
-
-	&__checkboxes,
-	&__radios {
-		margin: 0 0 #{-$_o-forms-spacing};
-		#{$radio} + #{$label},
-		#{$checkbox-toggle} + #{$label},
-		#{$checkbox} + #{$label} {
-			width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
-			box-sizing: border-box;
-			margin: $_o-forms-checkbox-legend-spacing 15px $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
-			&:last-of-type {
-				margin-right: 0;
-			}
-		}
-
-		$align-right: '--right';
-		#{$radio}#{$align-right} + #{$label},
-		#{$checkbox}#{$align-right} + #{$label} {
-			margin: $_o-forms-checkbox-legend-spacing 15px $_o-forms-spacing 0;
-			&:last-of-type {
-				margin-right: 15px;
-				margin-left: 0;
-			}
-		}
-
-		&--inline {
-			#{$radio} + #{$label},
-			#{$checkbox} + #{$label} {
-				width: auto;
-			}
-		}
-	}
-
-	&__checkboxes + &__errortext,
-	&__radios + &__errortext {
-		@include _oFormsRadioCheckboxErrorText();
-	}
-}
-
-/// All the field to extend to the full width
-/// of the container
-@mixin oFormsFullWidth() {
-	// sass-lint:disable no-important
-	max-width: none !important;
-	// sass-lint:enable no-important
-}
-
-/// Target styles at Internet Explorer 8 only
-@mixin _oFormsTargetIE8 {
-	@media \0screen {
-		@content;
-	}
-}
-
-/// Target both IE8 and modern browsers at the breakpoint
-/// Useful for layout changes at the Small breakpoint
-@mixin _oFormsBreakpoint {
-	@include oGridRespondTo(S) {
-		@content;
-	}
-	@include oGridTargetIE8 {
-		@content;
-	}
+@mixin _oFormsRadioCheckboxLabel {
+	@include oTypographySize($_o-forms-typography-scale-regular);
+	display: inline-block;
+	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
+	position: relative;
+	cursor: pointer;
+	font-weight: oFontsWeight('normal');
+	padding-top: 2px; // To align the text with the center of the checkbox/radio
+	// sass-lint:disable no-vendor-prefixes
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	// sass-lint:enable no-vendor-prefixes
 }
 
 // From: https://css-tricks.com/snippets/sass/str-replace-function/
