@@ -70,8 +70,8 @@
 		@include oFormsRadioCheckboxRight();
 	}
 	// Checkbox and radio validation.
-	.#{$class}__checkboxes + .#{$class}--error .#{$class}__errortext,
-	.#{$class}__radios + .#{$class}--error .#{$class}__errortext {
+	.#{$class}--error .#{$class}__checkboxes + .#{$class}__errortext,
+	.#{$class}--error .#{$class}__radios + .#{$class}__errortext {
 		@include _oFormsRadioCheckboxErrorText();
 	}
 }
