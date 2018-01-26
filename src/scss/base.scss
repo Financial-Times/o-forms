@@ -47,6 +47,10 @@
 	.#{$class}--valid .#{$class}__textarea {
 		@include oFormsCommonFieldValid;
 	}
+	// Wide modifier
+	.#{$class}--wide {
+		max-width: none;
+	}
 }
 
 @mixin oFormsOutputRadioCheckboxes($class: 'o-forms') {
@@ -64,15 +68,17 @@
 	.#{$class}__checkbox {
 		@include oFormsCheckbox();
 	}
-	// Align right modifier.
-	.#{$class}__radio--right,
-	.#{$class}__checkbox--right {
-		@include oFormsRadioCheckboxRight();
-	}
 	// Checkbox and radio validation.
 	.#{$class}--error .#{$class}__checkboxes + .#{$class}__errortext,
 	.#{$class}--error .#{$class}__radios + .#{$class}__errortext {
 		@include _oFormsRadioCheckboxErrorText();
+	}
+}
+
+@mixin oFormsOutputRadioCheckboxesRightModifier($class: 'o-forms') {
+	.#{$class}__radio--right,
+	.#{$class}__checkbox--right {
+		@include oFormsRadioCheckboxRight();
 	}
 }
 
@@ -94,15 +100,15 @@
 	}
 }
 
-@mixin oFormsOutputMessage($class: 'o-forms') {
-	.#{$class}__message {
-		@include oFormsMessage();
+@mixin oFormsOutputSection($class: 'o-forms') {
+	.#{$class}-section {
+		@include oFormsSection();
 	}
 }
 
-@mixin oFormsOutputWrapper($class: 'o-forms') {
-	.#{$class}__wrapper {
-		@include oFormsWrapper();
+@mixin oFormsOutputUnskin($class: 'o-forms') {
+	.#{$class}--unskin {
+		@include oFormsUnskin();
 	}
 }
 
@@ -111,8 +117,7 @@
 	.#{$class}--wide .#{$class}__text,
 	.#{$class}--wide .#{$class}__select,
 	.#{$class}--wide .#{$class}__textarea,
-	.#{$class}__message--wide,
-	.#{$class}__wrapper--wide {
+	.#{$class}-section--wide {
 		max-width: none;
 	}
 }
