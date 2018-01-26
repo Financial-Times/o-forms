@@ -176,6 +176,7 @@
 }
 
 /// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Overriding styles to remove input style whilst keeping its structure intact.
 /// @ignore This is a candidate for deprecation. Support is patchy and it is barely used, if at all.
 @mixin oFormsUnskinFeature($class: 'o-forms') {
 	.#{$class}--unskin {
