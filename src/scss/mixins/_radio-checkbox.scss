@@ -1,33 +1,46 @@
 ////
-/// @group o-forms
-/// @link http://registry.origami.ft.com/components/o-forms
+/// @group Radio & Checkbox
 ////
 
-@mixin oFormsGroupContainer($class: 'o-forms') {
-	margin: 0 0 #{-$_o-forms-spacing};
-
-	.#{$class}__label {
-		width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
-		box-sizing: border-box;
-		margin: $_o-forms-checkbox-legend-spacing $_o-forms-checkbox-horizontal-spacing $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
-		&:last-of-type {
-			margin-right: 0;
-		}
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsRadioCheckbox - The shared radio/checkbox styles must be output for this to build upon them.
+/// @output Styles for radio inputs.
+@mixin oFormsRadio($class: 'o-forms') {
+	& + .#{$class}__label::before {
+		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
+		border-radius: 9999px;
 	}
-
-	&--inline {
-		.#{$class}__label,
-		.#{$class}__label {
-			width: auto;
-		}
+	&:checked + .#{$class}__label::before {
+		// Outer ring changes to teal when the radio button is checked
+		border: 1px solid oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
+	}
+	& + .#{$class}__label::after {
+		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
+		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
+		border-radius: 9999px;
+		height: $_o-forms-radio-internal-default-size;
+		width: $_o-forms-radio-internal-default-size;
+		left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
+		top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
 	}
 }
 
-/// Radio and checkboxes
-///
-/// Draws a fake control (radio or checkbox) using pseudo-elements
-///
-/// @param {map} $selectors [(label: '.o-forms__label')]
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsRadioCheckbox - The shared radio/checkbox styles must be output for this to build upon them.
+/// @output Styles for checkbox inputs.
+@mixin oFormsCheckbox($class: 'o-forms') {
+	& + .#{$class}__label::after {
+		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), $_o-forms-radiocheckbox-default-size);
+		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
+	}
+}
+
+/// Draws a fake control (radio or checkbox) using pseudo-elements.
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Shared styles of radio and checkbox inputs, including label changes.
 @mixin oFormsRadioCheckbox($class: 'o-forms') {
 	position: absolute;
 	opacity: 0; // better than display: none as it allows tabbing
@@ -41,8 +54,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: $_o-forms__radiocheckbox-default-size;
-		height: $_o-forms__radiocheckbox-default-size;
+		width: $_o-forms-radiocheckbox-default-size;
+		height: $_o-forms-radiocheckbox-default-size;
 		border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
 		box-sizing: border-box;
 		content: '';
@@ -69,9 +82,13 @@
 	}
 }
 
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsRadioCheckbox - The basic checkbox/radio styles must be output for these styles to modify.
+/// @output Styles to position radio/checkbox inputs to the right of their label.
 @mixin oFormsRadioCheckboxRight($class: 'o-forms') {
 	& + .#{$class}__label {
-		padding-right: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left;
+		padding-right: $_o-forms-radiocheckbox-default-size + $_o-forms-label-padding-left;
 		padding-left: 0;
 		text-align: right;
 	}
@@ -83,29 +100,49 @@
 	}
 }
 
-@mixin oFormsRadio($class: 'o-forms') {
-	& + .#{$class}__label::before {
-		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
-		border-radius: 9999px;
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Styles to wrap a group of checkboxes or a group of radios for purposes of positioning etc.
+@mixin oFormsGroupContainer($class: 'o-forms') {
+	margin: 0 0 #{-$_o-forms-spacing};
+
+	.#{$class}__label {
+		width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
+		box-sizing: border-box;
+		margin: $_o-forms-checkbox-legend-spacing $_o-forms-checkbox-horizontal-spacing $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
+		&:last-of-type {
+			margin-right: 0;
+		}
 	}
-	&:checked + .#{$class}__label::before {
-		// Outer ring changes to teal when the radio button is checked
-		border: 1px solid oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
-	}
-	& + .#{$class}__label::after {
-		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
-		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
-		border-radius: 9999px;
-		height: $_o-forms__radio-internal-default-size;
-		width: $_o-forms__radio-internal-default-size;
-		left: ($_o-forms__radiocheckbox-default-size - $_o-forms__radio-internal-default-size) / 2;
-		top: ($_o-forms__radiocheckbox-default-size - $_o-forms__radio-internal-default-size) / 2;
+
+	&--inline {
+		.#{$class}__label,
+		.#{$class}__label {
+			width: auto;
+		}
 	}
 }
 
-@mixin oFormsCheckbox($class: 'o-forms') {
-	& + .#{$class}__label::after {
-		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), $_o-forms__radiocheckbox-default-size);
-		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
-	}
+/// @access private
+/// @require {mixin} oFormsErrorText - Foundation error text styles are required.
+/// @output Modifying styles to update the position of error text which pertains to a group.
+@mixin _oFormsGroupContainerErrorText {
+	margin-top: $_o-forms-checkbox-legend-spacing;
+}
+
+/// @access private
+/// @output Styles to modify checkbox/radio labels.
+@mixin _oFormsRadioCheckboxLabel {
+	@include oTypographySize($_o-forms-typography-scale-regular);
+	display: inline-block;
+	padding-left: $_o-forms-radiocheckbox-default-size + $_o-forms-label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
+	position: relative;
+	cursor: pointer;
+	font-weight: oFontsWeight('normal');
+	padding-top: 2px; // To align the text with the center of the checkbox/radio
+	// sass-lint:disable no-vendor-prefixes
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	// sass-lint:enable no-vendor-prefixes
 }

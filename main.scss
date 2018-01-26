@@ -1,45 +1,37 @@
+////
+/// @ignore This main file outputs all form features if silent mode is off.
+/// @see {mixin} oForms
+////
+
+// Dependancies.
 @import 'o-typography/main';
 @import "o-normalise/main";
 @import "o-colors/main";
 @import "o-grid/main";
 @import "o-icons/main";
 
+// Deprecated form features.
 @import "src/scss/deprecated";
+
+// Variables and colours.
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
 
+// Partial mixins used together to generate form features.
 @import "src/scss/mixins/common";
 @import "src/scss/mixins/textarea";
 @import "src/scss/mixins/select";
 @import "src/scss/mixins/radio-checkbox";
 @import "src/scss/mixins/toggle";
 @import "src/scss/mixins/labels";
+@import "src/scss/mixins/suffix";
+@import "src/scss/mixins/sections";
+@import "src/scss/mixins/unskin";
 
+// High level form mixins.
 @import "src/scss/base";
-@import "src/scss/suffix";
-@import "src/scss/message";
-@import "src/scss/sections";
-@import "src/scss/unskin";
 
-@mixin oForms($class: 'o-forms') {
-	// Common inputs.
-	@include oFormsOutputBase($class);
-	// Radio and checkboxes.
-	@include oFormsOutputRadioCheckboxes($class);
-	// Radio and checkboxes right modifier.
-	@include oFormsOutputRadioCheckboxesRightModifier($class);
-	// Input suffix support.
-	@include oFormsOutputSuffix($class);
-	// Toggles (checkbox toggles).
-	@include oFormsOutputToggle($class);
-	// Sections.
-	@include oFormsOutputSection($class);
-	// Wide modifer.
-	@include oFormsOutputWideModifier($class);
-	// Unskin modifier.
-	@include oFormsOutputUnskin($class);
-}
-
+/// Output all form features if silent mode is off.
 @if $o-forms-is-silent == false {
 	@include oForms();
 	$o-forms-is-silent: true !global;
