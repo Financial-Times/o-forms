@@ -142,6 +142,7 @@
 }
 
 /// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Wrapping styles to highlight sections of a form including section messages.
 @mixin oFormsSectionFeature($class: 'o-forms') {
 	.#{$class}-section {
@@ -149,6 +150,7 @@
 	}
 }
 
+/// @param {string} $class - The block level class name (BEM naming convention).
 /// @ignore This is a candidate for deprecation. Support is patchy and it is barely used, if at all.
 @mixin oFormsUnskinFeature($class: 'o-forms') {
 	.#{$class}--unskin {
