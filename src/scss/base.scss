@@ -162,7 +162,7 @@
 @mixin oFormsSmallFeature($class: 'o-forms') {
 	.#{$class}__text--small,
 	.#{$class}__select--small {
-		@include oFormsCommonSmall;
+		@include oFormsCommonSmall();
 	}
 }
 

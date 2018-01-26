@@ -1,7 +1,6 @@
-/// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Style to unskin a text input field entirely, but keep its structure intact.
 /// @ignore This is a candidate for deprecation. Support is patchy and it is barely used, if at all.
-@mixin oFormsUnskin($class: 'o-forms') {
+@mixin oFormsUnskin {
 	// sass-lint:disable no-vendor-prefixes no-important
 	-moz-appearance: none !important;
 	-webkit-appearance: none !important;
