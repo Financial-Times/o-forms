@@ -1,7 +1,32 @@
 ////
 /// A selection of mixins to output o-forms CSS by key features.
 /// @group o-forms
+/// @link http://registry.origami.ft.com/components/o-forms
 ////
+
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Styles for all form features.
+@mixin oForms($class: 'o-forms') {
+	// Common inputs.
+	@include oFormsBaseFeatures($class);
+	// Radio and checkboxes.
+	@include oFormsRadioCheckboxFeatures($class);
+	// Radio and checkboxes right modifier.
+	@include oFormsRadioCheckboxRightModifier($class);
+	// Input suffix support.
+	@include oFormsSuffixFeature($class);
+	// Toggles (checkbox toggles).
+	@include oFormsCheckboxToggleFeature($class);
+	// Sections.
+	@include oFormsSectionFeature($class);
+	// Small modifer.
+	@include oFormsSmallFeature($class);
+	// Wide modifer.
+	@include oFormsWideFeature($class);
+	// Unskin modifier.
+	@include oFormsUnskinFeature($class);
+}
 
 /// @access public
 /// @param {string} $class - The block level class name (BEM naming convention).
