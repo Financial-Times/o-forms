@@ -1,4 +1,10 @@
-/// Label styles
+////
+/// A selection of mixins to output o-forms CSS by key features.
+/// @group Labels
+////
+
+/// @access public
+/// @output Styles for a label.
 @mixin oFormsLabel {
 	@include oTypographyBold('sans');
 	@include oColorsFor(o-forms-field-label body, text);
@@ -13,14 +19,16 @@
 	}
 }
 
-/// Additional info
+/// @access public
+/// @output Styles for addional input information (typically below a label).
 @mixin oFormsAdditionalInfo {
 	@include oColorsFor(o-forms-field-additional-info body, text);
 	@include oTypographySize($_o-forms-typography-scale-small);
 	display: block;
 }
 
-/// Error text
+/// @access public
+/// @output Styles for error text.
 @mixin oFormsErrorText {
 	@include oColorsFor(o-forms-field-invalid, text);
 	@include oTypographySize($_o-forms-typography-scale-small);
@@ -30,11 +38,9 @@
 	padding: 3px 0;
 }
 
-// Group containers (which wrap checkboxes/radios) have differing error margins.
-@mixin _oFormsGroupContainerErrorText {
-	margin-top: $_o-forms-checkbox-legend-spacing;
-}
-
+/// @access public
+/// @require {mixin} oFormsLabel - Foundation label styles are required.
+/// @output Modifying styles for labels of optional fields.
 @mixin oFormsLabelOptional {
 	@include oColorsFor(o-forms-field-additional-info body, text);
 	@include oTypographySize($_o-forms-typography-scale-small);

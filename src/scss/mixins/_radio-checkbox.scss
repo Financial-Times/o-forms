@@ -3,26 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-forms
 ////
 
-@mixin oFormsGroupContainer($class: 'o-forms') {
-	margin: 0 0 #{-$_o-forms-spacing};
-
-	.#{$class}__label {
-		width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
-		box-sizing: border-box;
-		margin: $_o-forms-checkbox-legend-spacing $_o-forms-checkbox-horizontal-spacing $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
-		&:last-of-type {
-			margin-right: 0;
-		}
-	}
-
-	&--inline {
-		.#{$class}__label,
-		.#{$class}__label {
-			width: auto;
-		}
-	}
-}
-
 /// Radio and checkboxes
 ///
 /// Draws a fake control (radio or checkbox) using pseudo-elements
@@ -108,4 +88,31 @@
 		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), $_o-forms__radiocheckbox-default-size);
 		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
 	}
+}
+
+@mixin oFormsGroupContainer($class: 'o-forms') {
+	margin: 0 0 #{-$_o-forms-spacing};
+
+	.#{$class}__label {
+		width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
+		box-sizing: border-box;
+		margin: $_o-forms-checkbox-legend-spacing $_o-forms-checkbox-horizontal-spacing $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	&--inline {
+		.#{$class}__label,
+		.#{$class}__label {
+			width: auto;
+		}
+	}
+}
+
+/// @access private
+/// @require {mixin} oFormsErrorText - Foundation error text styles are required.
+/// @output Modifying styles to update the position of error text which pertains to a group.
+@mixin _oFormsGroupContainerErrorText {
+	margin-top: $_o-forms-checkbox-legend-spacing;
 }
