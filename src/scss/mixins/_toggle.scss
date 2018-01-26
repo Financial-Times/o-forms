@@ -1,3 +1,11 @@
+////
+/// @group Toggle
+////
+
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @see {mixin} oFormsCheckboxToggleInverse - An inversed toggle style is avalible.
+/// @output Styles for toggle interface which is backed by a checkbox input.
 @mixin oFormsCheckboxToggle($class: 'o-forms') {
 	.#{$class}__label {
 		@include _oFormsRadioCheckboxLabel();
@@ -36,6 +44,10 @@
 	}
 }
 
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsCheckboxToggle - To display an inversed toggle the basic toggle styles must first be output.
+/// @output Styles for an inversed checkbox toggle.
 @mixin oFormsCheckboxToggleInverse($class: 'o-forms') {
 	.#{$class}__label {
 		&:before {
