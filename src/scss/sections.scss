@@ -1,3 +1,11 @@
+////
+/// @group Sections
+////
+
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsMessage - Sections optionally contain a message, which is coloured according to the section modifier.
+/// @output Styles to wrap and highlight instances of o-forms, optionally with a global message for the wrapped inputs.
 @mixin oFormsSection($class: 'o-forms') {
 	$message-selector: #{&}__message;
 	max-width: $_o-forms-field-max-width;
@@ -10,10 +18,12 @@
 		margin-right: 0;
 	}
 
+	// A highlighted section.
 	&--highlight {
 		@include oColorsFor(o-forms-highlight, background);
 	}
 
+	// An errored section, which will have a coloured message.
 	&--error {
 		background-color: #f8d9d9;
 		#{$message-selector} {
@@ -21,17 +31,21 @@
 		}
 	}
 
+	// Messages which sit at the top of a section with no margin.
 	&__message {
 		@include oFormsMessage();
 		margin-top: -$_o-forms-padding;
 	}
 
+	// The last o-forms input does not need a bottom margin now.
 	& > .#{$class}:last-child {
 		margin-bottom: 0;
 	}
 }
 
-@mixin oFormsMessage($class: 'o-forms') {
+/// @access public
+/// @output Styles for a message which spans multiple o-forms instances.
+@mixin oFormsMessage() {
 	@include oTypographySize($_o-forms-typography-scale-large);
 	@include oColorsFor(o-forms-highlight, background);
 	padding: 0 $_o-forms-padding;
