@@ -1,6 +1,10 @@
-/// Select styles
-///
-/// To be used in combination with oFormsCommonField
+////
+/// @group Select
+////
+
+/// @access public
+/// @require {mixin} oFormsCommonField
+/// @output Styles for a select input.
 @mixin oFormsSelect {
 	@include oColorsFor(o-forms-field-standard, text);
 	$icon-color: oColorsGetColorFor(o-forms-field-standard, text);
@@ -49,6 +53,10 @@
 	}
 }
 
+/// @access public
+/// @require {mixin} oFormsCommonField
+/// @require {mixin} oFormsSelect
+/// @output Styles for a multi select input.
 @mixin oFormsSelectMulti() {
 	cursor: pointer;
 	// Reset the height to auto after the common field styles are applied
