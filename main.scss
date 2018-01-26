@@ -18,24 +18,26 @@
 @import "src/scss/base";
 @import "src/scss/suffix";
 @import "src/scss/message";
-@import "src/scss/wrapper";
+@import "src/scss/sections";
 @import "src/scss/unskin";
 
 @mixin oForms($class: 'o-forms') {
 	// Common inputs.
 	@include oFormsOutputBase($class);
-	/// Radio and checkboxes.
-	@include oFormsOutputRadioCheckboxes();
-	/// Input suffix support.
-	@include oFormsOutputSuffix();
+	// Radio and checkboxes.
+	@include oFormsOutputRadioCheckboxes($class);
+	// Radio and checkboxes right modifier.
+	@include oFormsOutputRadioCheckboxesRightModifier($class);
+	// Input suffix support.
+	@include oFormsOutputSuffix($class);
 	// Toggles (checkbox toggles).
-	@include oFormsOutputToggle();
-	// Message.
-	@include oFormsOutputMessage();
-	// Wrapper.
-	@include oFormsOutputWrapper();
-	/// Wide modifier.
-	@include oFormsOutputWideModifier();
+	@include oFormsOutputToggle($class);
+	// Sections.
+	@include oFormsOutputSection($class);
+	// Wide modifer.
+	@include oFormsOutputWideModifier($class);
+	// Unskin modifier.
+	@include oFormsOutputUnskin($class);
 }
 
 @if $o-forms-is-silent == false {

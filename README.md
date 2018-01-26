@@ -256,7 +256,7 @@ The `oForms` mixin also allows customisation of the base classname:
 
 `o-forms` provides some additional features that can be included separately using their own mixins.
 
-- `oFormsWrapper` - an area around the form, which can be coloured.
+- `oFormsSection` - an area around the form, which can be coloured.
 - `oFormsMessage` - styles for global form messages.
 - `oFormsSuffix` - adds ability to affix content to form fields, used to affix buttons.
 - `oFormsLabelOptional` - styles to add an "optional" indicator to a label.

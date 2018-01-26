@@ -103,33 +103,6 @@
 	</div>
 </fieldset>
 
-<div class="o-forms__message">
-	<p>This is a global message</p>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="global-message">Field label</label>
-	<div class="o-forms__additional-info">Additional field information</div>
-	<input id="global-message" type="text" placeholder="placeholder" class="o-forms__text" />
-</div>
-
-<div class="o-forms__message o-forms__message--error">
-	<p>This is a global error message</p>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="global-message-error">Field label</label>
-	<div class="o-forms__additional-info">Additional field information</div>
-	<input id="global-message-error" type="text" placeholder="placeholder" class="o-forms__text" />
-</div>
-
-<div class="o-forms__message o-forms__message--wide o-forms__message--error">
-	<p>This is a global error message (wide)</p>
-</div>
-<div class="o-forms o-forms--wide">
-	<label class="o-forms__label" for="form-wide">Field label</label>
-	<div class="o-forms__additional-info">Additional field information</div>
-	<input id="form-wide" type="text" placeholder="placeholder" class="o-forms__text" />
-</div>
-
 <fieldset class="o-forms">
 	<legend class="o-forms__label">Default radio controls</legend>
 	<div class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
@@ -347,32 +320,50 @@
 	<textarea placeholder="Placeholder" id="o-forms__textarea-wide" class="o-forms__textarea"></textarea>
 </div>
 
-<div class="o-forms__wrapper o-forms__wrapper--highlight">
+<div class="o-forms-section o-forms-section--highlight">
 	<div class="o-forms">
 		<label for="o-forms-highlight" class="o-forms__label">Field Label</label>
 		<input type="text" id="o-forms-highlight" placeholder="placeholder" class="o-forms__text" required />
 	</div>
 </div>
 
-<div class="o-forms__wrapper o-forms__wrapper--error">
-	<div class="o-forms__message o-forms__message--error">
-		<p>This is a section error message</p>
+<div class="o-forms-section">
+	<div class="o-forms-section__message">
+		<p>This is a section message.</p>
 	</div>
-	<div class="o-forms o-forms--error">
-		<div class="o-forms">
-			<label for="o-forms-error" class="o-forms__label">Field Label</label>
-			<input type="text" id="o-forms-error" placeholder="placeholder" class="o-forms__text" required />
-		</div>
+	<div class="o-forms">
+		<label for="o-forms-message" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-message" placeholder="placeholder" class="o-forms__text" required />
+	</div>
+</div>
+</div>
+
+<div class="o-forms-section o-forms-section--wide">
+	<div class="o-forms-section__message">
+		<p>This is a section message (wide).</p>
+	</div>
+	<div class="o-forms">
+		<label for="o-forms-message-wide" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-message-wide" placeholder="placeholder" class="o-forms__text" required />
 	</div>
 </div>
 
+<div class="o-forms-section o-forms-section--error">
+	<div class="o-forms-section__message">
+		<p>This is a section error message</p>
+	</div>
+	<div class="o-forms o-forms--error">
+		<label for="o-forms-section-error" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-section-error" placeholder="placeholder" class="o-forms__text" required />
+	</div>
+</div>
 
-<div class="o-forms__wrapper o-forms__wrapper--wide o-forms__wrapper--error">
-	<div class="o-forms__message o-forms__message--wide o-forms__message--error">
+<div class="o-forms-section o-forms-section--error o-forms-section--wide">
+	<div class="o-forms-section__message">
 		<p>This is a section error message (wide)</p>
 	</div>
-	<div class="o-forms o-forms--wide">
-		<label for="o-forms-error-wide" class="o-forms__label">Field Label</label>
-		<input type="text" id="o-forms-error-wide" placeholder="placeholder" class="o-forms__text" required />
+	<div class="o-forms o-forms--error o-forms--wide">
+		<label for="o-forms-section-error-wide" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-section-error-wide" placeholder="placeholder" class="o-forms__text" required />
 	</div>
 </div>

@@ -2,7 +2,7 @@
 @include oColorsSetUseCase(o-forms__message-error, background, 'crimson');
 @include oColorsSetUseCase(o-forms__message-error, text, 'white');
 
-@include oColorsSetUseCase(o-forms__wrapper-highlight, background, 'black-10');
+@include oColorsSetUseCase(o-forms-highlight, background, 'black-10');
 
 @include oColorsSetUseCase(o-forms-field-label, text, 'black-80');
 

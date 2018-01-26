@@ -4,31 +4,4 @@
 ////
 
 /// Messages styles
-@mixin oFormsMessage() {
-	@include oColorsFor(o-forms__wrapper-highlight, background);
-	@include oTypographySize($_o-forms-typography-scale-large);
-	max-width: $_o-forms-field-max-width;
-	padding: 0 $_o-forms-padding;
-	margin-bottom: $_o-forms-spacing;
-	margin-left: $_o-forms-padding * -1;
-	margin-right: $_o-forms-padding * -1;
-	color: oColorGetColorFor('o-forms__message-default', text);
 
-	// sass-lint:disable mixins-before-declarations
-	@include oGridRespondTo(S) {
-		border-radius: $_o-forms-field-border-radius;
-		margin-right: 0;
-		margin-left: 0;
-	}
-	// sass-lint:enable no-vendor-prefixes
-
-	p {
-		padding: oTypographySpacingSize(2) 0;
-		margin: 0;
-		font-family: $o-forms-font-family;
-	}
-
-	&--error {
-		@include oColorsFor(o-forms__message-error);
-	}
-}

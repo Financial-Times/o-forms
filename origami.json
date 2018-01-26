@@ -56,16 +56,10 @@
             "description": ""
         },
         {
-            "name": "messages",
-            "title": "Global messages",
-            "template": "/demos/src/messages.mustache",
-            "description": "<strong>Usercase:</strong> These are generic global messages for most use cases."
-        },
-        {
-            "name": "wrappers",
-            "title": "Wrappers",
-            "template": "/demos/src/wrappers.mustache",
-            "description": "<strong>Usercase:</strong> These are generic wrappers for most use cases."
+            "name": "sections",
+            "title": "Sections",
+            "template": "/demos/src/sections.mustache",
+            "description": "<strong>Usercase:</strong> These are optional section wrappers to highlight multiple instances of o-forms."
         },
         {
             "name": "pa11y",
