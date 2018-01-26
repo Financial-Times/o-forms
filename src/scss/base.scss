@@ -1,4 +1,12 @@
-@mixin oFormsOutputBase($class: 'o-forms') {
+////
+/// A selection of mixins to output o-forms CSS by key features.
+/// @group o-forms
+////
+
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Styles for basic form features including text, textarea, and select inputs along with labels and input error/validation styles.
+@mixin oFormsBaseFeatures($class: 'o-forms') {
 	.#{$class} {
 		@include oFormsGroup();
 	}
@@ -15,10 +23,6 @@
 	}
 	.#{$class}__textarea {
 		@include oFormsTextarea;
-	}
-	.#{$class}__text--small,
-	.#{$class}__select--small {
-		@include oFormsCommonSmall;
 	}
 	// Labeling.
 	.#{$class}__label {
@@ -47,13 +51,15 @@
 	.#{$class}--valid .#{$class}__textarea {
 		@include oFormsCommonFieldValid;
 	}
-	// Wide modifier
-	.#{$class}--wide {
-		max-width: none;
-	}
 }
 
-@mixin oFormsOutputRadioCheckboxes($class: 'o-forms') {
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsBaseFeatures - Basic form features must be output for these to work.
+/// @see {mixin} oFormsRadioCheckboxRightModifier - Extra checkbox/radio features are available to align the input to the right of the label.
+/// @see {mixin} oFormsCheckboxToggleFeature - An extra checkbox feature is available to provide a toggle interface.
+/// @output Styles for basic grouped checkboxes and radios, with extra error/validation styles.
+@mixin oFormsRadioCheckboxFeatures($class: 'o-forms') {
 	.#{$class}__group {
 		@include oFormsGroupContainer();
 	}
@@ -73,23 +79,22 @@
 	}
 }
 
-@mixin oFormsOutputRadioCheckboxesRightModifier($class: 'o-forms') {
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsRadioCheckboxFeatures - Basic radio/checkbox features must be output for this modifier to work.
+/// @output Modifier styles to align checkbox/radio inputs to the right of their label.
+@mixin oFormsRadioCheckboxRightModifier($class: 'o-forms') {
 	.#{$class}__radio--right,
 	.#{$class}__checkbox--right {
 		@include oFormsRadioCheckboxRight();
 	}
 }
 
-@mixin oFormsOutputSuffix($class: 'o-forms') {
-	.#{$class}__affix-wrapper {
-		@include oFormsAffixWrapper();
-	}
-	.#{$class}__suffix {
-		@include oFormsSuffix();
-	}
-}
-
-@mixin oFormsOutputToggle($class: 'o-forms') {
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsBaseFeatures - Basic form features must be output for the toggle interface to work.
+/// @output Styles to append a suffix to an input. E.g. a button to the end of a text input.
+@mixin oFormsCheckboxToggleFeature($class: 'o-forms') {
 	.#{$class}__toggle {
 		@include oFormsCheckboxToggle();
 	}
@@ -98,24 +103,55 @@
 	}
 }
 
-@mixin oFormsOutputSection($class: 'o-forms') {
-	.#{$class}-section {
-		@include oFormsSection();
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsBaseFeatures - Basic form features must be output for suffix features to work.
+/// @output Styles to append a suffix to an input. E.g. a button to the end of a text input.
+@mixin oFormsSuffixFeature($class: 'o-forms') {
+	.#{$class}__affix-wrapper {
+		@include oFormsAffixWrapper();
+	}
+	.#{$class}__suffix {
+		@include oFormsSuffix();
 	}
 }
 
-@mixin oFormsOutputUnskin($class: 'o-forms') {
-	.#{$class}--unskin {
-		@include oFormsUnskin();
-	}
-}
-
-@mixin oFormsOutputWideModifier($class: 'o-forms') {
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsBaseFeatures - Basic form features must be output for wide modifiers to work.
+/// @output Modifying styles to make form inputs and any wrapping sections wide (removes max-width).
+@mixin oFormsWideFeature($class: 'o-forms') {
 	.#{$class}--wide,
 	.#{$class}--wide .#{$class}__text,
 	.#{$class}--wide .#{$class}__select,
 	.#{$class}--wide .#{$class}__textarea,
 	.#{$class}-section--wide {
 		max-width: none;
+	}
+}
+
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsBaseFeatures - Basic form features must be output for small modifiers to work.
+/// @output Modifying styles to make text and select inputs smaller.
+@mixin oFormsSmallFeature($class: 'o-forms') {
+	.#{$class}__text--small,
+	.#{$class}__select--small {
+		@include oFormsCommonSmall;
+	}
+}
+
+/// @access public
+/// @output Wrapping styles to highlight sections of a form including section messages.
+@mixin oFormsSectionFeature($class: 'o-forms') {
+	.#{$class}-section {
+		@include oFormsSection();
+	}
+}
+
+/// @ignore This is a candidate for deprecation. Support is patchy and it is barely used, if at all.
+@mixin oFormsUnskinFeature($class: 'o-forms') {
+	.#{$class}--unskin {
+		@include oFormsUnskin();
 	}
 }

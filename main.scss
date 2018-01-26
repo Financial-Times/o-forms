@@ -23,21 +23,23 @@
 
 @mixin oForms($class: 'o-forms') {
 	// Common inputs.
-	@include oFormsOutputBase($class);
+	@include oFormsBaseFeatures($class);
 	// Radio and checkboxes.
-	@include oFormsOutputRadioCheckboxes($class);
+	@include oFormsRadioCheckboxFeatures($class);
 	// Radio and checkboxes right modifier.
-	@include oFormsOutputRadioCheckboxesRightModifier($class);
+	@include oFormsRadioCheckboxRightModifier($class);
 	// Input suffix support.
-	@include oFormsOutputSuffix($class);
+	@include oFormsSuffixFeature($class);
 	// Toggles (checkbox toggles).
-	@include oFormsOutputToggle($class);
+	@include oFormsCheckboxToggleFeature($class);
 	// Sections.
-	@include oFormsOutputSection($class);
+	@include oFormsSectionFeature($class);
+	// Small modifer.
+	@include oFormsSmallFeature($class);
 	// Wide modifer.
-	@include oFormsOutputWideModifier($class);
+	@include oFormsWideFeature($class);
 	// Unskin modifier.
-	@include oFormsOutputUnskin($class);
+	@include oFormsUnskinFeature($class);
 }
 
 @if $o-forms-is-silent == false {
