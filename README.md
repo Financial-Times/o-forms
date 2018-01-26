@@ -60,13 +60,13 @@ Each form field is made up of at least 3 elements:
 
 #### Checkboxes and radio controls
 
-Couple the checkboxes and radio controls with a label to obtain the desired styles. Nest within `o-forms__radios`/`o-forms__checkboxes` to ensure correct verticle spacing:
+Couple the checkboxes and radio controls with a label to obtain the desired styles. Nest within `o-forms__group` to ensure correct verticle spacing:
 
 ```html
 <!-- Radio -->
 <fieldset class="o-forms">
 	<label class="o-forms__label">Radio controls</label>
-	<div class="o-forms__radios">
+	<div class="o-forms__group">
 		<input id="radioA" type="radio" class="o-forms__radio" />
 		<label for="radioA">Unchecked (default)</label>
 		<input id="radioB" type="radio" class="o-forms__radio" checked="checked" />
@@ -76,7 +76,7 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 
 <!-- Checkboxes -->
 <fieldset class="o-forms">
-	<div class="o-forms__checkboxes">
+	<div class="o-forms__group">
 		<input id="checkboxA" type="checkbox" class="o-forms__checkbox" />
 		<label for="checkboxA">Unchecked (default)</label>
 		<input id="checkboxB" type="checkbox" class="o-forms__checkbox" checked="checked" />
@@ -87,7 +87,7 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 <!-- Inline Radio -->
 <fieldset class="o-forms">
 	<label class="o-forms__label">Radio controls</label>
-	<div class="o-forms__radios o-forms__radios--inline">
+	<div class="o-forms__group o-forms__group--inline">
 		<input id="inlineRadioA" type="radio" class="o-forms__radio" />
 		<label for="inlineRadioA">Unchecked (default)</label>
 		<input id="inlineRadioB" type="radio" class="o-forms__radio" checked="checked" />
@@ -97,7 +97,7 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 
 <!-- Inline Checkboxes -->
 <fieldset class="o-forms">
-	<div class="o-forms__checkboxes o-forms__checkboxes--inline">
+	<div class="o-forms__group o-forms__group--inline">
 		<input id="inlineCheckboxA" type="checkbox" class="o-forms__checkbox" />
 		<label for="inlineCheckboxA">Unchecked (default)</label>
 		<input id="inlineCheckboxB" type="checkbox" class="o-forms__checkbox" checked="checked" />
@@ -113,7 +113,7 @@ Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them
 <form action="" data-o-component="o-forms">
 	<fieldset class="o-forms">
 		<legend class="o-forms__label">Checkbox Toggle</legend>
-		<div class="o-forms__checkboxes">
+		<div class="o-forms__group">
 			<div class="o-forms__toggle">
 				<input data-o-form-toggle type="checkbox" id="a" checked="checked" />
 				<label for="a" class="o-forms__label">Checkbox Toggle a</label>

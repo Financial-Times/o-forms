@@ -30,9 +30,8 @@
 	padding: 3px 0;
 }
 
-// Checkboxes/Radios have differing error margins.
-// Use in combination with `oFormsErrorText`.
-@mixin _oFormsRadioCheckboxErrorText {
+// Group containers (which wrap checkboxes/radios) have differing error margins.
+@mixin _oFormsGroupContainerErrorText {
 	margin-top: $_o-forms-checkbox-legend-spacing;
 }
 
