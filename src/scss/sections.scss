@@ -20,14 +20,15 @@
 
 	// A highlighted section.
 	&--highlight {
-		@include oColorsFor(o-forms-highlight, background);
+		@include oColorsFor(o-forms-section-highlight, background);
 	}
 
 	// An errored section, which will have a coloured message.
 	&--error {
-		background-color: #f8d9d9;
+		@include oColorsFor(o-forms-section-error, background);
+		background-color: oColorsMix('paper', 'crimson', 90);
 		#{$message-selector} {
-			@include oColorsFor(o-forms__message-error);
+			@include oColorsFor(o-forms-message-error);
 		}
 	}
 
@@ -47,7 +48,7 @@
 /// @output Styles for a message which spans multiple o-forms instances.
 @mixin oFormsMessage() {
 	@include oTypographySize($_o-forms-typography-scale-large);
-	@include oColorsFor(o-forms-highlight, background);
+	@include oColorsFor(o-forms-section-highlight, background);
 	padding: 0 $_o-forms-padding;
 	margin-bottom: $_o-forms-spacing;
 
