@@ -1,6 +1,6 @@
 <fieldset class="o-forms">
 	<legend class="o-forms__label">Checkbox Toggle</legend>
-	<div class="o-forms__checkboxes">
+	<div class="o-forms__group">
 		<div class="o-forms__toggle">
 			<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle1" />
 			<label for="checkboxToggle1" class="o-forms__label">Checkbox Toggle 1</label>
@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<div class="inverse-demo">
-		<div class="o-forms__checkboxes">
+		<div class="o-forms__group">
 			<div class="o-forms__toggle o-forms__toggle--inverse">
 				<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle3" />
 				<label for="checkboxToggle3" class="o-forms__label">Checkbox Toggle 3 (Inverse)</label>
@@ -27,7 +27,7 @@
 <div class="o-forms">
 	<legend class="o-forms__label">Default checkboxes</legend>
 	<div class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
-	<div class="o-forms__checkboxes">
+	<div class="o-forms__group">
 		<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox11" checked="checked" />
 		<label for="checkbox11" class="o-forms__label">Checkbox 1</label>
 		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox12" />
@@ -39,7 +39,7 @@
 
 <fieldset class="o-forms">
 	<legend class="o-forms__label">Inline checkboxes</legend>
-	<div class="o-forms__checkboxes o-forms__checkboxes--inline">
+	<div class="o-forms__group o-forms__group--inline">
 		<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox61" checked="checked" />
 		<label for="checkbox61" class="o-forms__label">Checkbox 1</label>
 		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox62" />
@@ -53,7 +53,7 @@
 	<label for="form-secret" class="o-forms__label">Right side control checkbox</label>
 	<div class="o-forms__additional-info">Interface demo only, password hide/show functionality is not currently included in o-forms.</div>
 	<input type="password" id="form-secret" placeholder="secret password" class="o-forms__text" required />
-	<div class="o-forms__checkboxes o-forms__checkboxes--inline">
+	<div class="o-forms__group o-forms__group--inline">
 		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox o-forms__checkbox--right" id="controlCheckbox" />
 		<label for="controlCheckbox" class="o-forms__label">Show password</label>
 	</div>
@@ -61,7 +61,7 @@
 
 <fieldset class="o-forms o-forms--error">
 	<legend class="o-forms__label">Error</legend>
-	<div class="o-forms__checkboxes">
+	<div class="o-forms__group">
 		<input type="checkbox" name="checkbox3" value="1" class="o-forms__checkbox" id="checkbox31" checked="checked" />
 		<label for="checkbox31" class="o-forms__label">Checkbox 1</label>
 		<input type="checkbox" name="checkbox3" value="2" class="o-forms__checkbox" id="checkbox32" />
@@ -72,7 +72,7 @@
 
 <fieldset class="o-forms">
 	<legend class="o-forms__label">Disabled</legend>
-	<div class="o-forms__checkboxes">
+	<div class="o-forms__group">
 		<input type="checkbox" name="checkbox2" value="1" class="o-forms__checkbox" id="checkbox21" checked="checked" disabled="disabled" />
 		<label for="checkbox21" class="o-forms__label">Checkbox 1</label>
 		<input type="checkbox" name="checkbox2" value="2" class="o-forms__checkbox" id="checkbox22" disabled="disabled" />
@@ -82,7 +82,7 @@
 
 <fieldset class="o-forms">
 	<legend class="o-forms__label">Checkbox with long text</legend>
-		<div class="o-forms__checkboxes">
+		<div class="o-forms__group">
 		<input type="checkbox" name="checkbox51" value="1" class="o-forms__checkbox" id="checkbox51" checked="checked" />
 		<label for="checkbox51" class="o-forms__label">
 			<p>I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.</p>
@@ -97,7 +97,7 @@
 
 <fieldset class="o-forms o-forms--wide">
 	<legend class="o-forms__label">Checkbox with long text (wide)</legend>
-	<div class="o-forms__checkboxes">
+	<div class="o-forms__group">
 		<input type="checkbox" name="checkbox53" value="1" class="o-forms__checkbox" id="checkbox53" checked="checked" />
 		<label for="checkbox53" class="o-forms__label"><p>I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.</p></label>
 	</div>
@@ -106,7 +106,7 @@
 <fieldset class="o-forms">
 	<legend class="o-forms__label">Default radio controls</legend>
 	<div class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
-	<div class="o-forms__radios">
+	<div class="o-forms__group">
 		<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio11" checked="checked" />
 		<label for="radio11" class="o-forms__label">Radio 1</label>
 		<input type="radio" name="radio" value="2" class="o-forms__radio" id="radio12" />
@@ -116,7 +116,7 @@
 
 <fieldset class="o-forms">
 	<legend class="o-forms__label">Radio controls inline</legend>
-	<div class="o-forms__radios o-forms__radios--inline">
+	<div class="o-forms__group o-forms__group--inline">
 		<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio41" checked="checked" />
 		<label for="radio41" class="o-forms__label">Radio 1</label>
 		<input type="radio" name="radio" value="2" class="o-forms__radio" id="radio42" />
@@ -126,7 +126,7 @@
 
 <fieldset class="o-forms o-forms--error">
 	<legend class="o-forms__label">Error</legend>
-	<div class="o-forms__radios">
+	<div class="o-forms__group">
 		<input type="radio" name="radio3" value="1" class="o-forms__radio" id="radio31" checked="checked" />
 		<label for="radio31" class="o-forms__label">Radio 1</label>
 		<input type="radio" name="radio3" value="2" class="o-forms__radio" id="radio32" />
@@ -137,7 +137,7 @@
 
 <div class="o-forms">
 	<label class="o-forms__label" id="radio-disabled">Disabled</label>
-	<div class="o-forms__radios" for="radio-disabled">
+	<div class="o-forms__group" for="radio-disabled">
 		<input type="radio" name="radio2" value="1" class="o-forms__radio" id="radio21" disabled="disabled" />
 		<label for="radio21" class="o-forms__label">Radio 1</label>
 		<input type="radio" name="radio2" value="2" class="o-forms__radio" id="radio22" disabled="disabled" />

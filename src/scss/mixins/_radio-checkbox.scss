@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-forms
 ////
 
-@mixin oFormsRadioCheckboxContainer($class: 'o-forms') {
+@mixin oFormsGroupContainer($class: 'o-forms') {
 	margin: 0 0 #{-$_o-forms-spacing};
 
 	.#{$class}__label {
