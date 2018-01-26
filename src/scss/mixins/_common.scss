@@ -96,7 +96,7 @@
 @mixin _oFormsRadioCheckboxLabel {
 	@include oTypographySize($_o-forms-typography-scale-regular);
 	display: inline-block;
-	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
+	padding-left: $_o-forms-radiocheckbox-default-size + $_o-forms-label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 	position: relative;
 	cursor: pointer;
 	font-weight: oFontsWeight('normal');

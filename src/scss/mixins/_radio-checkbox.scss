@@ -21,8 +21,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: $_o-forms__radiocheckbox-default-size;
-		height: $_o-forms__radiocheckbox-default-size;
+		width: $_o-forms-radiocheckbox-default-size;
+		height: $_o-forms-radiocheckbox-default-size;
 		border: 1px solid oColorsGetColorFor(o-forms-field-standard, border);
 		box-sizing: border-box;
 		content: '';
@@ -51,7 +51,7 @@
 
 @mixin oFormsRadioCheckboxRight($class: 'o-forms') {
 	& + .#{$class}__label {
-		padding-right: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left;
+		padding-right: $_o-forms-radiocheckbox-default-size + $_o-forms-label-padding-left;
 		padding-left: 0;
 		text-align: right;
 	}
@@ -76,16 +76,16 @@
 		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
 		// Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
 		border-radius: 9999px;
-		height: $_o-forms__radio-internal-default-size;
-		width: $_o-forms__radio-internal-default-size;
-		left: ($_o-forms__radiocheckbox-default-size - $_o-forms__radio-internal-default-size) / 2;
-		top: ($_o-forms__radiocheckbox-default-size - $_o-forms__radio-internal-default-size) / 2;
+		height: $_o-forms-radio-internal-default-size;
+		width: $_o-forms-radio-internal-default-size;
+		left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
+		top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
 	}
 }
 
 @mixin oFormsCheckbox($class: 'o-forms') {
 	& + .#{$class}__label::after {
-		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), $_o-forms__radiocheckbox-default-size);
+		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), $_o-forms-radiocheckbox-default-size);
 		background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
 	}
 }

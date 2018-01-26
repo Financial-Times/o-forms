@@ -5,7 +5,7 @@
 /// @access public
 /// @param {string} $class - The block level class name (BEM naming convention).
 /// @require {mixin} oFormsMessage - Sections optionally contain a message, which is coloured according to the section modifier.
-/// @output Styles to wrap and highlight instances of o-forms, optionally with a global message for the wrapped inputs.
+/// @output Styles to highlight sections of a form with multiple instances of o-forms, optionally with a global message for the wrapped inputs.
 @mixin oFormsSection($class: 'o-forms') {
 	$message-selector: #{&}__message;
 	max-width: $_o-forms-field-max-width;
