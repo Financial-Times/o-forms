@@ -48,8 +48,7 @@
 	// sass-lint:enable no-vendor-prefixes
 
 	&:disabled {
-		$icon-color: oColorsGetColorFor(o-forms-field-placholder, text);
-		background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23#{$icon-color}&format=svg", "#", ""));
+		@include oIconsGetIcon('arrow-down', oColorsGetColorFor(o-forms-field-placholder, text), $apply-base-styles: false, $apply-width-height: false);
 	}
 }
 

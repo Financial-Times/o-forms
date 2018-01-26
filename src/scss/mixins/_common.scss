@@ -1,9 +1,27 @@
 ////
-/// @group o-forms
-/// @link http://registry.origami.ft.com/components/o-forms
+/// @group Common
 ////
 
-/// Common field styles
+/// @access public
+/// @output Styles for the main o-forms/fieldset group which contains a label/input.
+@mixin oFormsGroup {
+	position: relative;
+	max-width: $_o-forms-field-max-width;
+	margin: 0 0 $_o-forms-group-spacing; // Reset top and side margins for fieldset usage
+	// reset <fieldset> defaults
+	padding: 0;
+	border: 0;
+
+	// sass-lint:disable mixins-before-declarations
+	@include oGridRespondTo(S) {
+		padding-right: $_o-forms-padding;
+		padding-left: $_o-forms-padding;
+	}
+	// sass-lint:enable mixins-before-declarations
+}
+
+/// @access public
+/// @output Basic styles shared between input, textarea, select etc.
 @mixin oFormsCommonFieldBase {
 	@include oColorsFor(o-forms-field-standard);
 	@include oTypographySize($_o-forms-typography-scale-regular);
@@ -38,19 +56,22 @@
 	}
 }
 
-/// Common field styles: focused state only
+/// @access public
+/// @output Shared focus state styles.
 @mixin oFormsCommonFieldFocus {
 	@include oColorsFor(o-forms-field-focus);
 	box-shadow: 0 0 0 2px $o-normalise-focus-color;
 }
 
-/// Common field styles: disabled state
+/// @access public
+/// @output Shared disabled state styles.
 @mixin oFormsCommonFieldDisabled {
 	@include oColorsFor(o-forms-field-disabled);
 	cursor: default;
 }
 
-/// Common field styles: invalid state
+/// @access public
+/// @output Shared invalid state styles.
 @mixin oFormsCommonFieldInvalid {
 	@include oColorsFor(o-forms-field-invalid);
 
@@ -59,13 +80,15 @@
 	}
 }
 
-/// Common field styles: valid state
+/// @access public
+/// @output Shared valid state styles.
 @mixin oFormsCommonFieldValid {
 	@include oColorsFor(o-forms-field-valid);
 	background-color: rgba(oColorsGetColorFor(o-forms-field-valid, background), 0.05);
 }
 
-/// Common field styles: small
+/// @access public
+/// @output Shared styles to make an input smaller, e.g select or text.
 @mixin oFormsCommonSmall {
 	height: $_o-forms-field-small-height;
 	padding-top: 0;
@@ -73,54 +96,4 @@
 	background-size: $_o-forms-select-small-iconsize $_o-forms-select-small-iconsize;
 	background-position-x: 99%; // Make the smaller icon size visually match the padding on the left of the input
 	line-height: $_o-forms-field-small-height - ($_o-forms-field-border-width * 2);
-}
-
-
-/// Group styles
-@mixin oFormsGroup {
-	position: relative;
-	max-width: $_o-forms-field-max-width;
-	margin: 0 0 $_o-forms-group-spacing; // Reset top and side margins for fieldset usage
-	// reset <fieldset> defaults
-	padding: 0;
-	border: 0;
-
-	// sass-lint:disable mixins-before-declarations
-	@include oGridRespondTo(S) {
-		padding-right: $_o-forms-padding;
-		padding-left: $_o-forms-padding;
-	}
-	// sass-lint:enable mixins-before-declarations
-}
-
-@mixin _oFormsRadioCheckboxLabel {
-	@include oTypographySize($_o-forms-typography-scale-regular);
-	display: inline-block;
-	padding-left: $_o-forms-radiocheckbox-default-size + $_o-forms-label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
-	position: relative;
-	cursor: pointer;
-	font-weight: oFontsWeight('normal');
-	padding-top: 2px; // To align the text with the center of the checkbox/radio
-	// sass-lint:disable no-vendor-prefixes
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	// sass-lint:enable no-vendor-prefixes
-}
-
-// From: https://css-tricks.com/snippets/sass/str-replace-function/
-/// Replace `$search` with `$replace` in `$string`
-/// @author Hugo Giraudel
-/// @param {String} $string - Initial string
-/// @param {String} $search - Substring to replace
-/// @param {String} $replace ('') - New value
-/// @return {String} - Updated string
-@function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
-
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
-
-  @return $string;
 }

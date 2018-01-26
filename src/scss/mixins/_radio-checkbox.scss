@@ -129,3 +129,20 @@
 @mixin _oFormsGroupContainerErrorText {
 	margin-top: $_o-forms-checkbox-legend-spacing;
 }
+
+/// @access private
+/// @output Styles to modify checkbox/radio labels.
+@mixin _oFormsRadioCheckboxLabel {
+	@include oTypographySize($_o-forms-typography-scale-regular);
+	display: inline-block;
+	padding-left: $_o-forms-radiocheckbox-default-size + $_o-forms-label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
+	position: relative;
+	cursor: pointer;
+	font-weight: oFontsWeight('normal');
+	padding-top: 2px; // To align the text with the center of the checkbox/radio
+	// sass-lint:disable no-vendor-prefixes
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	// sass-lint:enable no-vendor-prefixes
+}
