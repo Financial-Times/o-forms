@@ -102,7 +102,7 @@ Unlike other inputs, multiple `checkbox` and `radio` inputs should be wrapped in
 <!-- Radio -->
 <fieldset class="o-forms">
 	<legend class="o-forms__label">Default radio controls</legend>
-	<div class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
+	<div class="o-forms__additional-info">Prompt text follows the legend if required.</div>
 	<div class="o-forms__group">
 		<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio11" checked="checked" />
 		<label for="radio11" class="o-forms__label">Radio 1</label>
@@ -265,7 +265,7 @@ $o-forms-is-silent: false;
 
 #### Mixins
 
-If your project does not need all `o-forms` features, you may reduce your project's CSS bundle size by using the following mixins to only ouput what you need.
+If your project does not need all `o-forms` features, you may reduce your project's CSS bundle size by using the following mixins to only output what you need.
 
 Required:
 - `oFormsBaseFeatures` - Basic form features including `.o-forms`. Required by the other mixins.
@@ -351,18 +351,18 @@ There are a number of inconsistencies in how browsers handle form events, valida
 
 ## Upgrading from v4.x.x to v5.x.x
 
-Version 5 makes some design improvements including tightening up the spacing around checkboxes and radio buttons. It also provides many [new mixins](#sass) to make it easier to output `o-forms` features granulary.
+Version 5 makes some design improvements including tightening up the spacing around checkboxes and radio buttons. It also provides many [new mixins](#sass) to make it easier to output `o-forms` features granularly.
 
 ### Checkboxes & Radios
-- Wrap groups of checkboxes and radios in `.o-forms__group` for correct verticle spacing.
+- Wrap groups of checkboxes and radios in `.o-forms__group` for correct vertical spacing.
 - `oFormsRadioCheckbox` no longer outputs all styles for checkboxes and radios, only what is shared between them. Use `oFormsRadioCheckboxFeatures` instead.
 - It is no longer possible to modify the complete selector of radios, checkboxes, or their labels. The base `.o-forms` class may still be updated using the `$class` argument.
 
 ### Prefix, Suffix
 - Prefixes have been removed entirely. We recommend using additional label information and feedback in form validation instead.
 - Suffix buttons now use standard `o-buttons` styling.
-- Check your uses of suffixs stil display correctly. In the case of button suffixes it may be necessary to apply the extra `o-buttons` classes `.o-buttons--secondary` and `.o-buttons--big`.
-- The mixins `oFormsAffixButton`, `oFormsAffixCheckbox`, `oFormsPrefixSuffix` have been remvoed. Use `oFormsSuffixFeature` for suffix classes including the affix wrapper (as documented above).
+- Check your uses of suffixs still display correctly. In the case of button suffixes it may be necessary to apply the extra `o-buttons` classes `.o-buttons--secondary` and `.o-buttons--big`.
+- The mixins `oFormsAffixButton`, `oFormsAffixCheckbox`, `oFormsPrefixSuffix` have been removed. Use `oFormsSuffixFeature` for suffix classes including the affix wrapper (as documented above).
 
 ### Toggles
 - `.o-forms__checkbox-toggle` has been renamed `.o-forms__toggle`.
