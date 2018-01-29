@@ -54,7 +54,7 @@ To indicate to the user that a field is optional, add the `.o-forms__label--opti
 
 #### Wide fields
 
-The class `.o-forms--wide` can be used to show form fields without width restrictions. This is demonstarted below with a text input but can apply to any `.o-forms` field.
+The class `.o-forms--wide` can be used to show form fields without width restrictions. This is demonstrated below with a text input but can apply to any `.o-forms` field.
 
 ```html
 <div class="o-forms o-forms--wide">
@@ -96,7 +96,7 @@ The markup above demonstrates how to use text inputs. More [text input examples]
 
 #### Checkbox and radio controls
 
-Unlike other inputs, multiple `checkbox` and `radio` inputs should be wrapped in  `.o-forms__group` to ensure correct verticle spacing.
+Unlike other inputs, multiple `checkbox` and `radio` inputs should be wrapped in  `.o-forms__group` to ensure correct vertical spacing.
 
 ```html
 <!-- Radio -->
@@ -156,7 +156,7 @@ To display checkboxes/radios inline add `.o-forms__group--inline` to their group
 
 #### Suffixes
 
-Suffixes are used to append content to an input, i.e. a button. Add a wrapper `.o-forms__affix-wrapper` to contain the input and the `.o-forms__suffix` itself.
+Suffixes are used to append content to an input, i.e. a button. Add a wrapper `.o-forms__affix-wrapper` to contain both the input and its suffix `.o-forms__suffix`. The suffix `.o-forms__suffix` wraps suffix content, i.e. a button.
 
 ```html
 <div class="o-forms">
@@ -174,7 +174,7 @@ Suffixes are used to append content to an input, i.e. a button. Add a wrapper `.
 
 #### Toggles (checkbox toggles)
 
-Wrap checkboxes in `.o-forms__toggle` and add the data attribute `data-o-form-toggle` to produce a toggle interface.
+To produce a toggle interface wrap checkboxes in `.o-forms__toggle` and add the data attribute `data-o-form-toggle` to the checkbox input.
 
 ```html
 <!-- Toggle -->
