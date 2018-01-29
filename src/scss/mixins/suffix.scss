@@ -15,11 +15,7 @@
 	font-family: $o-forms-font-family;
 	text-align: center;
 	vertical-align: middle;
-	// sass-lint:disable no-vendor-prefixes
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	// sass-lint:enable no-vendor-prefixes
+	user-select: none;
 	> * {
 		display: table-cell; // IE9 hack for child with min-width & border-box
 	}

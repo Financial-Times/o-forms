@@ -37,11 +37,7 @@
 	font-family: $o-forms-font-family;
 	outline: none;
 	transition: 0.15s box-shadow ease-in;
-
-	// sass-lint:disable no-vendor-prefixes
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	// sass-lint:enable no-vendor-prefixes
+	appearance: none;
 
 	&:focus {
 		@include oFormsCommonFieldFocus;
