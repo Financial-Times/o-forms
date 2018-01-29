@@ -380,6 +380,7 @@ Version 5 makes some design improvements including tightening up the spacing aro
 
 ### Other changes
 - `oFormsFullWidth` has been removed. Use `oFormsWideFeature` for classes to remove form max width restrictions.
+- There is a new dependancy on `o-icons`. Build your project to confirm that it is compatible.
 
 Please [contact us](#contact) if you have any queries.
 
