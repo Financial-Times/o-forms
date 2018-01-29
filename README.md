@@ -349,14 +349,48 @@ There are a number of inconsistencies in how browsers handle form events, valida
 
 ## Migration Guide
 
-## Upgrading from v3.x.x or v4.x.x
+## Upgrading from v4.x.x to v5.x.x
+
+Version 5 makes some design improvements including tightening up the spacing around checkboxes and radio buttons. It also provides many [new mixins](#sass) to make it easier to output `o-forms` features granulary.
+
+### Checkboxes & Radios
+- Wrap groups of checkboxes and radios in `.o-forms__group` for correct verticle spacing.
+- `oFormsRadioCheckbox` no longer outputs all styles for checkboxes and radios, only what is shared between them. Use `oFormsRadioCheckboxFeatures` instead.
+- It is no longer possible to modify the complete selector of radios, checkboxes, or their labels. The base `.o-forms` class may still be updated using the `$class` argument.
+
+### Prefix, Suffix
+- Prefixes have been removed entirely. We recommend using additional label information and feedback in form validation instead.
+- Suffix buttons now use standard `o-buttons` styling.
+- Check your uses of suffixs stil display correctly. In the case of button suffixes it may be necessary to apply the extra `o-buttons` classes `.o-buttons--secondary` and `.o-buttons--big`.
+- The mixins `oFormsAffixButton`, `oFormsAffixCheckbox`, `oFormsPrefixSuffix` have been remvoed. Use `oFormsSuffixFeature` for suffix classes including the affix wrapper (as documented above).
+
+### Toggles
+- `.o-forms__checkbox-toggle` has been renamed `.o-forms__toggle`.
+- The `oFormsCheckboxToggleSize` mixin has been removed due to lack of use.
+
+### Wrappers and Messages
+- Wrappers have been renamed to sections. Their class names have also been updated to conform to the BEM naming convention (as optional containers their name should not contain `__` as they are not elements of a block).
+	- `.o-forms__wrapper` becomes `.o-forms-section`.
+	- `.o-forms__wrapper--highlight` becomes `.o-forms-section--highlight`.
+	- `.o-forms__wrapper--error` which becomes `.o-forms-section--error`.
+	- The `oFormsMessage` mixin now only outputs minimal message styles, uses should be replaced with `oFormsSectionFeature`.
+- Messages are now child elements of a section and must not be used independently.
+	- Wrap messages within a form seciton `.o-forms-section` if they are not already. They should be the first child of the section.
+	- Remove the class `.o-forms__message--error`. A message now infers that it is an error message based on its parent section `.o-forms-section--error`.
+
+### Other changes
+- `oFormsFullWidth` has been removed. Use `oFormsWideFeature` for classes to remove form max width restrictions.
+
+Please [contact us](#contact) if you have any queries.
+
+## Upgrading from v3.x.x to v4.x.x
 - A dependency on [o-typography](http://github.com/financial-times/o-typography) v5 has been introduced. This will break any builds that use o-typography <v5. __Resolution__: Update to o-typography v5.
 - The o-colors dependency has been updated to `^4`. This could create bower conflicts which should be resolved by updating to the newest release of o-colors.
 - The design for o-forms has changed in v4. This could create issues on your pages which make use of o-forms. Ensure that the updated design does not break the layout on your webpage.
 
 ----
 
-## Upgrading from v2.x.x or v3.x.x
+## Upgrading from v2.x.x to v3.x.x
 
 The main change in `v2` is that classes provided by `o-forms` now conform more strictly to the [BEM naming convention][bem]. All form field classes now follow the element convention, so `o-forms-text` is now `o-forms__text`.
 
