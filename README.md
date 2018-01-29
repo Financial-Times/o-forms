@@ -375,7 +375,7 @@ Version 5 makes some design improvements including tightening up the spacing aro
 	- `.o-forms__wrapper--error` which becomes `.o-forms-section--error`.
 	- The `oFormsMessage` mixin now only outputs minimal message styles, uses should be replaced with `oFormsSectionFeature`.
 - Messages are now child elements of a section and must not be used independently.
-	- Wrap messages within a form seciton `.o-forms-section` if they are not already. They should be the first child of the section.
+	- Wrap messages within a form section `.o-forms-section` if they are not already. They should be the first child of the section.
 	- Remove the class `.o-forms__message--error`. A message now infers that it is an error message based on its parent section `.o-forms-section--error`.
 
 ### Other changes
