@@ -106,7 +106,7 @@
 @mixin oFormsGroupContainer($class: 'o-forms') {
 	margin: 0 0 #{-$_o-forms-spacing};
 
-	.#{$class}__label {
+	input + .#{$class}__label {
 		width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
 		box-sizing: border-box;
 		margin: $_o-forms-checkbox-legend-spacing $_o-forms-checkbox-horizontal-spacing $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
@@ -116,10 +116,29 @@
 	}
 
 	&--inline {
-		.#{$class}__label,
-		.#{$class}__label {
+		input + .#{$class}__label {
 			width: auto;
 		}
+	}
+
+	&--inline-together {
+        @supports (display: grid) {
+            display: inline-grid;
+            grid-auto-columns: 1fr;
+            grid-auto-flow: column;
+        }
+		input + .#{$class}__label {
+            margin-right: 0;
+            border-left-width: 0;
+            width: auto;
+            float: left; // to support non-grid browsers
+        }
+        // float clearfix (to support non-grid browsers)
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 	}
 }
 
@@ -143,26 +162,18 @@
   user-select: none;
 }
 
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Styles for radios which look like a group of buttons, where one can be selected.
 @mixin oFormsRadioButtonsStyled($class: 'o-forms') {
-	display: inline-block;
-	position: relative;
 
-  @supports (display: grid) {
-    display: inline-grid;
-    grid-auto-columns: 1fr;
-    grid-auto-flow: column;
-  }
-
-  .#{$class}__radio-buttons__button {
     @include oNormaliseVisuallyHidden;
-  }
 
   $sidePadding: 32px;
 
-  .#{$class}__label {
+  & + .#{$class}__label {
     @include oColorsFor(o-forms-radio-buttons-styled, text);
     border: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
-    border-left-width: 0;
     cursor: pointer;
     font-size: $_o-forms-field-default-font-size;
     font-weight: oFontsWeight('semibold');
@@ -170,6 +181,7 @@
     position: relative;
     text-align: center;
     transition: 0.1s all ease-in;
+    display: inline-block;
     &:first-of-type {
       border-left-width: 1px;
     }
@@ -189,20 +201,21 @@
       width: 100%;
     }
   }
-  .#{$class}__radio-buttons__button:checked + .#{$class}__label {
+  &:checked + .#{$class}__label {
     @include oColorsFor(o-forms-radio-buttons-styled-checked, background);
     @include oColorsFor(o-forms-radio-buttons-styled-checked, text);
   }
-  .#{$class}__radio-buttons__button:focus + .#{$class}__label {
+  &:focus + .#{$class}__label {
     @include oFormsCommonFieldFocus;
     z-index: 1;
   }
-  .#{$class}__radio-buttons__button:disabled + .#{$class}__label {
+  &:disabled + .#{$class}__label {
     opacity: 0.5;
     cursor: default;
     &::after {
       display: none;
     }
+    // Correct strange 1px border gap when opacity is applied (Chrome)
     &:last-of-type {
       left: -1px;
       padding-left: $sidePadding + 1;
