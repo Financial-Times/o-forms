@@ -131,13 +131,18 @@
             margin-right: 0;
             border-left-width: 0;
             width: auto;
-            float: left; // to support non-grid browsers
+            float: left; // Float to support non-grid browsers.
         }
-        // float clearfix (to support non-grid browsers)
+        // Float clearfix for non-grid browsers.
         &:after {
             content: "";
             display: table;
             clear: both;
+        }
+        @supports (display: grid) {
+            &:after {
+                display: none;
+            }
         }
     }
 }
