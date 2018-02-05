@@ -186,7 +186,7 @@
       border-left-width: 1px;
     }
   }
-  .#{$class}__radio-buttons__button:not(:disabled):not(:checked) + .#{$class}__label:hover {
+  &:not(:disabled):not(:checked) + .#{$class}__label:hover {
     background-color: rgba(oColorsGetPaletteColor('teal-50'), 0.15);
   }
   &:checked + .#{$class}__label {
