@@ -169,25 +169,13 @@
     padding: 5px $sidePadding 7px;
     position: relative;
     text-align: center;
-    transition: 0.1s all ease-in;
+    transition: 0.3s background-color, 0.15s color ease-out;
     &:first-of-type {
       border-left-width: 1px;
     }
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      z-index: -1;
-      transition: all 0.3s;
-      width: 0;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: rgba(oColorsGetPaletteColor('teal-50'), 0.15);
-    }
-    &:hover::after {
-      width: 100%;
-    }
+  }
+  .#{$class}__radio-buttons__button:not(:disabled) + .#{$class}__label:hover {
+    background: rgba(oColorsGetPaletteColor('teal-50'), 0.15);
   }
   .#{$class}__radio-buttons__button:checked + .#{$class}__label {
     @include oColorsFor(o-forms-radio-buttons-styled-checked, background);
@@ -200,9 +188,6 @@
   .#{$class}__radio-buttons__button:disabled + .#{$class}__label {
     opacity: 0.5;
     cursor: default;
-    &::after {
-      display: none;
-    }
     &:last-of-type {
       left: -1px;
       padding-left: $sidePadding + 1;
