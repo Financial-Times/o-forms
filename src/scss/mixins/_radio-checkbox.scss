@@ -119,6 +119,17 @@
         }
     }
 
+		.#{$class}__radio-button + .#{$class}__label {
+			margin: 2px 2px 2px -1px;
+			&:first-of-type {
+				margin-left: 2px;
+				margin-right: 0;
+			}
+			&:last-of-type {
+				margin-right: 2px;
+			}
+		}
+
     &--inline {
         input + .#{$class}__label {
             width: auto;
@@ -126,6 +137,7 @@
     }
 
     &--inline-together {
+				border: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
         @supports (display: grid) {
             display: inline-grid;
             grid-auto-columns: 1fr;
@@ -133,7 +145,6 @@
         }
         input + .#{$class}__label {
             margin-right: 0;
-            border-left-width: 0;
             width: auto;
             float: left; // Float to support non-grid browsers.
         }
@@ -179,7 +190,6 @@
     $sidePadding: 32px;
     & + .#{$class}__label {
         @include oColorsFor(o-forms-radio-buttons-styled, text);
-        border: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
         cursor: pointer;
         font-size: $_o-forms-field-default-font-size;
         font-weight: oFontsWeight('semibold');
@@ -188,8 +198,10 @@
         text-align: center;
         transition: 0.3s background-color, 0.15s color ease-out;
         display: inline-block;
-        &:first-of-type {
-            border-left-width: 1px;
+				border-left: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
+				&:first-of-type {
+					border-left: 0 none;
+					border-right: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
         }
     }
     &:not(:disabled):not(:checked) + .#{$class}__label:hover {
@@ -199,6 +211,9 @@
         @include oColorsFor(o-forms-radio-buttons-styled-checked, background);
         @include oColorsFor(o-forms-radio-buttons-styled-checked, text);
     }
+		&--negative:checked + .#{$class}__label {
+				@include oColorsFor(o-forms-radio-buttons-styled-negative-checked, background);
+		}
     &:focus + .#{$class}__label {
         @include oFormsCommonFieldFocus;
         z-index: 1;
