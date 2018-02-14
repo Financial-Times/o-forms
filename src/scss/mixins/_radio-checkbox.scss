@@ -119,17 +119,6 @@
         }
     }
 
-		.#{$class}__radio-button + .#{$class}__label {
-			margin: 2px 2px 2px -1px;
-			&:first-of-type {
-				margin-left: 2px;
-				margin-right: 0;
-			}
-			&:last-of-type {
-				margin-right: 2px;
-			}
-		}
-
     &--inline {
         input + .#{$class}__label {
             width: auto;
@@ -137,7 +126,6 @@
     }
 
     &--inline-together {
-				border: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
         @supports (display: grid) {
             display: inline-grid;
             grid-auto-columns: 1fr;
@@ -189,6 +177,7 @@
     @include oNormaliseVisuallyHidden;
     $sidePadding: 32px;
     & + .#{$class}__label {
+        position: relative;
         @include oColorsFor(o-forms-radio-buttons-styled, text);
         cursor: pointer;
         font-size: $_o-forms-field-default-font-size;
@@ -198,10 +187,27 @@
         text-align: center;
         transition: 0.3s background-color, 0.15s color ease-out;
         display: inline-block;
-				border-left: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
-				&:first-of-type {
-					border-left: 0 none;
-					border-right: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
+        border-left: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
+        &:first-of-type {
+            margin-left: 3px;
+            border-left: 0;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            bottom: -3px;
+            left: -3px;
+            border: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
+            border-left: 0;
+            border-right: 0;
+        }
+        &:last-of-type:before {
+            border-right: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
+        }
+        &:first-of-type:before {
+            border-left: 1px solid oColorsGetColorFor(o-forms-radio-buttons-styled, border);
         }
     }
     &:not(:disabled):not(:checked) + .#{$class}__label:hover {
