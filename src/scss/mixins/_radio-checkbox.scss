@@ -211,9 +211,9 @@
         @include oColorsFor(o-forms-radio-buttons-styled-checked, background);
         @include oColorsFor(o-forms-radio-buttons-styled-checked, text);
     }
-		&--negative:checked + .#{$class}__label {
-				@include oColorsFor(o-forms-radio-buttons-styled-negative-checked, background);
-		}
+    &--negative:checked + .#{$class}__label {
+            @include oColorsFor(o-forms-radio-buttons-styled-negative-checked, background);
+    }
     &:focus + .#{$class}__label {
         @include oFormsCommonFieldFocus;
         z-index: 1;
