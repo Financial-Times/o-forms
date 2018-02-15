@@ -177,7 +177,6 @@
     @include oNormaliseVisuallyHidden;
     $sidePadding: 32px;
     & + .#{$class}__label {
-        position: relative;
         @include oColorsFor(o-forms-radio-buttons-styled, text);
         cursor: pointer;
         font-size: $_o-forms-field-default-font-size;
