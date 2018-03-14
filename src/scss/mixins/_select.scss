@@ -59,7 +59,9 @@
 @mixin oFormsSelectSmall {
 	padding-right: $_o-forms-select-small-iconsize + $_o-forms-field-default-padding-leftright;
 	// In old IE, since we can't hide the stock browser arrow.
+	// sass-lint:disable no-duplicate-properties
 	padding-right: #{$_o-forms-field-default-padding-leftright}\9;
+	// sass-lint:enable no-duplicate-properties
 }
 
 /// @access public
