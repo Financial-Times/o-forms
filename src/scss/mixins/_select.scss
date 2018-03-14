@@ -54,6 +54,16 @@
 
 /// @access public
 /// @require {mixin} oFormsCommonField
+/// @require {mixin} oFormsCommonSmall
+/// @output Styles to support a small select input.
+@mixin oFormsSelectSmall {
+	padding-right: $_o-forms-select-small-iconsize + $_o-forms-field-default-padding-leftright;
+	// In old IE, since we can't hide the stock browser arrow.
+	padding-right: #{$_o-forms-field-default-padding-leftright}\9;
+}
+
+/// @access public
+/// @require {mixin} oFormsCommonField
 /// @require {mixin} oFormsSelect
 /// @output Styles for a multi select input.
 @mixin oFormsSelectMulti() {
