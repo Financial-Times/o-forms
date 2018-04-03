@@ -189,7 +189,7 @@
         @include oNormaliseVisuallyHidden;
         $sidePadding: 32px;
         & + .#{$class}__label {
-            color: oBrandGet('radio-buttons-styled');
+            color: oBrandGet('radio-buttons-styled-text');
             cursor: pointer;
             font-size: $_o-forms-field-default-font-size;
             font-weight: oFontsWeight('semibold');
@@ -225,11 +225,11 @@
             background-color: rgba(oBrandGet('checkbox-radio-hover-background'), 0.15);
         }
         &:checked + .#{$class}__label {
-            background-color: oBrandGet('radio-buttons-styled-checked');
-            color: oBrandGet('radio-buttons-styled-checked');
+            background-color: oBrandGet('radio-buttons-styled-checked-background');
+            color: oBrandGet('radio-buttons-styled-checked-text');
         }
         &--negative:checked + .#{$class}__label {
-                background-color: oBrandGet('radio-buttons-styled-negative-checked');
+                background-color: oBrandGet('radio-buttons-styled-negative-checked-background');
         }
         &:focus + .#{$class}__label {
             @include oFormsCommonFieldFocus;
