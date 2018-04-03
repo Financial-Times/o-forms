@@ -1,5 +1,4 @@
 $_o-table-shared-brand-config: (
-        section-error-background: oColorsMix('paper', 'crimson', 90),
         section-highlight-background: oColorsGetPaletteColor('black-10'),
         message-error-background: oColorsGetPaletteColor('crimson'),
         message-error-text: oColorsGetPaletteColor('white'),
@@ -34,11 +33,15 @@ $_o-table-shared-brand-config: (
 );
 
 @include oBrandDefine('o-forms', 'master', (
-	'variables': $_o-table-shared-brand-config
+	'variables': map-merge($_o-table-shared-brand-config, (
+                section-error-background: oColorsMix('paper', 'crimson', 90),
+        ))
 ));
 
 @include oBrandDefine('o-forms', 'internal', (
-	'variables': $_o-table-shared-brand-config
+        'variables': map-merge($_o-table-shared-brand-config, (
+                section-error-background: oColorsMix('white', 'crimson', 90),
+        ))
 ));
 
 @include oBrandDefine('o-forms', 'whitelabel', (

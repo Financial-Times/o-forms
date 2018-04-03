@@ -24,10 +24,10 @@
 /// @output Basic styles shared between input, textarea, select etc.
 @mixin oFormsCommonFieldBase {
 	@include oBrandConfigureFor('o-forms') {
+		@include oTypographySize($_o-forms-typography-scale-regular);
 		color: oBrandGet('field-standard-text');
 		border-color: oBrandGet('field-standard-border');
 		background-color: oBrandGet('field-standard-background');
-		@include oTypographySize($_o-forms-typography-scale-regular);
 		margin-top: $_o-forms-spacing;
 		box-sizing: border-box;
 		width: 100%;
@@ -99,8 +99,7 @@
 	@include oBrandConfigureFor('o-forms') {
 		&:not(:disabled) {
         	color: oBrandGet('field-valid-text');
-        	border-color:o BrandGet('field-valid-border');
-        	background-color: oBrandGet('field-valid-background');
+        	border-color: oBrandGet('field-valid-border');
 			background-color: rgba(oBrandGet('field-valid-background'), 0.05);
 			&:focus {
 				border-color: oBrandGet('field-valid-border');

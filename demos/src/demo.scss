@@ -7,8 +7,8 @@ html {
 }
 
 body {
-	margin: oGridGutter();
 	@include oColorsFor('page', 'background');
+	margin: oGridGutter();
 }
 
 .inverse-demo {

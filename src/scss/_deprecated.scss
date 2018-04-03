@@ -39,7 +39,7 @@
 @include oColorsSetUseCase(o-forms-field-valid, text, 'jade');
 @include oColorsSetUseCase(o-forms-field-valid, border, 'jade');
 @include oColorsSetUseCase(o-forms-field-valid, background, 'jade');
-@include oColorsSetUseCase(o-forms-field-valid,_deprecated, 'Please contact Origami if you need this usecase.');
+@include oColorsSetUseCase(o-forms-field-valid, _deprecated, 'Please contact Origami if you need this usecase.');
 
 /// Errored Input Colours
 @include oColorsSetUseCase(o-forms-field-invalid, text, 'crimson');
