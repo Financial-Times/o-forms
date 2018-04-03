@@ -1,5 +1,4 @@
-@include oBrandDefine('o-forms', 'master', (
-	'variables': (
+$_o-table-shared-brand-config: (
         section-error-background: oColorsMix('paper', 'crimson', 90),
         section-highlight-background: oColorsGetPaletteColor('black-10'),
         message-error-background: oColorsGetPaletteColor('crimson'),
@@ -32,9 +31,20 @@
         toggle-inverse-text: oColorsGetPaletteColor('white'),
         toggle-inverse-selected-background: oColorsGetPaletteColor('teal-100'),
         toggle-inverse-switch-knob-background: oColorsGetPaletteColor('teal')
-	),
+);
+
+@include oBrandDefine('o-forms', 'master', (
+	'variables': $_o-table-shared-brand-config,
 	'settings': (
-		'stripe': true,
-		'compact': true
+                'stripe': true,
+                'compact': true
+	)
+));
+
+@include oBrandDefine('o-forms', 'internal', (
+	'variables': $_o-table-shared-brand-config,
+	'settings': (
+                'stripe': true,
+                'compact': true
 	)
 ));
