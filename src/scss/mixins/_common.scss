@@ -49,8 +49,8 @@
 
 		// Remove verticle margins from "inputs".
 		.#{$class}__group {
-			margin-top: -($_o-forms-group-item-spacing / 2);
-			margin-bottom: -($_o-forms-group-item-spacing / 2);
+			margin-top: -($_o-forms-group-spacing / 2);
+			margin-bottom: -($_o-forms-group-spacing / 2);
 		}
 		.#{$class}__affix-wrapper,
 		.#{$class}__text,
