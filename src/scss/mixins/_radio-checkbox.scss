@@ -119,7 +119,7 @@
 /// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Styles to wrap a group of checkboxes or a group of radios for purposes of positioning etc.
 @mixin oFormsGroupContainer($class: 'o-forms') {
-    margin: #{-$_o-forms-group-item-spacing / 2} 0;
+    margin: #{$_o-forms-checkbox-legend-spacing - ($_o-forms-group-item-spacing / 2)} 0 #{-$_o-forms-group-item-spacing / 2} 0;
 
     input + .#{$class}__label {
         width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).

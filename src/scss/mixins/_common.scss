@@ -22,13 +22,6 @@
 
 @mixin oFormsGroupInline($class: 'o-forms') {
 	max-width: $_o-forms-inline-field-max-width;
-	.#{$class}__label {
-		margin-bottom: 0;
-	}
-	.#{$class}__label + .#{$class}__additional-info {
-		margin-top: 0;
-		margin-bottom: 0;
-	}
 	// Fieldset overrides the display vaule in some browsers.
 	// https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements
 	&:not(fieldset) {
@@ -53,6 +46,18 @@
 			-ms-grid-column: 3;
 		}
 		// sass-lint:enable no-vendor-prefixes
+
+		// Remove verticle margins from "inputs".
+		.#{$class}__group {
+			margin-top: -($_o-forms-group-item-spacing / 2);
+			margin-bottom: -($_o-forms-group-item-spacing / 2);
+		}
+		.#{$class}__affix-wrapper,
+		.#{$class}__text,
+		.#{$class}__select,
+		.#{$class}__textarea {
+			margin-top: 0;
+		}
 	}
 }
 
@@ -64,6 +69,7 @@
 		color: oBrandGet('field-standard-text');
 		border-color: oBrandGet('field-standard-border');
 		background-color: oBrandGet('field-standard-background');
+		margin-top: $_o-forms-spacing;
 		box-sizing: border-box;
 		width: 100%;
 		max-width: $_o-forms-field-max-width;

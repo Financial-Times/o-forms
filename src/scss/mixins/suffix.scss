@@ -28,6 +28,7 @@
 	display: table;
 	width: 100%;
 	box-sizing: border-box;
+	margin-top: $_o-forms-spacing;
 	.#{$class}__text,
 	.#{$class}__select,
 	.#{$class}__textarea {
