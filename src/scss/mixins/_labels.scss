@@ -11,6 +11,7 @@
 		color: oBrandGet('field-label-text');
 		display: block;
 		padding: 0; // Reset legend default styling
+		margin-bottom: $_o-forms-checkbox-legend-spacing;
 		p {
 			@include oTypographyMargin($top: 0, $bottom: 2);
 
@@ -22,12 +23,24 @@
 }
 
 /// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Styles for addional input information (typically below a label).
-@mixin oFormsAdditionalInfo {
+@mixin oFormsAdditionalInfo($class: 'o-forms') {
 	@include oBrandConfigureFor('o-forms') {
 		@include oTypographySize($_o-forms-typography-scale-small);
 		color: oBrandGet('field-additional-info-text');
 		display: block;
+		& + .#{$class}__text,
+		& + .#{$class}__select,
+		& + .#{$class}__textarea {
+			margin-top: $_o-forms-spacing - $_o-forms-checkbox-legend-spacing;
+		}
+		@at-root {
+			.#{$class}__label + & {
+				margin-top: -$_o-forms-checkbox-legend-spacing;
+				margin-bottom: $_o-forms-checkbox-legend-spacing;
+			}
+		}
 	}
 }
 

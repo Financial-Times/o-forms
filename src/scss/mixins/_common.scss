@@ -20,6 +20,42 @@
 	// sass-lint:enable mixins-before-declarations
 }
 
+@mixin oFormsGroupInline($class: 'o-forms') {
+	max-width: $_o-forms-inline-field-max-width;
+	.#{$class}__label {
+		margin-bottom: 0;
+	}
+	.#{$class}__label + .#{$class}__additional-info {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	// Fieldset overrides the display vaule in some browsers.
+	// https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements
+	&:not(fieldset) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 20px;
+		align-items: center;
+		// IE10 - IE11 Support
+		// sass-lint:disable no-vendor-prefixes
+		-ms-grid-columns: 1fr 20px 1fr;
+		counter-reset: inline-item; // 0
+		> .o-forms__inline-item {
+			counter-increment: inline-item;
+			-ms-grid-row: counter(inline-item);
+			-ms-grid-row-align: center;
+			-ms-grid-column: 1;
+			> .o-forms__label {
+				max-width: 100%;
+			}
+		}
+		> .o-forms__inline-item:nth-child(even) {
+			-ms-grid-column: 3;
+		}
+		// sass-lint:enable no-vendor-prefixes
+	}
+}
+
 /// @access public
 /// @output Basic styles shared between input, textarea, select etc.
 @mixin oFormsCommonFieldBase {
@@ -28,7 +64,6 @@
 		color: oBrandGet('field-standard-text');
 		border-color: oBrandGet('field-standard-border');
 		background-color: oBrandGet('field-standard-background');
-		margin-top: $_o-forms-spacing;
 		box-sizing: border-box;
 		width: 100%;
 		max-width: $_o-forms-field-max-width;

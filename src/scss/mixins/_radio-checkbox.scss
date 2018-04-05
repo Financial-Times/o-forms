@@ -20,7 +20,7 @@
             background-color: oBrandGet('checkbox-radio-checked-background');
             // sass-lint:disable no-vendor-prefixes
             @media screen and (-ms-high-contrast: active) {
-                    background-color: windowText;
+                background-color: windowText;
             }
             // sass-lint:enable no-vendor-prefixes
             // Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
@@ -119,12 +119,12 @@
 /// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Styles to wrap a group of checkboxes or a group of radios for purposes of positioning etc.
 @mixin oFormsGroupContainer($class: 'o-forms') {
-    margin: 0 0 #{-$_o-forms-spacing};
+    margin: #{-$_o-forms-group-item-spacing / 2} 0;
 
     input + .#{$class}__label {
         width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
         box-sizing: border-box;
-        margin: $_o-forms-checkbox-legend-spacing $_o-forms-checkbox-horizontal-spacing $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
+        margin: ($_o-forms-group-item-spacing / 2) $_o-forms-checkbox-horizontal-spacing ($_o-forms-group-item-spacing / 2) 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
         &:last-of-type {
             margin-right: 0;
         }

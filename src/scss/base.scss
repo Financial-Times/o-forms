@@ -37,6 +37,10 @@
 	.#{$class} {
 		@include oFormsGroup;
 	}
+	.#{$class}__inline-container,
+	.#{$class}--inline {
+		@include oFormsGroupInline;
+	}
 	.#{$class}__text,
 	.#{$class}__select,
 	.#{$class}__textarea {
