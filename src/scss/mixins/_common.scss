@@ -21,6 +21,10 @@
 }
 
 @mixin oFormsGroupInline($class: 'o-forms') {
+	margin: 0 0 $_o-forms-inline-group-spacing;
+}
+
+@mixin oFormsInlineContainer($class: 'o-forms') {
 	max-width: $_o-forms-inline-field-max-width;
 	// Fieldset overrides the display vaule in some browsers.
 	// https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements
