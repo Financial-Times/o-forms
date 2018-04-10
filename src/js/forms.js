@@ -88,7 +88,7 @@ class Forms {
 			oFormsEl.classList.remove('o-forms--error');
 		}
 
-		if (oFormsElExists) {
+		if (this.opts && this.opts.applyValidState && oFormsElExists) {
 			oFormsEl.classList.add('o-forms--valid');
 		}
 
@@ -96,9 +96,9 @@ class Forms {
 	}
 
 	invalidInput(input) { // eslint-disable-line class-methods-use-this
-			const oFormsEl = input.closest('.o-forms');
-			oFormsEl.classList.add('o-forms--error');
-			oFormsEl.classList.remove('o-forms--valid');
+		const oFormsEl = input.closest('.o-forms');
+		oFormsEl.classList.add('o-forms--error');
+		oFormsEl.classList.remove('o-forms--valid');
 	}
 
 	handleInvalidEvent(event) {

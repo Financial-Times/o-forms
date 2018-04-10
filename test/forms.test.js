@@ -235,6 +235,18 @@ describe("Forms", () => {
 
 				proclaim.isTrue(oFormsEl.classList.contains('o-forms--valid'));
 			});
+
+			it('doesnt add the valid class to the form when applyValidState is false', () => {
+				testForms = new Forms(formEl, { applyValidState: false });
+
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
+
+				input.focus();
+				input.value = 'valid';
+				input.blur();
+
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
+			});
 		});
 
 		describe("handles validity changes", () => {
