@@ -69,7 +69,6 @@
     <div class="o-forms__inline-container">
         <div class="o-forms__inline-item">
             <legend class="o-forms__label">Error</legend>
-            <div class="o-forms__errortext">Invalid entry</div>
         </div>
         <div class="o-forms__inline-item">
             <div class="o-forms__group">
@@ -78,6 +77,7 @@
                 <input type="checkbox" name="checkbox3" value="2" class="o-forms__checkbox" id="checkbox32" />
                 <label for="checkbox32" class="o-forms__label">Checkbox 2</label>
             </div>
+            <div class="o-forms__errortext">Invalid entry</div>
         </div>
     </div>
 </fieldset>
@@ -103,7 +103,6 @@
     <div class="o-forms__inline-container">
         <div class="o-forms__inline-item">
             <legend class="o-forms__label">Error</legend>
-            <div class="o-forms__errortext">Invalid entry</div>
         </div>
         <div class="o-forms__inline-item">
             <div class="o-forms__group">
@@ -112,6 +111,7 @@
                 <input type="radio" name="radio3" value="2" class="o-forms__radio" id="radio32" />
                 <label for="radio32" class="o-forms__label">Radio 2</label>
             </div>
+            <div class="o-forms__errortext">Invalid entry</div>
         </div>
     </div>
 </fieldset>
@@ -132,7 +132,6 @@
 <div class="o-forms o-forms--inline o-forms--error">
     <div class="o-forms__inline-item">
 	    <label for="select-invalid" class="o-forms__label">Select box (error)</label>
-	    <div class="o-forms__errortext">Invalid entry</div>
     </div>
     <div class="o-forms__inline-item">
         <select id="select-invalid" class="o-forms__select">
@@ -141,6 +140,7 @@
             <option value="option3">Option 3</option>
             <option value="option4">Option 4</option>
         </select>
+        <div class="o-forms__errortext">Invalid entry</div>
     </div>
 </div>
 
@@ -175,10 +175,10 @@
 <div class="o-forms o-forms--inline o-forms--error">
     <div class="o-forms__inline-item">
 	    <label for="o-forms-invalid" class="o-forms__label">URL input :invalid</label>
-        <div class="o-forms__errortext">Please enter a valid url</div>
     </div>
     <div class="o-forms__inline-item">
         <input type="url" id="o-forms-invalid" class="o-forms__text" value="hp://invalid.com" />
+        <div class="o-forms__errortext">Please enter a valid url</div>
     </div>
 </div>
 
@@ -195,10 +195,10 @@
 <div class="o-forms o-forms--inline o-forms--error">
     <div class="o-forms__inline-item">
 	    <label for="o-forms__textarea-invalid" class="o-forms__label">Textarea (error)</label>
-	    <div class="o-forms__errortext">Invalid entry</div>
     </div>
     <div class="o-forms__inline-item">
 	    <textarea id="o-forms__textarea-invalid" class="o-forms__textarea"></textarea>
+        <div class="o-forms__errortext">Invalid entry</div>
     </div>
 </div>
 
