@@ -20,47 +20,72 @@
 	// sass-lint:enable mixins-before-declarations
 }
 
+/// @access public
+/// @require {mixin} oFormsGroup
+/// @output Styles to modify the o-forms/fieldset group for inline fields.
 @mixin oFormsGroupInline($class: 'o-forms') {
-	margin: 0 0 $_o-forms-inline-group-spacing;
+	@include oGridRespondTo(S) {
+		margin: 0 0 $_o-forms-inline-group-spacing;
+	}
 }
 
-@mixin oFormsInlineContainer($class: 'o-forms') {
-	max-width: $_o-forms-inline-field-max-width;
-	// Fieldset overrides the display vaule in some browsers.
-	// https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements
-	&:not(fieldset) {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-gap: 20px;
-		align-items: center;
-		// IE10 - IE11 Support
-		// sass-lint:disable no-vendor-prefixes
-		-ms-grid-columns: 1fr 20px 1fr;
-		counter-reset: inline-item; // 0
-		> .o-forms__inline-item {
-			counter-increment: inline-item;
-			-ms-grid-row: counter(inline-item);
-			-ms-grid-row-align: center;
-			-ms-grid-column: 1;
-			> .o-forms__label {
-				max-width: 100%;
-			}
-		}
-		> .o-forms__inline-item:nth-child(even) {
-			-ms-grid-column: 3;
-		}
-		// sass-lint:enable no-vendor-prefixes
+/// @access public
+/// @require {mixin} oFormsGroup
+/// @require {mixin} oFormsGroupInline
+/// @output Styles to modify the alignment of inline o-forms/fieldset group for checkboxes and radio buttons.
+@mixin oFormsGroupInlineRadioCheckbox($class: 'o-forms') {
+	align-items: baseline;
+}
 
-		// Remove verticle margins from "inputs".
-		.#{$class}__group {
-			margin-top: -($_o-forms-group-spacing / 2);
-			margin-bottom: -($_o-forms-group-spacing / 2);
-		}
-		.#{$class}__affix-wrapper,
-		.#{$class}__text,
-		.#{$class}__select,
-		.#{$class}__textarea {
-			margin-top: 0;
+/// @access public
+/// @require {mixin} oFormsGroup
+/// @require {mixin} oFormsGroupInline
+/// @output Styles for the o-forms/fieldset inline container.
+@mixin oFormsGroupInlineContainer($class: 'o-forms') {
+	@include oGridRespondTo(S) {
+		max-width: $_o-forms-inline-field-max-width;
+		// Fieldset overrides the display vaule in some browsers.
+		// https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements
+		&:not(fieldset) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 20px;
+			-ms-grid-columns: 1fr 20px 1fr;
+			align-items: center;
+
+			> .#{$class}__label,
+			> .#{$class}__inline-item,
+			> .#{$class}__additional-info {
+				grid-column: 1;
+			}
+
+			> .#{$class}__affix-wrapper,
+			> .#{$class}__text,
+			> .#{$class}__select,
+			> .#{$class}__textarea,
+			> .#{$class}__group {
+				grid-column: 2;
+				-ms-grid-column: 3;
+				grid-row: 1;
+			}
+
+			> .#{$class}__errortext {
+				grid-column: 2;
+				-ms-grid-column: 3;
+				grid-row: 2;
+			}
+
+			// Remove verticle margins from "inputs".
+			.#{$class}__group {
+				margin-top: -($_o-forms-group-spacing / 2);
+				margin-bottom: -($_o-forms-group-spacing / 2);
+			}
+			.#{$class}__affix-wrapper,
+			.#{$class}__text,
+			.#{$class}__select,
+			.#{$class}__textarea {
+				margin-top: 0;
+			}
 		}
 	}
 }

@@ -40,9 +40,17 @@
 	.#{$class}--inline {
 		@include oFormsGroupInline;
 	}
+	// `fieldset.o-forms--inline` must nest `.o-forms__inline-container` as fieldset may override the display value.
+	// https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements
 	.#{$class}--inline,
 	.#{$class}__inline-container {
-		@include oFormsInlineContainer;
+		@include oFormsGroupInlineContainer;
+	}
+	.#{$class}--inline.#{$class}--radios,
+	.#{$class}--inline.#{$class}--checkboxes,
+	.#{$class}--radios .#{$class}__inline-container,
+	.#{$class}--checkboxes .#{$class}__inline-container {
+		@include oFormsGroupInlineRadioCheckbox;
 	}
 	.#{$class}__text,
 	.#{$class}__select,
