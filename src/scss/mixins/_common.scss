@@ -118,10 +118,6 @@
 				> .#{$class}__inline-item--left {
 					margin-top: 0;
 				}
-				> .#{$class}__group {
-					margin-top: -($_o-forms-group-spacing / 2);
-					margin-bottom: -($_o-forms-group-spacing / 2);
-				}
 			}
 
 			// Reset margins for IE10-11 (@supports unsupported)
@@ -133,11 +129,6 @@
 			> .#{$class}__group,
 			> .#{$class}__inline-item--left {
 				margin-top: 0;
-			}
-			_:-ms-lang(x),
-			> .#{$class}__group {
-				margin-top: -($_o-forms-group-spacing / 2);
-				margin-bottom: -($_o-forms-group-spacing / 2);
 			}
 		}
 		// sass-lint:enable no-vendor-prefixes

@@ -119,23 +119,44 @@
 /// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Styles to wrap a group of checkboxes or a group of radios for purposes of positioning etc.
 @mixin oFormsGroupContainer($class: 'o-forms') {
-    // Grouped elements may be displayed inline rather than stacked.
-    // As inline margins do not collapse.
-    $group-item-verticle-spacing: $_o-forms-group-spacing / 2;
-    margin: #{$_o-forms-checkbox-legend-spacing - $group-item-verticle-spacing} #{-$_o-forms-checkbox-horizontal-spacing} #{-$group-item-verticle-spacing} 0;
+    margin-top: $_o-forms-checkbox-legend-spacing;
 
-    input + .#{$class}__label {
-        width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
-        box-sizing: border-box;
-        margin: $group-item-verticle-spacing $_o-forms-checkbox-horizontal-spacing $group-item-verticle-spacing 0;
-    }
-
-    &--inline {
+    // Stack grouped radios/checkboxes by default.
+    &:not(#{&}--inline-together){
+        .o-forms__toggle,
         input + .#{$class}__label {
-            width: auto;
+            display: block;
+            box-sizing: border-box;
+            margin: $_o-forms-group-spacing 0;
+            &:first-of-type {
+                margin-top: 0;
+            }
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
     }
 
+    // Inline radios/checkboxes.
+    // Half inline margins as inline margins do not collapse.
+    $group-item-verticle-spacing: $_o-forms-group-spacing / 2;
+    &--inline {
+        margin: #{-$group-item-verticle-spacing + $_o-forms-checkbox-legend-spacing} #{-$_o-forms-checkbox-horizontal-spacing} #{-$group-item-verticle-spacing} 0;
+        .o-forms__toggle,
+        input + .#{$class}__label {
+            display: inline-block;
+            width: auto;
+            margin: $group-item-verticle-spacing $_o-forms-checkbox-horizontal-spacing $group-item-verticle-spacing 0;
+            &:first-of-type {
+                margin-top: $group-item-verticle-spacing;
+            }
+            &:last-of-type {
+                margin-bottom: $group-item-verticle-spacing;
+            }
+        }
+    }
+
+    // Styled radio buttons are grouped inline and close together.
     &--inline-together {
         @supports (display: grid) {
             display: inline-grid;
@@ -203,6 +224,7 @@
             display: inline-block;
             border-left: 1px solid oBrandGet('radio-buttons-styled-border');
             margin-top: 3px;
+            margin-bottom: 3px;
             &:first-of-type {
                 margin-left: 3px;
                 border-left: 0;
