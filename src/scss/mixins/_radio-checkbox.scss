@@ -122,15 +122,12 @@
     // Grouped elements may be displayed inline rather than stacked.
     // As inline margins do not collapse.
     $group-item-verticle-spacing: $_o-forms-group-spacing / 2;
-    margin: #{$_o-forms-checkbox-legend-spacing - $group-item-verticle-spacing} 0 #{-$group-item-verticle-spacing} 0;
+    margin: #{$_o-forms-checkbox-legend-spacing - $group-item-verticle-spacing} #{-$_o-forms-checkbox-horizontal-spacing} #{-$group-item-verticle-spacing} 0;
 
     input + .#{$class}__label {
         width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
         box-sizing: border-box;
         margin: $group-item-verticle-spacing $_o-forms-checkbox-horizontal-spacing $group-item-verticle-spacing 0;
-        &:last-of-type {
-            margin-right: 0;
-        }
     }
 
     &--inline {
@@ -144,6 +141,9 @@
             display: inline-grid;
             grid-auto-columns: 1fr;
             grid-auto-flow: column;
+            overflow: hidden;
+            width: max-content;
+            max-width: 100%;
         }
         input + .#{$class}__label {
             margin-right: 0;
@@ -190,21 +190,25 @@
 @mixin oFormsRadioButtonsStyled($class: 'o-forms') {
     @include oBrandConfigureFor('o-forms') {
         @include oNormaliseVisuallyHidden;
-        $sidePadding: 32px;
+        $side-padding: 20px;
         & + .#{$class}__label {
             color: oBrandGet('radio-buttons-styled-text');
             cursor: pointer;
             font-size: $_o-forms-field-default-font-size;
             font-weight: oFontsWeight('semibold');
-            padding: 5px $sidePadding 7px;
+            padding: 5px $side-padding 7px;
             position: relative;
             text-align: center;
             transition: 0.3s background-color, 0.15s color ease-out;
             display: inline-block;
             border-left: 1px solid oBrandGet('radio-buttons-styled-border');
+            margin-top: 3px;
             &:first-of-type {
                 margin-left: 3px;
                 border-left: 0;
+            }
+            &:last-of-type {
+                margin-right: 3px;
             }
             &:before {
                 content: '';
@@ -244,7 +248,7 @@
             // Hack for odd border break with applied opacity.
             &:last-of-type {
                 left: -1px;
-                padding-left: $sidePadding + 1;
+                padding-left: $side-padding + 1;
                 position: relative;
             }
         }

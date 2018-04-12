@@ -97,7 +97,7 @@
 	    <label for="select-standard" class="o-forms__label">Select box</label>
 	    <div class="o-forms__additional-info">Prompt text follows the label if required.</div>
     </div>
-	<select id="select-standard" class="o-forms__select o-forms__inline-item">
+	<select id="select-standard" class="o-forms__select">
 		<option value="option1" selected>Option 1</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
@@ -107,9 +107,6 @@
 
 <div class="o-forms o-forms--inline o-forms--error">
 	<label for="select-invalid" class="o-forms__label">Select box (error)</label>
-    <div class="o-forms__additional-info">Prompt text follows the label if required.</div>
-    <div class="o-forms__additional-info">Prompt text follows the label if required.</div>
-    <div class="o-forms__additional-info">Prompt text follows the label if required.</div>
     <select id="select-invalid" class="o-forms__select">
         <option value="option1" selected>Option 1</option>
         <option value="option2">Option 2</option>
@@ -127,23 +124,30 @@
 	<input type="text" id="o-forms-standard" class="o-forms__text" required />
 </div>
 
-<div class="o-forms o-forms--inline">
-	<label for="o-forms-optional" class="o-forms__label o-forms__label--optional">Optional text input</label>
-	<input type="text" id="o-forms-optional" class="o-forms__text" />
-</div>
-
-<div class="o-forms o-forms--inline o-forms--valid">
-	<label for="o-forms-valid" class="o-forms__label">Text input with valid entry</label>
-	<input type="text" id="o-forms-valid" class="o-forms__text o-forms__text--valid" value="Field value" />
-</div>
-
 <div class="o-forms o-forms--inline o-forms--error">
 	<label for="o-forms-invalid" class="o-forms__label">URL input :invalid</label>
     <input type="url" id="o-forms-invalid" class="o-forms__text" value="hp://invalid.com" />
     <div class="o-forms__errortext">Please enter a valid url</div>
 </div>
 
-<div class="o-forms o-forms--inline o-forms--align-start">
+<div class="o-forms o-forms--inline">
+    <div class="o-forms__inline-item o-forms__inline-item--long">
+	    <label for="o-forms-long" class="o-forms__label">A long label and additional content</label>
+	    <div class="o-forms__additional-info">Inline inputs with long labels / additonal content have a unique class to align them to the start and span error messages.</div>
+    </div>
+	<input type="text" id="o-forms-long" class="o-forms__text" required />
+</div>
+
+<div class="o-forms o-forms--inline o-forms--error">
+    <div class="o-forms__inline-item o-forms__inline-item--long">
+	    <label for="o-forms-invalid-long" class="o-forms__label">A long label and additional content</label>
+	    <div class="o-forms__additional-info">Inline inputs with long labels / additonal content have a unique class to align them to the start and span error messages.</div>
+    </div>
+    <input type="url" id="o-forms-invalid-long" class="o-forms__text" value="hp://invalid.com" />
+    <div class="o-forms__errortext">Please enter a valid url</div>
+</div>
+
+<div class="o-forms o-forms--inline o-forms--textarea">
     <div class="o-forms__inline-item">
 	    <label for="o-forms__textarea" class="o-forms__label">Textarea</label>
 	    <div class="o-forms__additional-info">Prompt text follows the label if required.</div>
@@ -151,7 +155,7 @@
 	<textarea id="o-forms__textarea" class="o-forms__textarea"></textarea>
 </div>
 
-<div class="o-forms o-forms--inline o-forms--error">
+<div class="o-forms o-forms--inline o-forms--textarea o-forms--error">
 	<label for="o-forms__textarea-invalid" class="o-forms__label">Textarea (error)</label>
 	<textarea id="o-forms__textarea-invalid" class="o-forms__textarea"></textarea>
     <div class="o-forms__errortext">Invalid entry</div>
