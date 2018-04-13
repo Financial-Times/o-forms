@@ -51,12 +51,6 @@
 	}
 }
 
-@mixin oFormsGroupInlineTextArea($class: 'o-forms') {
-	@include _oFormsMessagingElementSelectors($class) {
-		align-self: start;
-	}
-}
-
 /// @access public
 /// @require {mixin} oFormsGroup
 /// @require {mixin} oFormsGroupInline
