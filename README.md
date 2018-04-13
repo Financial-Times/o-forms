@@ -29,42 +29,6 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-#### Inline forms
-
-By default `o-forms` is stacked but form fields may also be displayed inline by adding a modifier `o-forms--inline`.
-
-```html
-<div class="o-forms o-forms--inline">
-	<label for="o-forms-demo-text" class="o-forms__label">Text input example</label>
-	<input type="text" id="o-forms-demo-text" class="o-forms__text" required />
-</div>
-```
-
-Inline forms must wrap multiple messaging elements, such as a label and additional information, using `o-forms__inline-item`.
-
-```html
-<div class="o-forms o-forms--inline">
-    <div class="o-forms__inline-item">
-	    <label for="o-forms__textarea" class="o-forms__label">Label</label>
-	    <div class="o-forms__additional-info">Additional information</div>
-    </div>
-	<!-- input markup -->
-</div>
-```
-
-If `o-forms` is used on a `fieldset` a wrapper `o-forms__inline-container` must also be addded.
-
-```html
-<fieldset class="o-forms o-forms--inline">
-    <div class="o-forms__inline-container">
-        <legend class="o-forms__label">Legend</legend>
-        <!-- radio button markup -->
-    </div>
-</fieldset>
-```
-
-Inline forms offer more options. For full demo markup see [inline examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/inline) on the Origami Registry.
-
 #### Additonal field information
 
 It is possible to add additional information to form fields with `.o-forms__additional-info`. Additonal information is not limited to a text input, it could also apply against a `select`, `textarea`, `checkbox`, etc.
@@ -98,7 +62,6 @@ The class `.o-forms--wide` can be used to show form fields without width restric
 	<input type="text" id="o-forms-full" class="o-forms__text o-forms__text--valid" value="Field value" />
 </div>
 ```
-
 
 #### Text inputs
 

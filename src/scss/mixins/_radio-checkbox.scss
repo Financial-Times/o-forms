@@ -125,16 +125,18 @@
 
     // Stacked radios/checkboxes.
     // @breaking Remove the not selectors by removing the need to override label margins.
-    .o-forms__toggle,
-    input + .#{$class}__label {
-        display: block;
-        box-sizing: border-box;
-        margin: $_o-forms-group-spacing 0;
-        &:first-of-type {
-            margin-top: 0;
-        }
-        &:last-of-type {
-            margin-bottom: 0;
+    &:not(#{&}--inline-together):not(#{&}--inline) {
+        .o-forms__toggle,
+        input + .#{$class}__label {
+            display: block;
+            box-sizing: border-box;
+            margin: $_o-forms-group-spacing 0;
+            &:first-of-type {
+                margin-top: 0;
+            }
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
     }
 
