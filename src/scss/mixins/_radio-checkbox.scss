@@ -198,8 +198,10 @@
     position: relative;
     cursor: pointer;
     font-weight: oFontsWeight('normal');
-    padding-top: 2px; // To align the text with the center of the checkbox/radio
     user-select: none;
+    // To align the text with the center of the checkbox/radio
+    padding-top: 2px;
+    min-height: $_o-forms-radiocheckbox-default-size;
 }
 
 /// @access public
