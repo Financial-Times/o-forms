@@ -31,11 +31,13 @@
 			margin: 0 0 $_o-forms-inline-group-spacing;
 		}
 		// IE10-11 (no @supports but its own grid
+		// sass-lint:disable no-vendor-prefixes
 		&,
 		_:-ms-lang(x) {
 			max-width: $_o-forms-inline-field-max-width;
 			margin: 0 0 $_o-forms-inline-group-spacing;
 		}
+		// sass-lint:enable no-vendor-prefixes
 	}
 }
 
@@ -44,11 +46,11 @@
 /// @require {mixin} oFormsGroupInline
 /// @output Styles to modify the alignment of inline o-forms/fieldset group for checkboxes and radio buttons.
 @mixin oFormsGroupInlineRadioCheckbox($class: 'o-forms') {
-	align-items: baseline;
 	@include _oFormsMessagingElementSelectors($class) {
 		align-self: baseline;
-		-ms-grid-row-align: start; // IE10-11 no baseline support
+		-ms-grid-row-align: start; // sass-lint:disable-line no-vendor-prefixes IE10-11 no baseline support
 	}
+	align-items: baseline;
 }
 
 /// @access public
@@ -59,13 +61,12 @@
 	@include oGridRespondTo(S) {
 		// Fieldsets must use a container element, as fieldsets override the display vaule in some browsers.
 		// https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements
+		// sass-lint:disable mixins-before-declarations no-vendor-prefixes
 		&:not(fieldset) {
-			// sass-lint:disable no-vendor-prefixes
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			grid-column-gap: 20px;
 			-ms-grid-columns: 1fr 20px 1fr;
-			align-items: start;
 			min-width: 0;
 
 			@include _oFormsMessagingElementSelectors($class) {
@@ -73,42 +74,42 @@
 				align-self: center;
 			}
 
-			// Explicitly position input elements in the css grid .
+			// Explicitly position input elements in the css grid.
 			// IE10-11 do not support auto placement.
 			@include _oFormsInputElementSelectors($class) {
 				grid-column: 2;
-				-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap
+				-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
 				grid-row: 1;
-				-ms-grid-row-align: start; // IE10-11 increases input height to grid cell without alignment
+				align-self: start; // IE10-11 defaults to stretch with align-items.
 				// Reset margins only if grid is supported.
 				@supports (display: grid) {
 					margin-top: 0;
 				}
-				// Reset margins for IE10-11 (@supports unsupported)
+				// Reset margins for IE10-11 (@supports unsupported).
 				@at-root {
-					&, _:-ms-lang(x) {
+					&,
+					_:-ms-lang(x) {
 						margin-top: 0;
 					}
 				}
 			}
 
-			// Explicitly position error text in the css grid .
-			// IE10-11 do not support auto placement.
+			// Explicitly position error text in the css grid.
 			> .#{$class}__errortext {
 				grid-column: 2;
-				-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap
+				-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
 				grid-row: 2;
 			}
 
-			// For long labels and additional text which should span
-			// error text and not aign to the start of the input.
+			// For long labels and or additional text.
+			// Spans error text so the error text is against its input.
 			> .#{$class}__inline-item--long {
 				align-self: start;
 				grid-row: 1 / span 3;
 			}
 		}
-		// sass-lint:enable no-vendor-prefixes
 	}
+	// sass-lint:enable mixins-before-declarations no-vendor-prefixes
 }
 
 /// @access private

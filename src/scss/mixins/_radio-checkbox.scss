@@ -121,8 +121,8 @@
 @mixin oFormsGroupContainer($class: 'o-forms') {
     margin-top: $_o-forms-checkbox-legend-spacing;
 
-    // Stack grouped radios/checkboxes by default.
-    // @breaking Label specifc margins or override them with `--stacked` rather.
+    // Stacked radios/checkboxes.
+    // @breaking Remove the not selectors by removing the need to override label margins.
     &:not(#{&}--inline-together):not(#{&}--inline) {
         .o-forms__toggle,
         input + .#{$class}__label {
