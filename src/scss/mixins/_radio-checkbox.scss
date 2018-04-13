@@ -43,6 +43,9 @@
             @include oIconsGetIcon('tick', oBrandGet('checkbox-radio-checked-icon'), $_o-forms-radiocheckbox-default-size);
             background-color: oBrandGet('checkbox-radio-checked-background');
         }
+        & + .#{$class}__label::before {
+            background-color: oBrandGet('field-standard-background');
+        }
     }
 }
 
@@ -69,7 +72,6 @@
             border: 1px solid oBrandGet('field-standard-border');
             box-sizing: border-box;
             content: '';
-            background-color: oBrandGet('field-standard-background');
             transition: all 0.1s ease-in;
         }
 
