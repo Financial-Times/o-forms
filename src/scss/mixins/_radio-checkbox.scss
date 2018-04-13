@@ -273,3 +273,18 @@
         }
     }
 }
+
+/// @access private
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Error styles for radio buttons.
+@mixin _oFormsRadioButtonsStyledInvalid($class: 'o-forms') {
+    @include oBrandConfigureFor('o-forms') {
+        & + .#{$class}__label {
+            &:first-of-type:before,
+            &:last-of-type:before,
+            &:before {
+                border-color: oBrandGet('field-invalid-border');
+            }
+        }
+    }
+}

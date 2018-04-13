@@ -137,9 +137,13 @@
 /// @require {mixin} oFormsBaseFeatures - Basic form features must be output for the styled radio buttons to work.
 /// @output Styles for radios which look like a group of buttons, where one can be selected.
 @mixin oFormsRadioButtonsStyledFeature($class: 'o-forms') {
-    .#{$class}__radio-button {
-      @include oFormsRadioButtonsStyled($class);
-    }
+	.#{$class}__radio-button {
+		@include oFormsRadioButtonsStyled($class);
+	}
+	// Errors.
+	.#{$class}--error .#{$class}__radio-button {
+		@include _oFormsRadioButtonsStyledInvalid;
+	}
 }
 
 /// @access public
