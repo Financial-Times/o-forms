@@ -45,14 +45,14 @@
 /// @output Styles to modify the alignment of inline o-forms/fieldset group for checkboxes and radio buttons.
 @mixin oFormsGroupInlineRadioCheckbox($class: 'o-forms') {
 	align-items: baseline;
-	@include _oFormsMessagingElements($class) {
+	@include _oFormsMessagingElementSelectors($class) {
 		align-self: baseline;
 		-ms-grid-row-align: start; // IE10-11 no baseline support
 	}
 }
 
 @mixin oFormsGroupInlineTextArea($class: 'o-forms') {
-	@include _oFormsMessagingElements($class) {
+	@include _oFormsMessagingElementSelectors($class) {
 		align-self: start;
 	}
 }
@@ -63,7 +63,7 @@
 /// @output Styles for the o-forms/fieldset inline container.
 @mixin oFormsGroupInlineContainer($class: 'o-forms') {
 	@include oGridRespondTo(S) {
-		// Fieldset overrides the display vaule in some browsers.
+		// Fieldsets must use a container element, as fieldsets override the display vaule in some browsers.
 		// https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements
 		&:not(fieldset) {
 			// sass-lint:disable no-vendor-prefixes
@@ -74,23 +74,28 @@
 			align-items: start;
 			min-width: 0;
 
-			@include _oFormsMessagingElements($class) {
+			@include _oFormsMessagingElementSelectors($class) {
 				grid-column: 1;
 				align-self: center;
 			}
 
 			// Explicitly position input elements in the css grid .
 			// IE10-11 do not support auto placement.
-			> .#{$class}__affix-wrapper,
-			> .#{$class}__text,
-			> .#{$class}__select,
-			> .#{$class}__textarea,
-			> .#{$class}__group,
-			> .#{$class}__inline-item--left {
+			@include _oFormsInputElementSelectors($class) {
 				grid-column: 2;
 				-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap
 				grid-row: 1;
 				-ms-grid-row-align: start; // IE10-11 increases input height to grid cell without alignment
+				// Reset margins only if grid is supported.
+				@supports (display: grid) {
+					margin-top: 0;
+				}
+				// Reset margins for IE10-11 (@supports unsupported)
+				@at-root {
+					&, _:-ms-lang(x) {
+						margin-top: 0;
+					}
+				}
 			}
 
 			// Explicitly position error text in the css grid .
@@ -107,29 +112,6 @@
 				align-self: start;
 				grid-row: 1 / span 3;
 			}
-
-			// Reset margins only if grid is supported.
-			@supports (display: grid) {
-				> .#{$class}__affix-wrapper,
-				> .#{$class}__text,
-				> .#{$class}__select,
-				> .#{$class}__textarea,
-				> .#{$class}__group,
-				> .#{$class}__inline-item--left {
-					margin-top: 0;
-				}
-			}
-
-			// Reset margins for IE10-11 (@supports unsupported)
-			_:-ms-lang(x),
-			> .#{$class}__affix-wrapper,
-			> .#{$class}__text,
-			> .#{$class}__select,
-			> .#{$class}__textarea,
-			> .#{$class}__group,
-			> .#{$class}__inline-item--left {
-				margin-top: 0;
-			}
 		}
 		// sass-lint:enable no-vendor-prefixes
 	}
@@ -137,10 +119,23 @@
 
 /// @access private
 /// @output A provided content block wrapped in selectors for form messaging, such as labels and additonal info.
-@mixin _oFormsMessagingElements($class: 'o-forms') {
+@mixin _oFormsMessagingElementSelectors($class: 'o-forms') {
 	> .#{$class}__label,
 	> .#{$class}__additional-info,
 	> .#{$class}__inline-item {
+		@content;
+	}
+}
+
+/// @access private
+/// @output A provided content block wrapped in selectors for form input elements / groups.
+@mixin _oFormsInputElementSelectors($class: 'o-forms') {
+	> .#{$class}__affix-wrapper,
+	> .#{$class}__text,
+	> .#{$class}__select,
+	> .#{$class}__textarea,
+	> .#{$class}__group,
+	> .#{$class}__inline-item--left {
 		@content;
 	}
 }

@@ -122,7 +122,8 @@
     margin-top: $_o-forms-checkbox-legend-spacing;
 
     // Stack grouped radios/checkboxes by default.
-    &:not(#{&}--inline-together){
+    // @breaking Label specifc margins or override them with `--stacked` rather.
+    &:not(#{&}--inline-together):not(#{&}--inline) {
         .o-forms__toggle,
         input + .#{$class}__label {
             display: block;
@@ -147,12 +148,6 @@
             display: inline-block;
             width: auto;
             margin: $group-item-verticle-spacing $_o-forms-checkbox-horizontal-spacing $group-item-verticle-spacing 0;
-            &:first-of-type {
-                margin-top: $group-item-verticle-spacing;
-            }
-            &:last-of-type {
-                margin-bottom: $group-item-verticle-spacing;
-            }
         }
     }
 
