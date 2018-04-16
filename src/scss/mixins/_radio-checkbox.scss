@@ -142,14 +142,14 @@
 
     // Inline radios/checkboxes.
     // Half inline margins as inline margins do not collapse.
-    $group-item-verticle-spacing: $_o-forms-group-spacing / 2;
+    $group-item-vertical-spacing: $_o-forms-group-spacing / 2;
     &--inline {
-        margin: #{-$group-item-verticle-spacing + $_o-forms-checkbox-legend-spacing} #{-$_o-forms-checkbox-horizontal-spacing} #{-$group-item-verticle-spacing} 0;
+        margin: #{-$group-item-vertical-spacing + $_o-forms-checkbox-legend-spacing} #{-$_o-forms-checkbox-horizontal-spacing} #{-$group-item-vertical-spacing} 0;
         .o-forms__toggle,
         input + .#{$class}__label {
             display: inline-block;
             width: auto;
-            margin: $group-item-verticle-spacing $_o-forms-checkbox-horizontal-spacing $group-item-verticle-spacing 0;
+            margin: $group-item-vertical-spacing $_o-forms-checkbox-horizontal-spacing $group-item-vertical-spacing 0;
         }
     }
 
