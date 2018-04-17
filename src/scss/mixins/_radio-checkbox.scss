@@ -124,7 +124,6 @@
     margin-top: $_o-forms-checkbox-legend-spacing;
 
     // Stacked radios/checkboxes.
-    // @breaking Remove the not selectors by removing the need to override label margins.
     .o-forms__toggle,
     input + .#{$class}__label {
         display: block;
