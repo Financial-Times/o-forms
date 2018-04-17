@@ -143,6 +143,7 @@
     $group-item-vertical-spacing: $_o-forms-group-spacing / 2;
     &--inline {
         margin: #{-$group-item-vertical-spacing + $_o-forms-checkbox-legend-spacing} #{-$_o-forms-checkbox-horizontal-spacing} #{-$group-item-vertical-spacing} 0;
+        max-width: 100%;
         .o-forms__toggle,
         input + .#{$class}__label {
             display: inline-block;
