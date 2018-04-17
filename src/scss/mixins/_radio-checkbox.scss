@@ -125,20 +125,19 @@
 
     // Stacked radios/checkboxes.
     // @breaking Remove the not selectors by removing the need to override label margins.
-    &:not(#{&}--inline-together):not(#{&}--inline) {
-        .o-forms__toggle,
-        input + .#{$class}__label {
-            display: block;
-            box-sizing: border-box;
-            margin: $_o-forms-group-spacing 0;
-            &:first-of-type {
-                margin-top: 0;
-            }
-            &:last-of-type {
-                margin-bottom: 0;
-            }
+    .o-forms__toggle,
+    input + .#{$class}__label {
+        display: block;
+        box-sizing: border-box;
+        margin: $_o-forms-group-spacing 0;
+        &:first-of-type {
+            margin-top: 0;
+        }
+        &:last-of-type {
+            margin-bottom: 0;
         }
     }
+
 
     // Inline radios/checkboxes.
     // Half inline margins as inline margins do not collapse.
@@ -150,6 +149,12 @@
             display: inline-block;
             width: auto;
             margin: $group-item-vertical-spacing $_o-forms-checkbox-horizontal-spacing $group-item-vertical-spacing 0;
+            &:first-of-type {
+                margin-top: $group-item-vertical-spacing;
+            }
+            &:last-of-type {
+                margin-bottom: $group-item-vertical-spacing;
+            }
         }
     }
 
@@ -164,7 +169,7 @@
             max-width: 100%;
         }
         input + .#{$class}__label {
-            margin-right: 0;
+            @include _oFormsRadioButtonsStyledMargin();
             width: auto;
             float: left; // Float to support non-grid browsers.
         }
@@ -212,6 +217,7 @@
         @include oNormaliseVisuallyHidden;
         $side-padding: 20px;
         & + .#{$class}__label {
+            @include _oFormsRadioButtonsStyledMargin();
             color: oBrandGet('radio-buttons-styled-text');
             cursor: pointer;
             font-size: $_o-forms-field-default-font-size;
@@ -273,6 +279,18 @@
                 position: relative;
             }
         }
+    }
+}
+
+/// Margins for styled button labels.
+/// @access private
+@mixin _oFormsRadioButtonsStyledMargin {
+    margin: 3px 0;
+    &:first-of-type {
+        margin: 3px 0 3px 3px;
+    }
+    &:last-of-type {
+        margin: 3px 3px 3px 0;
     }
 }
 
