@@ -69,11 +69,13 @@ Inline forms offer more options. For full demo markup see [inline examples](http
 
 It is possible to add additional information to form fields with `.o-forms__additional-info`. Additonal information is not limited to a text input, it could also apply against a `select`, `textarea`, `checkbox`, etc.
 
+Note that the label has an `aria-describedby` attribute which matches the `id` of the additional information. This enables screen readers to automatically read the additonal information after reading the form label.
+
 ```html
 <div class="o-forms">
-	<label for="o-forms-demo-additional" class="o-forms__label">Text input example</label>
-	<div class="o-forms__additional-info">Additional info follows the label if required.</div>
-	<input type="text" id="o-forms-demo-additional" class="o-forms__text" required />
+	<label aria-describedby="demo-additional-info" for="demo-text-input" class="o-forms__label">Text input example</label>
+	<div id="demo-additional-info" class="o-forms__additional-info">Additional info follows the label if required.</div>
+	<input type="text" id="demo-text-input" class="o-forms__text" required />
 </div>
 ```
 

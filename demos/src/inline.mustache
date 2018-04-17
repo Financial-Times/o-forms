@@ -40,8 +40,8 @@
 
 <div class="o-forms o-forms--inline o-forms--checkboxes">
     <div class="o-forms__inline-item">
-        <legend class="o-forms__label">Default checkboxes</legend>
-        <div class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
+        <legend aria-describedby="default-checkboxes-info" class="o-forms__label">Default checkboxes</legend>
+        <div id="default-checkboxes-info" class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
     </div>
     <div class="o-forms__group">
         <input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox11" checked="checked" />
@@ -69,8 +69,8 @@
 <fieldset class="o-forms o-forms--inline o-forms--radios">
     <div class="o-forms__inline-container">
         <div class="o-forms__inline-item">
-            <legend class="o-forms__label">Default radio controls</legend>
-            <div class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
+            <legend aria-describedby="default-radio-controls" class="o-forms__label">Default radio controls</legend>
+            <div id="default-radio-controls" class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
         </div>
         <div class="o-forms__group">
             <input type="radio" name="radio" value="1" class="o-forms__radio" id="radio11" checked="checked" />
@@ -96,8 +96,8 @@
 
 <div class="o-forms o-forms--inline">
     <div class="o-forms__inline-item">
-	    <label for="select-standard" class="o-forms__label">Select box</label>
-	    <div class="o-forms__additional-info">Prompt text follows the label if required.</div>
+	    <label aria-describedby="select-box-info" for="select-standard" class="o-forms__label">Select box</label>
+	    <div id="select-box-info" class="o-forms__additional-info">Prompt text follows the label if required.</div>
     </div>
 	<select id="select-standard" class="o-forms__select">
 		<option value="option1" selected>Option 1</option>
@@ -120,8 +120,8 @@
 
 <div class="o-forms o-forms--inline">
     <div class="o-forms__inline-item">
-	    <label for="o-forms-standard" class="o-forms__label">Text input</label>
-	    <div class="o-forms__additional-info">Prompt text follows the label if required..</div>
+	    <label aria-describedby="text-input-info" for="o-forms-standard" class="o-forms__label">Text input</label>
+	    <div id="text-input-info" class="o-forms__additional-info">Prompt text follows the label if required..</div>
     </div>
 	<input type="text" id="o-forms-standard" class="o-forms__text" required />
 </div>
@@ -134,16 +134,16 @@
 
 <div class="o-forms o-forms--inline">
     <div class="o-forms__inline-item o-forms__inline-item--long">
-	    <label for="o-forms-long" class="o-forms__label">A long label and additional content</label>
-	    <div class="o-forms__additional-info">Inline inputs with long labels / additonal content have a unique class to align them to the start and span error messages.</div>
+	    <label aria-describedby="long-label-content-info" for="o-forms-long" class="o-forms__label">A long label and additional content</label>
+	    <div id="long-label-content-info" class="o-forms__additional-info">Inline inputs with long labels / additonal content have a unique class to align them to the start and span error messages.</div>
     </div>
 	<input type="text" id="o-forms-long" class="o-forms__text" required />
 </div>
 
 <div class="o-forms o-forms--inline o-forms--error">
     <div class="o-forms__inline-item o-forms__inline-item--long">
-	    <label for="o-forms-invalid-long" class="o-forms__label">A long label and additional content</label>
-	    <div class="o-forms__additional-info">Inline inputs with long labels / additonal content have a unique class to align them to the start and span error messages.</div>
+	    <label aria-describedby="long-label-content-invalid-info" for="o-forms-invalid-long" class="o-forms__label">A long label and additional content</label>
+	    <div id="long-label-content-invalid-info" class="o-forms__additional-info">Inline inputs with long labels / additonal content have a unique class to align them to the start and span error messages.</div>
     </div>
     <input type="url" id="o-forms-invalid-long" class="o-forms__text" value="hp://invalid.com" />
     <div class="o-forms__errortext">Please enter a valid url</div>
@@ -151,8 +151,8 @@
 
 <div class="o-forms o-forms--inline">
     <div class="o-forms__inline-item">
-	    <label for="o-forms__textarea" class="o-forms__label">Textarea</label>
-	    <div class="o-forms__additional-info">Prompt text follows the label if required.</div>
+	    <label aria-describedby="textarea-info" for="o-forms__textarea" class="o-forms__label">Textarea</label>
+	    <div id="textarea-info" class="o-forms__additional-info">Prompt text follows the label if required.</div>
     </div>
 	<textarea id="o-forms__textarea" class="o-forms__textarea"></textarea>
 </div>
