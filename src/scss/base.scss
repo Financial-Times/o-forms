@@ -161,15 +161,22 @@
 
 /// @access public
 /// @param {string} $class - The block level class name (BEM naming convention).
+/// @param {Bool} $stack-on-small - On small devices inline elements stack. Set to false to keep inline elements inline at all times.
 /// @require {mixin} oFormsBaseFeatures - Basic form features must be output for inline modifiers to work.
 /// @output Styles to support inline forms, with labels/messaging to one side and inputs to the other.
-@mixin oFormsInlineFeature($class: 'o-forms') {
+@mixin oFormsInlineFeature($class: 'o-forms', $stack-on-small: true) {
 	.#{$class}--inline {
 		@include oFormsGroupInline($class);
 	}
 	.#{$class}--inline,
 	.#{$class}__inline-container {
-		@include oFormsGroupInlineContainer($class);
+		@if ($stack-on-small) {
+			@include oGridRespondTo(S) {
+				@include oFormsGroupInlineContainer($class);
+			}
+		} @else {
+			@include oFormsGroupInlineContainer($class);
+		}
 	}
 	.#{$class}--inline.#{$class}--radios,
 	.#{$class}--inline.#{$class}--checkboxes,
