@@ -166,7 +166,7 @@
 /// @output Styles to support inline forms, with labels/messaging to one side and inputs to the other.
 @mixin oFormsInlineFeature($class: 'o-forms', $stack-on-small: true) {
 	.#{$class}--inline {
-		@include oFormsGroupInline($class);
+		@include oFormsGroupInline($class, $stack-on-small);
 	}
 	.#{$class}--inline,
 	.#{$class}__inline-container {

@@ -22,22 +22,31 @@
 }
 
 /// @access public
+/// @param {Bool} $stack-on-small - On small devices inline elements stack. Set to false to keep inline elements inline at all times.
 /// @require {mixin} oFormsGroup
 /// @output Styles to modify the o-forms/fieldset group for inline fields.
-@mixin oFormsGroupInline($class: 'o-forms') {
-	@include oGridRespondTo(S) {
-		@supports (display: grid) {
-			max-width: $_o-forms-inline-field-max-width;
+@mixin oFormsGroupInline($class: 'o-forms', $stack-on-small: true) {
+	@supports (display: grid) {
+		@include _oFormsGroupInlineStyles($stack-on-small);
+	}
+	// IE10-11 (no @supports but its own grid
+	// sass-lint:disable no-vendor-prefixes
+	&,
+	_:-ms-lang(x) {
+		@include _oFormsGroupInlineStyles($stack-on-small);
+	}
+	// sass-lint:enable no-vendor-prefixes
+}
+
+/// @access private
+@mixin _oFormsGroupInlineStyles($stack-on-small) {
+	max-width: $_o-forms-inline-field-max-width;
+	@if $stack-on-small {
+		@include oGridRespondTo(S) {
 			margin: 0 0 $_o-forms-inline-group-spacing;
 		}
-		// IE10-11 (no @supports but its own grid
-		// sass-lint:disable no-vendor-prefixes
-		&,
-		_:-ms-lang(x) {
-			max-width: $_o-forms-inline-field-max-width;
-			margin: 0 0 $_o-forms-inline-group-spacing;
-		}
-		// sass-lint:enable no-vendor-prefixes
+	} @else {
+		margin: 0 0 $_o-forms-inline-group-spacing;
 	}
 }
 
