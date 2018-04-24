@@ -7,7 +7,7 @@
 @mixin oFormsGroup {
 	position: relative;
 	max-width: $_o-forms-field-max-width;
-	margin: 0 0 $_o-forms-group-spacing; // Reset top and side margins for fieldset usage
+	margin: 0 0 $_o-forms-section-spacing; // Reset top and side margins for fieldset usage
 	// reset <fieldset> defaults
 	padding: 0;
 	border: 0;
@@ -43,10 +43,10 @@
 	max-width: $_o-forms-inline-field-max-width;
 	@if $stack-on-small {
 		@include oGridRespondTo(S) {
-			margin: 0 0 $_o-forms-inline-group-spacing;
+			margin: 0 0 $_o-forms-inline-section-spacing;
 		}
 	} @else {
-		margin: 0 0 $_o-forms-inline-group-spacing;
+		margin: 0 0 $_o-forms-inline-section-spacing;
 	}
 }
 
