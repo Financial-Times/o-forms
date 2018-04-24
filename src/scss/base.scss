@@ -28,6 +28,8 @@
 	@include oFormsSmallFeature($class);
 	// Wide modifer.
 	@include oFormsWideFeature($class);
+	// Wide bleed.
+	@include oFormsBleedFeature($class);
 	// Unskin modifier.
 	@include oFormsUnskinFeature($class);
 }
@@ -161,27 +163,27 @@
 
 /// @access public
 /// @param {string} $class - The block level class name (BEM naming convention).
-/// @param {Bool} $stack-on-small - On small devices inline elements stack. Set to false to keep inline elements inline at all times.
 /// @require {mixin} oFormsBaseFeatures - Basic form features must be output for inline modifiers to work.
 /// @output Styles to support inline forms, with labels/messaging to one side and inputs to the other.
-@mixin oFormsInlineFeature($class: 'o-forms', $stack-on-small: true) {
-	.#{$class}--inline {
-		@include oFormsGroupInline($class, $stack-on-small);
-	}
+@mixin oFormsInlineFeature($class: 'o-forms') {
 	.#{$class}--inline,
+	.#{$class}--inline-controls {
+		@include oFormsGroupInline($class);
+	}
+	.#{$class}--inline:not(fieldset),
 	.#{$class}__inline-container {
-		@if ($stack-on-small) {
-			@include oGridRespondTo(S) {
-				@include oFormsGroupInlineContainer($class);
-			}
-		} @else {
+		@include oGridRespondTo(S) {
 			@include oFormsGroupInlineContainer($class);
 		}
 	}
+	.#{$class}--inline-controls > .#{$class}__inline-container {
+		@include oFormsGroupInlineContainer($class);
+		@include oFormsInlineControlsContainer($class);
+	}
 	.#{$class}--inline.#{$class}--radios,
 	.#{$class}--inline.#{$class}--checkboxes,
-	.#{$class}--radios .#{$class}__inline-container,
-	.#{$class}--checkboxes .#{$class}__inline-container {
+	.#{$class}--radios > .#{$class}__inline-container,
+	.#{$class}--checkboxes > .#{$class}__inline-container {
 		@include oFormsGroupInlineRadioCheckbox($class);
 	}
 }
@@ -192,11 +194,29 @@
 /// @output Modifying styles to make form inputs and any wrapping sections wide (removes max-width).
 @mixin oFormsWideFeature($class: 'o-forms') {
 	.#{$class}--wide,
+	.#{$class}--wide .#{$class}__inline-container,
 	.#{$class}--wide .#{$class}__text,
 	.#{$class}--wide .#{$class}__select,
 	.#{$class}--wide .#{$class}__textarea,
 	.#{$class}-section--wide {
 		max-width: none;
+	}
+}
+
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsBaseFeatures - Basic form features must be output for wide modifiers to work.
+/// @output Modifying styles to make form inputs and any wrapping sections bleed (removes max-width and padding).
+@mixin oFormsBleedFeature($class: 'o-forms') {
+	.#{$class}--bleed,
+	.#{$class}--bleed .#{$class}__inline-container,
+	.#{$class}--bleed .#{$class}__text,
+	.#{$class}--bleed .#{$class}__select,
+	.#{$class}--bleed .#{$class}__textarea,
+	.#{$class}-section--bleed {
+		max-width: none;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 
