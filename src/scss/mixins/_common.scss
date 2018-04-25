@@ -113,9 +113,12 @@
 /// @access public
 /// @require {mixin} oFormsGroup
 /// @require {mixin} oFormsGroupInline
-/// @output Modifys o-form--inline to suit small controls of the same width E.g. repeated yes/no radios in a narrow container.
-@mixin oFormsInlineControlsContainer($class: 'o-forms') {
-	grid-template-columns: 1fr min-content;
+/// @output Container for small controls of the same width E.g. repeated yes/no radios in a narrow container.
+@mixin oFormsGroupInlineControls($class: 'o-forms') {
+	&  > .#{$class}__inline-container {
+		@include oFormsGroupInlineContainer($class);
+		grid-template-columns: 1fr min-content;
+	}
 }
 
 /// @access private

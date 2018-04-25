@@ -108,6 +108,10 @@
 	.#{$class}--error .#{$class}__group + .#{$class}__errortext {
 		@include _oFormsGroupContainerErrorText;
 	}
+	// Styled radio button validation.
+	.#{$class}--error .#{$class}__group--inline-together + .#{$class}__errortext {
+		margin-top: $_o-forms-default-error-text-margin;
+	}
 }
 
 /// @access public
@@ -166,8 +170,7 @@
 /// @require {mixin} oFormsBaseFeatures - Basic form features must be output for inline modifiers to work.
 /// @output Styles to support inline forms, with labels/messaging to one side and inputs to the other.
 @mixin oFormsInlineFeature($class: 'o-forms') {
-	.#{$class}--inline,
-	.#{$class}--inline-controls {
+	.#{$class}--inline {
 		@include oFormsGroupInline($class);
 	}
 	.#{$class}--inline:not(fieldset),
@@ -176,9 +179,8 @@
 			@include oFormsGroupInlineContainer($class);
 		}
 	}
-	.#{$class}--inline-controls > .#{$class}__inline-container {
-		@include oFormsGroupInlineContainer($class);
-		@include oFormsInlineControlsContainer($class);
+	.#{$class}--inline-controls {
+		@include oFormsGroupInlineControls($class);
 	}
 	.#{$class}--inline.#{$class}--radios,
 	.#{$class}--inline.#{$class}--checkboxes,
