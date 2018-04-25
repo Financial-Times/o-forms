@@ -148,7 +148,7 @@
 	}
 	// Errors.
 	.#{$class}--error .#{$class}__radio-button {
-		@include _oFormsRadioButtonsStyledInvalid;
+		@include _oFormsRadioButtonsStyledInvalid($class);
 	}
 }
 
