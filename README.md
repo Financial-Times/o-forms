@@ -63,7 +63,7 @@ If `o-forms` is used on a `fieldset` a wrapper `o-forms__inline-container` must 
 </fieldset>
 ```
 
-Using `o-forms--inline-controls` instead of `o-forms--inline` keeps the inputs inline even on mobile. It also expands the label forcing the inputs to align right. This is useful for long lists of simple styled radio buttons which are used as controls, e.g. repeated yes/no options. For an example see [the registry](https://www.ft.com/__origami/service/build/v2/demos/o-forms/inline-controls).
+Using `o-forms--inline-controls` instead of `o-forms--inline` keeps the inputs inline from mobile viewports upwards. It also expands the label forcing the inputs to align right. This is useful for long lists of simple styled radio buttons which are used as controls, e.g. repeated yes/no options. For an example see [the registry](https://www.ft.com/__origami/service/build/v2/demos/o-forms/inline-controls).
 
 ```html
 <fieldset class="o-forms o-forms--inline-controls">
