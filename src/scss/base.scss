@@ -22,6 +22,8 @@
 	@include oFormsCheckboxToggleFeature($class);
 	// Sections.
 	@include oFormsSectionFeature($class);
+	// Form statuses (eg. "saving", "saved").
+	@include oFormsStatusFeature($class);
 	// Inline Forms.
 	@include oFormsInlineFeature($class);
 	// Small modifer.
@@ -104,12 +106,14 @@
 	.#{$class}__checkbox {
 		@include oFormsCheckbox($class);
 	}
-	// Checkbox and radio validation.
-	.#{$class}--error .#{$class}__group + .#{$class}__errortext {
-		@include _oFormsGroupContainerErrorText;
+	// Checkbox and radio validation / status.
+	.#{$class}--error .#{$class}__group + .#{$class}__errortext,
+	.#{$class}__group + .#{$class}__status {
+		margin-top: $_o-forms-checkbox-legend-spacing;
 	}
-	// Styled radio button validation.
-	.#{$class}--error .#{$class}__group--inline-together + .#{$class}__errortext {
+	// Styled radio button validation / status.
+	.#{$class}--error .#{$class}__group--inline-together + .#{$class}__errortext,
+	.#{$class}__group--inline-together + .#{$class}__status {
 		margin-top: $_o-forms-default-error-text-margin;
 	}
 }
@@ -173,6 +177,7 @@
 	.#{$class}--inline {
 		@include oFormsGroupInline($class);
 	}
+
 	.#{$class}--inline:not(fieldset),
 	.#{$class}__inline-container {
 		@include oGridRespondTo(S) {
@@ -187,6 +192,73 @@
 	.#{$class}--radios > .#{$class}__inline-container,
 	.#{$class}--checkboxes > .#{$class}__inline-container {
 		@include oFormsGroupInlineRadioCheckbox($class);
+	}
+}
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Styles for form status such as "saving" and "saved".
+@mixin oFormsStatusFeature($class: 'o-forms') {
+	@include oBrandConfigureFor($component: 'o-forms') {
+		// Base status styles.
+		.#{$class}__status {
+			opacity: 0;
+			visibility: hidden;
+			display: flex;
+			white-space: nowrap;
+			align-items: center;
+			min-width: 5em;
+			margin-top: 1px; // Aligns status with error text for seemless replacement.
+			@include oTypographySize($_o-forms-typography-scale-small);
+			&:after {
+				content: '';
+			}
+			&:before {
+				content: '';
+			}
+		}
+
+		.#{$class}__status[aria-hidden="false"] {
+			display: flex;
+			visibility: visible;
+			opacity: 1;
+		}
+
+		// Saving status.
+		.#{$class}--saving .#{$class}__status {
+			&:after {
+				content: 'Saving';
+			}
+			&:before {
+				@include oLoading();
+				@include oLoadingSize('small');
+				@include oLoadingColor('dark');
+				// Reszise loader to match icon.
+				margin: 8px;
+				width: 8px;
+				height: 8px;
+				border-width: 2px;
+			}
+		}
+
+		// Saved status.
+		.#{$class}--saved .#{$class}__status {
+			&:after {
+				content: 'Saved';
+				color: oBrandGet('field-valid-text');
+			}
+			&:before {
+				@include oIconsGetIcon('tick', oBrandGet('field-valid-text'), $_o-forms-field-small-height);
+			}
+		}
+
+		// Icon only statuses.
+		.#{$class} .#{$class}__status--icon-only {
+			min-width: $_o-forms-field-small-height;
+			align-self: center;
+			&:after {
+				content: none;
+			}
+		}
 	}
 }
 

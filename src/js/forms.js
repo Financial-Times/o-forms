@@ -26,7 +26,6 @@ class Forms {
 			this.opts.applyValidState = declaredApplyValidState === 'true';
 		}
 
-
 		// o-forms should only be registered against a <form>
 		// element. If not, return to prevent errors
 		if (!(this.FormEl instanceof HTMLFormElement)) {

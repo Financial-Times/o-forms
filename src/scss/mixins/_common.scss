@@ -63,11 +63,13 @@
 /// @output Styles for the o-forms/fieldset inline container.
 @mixin oFormsGroupInlineContainer($class: 'o-forms') {
 	// sass-lint:disable mixins-before-declarations no-vendor-prefixes
+	$grid-column-gap: 10px;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-column-gap: 20px;
-	-ms-grid-columns: 1fr 20px 1fr;
-	min-width: 0;
+	grid-template-columns: 1fr min-content 1fr;
+	grid-column-gap: $grid-column-gap;
+	-ms-grid-columns: 1fr $grid-column-gap min-content $grid-column-gap 1fr;
+	min-width: none;
+	align-items: baseline;
 
 	@include _oFormsMessagingElementSelectors($class) {
 		grid-column: 1;
@@ -77,10 +79,13 @@
 	// Explicitly position input elements in the css grid.
 	// IE10-11 do not support auto placement.
 	@include _oFormsInputElementSelectors($class) {
-		grid-column: 2;
-		-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
+		grid-column: 3;
+		-ms-grid-column: 4; // IE10-11 has a fake column for a grid gap.
 		grid-row: 1;
 		align-self: start; // IE10-11 defaults to stretch with align-items.
+	}
+
+	@include _oFormsInputElementSelectors($class, $children-only: false) {
 		// Reset margins only if grid is supported.
 		@supports (display: grid) {
 			margin-top: 0;
@@ -94,10 +99,48 @@
 		}
 	}
 
-	// Explicitly position error text in the css grid.
-	> .#{$class}__errortext {
+	// Explicitly position status in the css grid.
+	.#{$class}__status {
+		grid-column: 3;
+		-ms-grid-column: 4; // IE10-11 has a fake column for a grid gap.
+		grid-row: 2;
+		justify-content: flex-start;
+		min-width: none;
+		align-self: center;
+		align-items: center;
+		&:after {
+			order: -1;
+		}
+		&:before {
+			order: -1;
+		}
+	}
+
+	.#{$class}__status--left {
 		grid-column: 2;
 		-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
+		grid-row: 1;
+		justify-content: flex-end;
+		margin-top: 0px;
+	}
+
+	// If there is an error text di and status reposition the status.
+	@at-root {
+		.#{$class}--error .#{$class}__status {
+			display: none;
+		}
+	}
+
+	// Hack to display the status icon within the column gap.
+	.#{$class}__status--icon-only {
+		margin-right: -$grid-column-gap;
+		margin-left: $grid-column-gap;
+	}
+
+	// Explicitly position error text in the css grid.
+	> .#{$class}__errortext {
+		grid-column: 3;
+		-ms-grid-column: 4; // IE10-11 has a fake column for a grid gap.
 		grid-row: 2;
 	}
 
@@ -118,6 +161,9 @@
 	&  > .#{$class}__inline-container {
 		@include oFormsGroupInlineContainer($class);
 		grid-template-columns: 1fr min-content;
+		.#{$class}__group {
+			justify-self: end;
+		}
 	}
 }
 
@@ -133,13 +179,13 @@
 
 /// @access private
 /// @output A provided content block wrapped in selectors for form input elements / groups.
-@mixin _oFormsInputElementSelectors($class: 'o-forms') {
-	> .#{$class}__affix-wrapper,
-	> .#{$class}__text,
-	> .#{$class}__select,
-	> .#{$class}__textarea,
-	> .#{$class}__group,
-	> .#{$class}__inline-item--right {
+@mixin _oFormsInputElementSelectors($class: 'o-forms', $children-only: true) {
+	#{if($children-only, '>', '')} .#{$class}__affix-wrapper,
+	#{if($children-only, '>', '')} .#{$class}__text,
+	#{if($children-only, '>', '')} .#{$class}__select,
+	#{if($children-only, '>', '')} .#{$class}__textarea,
+	#{if($children-only, '>', '')} .#{$class}__group,
+	#{if($children-only, '>', '')} .#{$class}__inline-item--right {
 		@content;
 	}
 }

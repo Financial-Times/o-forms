@@ -350,6 +350,8 @@ Optional extras:
 - `oFormsCheckboxToggleFeature` - Toggle support.
 - `oFormsSuffixFeature` - Suffix support.
 - `oFormsSectionFeature` - Section support.
+- `oFormsStatusFeature` - Styles for form status such as "saving" or "saved".
+- `oFormsInlineFeature` - Styles for inline forms.
 - `oFormsSmallFeature` - Modifier styles for small text and select inputs.
 - `oFormsWideFeature` - Modifier styles for form elements with no width restriction.
 - `oFormsBleedFeature` - Modifier styles for form elements with no width restriction and no padding.
