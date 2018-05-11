@@ -283,6 +283,24 @@ An error message, defined with `.o-forms__errortext`, can be appended to the con
 </div>
 ```
 
+#### Status
+
+To show a form is "saving" or is "saved" use a form status.
+
+To setup a form status, add the status element `.o-forms__status` within the contaning `.o-forms` element, with attributes `aria-hidden="true"` and `aria-live="true"`.
+
+To show a status add the status to the field's containing element `.o-forms--saving` or `.o-forms--saved` and update `aria-hidden` on the status element to `aria-hidden="false"`. The status is then read aloud by screen readers.
+
+```html
+<div class="o-forms o-forms--saving">
+	<label class="o-forms__label">Text input</label>
+	<input type="text" class="o-forms__text" />
+	<div class="o-forms__status" aria-hidden="false" aria-live="true"></div>
+</div>
+```
+
+[Status examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/status)
+
 #### Sections
 
 Wrap a group of `.o-forms` fields in a section `.o-forms-section` to highlight them and provide a global message.
