@@ -206,13 +206,13 @@
 	@include oBrandConfigureFor($component: 'o-forms') {
 		// Base status styles.
 		.#{$class}__status {
+			@include oTypographySize($_o-forms-typography-scale-small);
 			opacity: 0;
 			visibility: hidden;
 			display: flex;
 			white-space: nowrap;
 			align-items: center;
 			min-width: 5em;
-			@include oTypographySize($_o-forms-typography-scale-small);
 			&:after {
 				content: '';
 			}

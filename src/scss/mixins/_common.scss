@@ -92,7 +92,7 @@
 /// @output Styles to position form status (e.g. "saving") to the left of an input.
 @mixin _oFormsInlineStatusLeftStyles() {
 	grid-column: 2;
-	-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
+	-ms-grid-column: 3; // sass-lint:disable-line no-vendor-prefixes IE10-11 has a fake column for a grid gap.
 	grid-row: 1;
 	justify-content: flex-end;
 	margin-top: 0px;
