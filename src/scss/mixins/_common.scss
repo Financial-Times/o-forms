@@ -62,6 +62,45 @@
 /// @require {mixin} oFormsGroupInline
 /// @output Styles for the o-forms/fieldset inline container.
 @mixin oFormsGroupInlineContainer($class: 'o-forms') {
+	@include _oFormsBaseInlineStyles($class);
+	.#{$class}__status--left {
+		@include _oFormsInlineStatusLeftStyles();
+	}
+}
+
+/// @access public
+/// @require {mixin} oFormsGroup
+/// @require {mixin} oFormsGroupInline
+/// @output Container for small controls of the same width E.g. repeated yes/no radios in a narrow container.
+@mixin oFormsGroupInlineControls($class: 'o-forms') {
+	&  > .#{$class}__inline-container {
+		@include _oFormsBaseInlineStyles($class);
+		grid-template-columns: 1fr min-content min-content;
+		.#{$class}__group {
+			justify-self: end;
+		}
+
+		@include oGridRespondTo(S) {
+			.#{$class}__status--left {
+				@include _oFormsInlineStatusLeftStyles();
+			}
+		}
+	}
+}
+
+/// @access private
+/// @output Styles to position form status (e.g. "saving") to the left of an input.
+@mixin _oFormsInlineStatusLeftStyles() {
+	grid-column: 2;
+	-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
+	grid-row: 1;
+	justify-content: flex-end;
+	margin-top: 0px;
+}
+
+/// @access private
+/// @output Shared styles to make a form inline e.g. for for a generic inline form or inline controls.
+@mixin _oFormsBaseInlineStyles($class: 'o-forms') {
 	// sass-lint:disable mixins-before-declarations no-vendor-prefixes
 	$grid-column-gap: 10px;
 	display: grid;
@@ -116,14 +155,6 @@
 		}
 	}
 
-	.#{$class}__status--left {
-		grid-column: 2;
-		-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
-		grid-row: 1;
-		justify-content: flex-end;
-		margin-top: 0px;
-	}
-
 	// If there is an error text di and status reposition the status.
 	@at-root {
 		.#{$class}--error .#{$class}__status {
@@ -151,20 +182,6 @@
 		grid-row: 1 / span 3;
 	}
 	// sass-lint:enable mixins-before-declarations no-vendor-prefixes
-}
-
-/// @access public
-/// @require {mixin} oFormsGroup
-/// @require {mixin} oFormsGroupInline
-/// @output Container for small controls of the same width E.g. repeated yes/no radios in a narrow container.
-@mixin oFormsGroupInlineControls($class: 'o-forms') {
-	&  > .#{$class}__inline-container {
-		@include oFormsGroupInlineContainer($class);
-		grid-template-columns: 1fr min-content;
-		.#{$class}__group {
-			justify-self: end;
-		}
-	}
 }
 
 /// @access private
