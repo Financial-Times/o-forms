@@ -86,6 +86,10 @@
 			}
 		}
 	}
+
+	&.#{$class}--error {
+		margin: 0 0 $_o-forms-inline-control-with-error-section-spacing;
+	}
 }
 
 /// @access private
