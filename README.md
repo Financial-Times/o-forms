@@ -426,7 +426,7 @@ Or you can set the `data-o-forms-apply-valid-state` attribute to true on the `<f
 
 #### Status
 
-To show a form input is "saving" or is "saved" apply a form status using the static method `updateInputStatus`.
+A form status is used to show an input is "saving" or is "saved". To show a status use the static method `updateInputStatus`.
 
 ```js
 const OForms = require('o-forms');
@@ -436,6 +436,8 @@ OForms.updateInputStatus(formsInput, 'saving');
 ```
 
 Valid statuses include "saving", "saved", or `null` to remove any current status.
+
+To add a left aligned status to an inline form input, add a placeholder status element `.o-forms__status .o-forms__status--left`, with attribute `aria-hidden="true"`, within the contaning `.o-forms` element.
 
 [Status examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/status)
 
