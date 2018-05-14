@@ -136,9 +136,9 @@ class Forms {
 	}
 
 	static updateInputStatus (input, status) {
-		if (!input instanceof HTMLElement) {
+		if (!(input instanceof HTMLElement)) {
 			throw new TypeError(`Expecting "input" to be an instance of "HTMLElement" but instead found ${oFormsEl instanceof HTMLElement}.`);
-		};
+		}
 		const oFormsElSelector = '.o-forms';
 		const oFormsEl = input.closest(oFormsElSelector);
 		const oFormsElExists = (oFormsEl instanceof HTMLElement);
@@ -168,7 +168,7 @@ class Forms {
 			statusElement = document.createElement("div");
 			statusElement.classList.add('o-forms__status');
 			oFormsEl.append(statusElement);
-		};
+		}
 		// 2b. Add aria-live attributes if not set.
 		if (!statusElement.hasAttribute('aria-live')) {
 			statusElement.setAttribute('aria-live', 'assertive');
@@ -183,7 +183,7 @@ class Forms {
 		if (status) {
 			oFormsEl.classList.add(`o-forms--${status}`);
 			statusElement.setAttribute('aria-hidden', false);
-		};
+		}
 		return true;
 	}
 
