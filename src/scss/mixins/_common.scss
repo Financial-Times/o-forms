@@ -100,6 +100,12 @@
 	grid-row: 1;
 	justify-content: flex-end;
 	margin-top: 0px;
+	// Override `display: none` when inline and left to maintain status width.
+	display: flex;
+	visibility: hidden;
+	&[aria-hidden="false"] {
+		visibility: visible;
+	}
 }
 
 /// @access private
@@ -156,13 +162,6 @@
 		}
 		&:before {
 			order: -1;
-		}
-	}
-
-	// If there is an error text di and status reposition the status.
-	@at-root {
-		.#{$class}--error .#{$class}__status {
-			display: none;
 		}
 	}
 

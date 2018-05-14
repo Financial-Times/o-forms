@@ -107,13 +107,13 @@
 		@include oFormsCheckbox($class);
 	}
 	// Checkbox and radio validation / status.
-	.#{$class}--error .#{$class}__group + .#{$class}__errortext,
-	.#{$class}__group + .#{$class}__status {
+	.#{$class}--error .#{$class}__group ~ .#{$class}__errortext,
+	.#{$class}__group ~ .#{$class}__status {
 		margin-top: $_o-forms-checkbox-legend-spacing;
 	}
 	// Styled radio button validation / status.
-	.#{$class}--error .#{$class}__group--inline-together + .#{$class}__errortext,
-	.#{$class}__group--inline-together + .#{$class}__status {
+	.#{$class}--error .#{$class}__group--inline-together ~ .#{$class}__errortext,
+	.#{$class}__group--inline-together ~ .#{$class}__status {
 		margin-top: $_o-forms-default-error-text-margin;
 	}
 }
@@ -207,12 +207,11 @@
 		// Base status styles.
 		.#{$class}__status {
 			@include oTypographySize($_o-forms-typography-scale-small);
-			opacity: 0;
-			visibility: hidden;
-			display: flex;
 			white-space: nowrap;
 			align-items: center;
 			min-width: 5em;
+			margin-top: $_o-forms-default-error-text-margin;
+			display: none;
 			&:after {
 				content: '';
 			}
@@ -224,8 +223,6 @@
 
 		.#{$class}__status[aria-hidden="false"] {
 			display: flex;
-			visibility: visible;
-			opacity: 1;
 		}
 
 		// Saving status.
@@ -261,7 +258,7 @@
 			min-width: $status-icon-size;
 			align-self: center;
 			&:after {
-				content: none;
+				@include oNormaliseVisuallyHidden;
 			}
 		}
 	}
