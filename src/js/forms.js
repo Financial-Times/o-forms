@@ -156,9 +156,10 @@ class Forms {
 			console.warn(`Could not find form field element "${oFormsElSelector}" for the given input.`, input);
 			return false;
 		}
-		// 1c. Confirm there is no error on the form field.
+		// 1c. Remove status if there is an error on the form field.
 		if (oFormsElExists && status && oFormsEl.classList.contains('o-forms--error')) {
-			console.warn(`Can not update the status of an input wth an active error. Status: ${status}.`, input);
+			console.warn(`Can not update the status of an input to "${status}" when the input has an active error. Removing status.`, input);
+			Forms.updateInputStatus(input, null);
 			return false;
 		}
 		// 2. Prepare status element.
