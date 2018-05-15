@@ -129,7 +129,7 @@
 	// IE10-11 do not support auto placement.
 	@include _oFormsInputElementSelectors($class) {
 		grid-column: 3;
-		-ms-grid-column: 4; // IE10-11 has a fake column for a grid gap.
+		-ms-grid-column: 5; // IE10-11 has a fake column for a grid gap.
 		grid-row: 1;
 		align-self: start; // IE10-11 defaults to stretch with align-items.
 	}
@@ -151,7 +151,7 @@
 	// Explicitly position status in the css grid.
 	.#{$class}__status {
 		grid-column: 3;
-		-ms-grid-column: 4; // IE10-11 has a fake column for a grid gap.
+		-ms-grid-column: 5; // IE10-11 has a fake column for a grid gap.
 		grid-row: 2;
 		justify-content: flex-start;
 		min-width: none;
@@ -174,7 +174,7 @@
 	// Explicitly position error text in the css grid.
 	> .#{$class}__errortext {
 		grid-column: 3;
-		-ms-grid-column: 4; // IE10-11 has a fake column for a grid gap.
+		-ms-grid-column: 5; // IE10-11 has a fake column for a grid gap.
 		grid-row: 2;
 	}
 
