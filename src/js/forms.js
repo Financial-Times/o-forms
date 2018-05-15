@@ -137,7 +137,7 @@ class Forms {
 
 	static updateInputStatus (input, status) {
 		if (!(input instanceof HTMLElement)) {
-			throw new TypeError(`Expecting "input" to be an instance of "HTMLElement" but instead found "${typeof oFormsEl}".`);
+			throw new TypeError(`Expecting \`${input}\` to be an instance of "HTMLElement".`);
 		}
 		const oFormsElSelector = '.o-forms';
 		const oFormsEl = input.closest(oFormsElSelector);
