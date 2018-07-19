@@ -294,6 +294,7 @@
             border-left: 1px solid _oFormsGet('radio-buttons-styled-border', $from: $theme);
         }
     }
+    // sass-lint:disable space-after-colon
     @at-root #{selector_unify(a, &)}:not(:disabled):not(.#{$class}__radio-button--current):hover,
     &:not(:disabled):not(:checked) + .#{$class}__label:hover {
         background-color: rgba(_oFormsGet('checkbox-radio-hover-background', $from: $theme), 0.15);
@@ -307,6 +308,7 @@
     &--negative:checked + .#{$class}__label {
         background-color: _oFormsGet('radio-buttons-styled-negative-checked-background', $from: $theme);
     }
+    // sass-lint:enable space-after-colon
 }
 
 /// @access public
@@ -340,8 +342,6 @@
         padding-left: $_o-forms-radio-styled-icon-padding;
         &:after {
             // Hack to download checked icon before checked, avoiding flash as icon loads.
-            content: '';
-            display: none;
             @include oIconsGetIcon(
                 $icon-name: $icon-name,
                 $apply-base-styles: false,
@@ -350,6 +350,8 @@
                 $iconset-version: 1,
                 $high-contrast-fallback: false
             );
+            content: '';
+            display: none;
         }
     }
     @at-root #{selector_unify(a, &)}.#{$class}__radio-button--current,
