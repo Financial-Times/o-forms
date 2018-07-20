@@ -260,8 +260,8 @@
 }
 
 /// @access public
-/// @example
-/// .o-forms__radio-button--custom {
+/// @example scss - Creating a custom theme, 'negative-checked-background' is optional.
+/// .o-forms__radio-button--my-custom-theme {
 ///     @include oFormsRadioButtonsStyledTheme($theme: (
 ///         'checked-background': 'claret-80',
 ///         'negative-checked-background': 'claret-30',
@@ -269,7 +269,7 @@
 ///     ));
 /// }
 /// @param {string} $class - The block level class name (BEM naming convention).
-/// @param {map|null} $class - A custom theme map.
+/// @param {map|null} $theme - A custom theme map (see example).
 /// @prop {string} $class.checked-background - An Origami color name e.g. "teal-50".
 /// @prop {string} $class.border - An Origami color name for the border e.g. "black-30".
 /// @prop {string} $class.negative-checked-background [$theme.checked-background] - An Origami color for negative choice radio buttons (optional).
@@ -312,8 +312,8 @@
 }
 
 /// @access public
-/// @example
-/// .o-forms__radio-button--custom-grid-icon {
+/// @example - Adding an icon with a custom theme, 'negative-checked-background' is optional.
+/// .o-forms__radio-button--my-custom-icon {
 /// 	@include oFormsRadioButtonsStyledIcon($icon-name: 'grid', $theme: (
 /// 		'checked-background': 'claret-50',
 /// 		'border': 'black-30',
