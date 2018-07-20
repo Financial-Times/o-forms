@@ -312,7 +312,7 @@
 }
 
 /// @access public
-/// @example - Adding an icon with a custom theme, 'negative-checked-background' is optional.
+/// @example scss - Adding an icon with a custom theme (optional). If a custom theme is passed, 'negative-checked-background' is optional.
 /// .o-forms__radio-button--my-custom-icon {
 /// 	@include oFormsRadioButtonsStyledIcon($icon-name: 'grid', $theme: (
 /// 		'checked-background': 'claret-50',
@@ -321,7 +321,7 @@
 /// 	));
 /// }
 /// @param {string} $class - The block level class name (BEM naming convention).
-/// @param {map|null} $theme - A custom theme map. See oFormsRadioButtonsStyledTheme (optional).
+/// @param {map|null} $theme - A custom theme map (optional, see example).
 /// @output An icon for styled radio buttons.
 @mixin oFormsRadioButtonsStyledIcon($icon-name, $theme: null, $class: 'o-forms') {
     $theme: _oFormsThemeToBrandVariants($theme);
