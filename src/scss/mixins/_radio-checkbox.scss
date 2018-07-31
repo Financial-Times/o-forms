@@ -277,6 +277,10 @@
 @mixin oFormsRadioButtonsStyledTheme($class: 'o-forms', $theme: null) {
     $theme: _oFormsThemeToBrandVariants($theme);
     // Output theme
+    // selector_unify is used to account for parent selectors.
+    //
+    // selector_unify('.example .o-forms__radio-button', 'a')
+    // => .example a.o-forms__radio-button
     @at-root #{selector_unify(a, &)},
     & + .#{$class}__label {
         @include _oFormsRadioButtonsStyledMargin();
