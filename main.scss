@@ -22,6 +22,7 @@
 // Partial mixins used together to generate form features.
 @import "src/scss/mixins/common";
 @import "src/scss/mixins/textarea";
+@import "src/scss/mixins/date";
 @import "src/scss/mixins/select";
 @import "src/scss/mixins/radio-checkbox";
 @import "src/scss/mixins/toggle";
@@ -36,39 +37,6 @@
 /// Output all form features if silent mode is off.
 @if $o-forms-is-silent == false {
 	@include oForms();
-
-	$date-spacing: oTypographySpacingSize(4);
-	$day-month-width: calc(3ex + #{$_o-forms-field-default-padding-leftright} * 2);
-	$year-label-width: calc(100% - (#{$day-month-width} * 2) - 3ex - (#{$date-spacing} * 3));
-	$year-input-width: calc(6ex + #{$_o-forms-field-default-padding-leftright} * 2);
-
-	.o-forms--date .o-forms__group .o-forms__label {
-		@include _oFormsRadioCheckboxLabel();
-		margin: 0;
-		padding: 0;
-		margin-right: $date-spacing
-	}
-
-	.o-forms--date .o-forms__group .o-forms__text {
-		margin-top: 0;
-		margin-right: $date-spacing
-	}
-
-	.o-forms__label--year {
-		width: $year-label-width;
-	}
-
-	.o-forms__text--year {
-		width: $year-input-width;
-	}
-
-	.o-forms__text--day,
-	.o-forms__label--day,
-	.o-forms__text--month,
-	.o-forms__label--month {
-		width: $day-month-width;
-	}
-
 
 	$o-forms-is-silent: true !global;
 }
