@@ -20,14 +20,16 @@
 
         .#{$class}__text,
         .#{$class}__label {
-            width: calc(2.5ex + #{$padding-width});
+            // Based on character width (plus some for kerning).
+            width: calc(2.2ch + #{$padding-width});
             margin-right: $_o-forms-spacing;
             float: left;
         }
 
         .#{$class}__text--year,
         .#{$class}__label--year {
-            width: calc(5ex + #{$padding-width});
+            // Based on character width (plus some for kerning).
+            width: calc(4.2ch + #{$padding-width});
         }
     }
 }
