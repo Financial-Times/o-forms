@@ -20,6 +20,12 @@
 	},
 	"demos": [
 		{
+			"name": "test",
+			"title": "Test",
+			"template": "/demos/src/test.mustache",
+			"description": "This is a test"
+		},
+		{
 			"name": "text-inputs",
 			"title": "Text input",
 			"template": "/demos/src/text-inputs.mustache",

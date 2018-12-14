@@ -1,0 +1,103 @@
+fieldset {
+	border: none;
+	font-family: MetricWeb,sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 400;
+
+	span {
+		display: inline-block;
+		padding-top: 2px;
+		margin-left: 34px;
+		max-width: calc(380px - 34px);
+	}
+
+	&.inline-block {
+		max-width: 380px;
+		> * {
+			margin-bottom: 10px;
+		}
+
+		label {
+			input {
+				display: inline-block;
+				vertical-align: top;
+				float: left;
+			}
+		}
+
+		.spanny {
+			margin-left: 34px;
+		}
+	}
+
+	&.inline {
+		label {
+			display: inline-block;
+			margin-bottom: 10px;
+		}
+
+		span {
+			margin-right: 16px;
+		}
+	}
+
+	legend {
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+}
+
+label {
+	display: block;
+	position: relative;
+
+	input[type=checkbox] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0;
+		width: 24px;
+		height: 24px;
+		float: left;
+		margin-right: 10px;
+	}
+
+	&:before,
+	span:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 24px;
+		height: 24px;
+		box-sizing: border-box;
+	}
+
+	&:before {
+		border: 1px solid #b3a9a0;
+		background-color: white;
+	}
+
+	span {
+		&:after {
+			background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23FFFFFF,%23FFFFFF&format=svg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 50%;
+			background-color: #0d7680;
+			transition: opacity .1s ease;
+			opacity: 0;
+		}
+
+	}
+
+	input[type=checkbox]:checked + span:after {
+		opacity: 1;
+	}
+
+	p {
+		margin-top: 0;
+		padding-top: 2px;
+	}
+}
