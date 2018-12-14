@@ -14,13 +14,16 @@
 		display: block;
 	}
 
-	.o-forms--error {
+	.o-forms--error-message {
 		font-size: 14px;
 		line-height: 16px;
 		color: #c00;
 		clear: both;
 		display: block;
 		margin-top: 8px;
+		text-align: left;
+		border: 0;
+		font-weight: 400;
 	}
 
 	legend {
