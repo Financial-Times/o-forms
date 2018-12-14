@@ -20,10 +20,25 @@
 	},
 	"demos": [
 		{
-			"name": "test",
+			"name": "test-checkboxes",
 			"title": "Test",
-			"template": "/demos/src/test.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/tests/checkboxes.mustache",
+			"description": "This is a test",
+			"sass": "/demos/src/tests/main.scss"
+		},
+		{
+			"name": "test-radios",
+			"title": "Test",
+			"template": "/demos/src/tests/radio.mustache",
+			"description": "This is a test",
+			"sass": "/demos/src/tests/main.scss"
+		},
+		{
+			"name": "test-square-radios",
+			"title": "Test",
+			"template": "/demos/src/tests/square-radio.mustache",
+			"description": "This is a test",
+			"sass": "/demos/src/tests/main.scss"
 		},
 		{
 			"name": "text-inputs",

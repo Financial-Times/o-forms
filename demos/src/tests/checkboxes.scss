@@ -1,0 +1,123 @@
+.o-forms {
+	border: none;
+	font-family: MetricWeb,sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 400;
+	padding: 0;
+	margin: 0;
+
+	.o-forms--prompt {
+		font-size: 14px;
+		line-height: 16px;
+		color: #66605c;
+		display: block;
+	}
+
+	.o-forms--error {
+		font-size: 14px;
+		line-height: 16px;
+		color: #c00;
+		clear: both;
+		display: block;
+		margin-top: 8px;
+	}
+
+	legend {
+		font-weight: 600;
+		padding: 0;
+		margin: 0;
+	}
+
+	label {
+		margin: 16px 0;
+
+		&:last-of-type { margin-bottom: 0 }
+	}
+
+	span {
+		display: inline-block;
+		vertical-align: top;
+		padding: 2px 0 2px 34px;
+		max-width: calc(380px - 34px);
+	}
+}
+
+.o-forms--wide {
+	max-width: 100%;
+
+	span {
+		max-width: calc(100% - 34px);
+	}
+}
+.o-forms__block {
+	max-width: 380px;
+	> * {
+		margin-bottom: 10px;
+	}
+
+	input {
+		display: inline-block;
+		vertical-align: top;
+		float: left;
+	}
+
+	.o-forms__additional-content {
+		padding-top: 2px;
+		padding-left: 34px;
+		margin-top: 10px;
+	}
+}
+
+.o-forms__checkbox {
+	label {
+		display: block;
+		position: relative;
+
+		input[type=checkbox] {
+			position: absolute;
+			padding: 0;
+			width: 24px;
+			height: 24px;
+			float: left;
+		}
+	}
+
+	span:before,
+	span:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 24px;
+		height: 24px;
+		box-sizing: border-box;
+	}
+
+	span:before {
+		border: 1px solid #b3a9a0;
+		background-color: white;
+	}
+
+	span:after {
+		background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23FFFFFF,%23FFFFFF&format=svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 50%;
+		background-color: #0d7680;
+		transition: opacity .1s ease;
+		opacity: 0;
+	}
+
+	input[type=checkbox]:checked + span:after {
+		opacity: 1;
+	}
+
+	input[type=checkbox]:disabled {
+		opacity: 0;
+
+		+ span {
+			opacity: 0.4;
+		}
+	}
+}

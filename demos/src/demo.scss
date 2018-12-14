@@ -1,7 +1,6 @@
 $o-forms-is-silent: false;
 
 @import "../../main";
-@import "./test";
 
 $_o-forms-demo-theme: (
 	'checked-background': 'claret-50',
@@ -21,14 +20,14 @@ body {
 	background-color: oColorsGetPaletteColor('slate');
 }
 
-.o-forms__radio-button--custom-theme {
-	@include oFormsRadioButtonsStyledTheme($theme: $_o-forms-demo-theme);
-}
-
-.o-forms__radio-button--custom-list-icon {
-	@include oFormsRadioButtonsStyledIcon($icon-name: 'list', $theme: $_o-forms-demo-theme);
-}
-
-.o-forms__radio-button--custom-grid-icon {
-	@include oFormsRadioButtonsStyledIcon($icon-name: 'grid', $theme: $_o-forms-demo-theme);
-}
+// .o-forms__radio-button--custom-theme {
+// 	@include oFormsRadioButtonsStyledTheme($theme: $_o-forms-demo-theme);
+// }
+//
+// .o-forms__radio-button--custom-list-icon {
+// 	@include oFormsRadioButtonsStyledIcon($icon-name: 'list', $theme: $_o-forms-demo-theme);
+// }
+//
+// .o-forms__radio-button--custom-grid-icon {
+// 	@include oFormsRadioButtonsStyledIcon($icon-name: 'grid', $theme: $_o-forms-demo-theme);
+// }
