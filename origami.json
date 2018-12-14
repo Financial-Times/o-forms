@@ -41,6 +41,13 @@
 			"sass": "/demos/src/tests/main.scss"
 		},
 		{
+			"name": "test-radio-status",
+			"title": "Test",
+			"template": "/demos/src/tests/radio-status.mustache",
+			"description": "This is a test",
+			"sass": "/demos/src/tests/main.scss"
+		},
+		{
 			"name": "text-inputs",
 			"title": "Text input",
 			"template": "/demos/src/text-inputs.mustache",

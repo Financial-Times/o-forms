@@ -1,3 +1,22 @@
+fieldset.o-forms--saving {
+	display: inline-block;
+	width: 100%;
+	max-width: 470px;
+
+	legend {
+		width: max-content;
+		float: left;
+		display: inline-block;
+		padding: 9px 0;
+		line-height: 1;
+	}
+
+	div {
+		float: right;
+		margin-top: 0;
+	}
+}
+
 .o-forms--radio--buttons div {
 	display: inline-block;
 	border: 1px solid #b3a9a0;
