@@ -1,20 +1,78 @@
-fieldset.o-forms--saving {
-	display: inline-block;
-	width: 100%;
+fieldset.o-forms--statusing {
 	max-width: 470px;
 
+	&.o-forms--stacked,
+	&.o-forms--stacked.o-forms--error {
+		legend {
+			float: none;
+		}
+
+		span.o-forms__status,
+		span.o-forms--error-message {
+			padding: 0;
+			display: block;
+			clear: right;
+		}
+	}
+
 	legend {
-		width: max-content;
-		float: left;
-		display: inline-block;
 		padding: 9px 0;
 		line-height: 1;
 	}
 
-	div {
+	div { margin-top: 0; }
+
+	div.inliner {
 		float: right;
-		margin-top: 0;
+		border: none;
+		text-align: left;
+
+		span.o-forms__status {
+			display: block;
+			padding: 0;
+			color: inherit;
+			font-weight: 400;
+			clear: right;
+		}
 	}
+
+	div.rap,
+	div.stacked {
+		border: none;
+		text-align: left;
+
+		span.o-forms__status {
+			padding: 0;
+			color: inherit;
+			font-weight: 400;
+			display: block;
+		}
+	}
+
+	&.o-forms--error {
+		div.inner {
+			border-color: #c00;
+		}
+
+		span.o-forms--error-message {
+			max-width: 126px;
+		}
+	}
+
+	@include oGridRespondTo(S) {
+		legend {
+			float: left;
+		}
+
+		div.rap,
+		div.inner {
+			float: right;
+		}
+
+		span.o-forms__status {
+			float: left;
+		}
+	};
 }
 
 .o-forms--radio--buttons div {

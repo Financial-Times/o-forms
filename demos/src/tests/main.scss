@@ -1,3 +1,5 @@
+$o-forms-is-silent: true;
+@import "../../../main";
 @import "./checkboxes";
 @import "./radio";
 
@@ -6,5 +8,7 @@ body {
 }
 
 fieldset.o-forms {
-	margin: 0 0 10px 10px;
+	margin: 0 10px 10px;
 }
+
+@include oFormsStatusFeature();
