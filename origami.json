@@ -20,6 +20,13 @@
 	},
 	"demos": [
 		{
+			"name": "test-text-input",
+			"title": "Test",
+			"template": "/demos/src/tests/text-input.mustache",
+			"description": "This is a test",
+			"sass": "/demos/src/tests/main.scss"
+		},
+		{
 			"name": "test-checkboxes",
 			"title": "Test",
 			"template": "/demos/src/tests/checkboxes.mustache",

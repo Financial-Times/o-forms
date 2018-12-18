@@ -1,0 +1,80 @@
+label.o-forms {
+	display: block;
+	max-width: 380px;
+
+	&.o-forms--wide {
+		max-width: 100%
+	}
+
+	span.o-forms---label {
+		font-family: MetricWeb,sans-serif;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 600;
+		color: #33302e;
+		display: block;
+		padding: 0;
+	}
+
+	span.o-forms--prompt {
+		padding: 0;
+	}
+
+	input[type=text] {
+		border: 1px solid #b3a9a0;
+		background-color: #fff;
+		margin-top: 12px;
+		box-sizing: border-box;
+		width: 100%;
+		// max-width: 380px;
+		min-height: 40px;
+		padding: 9px;
+		font-size: 16px;
+		line-height: 20px;
+		font-family: MetricWeb,sans-serif;
+
+		&:disabled {
+			color: #66605c;
+			border-color: #e6d9ce;
+			background-color: #e6d9ce;
+			cursor: default;
+		}
+	}
+
+	&.o-forms--valid {
+		input[type=text]:not(:disabled) {
+			color: #00994d;
+			border-color: #00994d;
+			background-color: rgba(0,153,77,.05);
+		}
+	}
+
+	&.o-forms--error {
+		.o-forms--error-message {
+			padding: 0;
+			margin-top: 4px;
+		}
+		
+		input[type=text]:not(:disabled) {
+			color: #c00;
+			border-color: #c00;
+			background-color: #fff;
+		}
+	}
+
+	&.o-forms--small {
+		input[type=text] {
+			padding: 0 9px;
+			min-height: 28px;
+			line-height: 26px;
+		}
+	}
+
+	&.o-forms--optional {
+		span.o-forms---label,
+		span.o-forms--prompt {
+			display: inline-block;
+			line-height: 20px;
+		}
+	}
+}
