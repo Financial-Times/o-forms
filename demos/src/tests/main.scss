@@ -3,6 +3,7 @@ $o-forms-is-silent: true;
 @import "./checkboxes";
 @import "./radio";
 @import "./text-input";
+@import "./select";
 
 body {
 	margin-top: 10px;

@@ -1,0 +1,14 @@
+label.o-forms {
+	select:not([multiple]) {
+		background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%2333302E,%2333302E&format=svg);
+		color: #33302e;
+		cursor: pointer;
+		background-position: right 9px center;
+		background-repeat: no-repeat;
+		background-size: 24px 24px;
+		border-radius: 0;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+}

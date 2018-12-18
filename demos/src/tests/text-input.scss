@@ -20,6 +20,7 @@ label.o-forms {
 		padding: 0;
 	}
 
+	select,
 	input[type=text] {
 		border: 1px solid #b3a9a0;
 		background-color: #fff;
@@ -42,6 +43,7 @@ label.o-forms {
 	}
 
 	&.o-forms--valid {
+		select:not(:disabled),
 		input[type=text]:not(:disabled) {
 			color: #00994d;
 			border-color: #00994d;
@@ -54,7 +56,8 @@ label.o-forms {
 			padding: 0;
 			margin-top: 4px;
 		}
-		
+
+		select:not(:disabled),
 		input[type=text]:not(:disabled) {
 			color: #c00;
 			border-color: #c00;
@@ -63,6 +66,7 @@ label.o-forms {
 	}
 
 	&.o-forms--small {
+		select,
 		input[type=text] {
 			padding: 0 9px;
 			min-height: 28px;

@@ -20,6 +20,13 @@
 	},
 	"demos": [
 		{
+			"name": "test-select",
+			"title": "Test",
+			"template": "/demos/src/tests/select.mustache",
+			"description": "This is a test",
+			"sass": "/demos/src/tests/main.scss"
+		},
+		{
 			"name": "test-text-input",
 			"title": "Test",
 			"template": "/demos/src/tests/text-input.mustache",
