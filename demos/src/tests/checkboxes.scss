@@ -1,84 +1,14 @@
-.o-forms--checkbox {
-	span {
-		display: inline-block;
-		vertical-align: top;
-		padding: 2px 0 2px 34px;
-		max-width: calc(380px - 34px);
-	}
-}
+@mixin oFormsCheckboxRadioInput {
+	position: absolute;
+	padding: 0;
+	width: 24px;
+	height: 24px;
 
-.o-forms--wide {
-	max-width: 100%;
-
-	span {
-		max-width: calc(100% - 34px);
-	}
-}
-
-.o-forms__block {
-	max-width: 380px;
-	> * {
-		margin-bottom: 10px;
-	}
-
-	input {
-		display: inline-block;
-		vertical-align: top;
-		float: left;
-	}
-
-	.o-forms__additional-content {
-		padding-top: 2px;
-		padding-left: 34px;
-		margin-top: 10px;
-	}
-}
-
-.o-forms__checkbox {
-	label {
-		display: block;
-		position: relative;
-
-		input[type=checkbox] {
-			position: absolute;
-			padding: 0;
-			width: 24px;
-			height: 24px;
-			float: left;
-		}
-	}
-
-	span:before,
-	span:after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 24px;
-		height: 24px;
-		box-sizing: border-box;
-	}
-
-	span:before {
-		border: 1px solid #b3a9a0;
-		background-color: white;
-	}
-
-	span:after {
-		background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23FFFFFF,%23FFFFFF&format=svg);
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: 50%;
-		background-color: #0d7680;
-		transition: opacity .1s ease;
-		opacity: 0;
-	}
-
-	input[type=checkbox]:checked + span:after {
+	&:checked + span:after {
 		opacity: 1;
 	}
 
-	input[type=checkbox]:disabled {
+	&:disabled {
 		opacity: 0;
 
 		+ span {
@@ -86,3 +16,123 @@
 		}
 	}
 }
+
+@mixin oFormsCheckboxRadioPseudoElements {
+	content: '';
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 24px;
+	height: 24px;
+	box-sizing: border-box;
+}
+
+@mixin oFormsCheckbox {
+	.o-forms--checkbox {
+		label span {
+			display: inline-block;
+			vertical-align: top;
+			padding: 2px 0 2px 34px;
+			max-width: calc(380px - 34px);
+
+			&:before,
+			&:after {
+				@include oFormsCheckboxRadioPseudoElements();
+			}
+
+			&:before {
+				border: 1px solid #b3a9a0;
+				background-color: white;
+			}
+
+			&:after {
+				//o-icons goes here
+				background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23FFFFFF,%23FFFFFF&format=svg);
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: 50%;
+				background-color: #0d7680;
+				transition: opacity .1s ease;
+				opacity: 0;
+			}
+		}
+
+		input[type=checkbox] {
+			@include oFormsCheckboxRadioInput();
+			float: left;
+		}
+
+		.o-forms--wide {
+			label span {
+				max-width: calc(100% - 34px);
+			}
+		}
+
+		.o-forms--error-message {
+			@include oTypographyMargin($top: 2);
+		}
+	}
+
+	.o-forms--content-block {
+		> * {
+			margin-bottom: 10px;
+		}
+
+		input[type=checkbox] {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.o-forms__additional-content {
+			padding-top: 2px;
+			padding-left: 34px;
+			margin-top: 10px;
+		}
+	}
+}
+
+@mixin oFormsRoundRadio {
+	.o-forms--radio {
+		label span {
+			padding: 2px 0 2px 34px;
+			display: inline-block;
+
+			&:before,
+			&:after {
+				@include oFormsCheckboxRadioPseudoElements;
+				border-radius: 50%;
+				transition: opacity .1s ease-in;
+				background-color: transparent;
+			}
+
+			&:before {
+				border: 1px solid #b3a9a0;
+				background-color: #fff1e5;
+			}
+
+			&:after {
+				background-color: #0d7680;
+				border-radius: 50%;
+				height: 12px;
+				width: 12px;
+				margin: 6px;
+				opacity: 0;
+			}
+		}
+
+		input[type=radio] {
+			@include oFormsCheckboxRadioInput;
+
+			&:checked {
+				+ span:before {
+					border-color: #0d7680;
+				}
+			}
+		}
+
+		.o-forms--error-message {
+			@include oTypographyMargin($top: 2);
+		}
+	}
+};

@@ -1,11 +1,10 @@
 $o-forms-is-silent: true;
 @import "../../../main";
-// @import "./checkboxes";
+@import "./checkboxes";
 // @import "./toggle";
-// @import "./radio";
+@import "./radio";
 // @import "./anchor-button";
 @import "./text-input";
-// @import "./select";
 @import "./date";
 
 body {
@@ -21,7 +20,7 @@ body {
 	background-color: #262a33;
 	padding: 10px;
 
-	fieldset.o-forms--toggle--inverse {
+	&.demo {
 		margin: 0;
 	}
 }
@@ -45,6 +44,8 @@ body {
 		}
 
 		label {
+			display: block;
+			position: relative;
 			margin: oTypographySpacingSize(3) 0;
 
 			&:last-of-type {
@@ -108,3 +109,5 @@ $_forms-error-text-margin: oTypographySpacingSize(1);
 @include oFormsTextArea();
 @include oFormsSelect();
 @include oFormsDate();
+@include oFormsCheckbox();
+@include oFormsRoundRadio();

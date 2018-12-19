@@ -145,67 +145,6 @@ fieldset.o-forms--statusing {
 	}
 }
 
-.o-forms--radio {
-	label {
-		display: block;
-		position: relative;
-		margin: 16px 0;
-
-		input[type=radio] {
-			position: absolute;
-			padding: 0;
-			width: 24px;
-			height: 24px;
-		}
-
-		span:before,
-		span:after {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 24px;
-			height: 24px;
-			box-sizing: border-box;
-			border-radius: 50%;
-			transition: opacity .1s ease-in;
-			background-color: transparent;
-		}
-
-		span:before {
-			border: 1px solid #b3a9a0;
-			background-color: #fff1e5;
-		}
-
-		span:after {
-			background-color: #0d7680;
-			border-radius: 50%;
-			height: 12px;
-			width: 12px;
-			margin: 6px;
-			opacity: 0;
-		}
-
-		input[type=radio]:checked {
-			+ span:after {
-				opacity: 1;
-			}
-
-			+ span:before {
-				border-color: #0d7680;
-			}
-		}
-
-		input[type=radio]:disabled {
-			opacity: 0;
-
-			+ span {
-				opacity: 0.4;
-			}
-		}
-	}
-}
-
 .o-forms__inline {
 	label {
 		display: inline-block;
