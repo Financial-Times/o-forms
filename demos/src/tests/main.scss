@@ -3,6 +3,7 @@ $o-forms-is-silent: true;
 @import "./checkboxes";
 @import "./toggle";
 @import "./radio";
+@import "./anchor-button";
 @import "./text-input";
 @import "./select";
 @import "./date";
@@ -11,6 +12,7 @@ body {
 	margin-top: 10px;
 }
 
+div.o-forms,
 fieldset.o-forms,
 label.o-forms {
 	margin: 0 10px 10px;

@@ -1,0 +1,41 @@
+div.o-forms--radio--buttons {
+	display: inline-block;
+	border: 1px solid #b3a9a0;
+	font-weight: 600;
+	font-size: 14px;
+	color: #0d7680;
+	line-height: 1;
+	text-align: center;
+	padding: 2px;
+	margin-top: 12px;
+
+	a {
+		cursor: pointer;
+		min-height: 28px;
+		min-width: 60px;
+		display: inline-block;
+		margin: 0;
+		vertical-align: middle;
+		position: relative;
+		color: #0d7680;
+		text-decoration: none;
+		text-align: center;
+		padding: 6px;
+		line-height: 1;
+		float: left;
+		box-sizing: border-box;
+
+		&:hover {
+			background-color: rgba(13,118,128,.15);
+		}
+
+		&.current {
+			background-color: #0d7680;
+			color: #fff;
+		}
+
+		&:not(:first-of-type) {
+			border-left:  1px solid #b3a9a0;
+		}
+	}
+}

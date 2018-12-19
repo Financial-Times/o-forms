@@ -20,6 +20,13 @@
 	},
 	"demos": [
 		{
+			"name": "test-anchor-button",
+			"title": "Test",
+			"template": "/demos/src/tests/anchor-button.mustache",
+			"description": "This is a test",
+			"sass": "/demos/src/tests/main.scss"
+		},
+		{
 			"name": "test-toggle",
 			"title": "Test",
 			"template": "/demos/src/tests/toggle.mustache",
