@@ -1,6 +1,7 @@
 $o-forms-is-silent: true;
 @import "../../../main";
 @import "./checkboxes";
+@import "./toggle";
 @import "./radio";
 @import "./text-input";
 @import "./select";
@@ -13,6 +14,16 @@ body {
 fieldset.o-forms,
 label.o-forms {
 	margin: 0 10px 10px;
+}
+
+.inverse {
+	margin-top: 12px;
+	background-color: #262a33;
+	padding: 10px;
+
+	fieldset.o-forms--toggle--inverse {
+		margin: 0;
+	}
 }
 
 @include oFormsStatusFeature();
