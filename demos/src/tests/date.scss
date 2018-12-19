@@ -1,0 +1,27 @@
+.o-forms.o-forms--date {
+	span {
+		padding: 0;
+	}
+
+	label {
+		display: inline-block;
+		margin: 12px 0 0;
+
+		span {
+			display: block;
+		}
+	}
+
+	input[type=text] {
+		margin: 4px 12px 0 0;
+		display: block;
+
+		&[pattern$='{2}'] {
+			width: calc(2.2ch + 18px);
+		}
+
+		&[pattern$='{4}'] {
+			width: calc(4.2ch + 18px);
+		}
+	}
+}

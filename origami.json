@@ -20,6 +20,13 @@
 	},
 	"demos": [
 		{
+			"name": "test-date",
+			"title": "Test",
+			"template": "/demos/src/tests/date.mustache",
+			"description": "This is a test",
+			"sass": "/demos/src/tests/main.scss"
+		},
+		{
 			"name": "test-textarea",
 			"title": "Test",
 			"template": "/demos/src/tests/textarea.mustache",

@@ -4,6 +4,7 @@ $o-forms-is-silent: true;
 @import "./radio";
 @import "./text-input";
 @import "./select";
+@import "./date";
 
 body {
 	margin-top: 10px;
