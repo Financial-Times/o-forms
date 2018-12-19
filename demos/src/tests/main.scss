@@ -29,3 +29,46 @@ label.o-forms {
 }
 
 @include oFormsStatusFeature();
+
+@mixin oFormsBase () {
+	.o-forms {
+		@include oTypographySans(0);
+		border: none;
+		padding: 0;
+		margin: 0;
+
+		legend {
+			@include oFontsWeight('semibold');
+			padding: 0;
+			margin: 0;
+		}
+
+		label {
+			margin: oTypographySpacingSize(4) 0;
+
+			&:last-of-type {
+				include oTypographyMargin($bottom: 0);
+			}
+		}
+	}
+
+	.o-forms--prompt {
+		@include oTypographySize(-1);
+		color: _oFormsGet('field-additional-info-text');
+		display: block;
+	}
+
+	.o-forms--error {
+		.o-forms--error-message {
+			@include oTypographySans($scale: -1);
+			color: _oFormsGet('field-invalid-text');
+			clear: both;
+			display: block;
+			margin-top: $_o-forms-default-error-text-margin;
+			border: 0;
+			clear: both;
+		}
+	}
+}
+
+@include oFormsBase();
