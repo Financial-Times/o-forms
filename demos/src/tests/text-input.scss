@@ -21,6 +21,7 @@ label.o-forms {
 	}
 
 	select,
+	textarea,
 	input[type=text] {
 		border: 1px solid #b3a9a0;
 		background-color: #fff;
@@ -44,6 +45,7 @@ label.o-forms {
 
 	&.o-forms--valid {
 		select:not(:disabled),
+		textarea:not(:disabled),
 		input[type=text]:not(:disabled) {
 			color: #00994d;
 			border-color: #00994d;
@@ -57,7 +59,12 @@ label.o-forms {
 			margin-top: 4px;
 		}
 
+		&.o-forms--error-message + textarea {
+			margin-top: 0;
+		}
+
 		select:not(:disabled),
+		textarea:not(:disabled),
 		input[type=text]:not(:disabled) {
 			color: #c00;
 			border-color: #c00;
