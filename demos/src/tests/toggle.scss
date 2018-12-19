@@ -1,61 +1,69 @@
-.o-forms.o-forms--toggle {
-	label {
-		position: relative;
-		display: block;
+@mixin oFormsToggle {
+	.o-forms--toggle {
+		label span {
+			display: inline-block;
+			vertical-align: top;
+			padding: 2px 0 2px 34px;
+
+			&:before,
+			&:after {
+				content: '';
+				cursor: pointer;
+				position: absolute;
+			}
+
+			&:before {
+				background-color: #33302e;
+				top: 0;
+				left: 0;
+				width: 38px;
+				height: 24px;
+				border-radius: 38px;
+			}
+
+			&:after {
+				background-color: #fff1e5;
+				top: 2px;
+				left: 2px;
+				transition: left 75ms ease-in-out;
+				width: 20px;
+				height: 20px;
+				border-radius: 20px;
+			}
+		}
 
 		input[type=checkbox] {
 			position: relative;
 			top: 4px;
 			left: 8px;
 			cursor: pointer;
-		}
 
-		input[type=checkbox]:checked {
-			+ span:after {
-				left: 16px;
+			&:checked {
+				+ span:after {
+					left: 16px;
+				}
 			}
-		}
-
-		span:before,
-		span:after {
-			content: '';
-			cursor: pointer;
-			position: absolute;
-		}
-
-		span:before {
-			background-color: #33302e;
-			top: 0;
-			left: 0;
-			width: 38px;
-			height: 24px;
-			border-radius: 38px;
-		}
-
-		span:after {
-			background-color: #fff1e5;
-			top: 2px;
-			left: 2px;
-			transition: left 75ms ease-in-out;
-			width: 20px;
-			height: 20px;
-			border-radius: 20px;
 		}
 	}
 
-	&.o-forms--toggle--inverse {
-		color: white;
+	.o-forms--toggle--inverse {
+		legend,
+		span {
+			color: white;
+		}
 
 		.o-forms--prompt {
 			color: rgba(255, 255, 255, 0.7);
 		}
 
-		span:before {
-			background-color: #fff;
-		}
+		label span {
+			&:before {
+				background-color: #fff;
+			}
 
-		span:after {
-			background-color: #0d7680;
+			&:after {
+				background-color: #0d7680;
+			}
 		}
 
 		input[type=checkbox]:checked {

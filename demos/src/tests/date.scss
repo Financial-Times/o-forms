@@ -13,6 +13,7 @@ $padding-width: $_o-forms-field-default-padding-leftright * 2;
 	.o-forms--date {
 		label {
 			display: inline-block;
+			float: left;
 			margin-bottom: 0;
 
 			span {
@@ -22,8 +23,8 @@ $padding-width: $_o-forms-field-default-padding-leftright * 2;
 
 		input[type=text] {
 			@include oFormsSelectTextBase;
-			margin: oTypographySpacingSize(1) oTypographySpacingSize(3) 0 0;
 			display: block;
+			margin: oTypographySpacingSize(1) oTypographySpacingSize(3) 0 0;
 
 			&[pattern$='{2}'] {
 				// Based on character width (plus some for kerning).

@@ -1,7 +1,7 @@
 $o-forms-is-silent: true;
 @import "../../../main";
 @import "./checkboxes";
-// @import "./toggle";
+@import "./toggle";
 @import "./radio";
 // @import "./anchor-button";
 @import "./text-input";
@@ -111,3 +111,4 @@ $_forms-error-text-margin: oTypographySpacingSize(1);
 @include oFormsDate();
 @include oFormsCheckbox();
 @include oFormsRoundRadio();
+@include oFormsToggle();
