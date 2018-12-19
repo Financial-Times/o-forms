@@ -1,27 +1,39 @@
-.o-forms.o-forms--date {
-	span {
-		padding: 0;
-	}
+/// Field and label padding variables.
+/// big button 40px, line height 20px, border 1px
+/// ((big button - line height) / 2) - border = 9
+/// @access private
+/// @type String
+$_o-forms-field-default-padding-leftright: 9px;
 
-	label {
-		display: inline-block;
-		margin: 12px 0 0;
+// We want to use `box-sizing: border-box` to set a max-height which includes padding.
+// However when setting width to an `ex` value we want padding to be in addition.
+$padding-width: $_o-forms-field-default-padding-leftright * 2;
 
-		span {
+@mixin oFormsDate() {
+	.o-forms--date {
+		label {
+			display: inline-block;
+			margin-bottom: 0;
+
+			span {
+				display: block;
+			}
+		}
+
+		input[type=text] {
+			@include oFormsSelectTextBase;
+			margin: oTypographySpacingSize(1) oTypographySpacingSize(3) 0 0;
 			display: block;
-		}
-	}
 
-	input[type=text] {
-		margin: 4px 12px 0 0;
-		display: block;
+			&[pattern$='{2}'] {
+				// Based on character width (plus some for kerning).
+				width: calc(2.2ch + #{$padding-width});
+			}
 
-		&[pattern$='{2}'] {
-			width: calc(2.2ch + 18px);
-		}
-
-		&[pattern$='{4}'] {
-			width: calc(4.2ch + 18px);
+			&[pattern$='{4}'] {
+				// Based on character width (plus some for kerning).
+				width: calc(4.2ch + #{$padding-width});
+			}
 		}
 	}
 }

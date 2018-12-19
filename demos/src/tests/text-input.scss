@@ -1,91 +1,104 @@
-label.o-forms {
-	display: block;
-	max-width: 380px;
+@mixin oFormsSelectTextBase {
+	@include oTypographyMargin($top: 2);
+	@include oTypographySans(0);
+	border: 1px solid #b3a9a0;
+	background-color: #fff;
+	margin-top: 12px;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 40px;
+	padding: 9px;
 
-	&.o-forms--wide {
-		max-width: 100%
+	&:disabled {
+		color: #66605c;
+		border-color: #e6d9ce;
+		background-color: #e6d9ce;
+		cursor: default;
 	}
+}
 
-	span.o-forms---label {
-		font-family: MetricWeb,sans-serif;
-		font-size: 16px;
-		line-height: 20px;
-		font-weight: 600;
-		color: #33302e;
-		display: block;
-		padding: 0;
-	}
-
-	span.o-forms--prompt {
-		padding: 0;
-	}
-
-	select,
-	textarea,
-	input[type=text] {
-		border: 1px solid #b3a9a0;
+@mixin oFormsSelectTextError {
+	&:not(:disabled) {
+		color: #c00;
+		border-color: #c00;
 		background-color: #fff;
-		margin-top: 12px;
-		box-sizing: border-box;
-		width: 100%;
-		// max-width: 380px;
-		min-height: 40px;
-		padding: 9px;
-		font-size: 16px;
-		line-height: 20px;
-		font-family: MetricWeb,sans-serif;
-
-		&:disabled {
-			color: #66605c;
-			border-color: #e6d9ce;
-			background-color: #e6d9ce;
-			cursor: default;
-		}
 	}
+}
 
-	&.o-forms--valid {
-		select:not(:disabled),
-		textarea:not(:disabled),
-		input[type=text]:not(:disabled) {
-			color: #00994d;
-			border-color: #00994d;
-			background-color: rgba(0,153,77,.05);
-		}
+@mixin oFormsSelectTextValid {
+	&:not(:disabled) {
+		color: #00994d;
+		border-color: #00994d;
+		background-color: rgba(0,153,77,.05);
 	}
+}
 
-	&.o-forms--error {
-		.o-forms--error-message {
-			padding: 0;
-			margin-top: 4px;
-		}
+@mixin oFormsTextInput {
+	.o-forms--text-input {
+		display: block;
 
-		&.o-forms--error-message + textarea {
-			margin-top: 0;
-		}
-
-		select:not(:disabled),
-		textarea:not(:disabled),
-		input[type=text]:not(:disabled) {
-			color: #c00;
-			border-color: #c00;
-			background-color: #fff;
-		}
-	}
-
-	&.o-forms--small {
-		select,
 		input[type=text] {
-			padding: 0 9px;
-			min-height: 28px;
-			line-height: 26px;
+			@include oFormsSelectTextBase();
+		}
+
+		&.o-forms--error input[type=text] {
+			@include oFormsSelectTextError();
+		}
+
+		&.o-forms--valid input[type=text] {
+			@include oFormsSelectTextValid();
 		}
 	}
+}
 
-	&.o-forms--optional {
-		span.o-forms---label,
-		span.o-forms--prompt {
-			display: inline-block;
-			line-height: 20px;
+@mixin oFormsTextArea {
+	.o-forms--text-area {
+		display: block;
+
+		textarea {
+			@include oFormsSelectTextBase();
+		}
+
+		&.o-forms--error textarea {
+			@include oFormsSelectTextError();
+
+			+ .o-forms--error-message {
+				@include oTypographyMargin($top: 0);
+			}
+		}
+
+		&.o-forms--valid textarea {
+			@include oFormsSelectTextValid();
+		}
+	}
+}
+
+@mixin oFormsSelect {
+	.o-forms--select {
+		display: block;
+
+		select {
+			@include oFormsSelectTextBase();
+
+			&:not([multiple]) {
+				//o icons goes here
+				background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%2333302E,%2333302E&format=svg);
+				color: #33302e;
+				cursor: pointer;
+				background-position: right 9px center;
+				background-repeat: no-repeat;
+				background-size: 24px 24px;
+				border-radius: 0;
+				appearance: none;
+			}
+		}
+
+		&.o-forms--error select {
+			@include oFormsSelectTextError();
+		}
+
+		&.o-forms--valid select {
+			@include oFormsSelectTextValid();
 		}
 	}
 }
