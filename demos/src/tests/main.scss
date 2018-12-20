@@ -110,5 +110,6 @@ $_forms-error-text-margin: oTypographySpacingSize(1);
 @include oFormsSelect();
 @include oFormsDate();
 @include oFormsCheckbox();
-@include oFormsRoundRadio();
 @include oFormsToggle();
+@include oFormsRoundRadio();
+@include oFormsSquareRadio();

@@ -1,3 +1,48 @@
+@mixin oFormsRoundRadio {
+	.o-forms--radio {
+		label span {
+			padding: 2px 0 2px 34px;
+			display: inline-block;
+
+			&:before,
+			&:after {
+				@include oFormsCheckboxRadioPseudoElements;
+				border-radius: 50%;
+				transition: opacity .1s ease-in;
+				background-color: transparent;
+			}
+
+			&:before {
+				border: 1px solid #b3a9a0;
+				background-color: #fff1e5;
+			}
+
+			&:after {
+				background-color: #0d7680;
+				border-radius: 50%;
+				height: 12px;
+				width: 12px;
+				margin: 6px;
+				opacity: 0;
+			}
+		}
+
+		input[type=radio] {
+			@include oFormsCheckboxRadioInput;
+
+			&:checked {
+				+ span:before {
+					border-color: #0d7680;
+				}
+			}
+		}
+
+		.o-forms--error-message {
+			@include oTypographyMargin($top: 2);
+		}
+	}
+};
+
 fieldset.o-forms--statusing {
 	max-width: 470px;
 
@@ -75,72 +120,75 @@ fieldset.o-forms--statusing {
 	};
 }
 
-.o-forms--radio--buttons div {
-	display: inline-block;
-	border: 1px solid #b3a9a0;
-	font-weight: 600;
-	font-size: 14px;
-	color: #0d7680;
-	line-height: 1;
-	text-align: center;
-	padding: 2px;
-	margin-top: 12px;
+@mixin oFormsSquareRadio {
+	.o-forms--radio--buttons {
+		&.o-forms--error section {
+			border: 1px solid #c00;
 
-	&.o-forms--error {
-		border: 1px solid #c00;
-
-		& + .o-forms--error-message {
-			margin-top: 4px;
-			padding-top: 0;
-		}
-	}
-
-	input[type=radio] {
-		clip-path: inset(0px 0px 0px 0px);
-		width: 1px;
-		height: 1px;
-	}
-
-	label {
-		cursor: pointer;
-		min-height: 28px;
-		min-width: 60px;
-		display: inline-block;
-		margin: 0;
-		vertical-align: middle;
-		position: relative;
-		float: left;
-
-		input[type=radio]:not(:checked):not(:disabled):hover + span {
-			background-color: rgba(13,118,128,.15);
-		}
-
-		input[type=radio]:checked + span {
-			background-color: #0d7680;
-			color: #fff;
-
-			&.o-forms--radio--button--negative {
-				background-color: #08474d;
+			+ .o-forms--error-message {
+				margin-top: 4px;
+				padding-top: 0;
 			}
 		}
 
-		input[type=radio]:disabled + span {
-			opacity: 0.4;
-			cursor: default;
+		section {
+			@include oTypographyMargin($top: 3);
+			@include oTypographySize($scale: -1, $line-height: 1)
+			// @include oFontsWeight('semibold');
+			font-weight: 600;
+			display: inline-block;
+			border: 1px solid #b3a9a0;
+			color: #0d7680;
+			text-align: center;
+			padding: 2px;
 		}
 
-		&:not(:first-of-type) span {
-			border-left:  1px solid #b3a9a0;
+		label {
+			display: inline-block;
+			cursor: pointer;
+			float: left;
+			margin: 0;
+			min-height: 28px;
+			min-width: 60px;
+			vertical-align: middle;
+
+			&:not(:first-of-type) span {
+				border-left:  1px solid #b3a9a0;
+			}
+
+			span {
+				padding: 6px 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				transition: .3s background-color,.15s color ease-out;
+			}
 		}
 
-		span {
-			padding: 6px 0;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			transition: .3s background-color,.15s color ease-out;
+		input[type=radio] {
+			clip-path: inset(0px 0px 0px 0px);
+			width: 1px;
+			height: 1px;
+
+			&:not(:checked):not(:disabled):hover + span {
+				background-color: rgba(13,118,128,.15);
+			}
+
+			&:checked + span {
+				background-color: #0d7680;
+				color: #fff;
+
+				&.o-forms--radio--button--negative {
+					background-color: #08474d;
+				}
+			}
+
+			&:disabled + span {
+				opacity: 0.4;
+				cursor: default;
+			}
 		}
 	}
 }
