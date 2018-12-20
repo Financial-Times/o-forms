@@ -3,6 +3,7 @@ $o-forms-is-silent: true;
 @import "./checkboxes";
 @import "./toggle";
 @import "./radio";
+@import "./status";
 // @import "./anchor-button";
 @import "./text-input";
 @import "./date";
@@ -24,8 +25,6 @@ body {
 		margin: 0;
 	}
 }
-
-@include oFormsStatusFeature();
 
 @mixin oFormsBase () {
 	.o-forms {
@@ -92,9 +91,9 @@ body {
 
 	.o-forms--error {
 		.o-forms--error-message {
+			@include oTypographyMargin($top: 1);
 			@include oTypographySans($scale: -1);
 			color: _oFormsGet('field-invalid-text');
-			margin-top: $_forms-error-text-margin;
 			display: block;
 			padding: 0;
 			border: 0;
@@ -103,7 +102,6 @@ body {
 	}
 }
 
-$_forms-error-text-margin: oTypographySpacingSize(1);
 @include oFormsBase();
 @include oFormsTextInput();
 @include oFormsTextArea();
@@ -113,3 +111,4 @@ $_forms-error-text-margin: oTypographySpacingSize(1);
 @include oFormsToggle();
 @include oFormsRoundRadio();
 @include oFormsSquareRadio();
+@include oFormsStatus();

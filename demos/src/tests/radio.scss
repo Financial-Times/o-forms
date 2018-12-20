@@ -43,92 +43,10 @@
 	}
 };
 
-fieldset.o-forms--statusing {
-	max-width: 470px;
-
-	&.o-forms--stacked,
-	&.o-forms--stacked.o-forms--error {
-		legend {
-			float: none;
-		}
-
-		span.o-forms__status,
-		span.o-forms--error-message {
-			padding: 0;
-			display: block;
-			clear: right;
-		}
-	}
-
-	legend {
-		padding: 9px 0;
-		line-height: 1;
-	}
-
-	div { margin-top: 0; }
-
-	div.inliner {
-		float: right;
-		border: none;
-		text-align: left;
-
-		span.o-forms__status {
-			display: block;
-			padding: 0;
-			color: inherit;
-			font-weight: 400;
-			clear: right;
-		}
-	}
-
-	div.rap,
-	div.stacked {
-		border: none;
-		text-align: left;
-
-		span.o-forms__status {
-			padding: 0;
-			color: inherit;
-			font-weight: 400;
-			display: block;
-		}
-	}
-
-	&.o-forms--error {
-		div.inner {
-			border-color: #c00;
-		}
-
-		span.o-forms--error-message {
-			max-width: 126px;
-		}
-	}
-
-	@include oGridRespondTo(S) {
-		legend {
-			float: left;
-		}
-
-		div.rap,
-		div.inner {
-			float: right;
-		}
-
-		span.o-forms__status {
-			float: left;
-		}
-	};
-}
-
 @mixin oFormsSquareRadio {
 	.o-forms--radio--buttons {
 		&.o-forms--error section {
 			border: 1px solid #c00;
-
-			+ .o-forms--error-message {
-				margin-top: 4px;
-				padding-top: 0;
-			}
 		}
 
 		section {
@@ -169,8 +87,8 @@ fieldset.o-forms--statusing {
 
 		input[type=radio] {
 			clip-path: inset(0px 0px 0px 0px);
-			width: 1px;
 			height: 1px;
+			width: 1px;
 
 			&:not(:checked):not(:disabled):hover + span {
 				background-color: rgba(13,118,128,.15);
@@ -186,8 +104,8 @@ fieldset.o-forms--statusing {
 			}
 
 			&:disabled + span {
-				opacity: 0.4;
 				cursor: default;
+				opacity: 0.4;
 			}
 		}
 	}

@@ -1,87 +1,86 @@
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--statusing">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--state">
 		<legend>standard</legend>
-		<div class="inner">
+		<section>
 			<label>
-				<input type="radio" value="1" name="radio"/>
+				<input type="radio" value="1" name="radio1" checked/>
 				<span>Daily</span>
 			</label>
 			<label>
-				<input type="radio" value="2" name="radio"/>
+				<input type="radio" value="2" name="radio1"/>
 				<span>Weekly</span>
 			</label>
-		</div>
+		</section>
 	</fieldset>
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--statusing o-forms--saving">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--saving">
 		<legend>inline saving</legend>
-		<div class="rap">
-			<div class="inner">
+			<section>
 				<label>
-					<input type="radio" value="1" name="radio"/>
+					<input type="radio" value="1" name="radio2"/>
 					<span>Daily</span>
 				</label>
 				<label>
-					<input type="radio" value="2" name="radio"/>
+					<input type="radio" value="2" name="radio2" checked/>
 					<span>Weekly</span>
 				</label>
-			</div>
+			</section>
 			<span class="o-forms__status"></span>
-		</div>
+		</section>
 	</fieldset>
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--statusing o-forms--saved">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--saved">
 		<legend>inline saved</legend>
 		<div class="rap">
-			<div class="inner">
+			<section>
 				<label>
-					<input type="radio" value="1" name="radio"/>
+					<input type="radio" value="1" name="radio3"/>
 					<span>Daily</span>
 				</label>
 				<label>
-					<input type="radio" value="2" name="radio"/>
+					<input type="radio" value="2" name="radio3" checked/>
 					<span>Weekly</span>
 				</label>
-			</div>
+			</section>
 			<span class="o-forms__status"></span>
 		</div>
 	</fieldset>
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--statusing o-forms--saving">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--saving">
 		<legend>inline status icon only</legend>
 		<div class="rap">
-			<div class=inner>
+			<section>
 				<label>
-					<input type="radio" value="1" name="radio"/>
+					<input type="radio" value="1" name="radio4"/>
 					<span>Daily</span>
 				</label>
 				<label>
-					<input type="radio" value="2" name="radio"/>
+					<input type="radio" value="2" name="radio4" checked/>
 					<span>Weekly</span>
 				</label>
-			</div>
+			</section>
 			<span class="o-forms__status o-forms__status--icon-only"></span>
 		</div>
 	</fieldset>
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--statusing o-forms--saving">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--saving">
 	<legend>inline status below control</legend>
 	<div class="inliner">
-		<div class=inner>
+		<section>
 			<label>
-				<input type="radio" value="1" name="radio"/>
+				<input type="radio" value="1" name="radio5" checked/>
 				<span>Daily</span>
 			</label>
 			<label>
-				<input type="radio" value="2" name="radio"/>
+				<input type="radio" value="2" name="radio5"/>
 				<span>Weekly</span>
 			</label>
 		</div>
@@ -91,19 +90,19 @@
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--statusing o-forms--error">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--error">
 		<legend>Error</legend>
 		<div class="rap">
-			<div class="inner">
+			<section>
 				<label>
-					<input type="radio" value="1" name="radio"/>
+					<input type="radio" value="1" name="radio6"vchecked/>
 					<span>Daily</span>
 				</label>
 				<label>
-					<input type="radio" value="2" name="radio"/>
+					<input type="radio" value="2" name="radio6"/>
 					<span>Weekly</span>
 				</label>
-			</div>
+			</section>
 			<span class="o-forms--error-message">
 				Sorry there was a problem.
 			</span>
@@ -112,41 +111,37 @@
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--statusing o-forms--stacked o-forms--error">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--stacked o-forms--state o-forms--stacked o-forms--error">
 		<legend>stacked status error</legend>
-		<div class="stacked">
-			<div class="inner">
-				<label>
-					<input type="radio" value="1" name="radio"/>
-					<span>Daily</span>
-				</label>
-				<label>
-					<input type="radio" value="2" name="radio"/>
-					<span>Weekly</span>
-				</label>
-			</div>
-			<span class="o-forms--error-message">
-				Sorry there was a problem.
-			</span>
-		</div>
+		<section>
+			<label>
+				<input type="radio" value="1" name="radio"/>
+				<span>Daily</span>
+			</label>
+			<label>
+				<input type="radio" value="2" name="radio"checked/>
+				<span>Weekly</span>
+			</label>
+		</section>
+		<span class="o-forms--error-message">
+			Sorry there was a problem.
+		</span>
 	</fieldset>
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--statusing o-forms--stacked o-forms--saving">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--stacked o-forms--state o-forms--saving">
 		<legend>stacked status</legend>
-		<div class="stacked">
-			<div class="inner">
-				<label>
-					<input type="radio" value="1" name="radio"/>
-					<span>Daily</span>
-				</label>
-				<label>
-					<input type="radio" value="2" name="radio"/>
-					<span>Weekly</span>
-				</label>
-			</div>
-			<span class="o-forms__status"></span>
-		</div>
+		<section>
+			<label>
+				<input type="radio" value="1" name="radio" checked/>
+				<span>Daily</span>
+			</label>
+			<label>
+				<input type="radio" value="2" name="radio"/>
+				<span>Weekly</span>
+			</label>
+		</section>
+		<span class="o-forms__status"></span>
 	</fieldset>
 </div>
