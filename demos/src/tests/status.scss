@@ -5,22 +5,29 @@
 		legend {
 			padding: 8px 0;
 			line-height: 1;
+
+			@include oGridRespondTo(S) {
+				float: left;
+			}
 		}
 
 		section {
 			@include oTypographyMargin($top: 0);
-		}
-
-		.o-forms__status {
-			display: block;
-			padding-top: 0;
+			@include oGridRespondTo(S) {
+				float: right;
+			}
 		}
 
 		.o-forms__status {
 			@include oTypographySize($scale: -1, $line-height: 1);
 			color: inherit;
+			display: block;
 			padding: 6px 12px 0 0;
 			white-space: nowrap;
+
+			@include oGridRespondTo(S) {
+				float: right;
+			}
 
 			&:before,
 			&:after {
@@ -56,6 +63,11 @@
 
 		&.o-forms--saved .o-forms__status {
 			padding-top: 2px;
+			margin: -8px 0 -8px -8px;
+
+			@include oGridRespondTo(S) {
+				margin: 0;
+			}
 
 			&:after {
 				content: 'Saved';
@@ -65,22 +77,12 @@
 			&:before {
 				@include oIconsGetIcon('tick', _oFormsGet('field-valid-text'), 28px);
 				vertical-align: middle;
-				margin-left: -7px;
-			}
-		}
-
-		@include oGridRespondTo(S) {
-			legend { float: left; }
-
-			section,
-			.o-forms__status {
-				float: right;
 			}
 		}
 	}
 }
 
-fieldset.o-forms--stacked {
+.o-forms--state.o-forms--stacked {
 	@include oGridRespondTo(S) {
 		legend,
 		section,
@@ -95,68 +97,20 @@ fieldset.o-forms--stacked {
 	};
 }
 
-fieldset.o-forms--statusing {
-	// max-width: 470px;
-
-	&.o-forms--stacked,
-	&.o-forms--stacked.o-forms--error {
-		legend {
-			float: none;
-		}
-
-		span.o-forms__status,
-		span.o-forms--error-message {
-			padding: 0;
-			display: block;
-			clear: right;
-		}
-	}
-
-	div.inliner {
+.o-forms--radio--buttons .o-forms__inline-container {
+	@include oGridRespondTo(S) {
 		float: right;
-		border: none;
-		text-align: left;
-
-		span.o-forms__status {
-			display: block;
-			padding: 0;
-			color: inherit;
-			font-weight: 400;
-			clear: right;
-		}
 	}
 
-	div.rap,
-	div.stacked {
-		border: none;
-		text-align: left;
-
-		span.o-forms__status {
-			padding: 0;
-			color: inherit;
-			font-weight: 400;
-			display: block;
-		}
+	section {
+		float: none;
 	}
 
-	&.o-forms--error {
-		div.inner {
-			border-color: #c00;
-		}
-
-		span.o-forms--error-message {
-			max-width: 126px;
-		}
-	}
-}
-
-.o-forms__inline {
-	label {
-		display: inline-block;
-		margin-bottom: 0;
-	}
-
-	span {
-		margin-right: 16px;
+	.o-forms__status,
+	.o-forms--error-message {
+		float: none;
+		max-width: 124px;
+		padding: 0;
+		margin: 0;
 	}
 }

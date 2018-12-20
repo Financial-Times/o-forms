@@ -53,6 +53,7 @@
 			@include oTypographyMargin($top: 3);
 			@include oTypographySize($scale: -1, $line-height: 1)
 			// @include oFontsWeight('semibold');
+			box-sizing: border-box;
 			font-weight: 600;
 			display: inline-block;
 			border: 1px solid #b3a9a0;
@@ -71,7 +72,7 @@
 			vertical-align: middle;
 
 			&:not(:first-of-type) span {
-				border-left:  1px solid #b3a9a0;
+				border-left: 1px solid #b3a9a0;
 			}
 
 			span {
