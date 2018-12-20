@@ -112,13 +112,17 @@
 	}
 }
 
-.o-forms__inline {
-	label {
-		display: inline-block;
-		margin-bottom: 0;
-	}
-
-	span {
-		margin-right: 16px;
+.o-forms--inline {
+	&.o-forms--checkbox,
+	&.o-forms--radio {
+		label {
+			display: inline-block;
+			margin-bottom: 0;
+			max-width: 70%;
+			
+			span {
+				margin-right: 16px;
+			}
+		}
 	}
 }
