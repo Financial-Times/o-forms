@@ -32,7 +32,7 @@ $_o-forms-field-max-width: 380px;
 		// 'optional',
 		'invalid',
 		'prompt',
-		// 'small',
+		'small',
 		// 'status',
 		// 'stacked',
 		'valid',
@@ -45,6 +45,9 @@ $_o-forms-field-max-width: 380px;
 	$disabled: index($features, 'invalid');
 	$invalid: index($features, 'invalid');
 	$valid: index($features, 'valid');
+
+	$small: index($features, 'small');
+	$wide: index($features, 'wide');
 
 	@include _oFormsBase();
 
@@ -69,15 +72,15 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'select') {
-		@include _oFormsTextArea($disabled, $invalid, $valid);
+		@include _oFormsSelect($disabled, $small, $invalid, $valid);
 	}
 
 	@if index($elements, 'text-area') {
-		@include _oFormsSelect($disabled, $invalid, $valid);
+		@include _oFormsTextArea($disabled, $invalid, $valid);
 	}
 
 	@if index($elements, 'text-input') {
-		@include _oFormsTextInput($disabled, $invalid, $valid);
+		@include _oFormsTextInput($disabled, $small, $invalid, $valid);
 	}
 
 	@if index($elements, 'toggle') or index($elements, 'toggle-inverse') {
@@ -91,6 +94,10 @@ $_o-forms-field-max-width: 380px;
 
 	@if index($features, 'prompt') {
 		@include _oFormsPrompt();
+	}
+
+	@if $invalid {
+		@include _oFormsInvalid();
 	}
 }
 

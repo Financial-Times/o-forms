@@ -35,9 +35,16 @@
 		border-color: _oFormsGet('#{$validity}-base');
 		background-color: rgba(_oFormsGet('#{$validity}-base'), 0.05);
 	}
+}
 
-	&:focus {
-		border-color: _oFormsGet('field-#{$validity}-border');
-		outline-offset: 0;
+/// @access private
+/// @output Shared small styles for select and text input.
+@mixin _oFormsSmall($element) {
+	&.o-forms--small {
+		#{$element} {
+			padding: 0 9px;
+			min-height: 28px;
+			line-height: 26px;
+		}
 	}
 }

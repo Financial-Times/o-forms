@@ -4,16 +4,16 @@
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text inputs
 
-@mixin _oFormsTextInput($disabled: false, $invalid: false, $valid: false) {
+@mixin _oFormsTextInput($disabled: false, $small: false, $invalid: false, $valid: false) {
 	.o-forms--text-input {
 		display: block;
 
-		input[type=text] {
-			@include _oFormsSelectTextBase($disabled);
+		@if $small {
+			@include _oFormsSmall('input[type=text]');
 		}
 
 		@if $invalid {
-			&.o-forms--error input[type=text] {
+			&.o-forms--invalid input[type=text] {
 				@include _oFormsSelectText('invalid');
 			}
 		}
@@ -23,57 +23,9 @@
 				@include _oFormsSelectText('valid');
 			}
 		}
-	}
-}
 
-@mixin oFormsTextArea {
-	.o-forms--text-area {
-		display: block;
-
-		textarea {
-			@include oFormsSelectTextBase();
-		}
-
-		&.o-forms--error textarea {
-			@include _oFormsSelectTextInvalid();
-
-			+ .o-forms--error-message {
-				@include oTypographyMargin($top: 0);
-			}
-		}
-
-		&.o-forms--valid textarea {
-			@include _oFormsSelectTextValid();
-		}
-	}
-}
-
-@mixin oFormsSelect {
-	.o-forms--select {
-		display: block;
-
-		select {
-			@include oFormsSelectTextBase();
-
-			&:not([multiple]) {
-				//o icons goes here
-				background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%2333302E,%2333302E&format=svg);
-				color: #33302e;
-				cursor: pointer;
-				background-position: right 9px center;
-				background-repeat: no-repeat;
-				background-size: 24px 24px;
-				border-radius: 0;
-				appearance: none;
-			}
-		}
-
-		&.o-forms--error select {
-			@include _oFormsSelectTextInvalid();
-		}
-
-		&.o-forms--valid select {
-			@include _oFormsSelectTextValid();
+		input[type=text] {
+			@include _oFormsSelectTextBase($disabled);
 		}
 	}
 }

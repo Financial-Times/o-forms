@@ -23,33 +23,29 @@
 			"name": "test-toggle",
 			"title": "Test",
 			"template": "/demos/src/tests/toggle.mustache",
-			"description": "This is a test",
-			"sass": "/src/scss/new/main.scss"
+			"description": "This is a test"
 		},
 		{
 			"name": "test-text-input",
 			"title": "Test",
 			"template": "/demos/src/tests/text-input.mustache",
-			"description": "This is a test",
-			"sass": "/src/scss/new/main.scss"
+			"description": "This is a test"
 		},
 		{
 			"name": "test-text-area",
 			"title": "Test",
 			"template": "/demos/src/tests/textarea.mustache",
-			"description": "This is a test",
-			"sass": "/src/scss/new/main.scss"
+			"description": "This is a test"
 		},
 		{
 			"name": "test-select",
 			"title": "Test",
 			"template": "/demos/src/tests/select.mustache",
-			"description": "This is a test",
-			"sass": "/src/scss/new/main.scss"
+			"description": "This is a test"
 		}
 	],
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss",
+		"sass": "src/scss/new/main.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
 			"o-fonts@^3",

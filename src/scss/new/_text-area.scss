@@ -8,15 +8,11 @@
 	.o-forms--text-area {
 		display: block;
 
-		textarea {
-			@include _oFormsSelectTextBase($disabled);
-		}
-
 		@if $invalid {
-			&.o-forms--error textarea {
+			&.o-forms--invalid textarea {
 				@include _oFormsSelectText('invalid');
 
-				+ .o-forms--error-message {
+				+ .o-forms__error-message {
 					@include oTypographyMargin($top: 0);
 				}
 			}
@@ -27,35 +23,9 @@
 				@include _oFormsSelectText('valid');
 			}
 		}
-	}
-}
 
-@mixin oFormsSelect {
-	.o-forms--select {
-		display: block;
-
-		select {
-			@include oFormsSelectTextBase();
-
-			&:not([multiple]) {
-				//o icons goes here
-				background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%2333302E,%2333302E&format=svg);
-				color: #33302e;
-				cursor: pointer;
-				background-position: right 9px center;
-				background-repeat: no-repeat;
-				background-size: 24px 24px;
-				border-radius: 0;
-				appearance: none;
-			}
-		}
-
-		&.o-forms--error select {
-			@include _oFormsSelectTextInvalid();
-		}
-
-		&.o-forms--valid select {
-			@include _oFormsSelectTextValid();
+		textarea {
+			@include _oFormsSelectTextBase($disabled);
 		}
 	}
 }

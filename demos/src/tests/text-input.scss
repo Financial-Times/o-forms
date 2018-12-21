@@ -62,7 +62,7 @@
 		&.o-forms--error textarea {
 			@include oFormsSelectTextError();
 
-			+ .o-forms--error-message {
+			+ .o-forms__error-message {
 				@include oTypographyMargin($top: 0);
 			}
 		}

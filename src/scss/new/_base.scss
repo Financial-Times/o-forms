@@ -59,19 +59,9 @@
 	}
 }
 
-
-.o-forms--small {
-	&.o-forms--select select,
-	&.o-forms--text-input input[type=text] {
-		padding: 0 9px;
-		min-height: 28px;
-		line-height: 26px;
-	}
-}
-
-@mixin oFormsError {
-	.o-forms--error {
-		.o-forms--error-message {
+@mixin _oFormsInvalid {
+	.o-forms--invalid {
+		.o-forms__error-message {
 			@include oTypographyMargin($top: 1);
 			@include oTypographySans($scale: -1);
 			color: _oFormsGet('invalid-base');
