@@ -4,7 +4,7 @@ $o-forms-is-silent: true;
 @import "./toggle";
 @import "./radio";
 @import "./status";
-// @import "./anchor-button";
+@import "./anchor-button";
 @import "./text-input";
 @import "./date";
 
@@ -112,3 +112,4 @@ body {
 @include oFormsRoundRadio();
 @include oFormsSquareRadio();
 @include oFormsStatus();
+@include oFormsAnchorButtons();

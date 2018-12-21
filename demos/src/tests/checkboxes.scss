@@ -30,6 +30,8 @@
 
 @mixin oFormsCheckbox {
 	.o-forms--checkbox {
+		@include oFormsInlineInputs();
+
 		label span {
 			display: inline-block;
 			vertical-align: top;
