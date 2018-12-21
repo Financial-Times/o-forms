@@ -1,0 +1,39 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $invalid Whether to output invalid state styling
+/// @param {Boolean} $valid Whether to output valid state styling
+/// @output Styling for text areas
+
+@mixin _oFormsSelect($disabled: false, $invalid: false, $valid: false) {
+	.o-forms--select {
+		display: block;
+
+		select {
+			@include _oFormsSelectTextBase($disabled);
+
+			&:not([multiple]) {
+				//o icons goes here
+				background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%2333302E,%2333302E&format=svg);
+				color: #33302e;
+				cursor: pointer;
+				background-position: right 9px center;
+				background-repeat: no-repeat;
+				background-size: 24px 24px;
+				border-radius: 0;
+				appearance: none;
+			}
+		}
+
+		@if $invalid {
+			&.o-forms--error select {
+				@include _oFormsSelectText('invalid');
+			}
+		}
+
+		@if $valid {
+			&.o-forms--valid select {
+				@include _oFormsSelectText('valid');
+			}
+		}
+	}
+}

@@ -4,12 +4,12 @@
 		border: none;
 		padding: 0;
 		margin: 0;
-		max-width: 380px;
+		max-width: $_o-forms-field-max-width;
 
 		legend {
 			// @include oFontsWeight('semibold');
 			font-weight: 600;
-			color: #33302e;
+			color: _oFormsGet('default-text');
 			padding: 0;
 			margin: 0;
 		}
@@ -29,7 +29,7 @@
 		// @include oFontsWeight('semibold');
 		font-weight: 600;
 		display: block;
-		color: #33302e;
+		color: _oFormsGet('default-text');
 		padding: 0;
 	}
 }
@@ -74,7 +74,7 @@
 		.o-forms--error-message {
 			@include oTypographyMargin($top: 1);
 			@include oTypographySans($scale: -1);
-			color: _oFormsGet('field-invalid-text');
+			color: _oFormsGet('invalid-base');
 			display: block;
 			padding: 0;
 			border: 0;

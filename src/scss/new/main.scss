@@ -1,10 +1,15 @@
 $_o-forms-default-input-size: 24px;
+$_o-forms-field-max-width: 380px;
 
 @import 'o-brand/main';
 @import 'o-typography/main';
 
 @import './brand';
 @import './base';
+@import './shared';
+@import './select';
+@import './text-area';
+@import './text-input';
 @import './toggle';
 
 @mixin oForms($opts: (
@@ -21,19 +26,25 @@ $_o-forms-default-input-size: 24px;
 		'toggle-inverse'
 	),
 	'features': (
-		'error',
-		'optional',
-		'inline',
-		'inline-stacked',
+		'disabled',
+		// 'inline',
+		// 'inline-stacked',
+		// 'optional',
+		'invalid',
 		'prompt',
-		'small',
-		'status',
-		'stacked',
-		'wide'
+		// 'small',
+		// 'status',
+		// 'stacked',
+		'valid',
+		// 'wide'
 	)
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
+
+	$disabled: index($features, 'invalid');
+	$invalid: index($features, 'invalid');
+	$valid: index($features, 'valid');
 
 	@include _oFormsBase();
 
@@ -58,15 +69,15 @@ $_o-forms-default-input-size: 24px;
 	}
 
 	@if index($elements, 'select') {
-
+		@include _oFormsTextArea($disabled, $invalid, $valid);
 	}
 
 	@if index($elements, 'text-area') {
-
+		@include _oFormsSelect($disabled, $invalid, $valid);
 	}
 
 	@if index($elements, 'text-input') {
-
+		@include _oFormsTextInput($disabled, $invalid, $valid);
 	}
 
 	@if index($elements, 'toggle') or index($elements, 'toggle-inverse') {
@@ -85,7 +96,7 @@ $_o-forms-default-input-size: 24px;
 
 
 .demo {
-	margin: 0 10px 12px;
+	margin: 12px 10px;
 }
 
 .inverse {
@@ -98,11 +109,4 @@ $_o-forms-default-input-size: 24px;
 	}
 }
 
-@include oForms($opts: (
-	'elements': (
-		'toggle-inverse'
-	),
-	'features': (
-		'prompt'
-	)
-));
+@include oForms();

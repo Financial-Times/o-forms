@@ -11,10 +11,17 @@
 }
 
 $_o-forms-shared-brand-config: (
-	text-color: oColorsGetPaletteColor('black-80'),
+	default-text: oColorsGetPaletteColor('black-80'),
+	default-border: oColorsGetPaletteColor('black-30'),
+	default-background: oColorsGetPaletteColor('white'),
 	toggle-inverse-base: oColorsGetPaletteColor('white'),
 	toggle-inverse-selected: oColorsGetPaletteColor('teal-100'),
-	toggle-inverse-knob: oColorsGetPaletteColor('teal')
+	toggle-inverse-knob: oColorsGetPaletteColor('teal'),
+	invalid-base: oColorsGetPaletteColor('crimson'),
+	invalid-background: oColorsGetPaletteColor('white'),
+	valid-base: oColorsGetPaletteColor('jade'),
+	disabled-text: oColorsGetPaletteColor('black-60'),
+	disabled-base: oColorsGetPaletteColor('black-10'),
 );
 
 @include oBrandDefine('o-forms', 'master', (
@@ -35,7 +42,10 @@ $_o-forms-shared-brand-config: (
 // 	'variables': (
 // 		toggle-inverse-base: oColorsGetPaletteColor('white'),
 // 		toggle-inverse-selected: oColorsGetPaletteColor('white'),
-// 		toggle-inverse-knob: oColorsGetPaletteColor('black')
+// 		toggle-inverse-knob: oColorsGetPaletteColor('black'),
+		// valid-base: oColorsGetPaletteColor('jade'),
+		// invalid-base: oColorsGetPaletteColor('crimson'),
+
 // 	)),
 // 	'supports-variants': ()
 // ));

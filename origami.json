@@ -25,6 +25,27 @@
 			"template": "/demos/src/tests/toggle.mustache",
 			"description": "This is a test",
 			"sass": "/src/scss/new/main.scss"
+		},
+		{
+			"name": "test-text-input",
+			"title": "Test",
+			"template": "/demos/src/tests/text-input.mustache",
+			"description": "This is a test",
+			"sass": "/src/scss/new/main.scss"
+		},
+		{
+			"name": "test-text-area",
+			"title": "Test",
+			"template": "/demos/src/tests/textarea.mustache",
+			"description": "This is a test",
+			"sass": "/src/scss/new/main.scss"
+		},
+		{
+			"name": "test-select",
+			"title": "Test",
+			"template": "/demos/src/tests/select.mustache",
+			"description": "This is a test",
+			"sass": "/src/scss/new/main.scss"
 		}
 	],
 	"demosDefaults": {

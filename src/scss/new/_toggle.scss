@@ -21,7 +21,7 @@
 			}
 
 			&:before {
-				background-color: _oFormsGet('text-color');
+				background-color: _oFormsGet('default-text');
 				border-radius: $toggle-width;
 				height: $_o-forms-default-input-size;
 				width: $toggle-width;
@@ -29,7 +29,7 @@
 
 			&:after {
 				background-color: oColorsGetColorFor(page, background);
-				border: $toggle-spacing solid _oFormsGet('text-color');
+				border: $toggle-spacing solid _oFormsGet('default-text');
 				border-radius: 50%;
 				box-sizing: border-box;
 				transition: left 75ms ease-in-out;
@@ -65,8 +65,7 @@
 		}
 
 		.o-forms--prompt {
-			color: _oFormsGet('toggle-inverse-base');
-			opacity: 0.7
+			color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
 		}
 
 		label span {
