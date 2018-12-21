@@ -1,28 +1,4 @@
-$o-forms-is-silent: true;
-@import "../../../main";
-@import "./checkboxes";
-// @import "./toggle";
-@import "./radio";
-@import "./status";
-@import "./anchor-button";
-@import "./text-input";
-@import "./date";
-
-.demo {
-	margin: 0 10px 12px;
-}
-
-.inverse {
-	margin-top: 12px;
-	background-color: #262a33;
-	padding: 10px;
-
-	&.demo {
-		margin: 0;
-	}
-}
-
-@mixin oFormsBase () {
+@mixin _oFormsBase {
 	.o-forms {
 		@include oTypographySans(0);
 		border: none;
@@ -56,7 +32,9 @@ $o-forms-is-silent: true;
 		color: #33302e;
 		padding: 0;
 	}
+}
 
+@mixin _oFormsOptional {
 	.o-forms--optional {
 		span.o-forms--label,
 		span.o-forms--prompt {
@@ -64,27 +42,34 @@ $o-forms-is-silent: true;
 			line-height: 20px;
 		}
 	}
+}
 
+@mixin oFormsWide {
 	.o-forms--wide {
 		max-width: 100%;
 	}
+}
 
+@mixin _oFormsPrompt {
 	.o-forms--prompt {
 		@include oTypographySize(-1);
 		color: _oFormsGet('field-additional-info-text');
 		display: block;
 		padding: 0;
 	}
+}
 
-	.o-forms--small {
-		&.o-forms--select select,
-		&.o-forms--text-input input[type=text] {
-			padding: 0 9px;
-			min-height: 28px;
-			line-height: 26px;
-		}
+
+.o-forms--small {
+	&.o-forms--select select,
+	&.o-forms--text-input input[type=text] {
+		padding: 0 9px;
+		min-height: 28px;
+		line-height: 26px;
 	}
+}
 
+@mixin oFormsError {
 	.o-forms--error {
 		.o-forms--error-message {
 			@include oTypographyMargin($top: 1);
@@ -97,15 +82,3 @@ $o-forms-is-silent: true;
 		}
 	}
 }
-
-@include oFormsBase();
-@include oFormsTextInput();
-@include oFormsTextArea();
-@include oFormsSelect();
-@include oFormsDate();
-@include oFormsCheckbox();
-// @include oFormsToggle();
-@include oFormsRoundRadio();
-@include oFormsSquareRadio();
-@include oFormsStatus();
-@include oFormsAnchorButtons();

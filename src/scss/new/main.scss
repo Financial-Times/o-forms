@@ -1,0 +1,108 @@
+$_o-forms-default-input-size: 24px;
+
+@import 'o-brand/main';
+@import 'o-typography/main';
+
+@import './brand';
+@import './base';
+@import './toggle';
+
+@mixin oForms($opts: (
+	'elements': (
+		'anchor',
+		'checkbox',
+		'date',
+		'radio-round',
+		'radio-box',
+		'select',
+		'text-area',
+		'text-input',
+		'toggle',
+		'toggle-inverse'
+	),
+	'features': (
+		'error',
+		'optional',
+		'inline',
+		'inline-stacked',
+		'prompt',
+		'small',
+		'status',
+		'stacked',
+		'wide'
+	)
+)) {
+	$elements: map-get($opts, 'elements');
+	$features: map-get($opts, 'features');
+
+	@include _oFormsBase();
+
+	@if index($elements, 'anchor') {
+
+	}
+
+	@if index($elements, 'checkbox') {
+
+	}
+
+	@if index($elements, 'date') {
+
+	}
+
+	@if index($elements, 'radio-round') {
+
+	}
+
+	@if index($elements, 'radio-box') {
+
+	}
+
+	@if index($elements, 'select') {
+
+	}
+
+	@if index($elements, 'text-area') {
+
+	}
+
+	@if index($elements, 'text-input') {
+
+	}
+
+	@if index($elements, 'toggle') or index($elements, 'toggle-inverse') {
+		$inverse: index($elements, 'toggle-inverse');
+		@include _oFormsToggle($inverse);
+	}
+
+	@if index($features, 'optional') {
+		@include _oFormsOptional();
+	}
+
+	@if index($features, 'prompt') {
+		@include _oFormsPrompt();
+	}
+}
+
+
+.demo {
+	margin: 0 10px 12px;
+}
+
+.inverse {
+	margin-top: 12px;
+	background-color: #262a33;
+	padding: 10px;
+
+	&.demo {
+		margin: 0;
+	}
+}
+
+@include oForms($opts: (
+	'elements': (
+		'toggle-inverse'
+	),
+	'features': (
+		'prompt'
+	)
+));

@@ -1,0 +1,93 @@
+/// @access private
+/// @param {Boolean} $inverse - Whether or not to output inverse styling for toggle
+/// @output styles for toggle based on a checkbox input
+
+@mixin _oFormsToggle($inverse: false) {
+	.o-forms--toggle {
+		$toggle-spacing: oTypographySpacingSize(1) / 2; // to align text to pseudo elements
+		$toggle-width: oTypographySpacingSize(10);
+		label span {
+			display: inline-block;
+			vertical-align: top;
+			padding: $toggle-spacing 0 $toggle-spacing oTypographySpacingSize(8);
+
+			&:before,
+			&:after {
+				content: '';
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			&:before {
+				background-color: _oFormsGet('text-color');
+				border-radius: $toggle-width;
+				height: $_o-forms-default-input-size;
+				width: $toggle-width;
+			}
+
+			&:after {
+				background-color: oColorsGetColorFor(page, background);
+				border: $toggle-spacing solid _oFormsGet('text-color');
+				border-radius: 50%;
+				box-sizing: border-box;
+				transition: left 75ms ease-in-out;
+				height: $_o-forms-default-input-size;
+				width: $_o-forms-default-input-size;
+			}
+		}
+
+		input[type=checkbox] {
+			cursor: pointer;
+			position: relative;
+
+			&:checked {
+				+ span:after {
+					left: 16px;
+				}
+			}
+		}
+	}
+
+	@if $inverse {
+		@include _oFormsToggleInverse();
+	}
+}
+
+/// @access private
+/// @output styles for inverse toggle based on a checkbox input
+@mixin _oFormsToggleInverse {
+	.o-forms--toggle--inverse {
+		legend,
+		span {
+			color: _oFormsGet('toggle-inverse-base');
+		}
+
+		.o-forms--prompt {
+			color: _oFormsGet('toggle-inverse-base');
+			opacity: 0.7
+		}
+
+		label span {
+			&:before {
+				background-color: _oFormsGet('toggle-inverse-base');
+			}
+
+			&:after {
+				background-color: _oFormsGet('toggle-inverse-knob');
+				border-color: _oFormsGet('toggle-inverse-base');
+			}
+		}
+
+		input[type=checkbox]:checked {
+			+ span:before {
+				background-color: _oFormsGet('toggle-inverse-selected');
+			}
+
+			+ span:after {
+				border-color: _oFormsGet('toggle-inverse-selected');
+			}
+		}
+	}
+}
