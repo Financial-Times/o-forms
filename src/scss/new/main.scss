@@ -6,6 +6,7 @@ $_o-forms-field-max-width: 380px;
 
 @import './brand';
 @import './base';
+@import './date';
 @import './shared';
 @import './select';
 @import './text-area';
@@ -59,7 +60,7 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'date') {
-
+		@include _oFormsDate($disabled);
 	}
 
 	@if index($elements, 'radio-round') {
