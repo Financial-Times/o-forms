@@ -8,22 +8,6 @@
 	.o-forms--select {
 		display: block;
 
-		@if $small {
-			@include _oFormsSmall('select');
-		}
-
-		@if $invalid {
-			&.o-forms--invalid select {
-				@include _oFormsSelectText('invalid');
-			}
-		}
-
-		@if $valid {
-			&.o-forms--valid select {
-				@include _oFormsSelectText('valid');
-			}
-		}
-
 		select {
 			@include _oFormsSelectTextBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
@@ -38,6 +22,22 @@
 			&:disabled,
 			&[multiple] {
 				background-image:	none;
+			}
+		}
+
+		@if $small {
+			@include _oFormsSmall('select');
+		}
+
+		@if $invalid {
+			&.o-forms--invalid select {
+				@include _oFormsSelectText('invalid');
+			}
+		}
+
+		@if $valid {
+			&.o-forms--valid select {
+				@include _oFormsSelectText('valid');
 			}
 		}
 	}

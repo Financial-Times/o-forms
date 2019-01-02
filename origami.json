@@ -20,6 +20,12 @@
 	},
 	"demos": [
 		{
+			"name": "test-date",
+			"title": "Test",
+			"template": "/demos/src/tests/date.mustache",
+			"description": "This is a test"
+		},
+		{
 			"name": "test-toggle",
 			"title": "Test",
 			"template": "/demos/src/tests/toggle.mustache",

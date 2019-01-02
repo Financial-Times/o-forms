@@ -60,7 +60,7 @@
 /// @output styles for inverse toggle based on a checkbox input
 @mixin _oFormsToggleInverse {
 	.o-forms--toggle--inverse {
-		legend,
+		// legend,
 		span {
 			color: _oFormsGet('toggle-inverse-base');
 		}
