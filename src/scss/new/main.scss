@@ -29,6 +29,7 @@ $_o-forms-field-max-width: 380px;
 		'toggle-inverse'
 	),
 	'features': (
+		'additional-content',
 		'disabled',
 		'inline',
 		// 'inline-stacked',
@@ -45,6 +46,7 @@ $_o-forms-field-max-width: 380px;
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
 
+	$additional-content: index($features, 'additional-content');
 	$disabled: index($features, 'disabled');
 	$inline: index($features, 'inline');
 	$invalid: index($features, 'invalid');
@@ -60,7 +62,7 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'checkbox') {
-		@include _oFormsCheckbox($inline, $invalid, $wide);
+		@include _oFormsCheckbox($additional-content, $inline, $invalid, $wide);
 	}
 
 	@if index($elements, 'date') {
