@@ -104,19 +104,4 @@ $_o-forms-field-max-width: 380px;
 	}
 }
 
-
-.demo {
-	margin: 16px 10px;
-}
-
-.inverse {
-	margin-top: 12px;
-	background-color: #262a33;
-	padding: 10px;
-
-	&.demo {
-		margin: 0;
-	}
-}
-
 @include oForms();

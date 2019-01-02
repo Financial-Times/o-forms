@@ -7,8 +7,12 @@
 // @import "./text-input";
 // @import "./date";
 
+body {
+	@include oColorsFor(page, background);
+}
+
 .demo {
-	margin: 0 10px 12px;
+	margin: 16px 10px;
 }
 
 .inverse {
@@ -20,91 +24,90 @@
 		margin: 0;
 	}
 }
+// @mixin oFormsBase () {
+// 	.o-forms {
+// 		@include oTypographySans(0);
+// 		border: none;
+// 		padding: 0;
+// 		margin: 0;
+// 		max-width: 380px;
+//
+// 		legend {
+// 			// @include oFontsWeight('semibold');
+// 			font-weight: 600;
+// 			color: #33302e;
+// 			padding: 0;
+// 			margin: 0;
+// 		}
+//
+// 		label {
+// 			display: block;
+// 			position: relative;
+// 			margin: oTypographySpacingSize(3) 0;
+//
+// 			&:last-of-type {
+// 				@include oTypographyMargin($bottom: 0);
+// 			}
+// 		}
+// 	}
+//
+// 	.o-forms--label {
+// 		// @include oFontsWeight('semibold');
+// 		font-weight: 600;
+// 		display: block;
+// 		color: #33302e;
+// 		padding: 0;
+// 	}
+//
+// 	.o-forms--optional {
+// 		span.o-forms--label,
+// 		span.o-forms--prompt {
+// 			display: inline-block;
+// 			line-height: 20px;
+// 		}
+// 	}
+//
+// 	.o-forms--wide {
+// 		max-width: 100%;
+// 	}
+//
+// 	.o-forms--prompt {
+// 		@include oTypographySize(-1);
+// 		color: _oFormsGet('field-additional-info-text');
+// 		display: block;
+// 		padding: 0;
+// 	}
+//
+// 	.o-forms--small {
+// 		&.o-forms--select select,
+// 		&.o-forms--text-input input[type=text] {
+// 			padding: 0 9px;
+// 			min-height: 28px;
+// 			line-height: 26px;
+// 		}
+// 	}
+//
+// 	.o-forms--error {
+// 		.o-forms__error-message {
+// 			@include oTypographyMargin($top: 1);
+// 			@include oTypographySans($scale: -1);
+// 			color: _oFormsGet('field-invalid-text');
+// 			display: block;
+// 			padding: 0;
+// 			border: 0;
+// 			clear: both;
+// 		}
+// 	}
+// }
 
-@mixin oFormsBase () {
-	.o-forms {
-		@include oTypographySans(0);
-		border: none;
-		padding: 0;
-		margin: 0;
-		max-width: 380px;
-
-		legend {
-			// @include oFontsWeight('semibold');
-			font-weight: 600;
-			color: #33302e;
-			padding: 0;
-			margin: 0;
-		}
-
-		label {
-			display: block;
-			position: relative;
-			margin: oTypographySpacingSize(3) 0;
-
-			&:last-of-type {
-				@include oTypographyMargin($bottom: 0);
-			}
-		}
-	}
-
-	.o-forms--label {
-		// @include oFontsWeight('semibold');
-		font-weight: 600;
-		display: block;
-		color: #33302e;
-		padding: 0;
-	}
-
-	.o-forms--optional {
-		span.o-forms--label,
-		span.o-forms--prompt {
-			display: inline-block;
-			line-height: 20px;
-		}
-	}
-
-	.o-forms--wide {
-		max-width: 100%;
-	}
-
-	.o-forms--prompt {
-		@include oTypographySize(-1);
-		color: _oFormsGet('field-additional-info-text');
-		display: block;
-		padding: 0;
-	}
-
-	.o-forms--small {
-		&.o-forms--select select,
-		&.o-forms--text-input input[type=text] {
-			padding: 0 9px;
-			min-height: 28px;
-			line-height: 26px;
-		}
-	}
-
-	.o-forms--error {
-		.o-forms__error-message {
-			@include oTypographyMargin($top: 1);
-			@include oTypographySans($scale: -1);
-			color: _oFormsGet('field-invalid-text');
-			display: block;
-			padding: 0;
-			border: 0;
-			clear: both;
-		}
-	}
-}
-
-@include oFormsBase();
-@include oFormsTextInput();
-@include oFormsTextArea();
-@include oFormsSelect();
-@include oFormsDate();
-@include oFormsCheckbox();
-// @include oFormsToggle();
-@include oFormsRoundRadio();
-@include oFormsSquareRadio();
-@include oFormsStatus();
-@include oFormsAnchorButtons();
+// @include oFormsBase();
+// @include oFormsTextInput();
+// @include oFormsTextArea();
+// @include oFormsSelect();
+// @include oFormsDate();
+// @include oFormsCheckbox();
+// // @include oFormsToggle();
+// @include oFormsRoundRadio();
+// @include oFormsSquareRadio();
+// @include oFormsStatus();
+// @include oFormsAnchorButtons();

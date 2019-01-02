@@ -6,13 +6,13 @@
 		margin: 0;
 		max-width: $_o-forms-field-max-width;
 
-		legend {
-			// @include oFontsWeight('semibold');
-			font-weight: 600;
-			color: _oFormsGet('default-text');
-			padding: 0;
-			margin: 0;
-		}
+		// legend {
+		// 	// @include oFontsWeight('semibold');
+		// 	// font-weight: 600;
+		// 	// color: _oFormsGet('default-text');
+		// 	// padding: 0;
+		// 	// margin: 0;
+		// }
 
 		label {
 			display: block;
@@ -31,13 +31,14 @@
 		display: block;
 		color: _oFormsGet('default-text');
 		padding: 0;
+		margin: 0;
 	}
 }
 
 @mixin _oFormsOptional {
 	.o-forms--optional {
-		span.o-forms--label,
-		span.o-forms--prompt {
+		.o-forms--label,
+		.o-forms--prompt {
 			display: inline-block;
 			line-height: 20px;
 		}

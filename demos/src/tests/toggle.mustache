@@ -1,7 +1,26 @@
 <div class="demo">
 	<fieldset class="o-forms o-forms--toggle">
-		<legend>Default checkboxes</legend>
-		<div class="o-forms--prompt">Optional prompt text</div>
+		<legend>
+			<span class="o-forms--label">Default checkboxes</span>
+			<span class="o-forms--prompt">Optional prompt text</span>
+		</legend>
+		<label>
+			<input type="checkbox" value="1" checked/>
+			<span>Stacked 1</span>
+		</label>
+		<label>
+			<input type="checkbox" value="2"/>
+			<span>Stacked 2</span>
+		</label>
+	</fieldset>
+</div>
+
+<div class="demo">
+	<fieldset class="o-forms o-forms--toggle o-forms--optional">
+		<legend>
+			<span class="o-forms--label">Default checkboxes</span>
+			<span class="o-forms--prompt">(Optional)</span>
+		</legend>
 		<label>
 			<input type="checkbox" value="1" checked/>
 			<span>Stacked 1</span>
@@ -15,8 +34,10 @@
 
 <div class="inverse demo">
 	<fieldset class="o-forms o-forms--toggle o-forms--toggle--inverse">
-		<legend>Inverse checkboxes</legend>
-		<div class="o-forms--prompt">Optional prompt text</div>
+		<legend>
+			<span class="o-forms--label">Inverse checkboxes</span>
+			<span class="o-forms--prompt">Optional prompt text</span>
+		</legend>
 		<label>
 			<input type="checkbox" value="1" checked/>
 			<span>Stacked 1</span>

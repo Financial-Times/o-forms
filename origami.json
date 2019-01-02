@@ -45,7 +45,7 @@
 		}
 	],
 	"demosDefaults": {
-		"sass": "src/scss/new/main.scss",
+		"sass": "demos/src/tests/main.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
 			"o-fonts@^3",
