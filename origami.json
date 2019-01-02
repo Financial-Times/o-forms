@@ -20,6 +20,12 @@
 	},
 	"demos": [
 		{
+			"name": "test-radio-box",
+			"title": "Test",
+			"template": "/demos/src/tests/radio-box.mustache",
+			"description": "This is a test"
+		},
+		{
 			"name": "test-radio-round",
 			"title": "Test",
 			"template": "/demos/src/tests/radio-round.mustache",

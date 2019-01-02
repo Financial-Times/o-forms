@@ -9,6 +9,7 @@ $_o-forms-field-max-width: 380px;
 @import './base';
 @import './checkbox';
 @import './date';
+@import './radio-box';
 @import './radio-round';
 @import './shared/main';
 @import './select';
@@ -51,10 +52,10 @@ $_o-forms-field-max-width: 380px;
 	$disabled: index($features, 'disabled');
 	$inline: index($features, 'inline');
 	$invalid: index($features, 'invalid');
-	$valid: index($features, 'valid');
-
 	$small: index($features, 'small');
+	$valid: index($features, 'valid');
 	$wide: index($features, 'wide');
+
 
 	@include _oFormsBase();
 
@@ -75,7 +76,7 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'radio-box') {
-
+		@include _oFormsRadioBox($disabled, $invalid);
 	}
 
 	@if index($elements, 'select') {
