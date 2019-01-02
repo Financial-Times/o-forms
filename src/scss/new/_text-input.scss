@@ -9,7 +9,7 @@
 		display: block;
 
 		input[type=text] {
-			@include _oFormsSelectTextBase($disabled);
+			@include _oFormsInputsBase($disabled);
 		}
 
 		@if $small {
@@ -18,13 +18,13 @@
 
 		@if $invalid {
 			&.o-forms--invalid input[type=text] {
-				@include _oFormsSelectText('invalid');
+				@include _oFormsInputs('invalid');
 			}
 		}
 
 		@if $valid {
 			&.o-forms--valid input[type=text] {
-				@include _oFormsSelectText('valid');
+				@include _oFormsInputs('valid');
 			}
 		}
 	}

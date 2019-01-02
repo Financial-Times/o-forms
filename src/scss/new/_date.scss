@@ -25,7 +25,7 @@ $padding-width: $_o-forms-field-default-padding-leftright * 2;
 		}
 
 		input[type=text] {
-			@include _oFormsSelectTextBase($disabled);
+			@include _oFormsInputsBase($disabled);
 			display: block;
 			margin: oTypographySpacingSize(1) oTypographySpacingSize(3) 0 0;
 
@@ -42,13 +42,13 @@ $padding-width: $_o-forms-field-default-padding-leftright * 2;
 
 		@if $invalid {
 			&.o-forms--invalid input[type=text] {
-				@include _oFormsSelectText('invalid');
+				@include _oFormsInputs('invalid');
 			}
 		}
 
 		@if $valid {
 			&.o-forms--valid input[type=text] {
-				@include _oFormsSelectText('valid');
+				@include _oFormsInputs('valid');
 			}
 		}
 	}

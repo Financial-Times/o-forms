@@ -9,18 +9,18 @@
 		display: block;
 
 		textarea {
-			@include _oFormsSelectTextBase($disabled);
+			@include _oFormsInputsBase($disabled);
 		}
 
 		@if $invalid {
 			&.o-forms--invalid textarea {
-				@include _oFormsSelectText('invalid');
+				@include _oFormsInputs('invalid');
 			}
 		}
 
 		@if $valid {
 			&.o-forms--valid textarea {
-				@include _oFormsSelectText('valid');
+				@include _oFormsInputs('valid');
 			}
 		}
 	}

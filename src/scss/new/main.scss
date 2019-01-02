@@ -6,8 +6,9 @@ $_o-forms-field-max-width: 380px;
 
 @import './brand';
 @import './base';
+@import './checkbox';
 @import './date';
-@import './shared';
+@import './shared/main';
 @import './select';
 @import './text-area';
 @import './text-input';

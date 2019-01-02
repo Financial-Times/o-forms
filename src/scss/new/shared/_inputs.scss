@@ -1,6 +1,6 @@
 /// @access private
 /// @output base styles for select, textarea and text input
-@mixin _oFormsSelectTextBase($disabled){
+@mixin _oFormsInputsBase($disabled){
 	@include oTypographyMargin($top: 2);
 	@include oTypographySans(0);
 	background-color: _oFormsGet('default-background');
@@ -12,13 +12,13 @@
 	width: 100%;
 
 	@if $disabled {
-		@include _oFormsSelectTextDisabled();
+		@include _oFormsInputsDisabled();
 	}
 }
 
 /// @access private
 /// @output Shared disabled state styles for select, textarea and text input.
-@mixin _oFormsSelectTextDisabled {
+@mixin _oFormsInputsDisabled {
 	&:disabled {
 		color: _oFormsGet('disabled-text');
 		border-color: _oFormsGet('disabled-base');
@@ -29,7 +29,7 @@
 
 /// @access private
 /// @output Shared valid or invalid state styles for select, textarea and text input.
-@mixin _oFormsSelectText($validity) {
+@mixin _oFormsInputs($validity) {
 	&:not(:disabled) {
 		color: _oFormsGet('#{$validity}-base');
 		border-color: _oFormsGet('#{$validity}-base');

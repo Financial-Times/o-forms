@@ -9,7 +9,7 @@
 		display: block;
 
 		select {
-			@include _oFormsSelectTextBase($disabled);
+			@include _oFormsInputsBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
 			color: _oFormsGet('default-text');
 			cursor: pointer;
@@ -31,13 +31,13 @@
 
 		@if $invalid {
 			&.o-forms--invalid select {
-				@include _oFormsSelectText('invalid');
+				@include _oFormsInputs('invalid');
 			}
 		}
 
 		@if $valid {
 			&.o-forms--valid select {
-				@include _oFormsSelectText('valid');
+				@include _oFormsInputs('valid');
 			}
 		}
 	}
