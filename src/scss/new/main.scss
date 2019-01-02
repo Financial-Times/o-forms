@@ -9,6 +9,7 @@ $_o-forms-field-max-width: 380px;
 @import './base';
 @import './checkbox';
 @import './date';
+@import './radio-round';
 @import './shared/main';
 @import './select';
 @import './text-area';
@@ -62,7 +63,7 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'checkbox') {
-		@include _oFormsCheckbox($additional-content, $inline, $invalid, $wide);
+		@include _oFormsCheckbox($additional-content, $disabled, $inline, $invalid, $wide);
 	}
 
 	@if index($elements, 'date') {
@@ -70,7 +71,7 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'radio-round') {
-
+		@include _oFormsRadioRound($disabled, $invalid);
 	}
 
 	@if index($elements, 'radio-box') {

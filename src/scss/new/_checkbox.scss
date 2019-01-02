@@ -1,4 +1,4 @@
-@mixin _oFormsCheckbox($additional-content: null, $inline: null, $invalid: null, $wide: null) {
+@mixin _oFormsCheckbox($additional-content: null, $disabled: null, $inline: null, $invalid: null, $wide: null) {
 	.o-forms--checkbox {
 		label span {
 			display: inline-block;
@@ -25,7 +25,7 @@
 		}
 
 		input[type=checkbox] {
-			@include _oFormsControlsBase();
+			@include _oFormsControlsBase($disabled);
 			float: left;
 		}
 

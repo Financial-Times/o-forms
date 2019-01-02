@@ -1,0 +1,47 @@
+@mixin _oFormsRadioRound($disabled: null, $invalid: null) {
+	.o-forms--radio {
+		@include _oFormsInlineInputs();
+		label span {
+			padding: 2px 0 2px 34px;
+			display: inline-block;
+
+			&:before,
+			&:after {
+				@include _oFormsControlsPseudoElements;
+				border-radius: 50%;
+				transition: opacity 0.1s ease-in;
+				background-color: transparent;
+			}
+
+			&:before {
+				@include oColorsFor(page, background);
+				border: 1px solid _oFormsGet('default-border');
+			}
+
+			&:after {
+				background-color: _oFormsGet('controls-base');
+				border-radius: 50%;
+				height: 12px;
+				width: 12px;
+				margin: 6px;
+				opacity: 0;
+			}
+		}
+
+		input[type=radio] {
+			@include _oFormsControlsBase($disabled);
+
+			&:checked {
+				+ span:before {
+					border-color: _oFormsGet('controls-base');
+				}
+			}
+		}
+
+		@if $invalid {
+			&.o-forms--invalid .o-forms__error-message {
+				@include oTypographyMargin($top: 2);
+			}
+		}
+	}
+};

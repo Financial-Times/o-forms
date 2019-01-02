@@ -1,4 +1,4 @@
-@mixin _oFormsControlsBase {
+@mixin _oFormsControlsBase($disabled: null) {
 	position: absolute;
 	padding: 0;
 	width: 24px;
@@ -8,11 +8,13 @@
 		opacity: 1;
 	}
 
-	&:disabled {
-		opacity: 0;
+	@if $disabled {
+		&:disabled {
+			opacity: 0;
 
-		+ span {
-			opacity: 0.4;
+			+ span {
+				opacity: 0.4;
+			}
 		}
 	}
 }
