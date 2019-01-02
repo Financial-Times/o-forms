@@ -115,18 +115,3 @@
 	min-width: 60px;
 	vertical-align: middle;
 }
-
-@mixin oFormsInlineInputs {
-	&.o-forms--inline {
-		label {
-			display: inline-block;
-			margin-bottom: 0;
-			max-width: 70%;
-			vertical-align: top;
-
-			span {
-				margin-right: 16px;
-			}
-		}
-	}
-}

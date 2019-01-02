@@ -1,0 +1,44 @@
+@mixin _oFormsControlsBase {
+	position: absolute;
+	padding: 0;
+	width: 24px;
+	height: 24px;
+
+	&:checked + span:after {
+		opacity: 1;
+	}
+
+	&:disabled {
+		opacity: 0;
+
+		+ span {
+			opacity: 0.4;
+		}
+	}
+}
+
+@mixin _oFormsControlsPseudoElements {
+	content: '';
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 24px;
+	height: 24px;
+	box-sizing: border-box;
+}
+
+@mixin _oFormsInlineInputs {
+	&.o-forms--inline {
+		label {
+			display: inline-block;
+			margin-bottom: 0;
+			max-width: 70%;
+			vertical-align: top;
+
+			span {
+				margin-right: 16px;
+			}
+		}
+	}
+}

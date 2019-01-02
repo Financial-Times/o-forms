@@ -57,7 +57,7 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'checkbox') {
-
+		@include _oFormsCheckbox();
 	}
 
 	@if index($elements, 'date') {
