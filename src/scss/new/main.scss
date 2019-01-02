@@ -36,7 +36,7 @@ $_o-forms-field-max-width: 380px;
 		// 'status',
 		// 'stacked',
 		'valid',
-		// 'wide'
+		'wide'
 	)
 )) {
 	$elements: map-get($opts, 'elements');
@@ -47,7 +47,6 @@ $_o-forms-field-max-width: 380px;
 	$valid: index($features, 'valid');
 
 	$small: index($features, 'small');
-	$wide: index($features, 'wide');
 
 	@include _oFormsBase();
 
@@ -96,6 +95,10 @@ $_o-forms-field-max-width: 380px;
 		@include _oFormsPrompt();
 	}
 
+	@if index($features, 'wide') {
+		@include _oFormsWide();
+	}
+
 	@if $invalid {
 		@include _oFormsInvalid();
 	}
@@ -103,7 +106,7 @@ $_o-forms-field-max-width: 380px;
 
 
 .demo {
-	margin: 12px 10px;
+	margin: 16px 10px;
 }
 
 .inverse {
