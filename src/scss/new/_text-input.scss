@@ -8,6 +8,10 @@
 	.o-forms--text-input {
 		display: block;
 
+		input[type=text] {
+			@include _oFormsSelectTextBase($disabled);
+		}
+
 		@if $small {
 			@include _oFormsSmall('input[type=text]');
 		}
@@ -24,8 +28,6 @@
 			}
 		}
 
-		input[type=text] {
-			@include _oFormsSelectTextBase($disabled);
-		}
+
 	}
 }

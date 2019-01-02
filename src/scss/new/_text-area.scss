@@ -8,13 +8,13 @@
 	.o-forms--text-area {
 		display: block;
 
+		textarea {
+			@include _oFormsSelectTextBase($disabled);
+		}
+
 		@if $invalid {
 			&.o-forms--invalid textarea {
 				@include _oFormsSelectText('invalid');
-
-				+ .o-forms__error-message {
-					@include oTypographyMargin($top: 0);
-				}
 			}
 		}
 
@@ -22,10 +22,6 @@
 			&.o-forms--valid textarea {
 				@include _oFormsSelectText('valid');
 			}
-		}
-
-		textarea {
-			@include _oFormsSelectTextBase($disabled);
 		}
 	}
 }

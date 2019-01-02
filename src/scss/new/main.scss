@@ -29,7 +29,7 @@ $_o-forms-field-max-width: 380px;
 		'disabled',
 		// 'inline',
 		// 'inline-stacked',
-		// 'optional',
+		'optional',
 		'invalid',
 		'prompt',
 		'small',
@@ -42,7 +42,7 @@ $_o-forms-field-max-width: 380px;
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
 
-	$disabled: index($features, 'invalid');
+	$disabled: index($features, 'disabled');
 	$invalid: index($features, 'invalid');
 	$valid: index($features, 'valid');
 

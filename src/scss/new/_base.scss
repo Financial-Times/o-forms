@@ -53,7 +53,7 @@
 @mixin _oFormsPrompt {
 	.o-forms--prompt {
 		@include oTypographySize(-1);
-		color: _oFormsGet('field-additional-info-text');
+		color: _oFormsGet('default-prompt-text');
 		display: block;
 		padding: 0;
 	}

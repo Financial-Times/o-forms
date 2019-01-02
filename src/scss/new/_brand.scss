@@ -12,6 +12,7 @@
 
 $_o-forms-shared-brand-config: (
 	default-text: oColorsGetPaletteColor('black-80'),
+	default-prompt-text: oColorsGetPaletteColor('black-60'),
 	default-border: oColorsGetPaletteColor('black-30'),
 	default-background: oColorsGetPaletteColor('white'),
 	toggle-inverse-base: oColorsGetPaletteColor('white'),
