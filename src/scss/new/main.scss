@@ -60,7 +60,7 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'date') {
-		@include _oFormsDate($disabled);
+		@include _oFormsDate($disabled, $invalid, $valid);
 	}
 
 	@if index($elements, 'radio-round') {
