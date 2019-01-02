@@ -19,32 +19,13 @@ $_o-forms-field-max-width: 380px;
 @import './toggle';
 
 @mixin oForms($opts: (
-	'elements': (
-		'anchor',
-		'checkbox',
-		'date',
-		'radio-round',
-		'radio-box',
-		'select',
-		'text-area',
-		'text-input',
-		'toggle',
-		'toggle-inverse'
-	),
-	'features': (
-		'additional-content',
-		'disabled',
-		'inline',
+	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle', 'toggle-inverse'),
+	'features': ('additional-content', 'disabled', 'inline',
 		// 'inline-stacked',
-		'optional',
-		'invalid',
-		'prompt',
-		'small',
+		'optional', 'invalid', 'prompt', 'small',
 		// 'status',
 		// 'stacked',
-		'valid',
-		'wide'
-	)
+		'valid', 'wide' )
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');

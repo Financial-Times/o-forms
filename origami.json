@@ -20,6 +20,12 @@
 	},
 	"demos": [
 		{
+			"name": "test-state",
+			"title": "Test",
+			"template": "/demos/src/tests/state.mustache",
+			"description": "This is a test"
+		},
+		{
 			"name": "test-anchor-box",
 			"title": "Test",
 			"template": "/demos/src/tests/anchor-box.mustache",

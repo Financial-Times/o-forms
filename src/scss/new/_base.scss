@@ -25,7 +25,7 @@
 		}
 	}
 
-	.o-forms--label {
+	.o-forms__label {
 		// @include oFontsWeight('semibold');
 		font-weight: 600;
 		display: block;
@@ -37,8 +37,8 @@
 
 @mixin _oFormsOptional {
 	.o-forms--optional {
-		.o-forms--label,
-		.o-forms--prompt {
+		.o-forms__label,
+		.o-forms__prompt {
 			display: inline-block;
 			line-height: 20px;
 		}
@@ -52,7 +52,7 @@
 }
 
 @mixin _oFormsPrompt {
-	.o-forms--prompt {
+	.o-forms__prompt {
 		@include oTypographySize(-1);
 		color: _oFormsGet('default-prompt-text');
 		display: block;
