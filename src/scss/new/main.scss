@@ -2,6 +2,7 @@ $_o-forms-default-input-size: 24px;
 $_o-forms-field-max-width: 380px;
 
 @import 'o-brand/main';
+@import 'o-icons/main';
 @import 'o-typography/main';
 
 @import './brand';
@@ -29,7 +30,7 @@ $_o-forms-field-max-width: 380px;
 	),
 	'features': (
 		'disabled',
-		// 'inline',
+		'inline',
 		// 'inline-stacked',
 		'optional',
 		'invalid',
@@ -45,10 +46,12 @@ $_o-forms-field-max-width: 380px;
 	$features: map-get($opts, 'features');
 
 	$disabled: index($features, 'disabled');
+	$inline: index($features, 'inline');
 	$invalid: index($features, 'invalid');
 	$valid: index($features, 'valid');
 
 	$small: index($features, 'small');
+	$wide: index($features, 'wide');
 
 	@include _oFormsBase();
 
@@ -57,7 +60,7 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'checkbox') {
-		@include _oFormsCheckbox();
+		@include _oFormsCheckbox($inline, $invalid, $wide);
 	}
 
 	@if index($elements, 'date') {
@@ -97,12 +100,12 @@ $_o-forms-field-max-width: 380px;
 		@include _oFormsPrompt();
 	}
 
-	@if index($features, 'wide') {
-		@include _oFormsWide();
-	}
-
 	@if $invalid {
 		@include _oFormsInvalid();
+	}
+
+	@if $wide {
+		@include _oFormsWide();
 	}
 }
 

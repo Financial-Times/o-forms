@@ -1,6 +1,23 @@
-@mixin _oFormsCheckbox {
+@mixin _oFormsCheckbox($inline: null, $invalid: null, $wide: null) {
 	.o-forms--checkbox {
-		@include _oFormsInlineInputs();
+
+		@if $inline {
+			@include _oFormsInlineInputs();
+		}
+
+		@if $invalid {
+			&.o-forms--invalid .o-forms__error-message {
+				@include oTypographyMargin($top: 2);
+			}
+		}
+
+		@if $wide {
+			&.o-forms--wide {
+				label span {
+					max-width: calc(100% - 34px);
+				}
+			}
+		}
 
 		label span {
 			display: inline-block;
@@ -14,18 +31,14 @@
 			}
 
 			&:before {
-				border: 1px solid #b3a9a0;
-				background-color: white;
+				border: 1px solid _oFormsGet('default-border');
+				background-color: _oFormsGet('default-background');
 			}
 
 			&:after {
-				//o-icons goes here
-				background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=o-icons&tint=%23FFFFFF,%23FFFFFF&format=svg);
-				background-repeat: no-repeat;
-				background-size: contain;
-				background-position: 50%;
-				background-color: #0d7680;
-				transition: opacity .1s ease;
+				@include oIconsGetIcon('tick', _oFormsGet('controls-checked-icon'), 24px);
+				background-color: _oFormsGet('controls-checked-background');
+				transition: opacity 0.1s ease;
 				opacity: 0;
 			}
 		}
@@ -33,16 +46,6 @@
 		input[type=checkbox] {
 			@include _oFormsControlsBase();
 			float: left;
-		}
-
-		.o-forms--wide {
-			label span {
-				max-width: calc(100% - 34px);
-			}
-		}
-
-		&.o-forms--invalid .o-forms__error-message {
-			@include oTypographyMargin($top: 2);
 		}
 	}
 

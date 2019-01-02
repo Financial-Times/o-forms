@@ -15,14 +15,18 @@ $_o-forms-shared-brand-config: (
 	default-prompt-text: oColorsGetPaletteColor('black-60'),
 	default-border: oColorsGetPaletteColor('black-30'),
 	default-background: oColorsGetPaletteColor('white'),
+	disabled-text: oColorsGetPaletteColor('black-60'),
+	disabled-base: oColorsGetPaletteColor('black-10'),
+	controls-base: oColorsGetPaletteColor('teal'),
+	controls-checked-background: oColorsGetPaletteColor('teal'),
+	controls-checked-icon: oColorsGetPaletteColor('white'),
+	// controls-border: oColorsGetPaletteColor('teal'),
+	invalid-base: oColorsGetPaletteColor('crimson'),
+	invalid-background: oColorsGetPaletteColor('white'),
 	toggle-inverse-base: oColorsGetPaletteColor('white'),
 	toggle-inverse-selected: oColorsGetPaletteColor('teal-100'),
 	toggle-inverse-knob: oColorsGetPaletteColor('teal'),
-	invalid-base: oColorsGetPaletteColor('crimson'),
-	invalid-background: oColorsGetPaletteColor('white'),
 	valid-base: oColorsGetPaletteColor('jade'),
-	disabled-text: oColorsGetPaletteColor('black-60'),
-	disabled-base: oColorsGetPaletteColor('black-10'),
 );
 
 @include oBrandDefine('o-forms', 'master', (
