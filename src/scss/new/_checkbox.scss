@@ -18,7 +18,7 @@
 
 			&:after {
 				@include oIconsGetIcon('tick', _oFormsGet('controls-checked'), 24px);
-				background-color: _oFormsGet('controls-checked-background');
+				background-color: _oFormsGet('controls-base');
 				transition: opacity 0.1s ease;
 				opacity: 0;
 			}

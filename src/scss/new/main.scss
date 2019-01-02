@@ -7,6 +7,7 @@ $_o-forms-field-max-width: 380px;
 
 @import './brand';
 @import './base';
+@import './anchor-box';
 @import './checkbox';
 @import './date';
 @import './radio-box';
@@ -60,7 +61,7 @@ $_o-forms-field-max-width: 380px;
 	@include _oFormsBase();
 
 	@if index($elements, 'anchor') {
-
+		@include _oFormsAnchorBox();
 	}
 
 	@if index($elements, 'checkbox') {

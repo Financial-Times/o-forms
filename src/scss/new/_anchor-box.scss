@@ -1,0 +1,22 @@
+@mixin _oFormsAnchorBox {
+	a {
+		@include _oFormsBoxControlsBase();
+		box-sizing: border-box;
+		color: #0d7680;
+		padding: 6px;
+		text-decoration: none;
+
+		&:hover {
+			background-color: rgba(_oFormsGet('controls-base'), 0.15);
+		}
+
+		&.current {
+			background-color: _oFormsGet('controls-base');
+			color: _oFormsGet('controls-checked');
+		}
+
+		&:not(:first-of-type) {
+			border-left: 1px solid _oFormsGet('default-border');
+		}
+	}
+}

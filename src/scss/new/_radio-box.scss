@@ -41,7 +41,7 @@
 			}
 
 			&:checked + span {
-				background-color: _oFormsGet('controls-checked-background');
+				background-color: _oFormsGet('controls-base');
 				color: _oFormsGet('controls-checked');
 
 				&.o-forms--radio--button--negative {
@@ -59,7 +59,7 @@
 
 		@if $invalid {
 			&.o-forms--invalid section {
-				border: 1px solid #c00;
+				border: 1px solid _oFormsGet('invalid-base');
 			}
 		}
 	}
