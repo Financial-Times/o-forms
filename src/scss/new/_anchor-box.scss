@@ -2,7 +2,7 @@
 	a {
 		@include _oFormsBoxControlsBase();
 		box-sizing: border-box;
-		color: #0d7680;
+		color: _oFormsGet('controls-base');
 		padding: 6px;
 		text-decoration: none;
 

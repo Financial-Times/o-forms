@@ -29,27 +29,21 @@ $_o-forms-shared-brand-config: (
 );
 
 @include oBrandDefine('o-forms', 'master', (
-	'variables': map-merge($_o-forms-shared-brand-config, (
-		// section-error-background: oColorsMix('paper', 'crimson', 90),
-	)),
+	'variables': $_o-forms-shared-brand-config,
 	'supports-variants': ()
 ));
 
 @include oBrandDefine('o-forms', 'internal', (
+	'variables': $_o-forms-shared-brand-config,
+	'supports-variants': ()
+));
+
+@include oBrandDefine('o-forms', 'whitelabel', (
 	'variables': map-merge($_o-forms-shared-brand-config, (
-		// section-error-background: oColorsMix('paper', 'crimson', 90),
+		controls-base: oColorsGetPaletteColor('black'),
+		controls-negative-checked-background: oColorsGetPaletteColor('black'),
+		toggle-inverse-selected: oColorsGetPaletteColor('white'),
+		toggle-inverse-knob: oColorsGetPaletteColor('black'),
 	)),
 	'supports-variants': ()
 ));
-//
-// @include oBrandDefine('o-forms', 'whitelabel', (
-// 	'variables': (
-// 		toggle-inverse-base: oColorsGetPaletteColor('white'),
-// 		toggle-inverse-selected: oColorsGetPaletteColor('white'),
-// 		toggle-inverse-knob: oColorsGetPaletteColor('black'),
-		// valid-base: oColorsGetPaletteColor('jade'),
-		// invalid-base: oColorsGetPaletteColor('crimson'),
-
-// 	)),
-// 	'supports-variants': ()
-// ));
