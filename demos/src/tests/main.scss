@@ -4,7 +4,7 @@ body {
 	@include oColorsFor(page, background);
 }
 
-.demo {
+.o-forms {
 	margin: 16px 10px;
 }
 
@@ -13,7 +13,7 @@ body {
 	background-color: #262a33;
 	padding: 10px;
 
-	&.demo {
+	.o-forms {
 		margin: 0;
 	}
 }
