@@ -1,14 +1,13 @@
 /// @access private
 /// @output base styles for select, textarea and text input
 @mixin _oFormsInputsBase($disabled){
-	@include oTypographyMargin($top: 2);
+	@include oTypographyMargin($top: 3);
 	@include oTypographySans(0);
 	background-color: _oFormsGet('default-background');
 	border: 1px solid _oFormsGet('default-border');
 	box-sizing: border-box;
-	margin-top: 12px;
 	min-height: 40px;
-	padding: 9px;
+	padding: 8px;
 	width: 100%;
 
 	@if $disabled {
@@ -20,10 +19,10 @@
 /// @output Shared disabled state styles for select, textarea and text input.
 @mixin _oFormsInputsDisabled {
 	&:disabled {
-		color: _oFormsGet('disabled-text');
-		border-color: _oFormsGet('disabled-base');
-		background-color: _oFormsGet('disabled-base');
 		cursor: default;
+		color: _oFormsGet('disabled-text');
+		background-color: _oFormsGet('disabled-base');
+		border-color: _oFormsGet('disabled-base');
 	}
 }
 
@@ -32,8 +31,8 @@
 @mixin _oFormsInputs($validity) {
 	&:not(:disabled) {
 		color: _oFormsGet('#{$validity}-base');
-		border-color: _oFormsGet('#{$validity}-base');
 		background-color: rgba(_oFormsGet('#{$validity}-base'), 0.05);
+		border-color: _oFormsGet('#{$validity}-base');
 	}
 }
 
@@ -42,9 +41,9 @@
 @mixin _oFormsSmall($element) {
 	&.o-forms--small {
 		#{$element} {
-			padding: 0 9px;
+			line-height: 28px;
 			min-height: 28px;
-			line-height: 26px;
+			padding: 0 8px;
 		}
 	}
 }

@@ -1,3 +1,5 @@
+/// @access private
+/// @output styles for state animation for the box-styled radio inputs
 @mixin _oFormsState {
 	.o-forms--state {
 		@include oGridRespondTo(S) {
@@ -5,7 +7,7 @@
 				float: right;
 			}
 		}
-		
+
 		.o-forms__status {
 			@include oTypographySize($scale: -1, $line-height: 1);
 			color: inherit;

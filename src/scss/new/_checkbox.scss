@@ -1,3 +1,11 @@
+/// @access private
+/// @param {Boolean} $additional-content Whether to output additional content styling
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $inline-children Whether to output element inputs inline
+/// @param {Boolean} $inline-label Whether to output entire element inline with its label
+/// @param {Boolean} $invalid Whether to output invalid state styling
+/// @param {Boolean} $wide Whether to output full width styling
+/// @output Styling for text inputs
 @mixin _oFormsCheckbox(
 	$additional-content: null,
 	$disabled: null,
@@ -9,9 +17,9 @@
 	.o-forms--checkbox {
 		label span {
 			display: inline-block;
-			vertical-align: top;
-			padding: 2px 0 2px 34px;
 			max-width: calc(380px - 34px);
+			padding: 2px 0 2px 34px;
+			vertical-align: top;
 
 			&:before,
 			&:after {
@@ -26,8 +34,8 @@
 			&:after {
 				@include oIconsGetIcon('tick', _oFormsGet('controls-checked'), 24px);
 				background-color: _oFormsGet('controls-base');
-				transition: opacity 0.1s ease;
 				opacity: 0;
+				transition: opacity 0.1s ease;
 			}
 		}
 
@@ -48,9 +56,9 @@
 				}
 
 				p {
+					margin-top: 10px;
 					padding-top: 2px;
 					padding-left: 34px;
-					margin-top: 10px;
 				}
 			}
 		}

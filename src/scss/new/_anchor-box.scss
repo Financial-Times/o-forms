@@ -1,3 +1,6 @@
+/// @access private
+/// @output Styling for anchor 'controls'
+
 @mixin _oFormsAnchorBox {
 	a {
 		@include _oFormsBoxControlsBase();

@@ -15,7 +15,7 @@
 	};
 }
 
-.o-forms--radio--buttons .o-forms__inline-container {
+.o-forms--radio--box .o-forms__inline-container {
 	@include oGridRespondTo(S) {
 		float: right;
 	}

@@ -1,7 +1,7 @@
 /// @access private
 /// @param {Boolean} $inverse - Whether or not to output inverse styling for toggle
+/// @param {Boolean} $inline-label Whether to output entire element inline with its label
 /// @output styles for toggle based on a checkbox input
-
 @mixin _oFormsToggle($inverse: null, $inline-label: null) {
 	.o-forms--toggle {
 		$toggle-spacing: oTypographySpacingSize(1) / 2; // to align text to pseudo elements
@@ -9,8 +9,8 @@
 
 		label span {
 			display: inline-block;
-			vertical-align: top;
 			padding: $toggle-spacing 0 $toggle-spacing oTypographySpacingSize(8);
+			vertical-align: top;
 
 			&:before,
 			&:after {
@@ -33,9 +33,9 @@
 				border: $toggle-spacing solid _oFormsGet('default-text');
 				border-radius: 50%;
 				box-sizing: border-box;
-				transition: left 75ms ease-in-out;
 				height: $_o-forms-default-input-size;
 				width: $_o-forms-default-input-size;
+				transition: left 75ms ease-in-out;
 			}
 		}
 

@@ -10,8 +10,10 @@ $_o-forms-field-default-padding-leftright: 9px;
 $padding-width: $_o-forms-field-default-padding-leftright * 2;
 
 /// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $invalid Whether to output invalid state styling
+/// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for date inputs
-
 @mixin _oFormsDate ($disabled: null, $invalid: null, $valid: null) {
 	.o-forms--date {
 		label {

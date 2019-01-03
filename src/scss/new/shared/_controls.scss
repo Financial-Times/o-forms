@@ -1,3 +1,5 @@
+/// @access private
+/// @output Shared base styles for checkboxes, toggles, round- and box-style radio buttons.
 @mixin _oFormsControlsBase($disabled: null) {
 	position: absolute;
 	padding: 0;
@@ -19,6 +21,8 @@
 	}
 }
 
+/// @access private
+/// @output Shared pseudo element styles for checkboxes, toggle, round- and box-style radio buttons.
 @mixin _oFormsControlsPseudoElements {
 	content: '';
 	cursor: pointer;
@@ -30,6 +34,8 @@
 	box-sizing: border-box;
 }
 
+/// @access private
+/// @output Shared styles for box-style radio buttons and anchor controls
 @mixin _oFormsBoxControlsBase {
 	display: inline-block;
 	cursor: pointer;
@@ -40,7 +46,8 @@
 	vertical-align: middle;
 }
 
-
+/// @access private
+/// @output Shared inline styles for checkboxes, round- and box-style radio buttons, under label
 @mixin _oFormsInlineChildren {
 		label {
 		display: inline-block;

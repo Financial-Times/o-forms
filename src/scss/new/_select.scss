@@ -1,9 +1,10 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $small Whether to output small input styles
+/// @param {Boolean} $inline-label Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text areas
-
 @mixin _oFormsSelect(
 	$disabled: null,
 	$small: null,
@@ -17,13 +18,13 @@
 		select {
 			@include _oFormsInputsBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
+			appearance: none;
 			color: _oFormsGet('default-text');
 			cursor: pointer;
 			background-position: right 9px center;
 			background-repeat: no-repeat;
 			background-size: $_o-forms-default-input-size $_o-forms-default-input-size;
 			border-radius: 0;
-			appearance: none;
 
 			&:disabled,
 			&[multiple] {

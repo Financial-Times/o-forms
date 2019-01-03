@@ -1,20 +1,24 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $inline-label Whether to output entire element inline with its label
+/// @param {Boolean} $invalid Whether to output invalid state styling
+/// @output Styling for box-styled radio inputs
 @mixin _oFormsRadioBox(
 	$disabled: null,
 	$inline-label: null,
 	$invalid: null
 ) {
-	.o-forms--radio--buttons {
+	.o-forms--radio--box {
 		section {
 			@include oTypographyMargin($top: 3);
 			@include oTypographySize($scale: -1, $line-height: 1)
-			// @include oFontsWeight('semibold');
+			@include oTypographyBold('sans');
 			box-sizing: border-box;
-			font-weight: 600;
-			display: inline-block;
 			border: 1px solid _oFormsGet('default-border');
 			color: _oFormsGet('controls-base');
-			text-align: center;
+			display: inline-block;
 			padding: 2px;
+			text-align: center;
 		}
 
 		label {

@@ -1,18 +1,23 @@
+/// @access private
+/// @param {Boolean} $fieldset Changes affected elements depending on form elements
+/// @output Styling for inline labels and inputs
 @mixin _oFormsInlineLabel($fieldset: null) {
 	max-width: 470px;
 	clear: both;
 
-	.o-forms__prompt,
-	.o-forms__error-message {
-		@include oTypographyPadding($bottom: 3);
+	@include oGridRespondTo(S) {
+		.o-forms__prompt {
+			@include oTypographyPadding($bottom: 3);
+		}
 	}
 
 	@if $fieldset {
 		legend {
-			padding: 8px 0;
 			line-height: 1;
 			width: 250px; //to align inputs
+
 			@include oGridRespondTo(S) {
+				padding: 8px 0;
 				float: left;
 			};
 		}

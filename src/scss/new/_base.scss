@@ -1,40 +1,51 @@
+/// @access private
+/// @output Shared base state styles for all form elements.
 @mixin _oFormsBase {
 	.o-forms {
 		@include oTypographySans(0);
+		@include oTypographyMargin($bottom: 4);
 		border: none;
-		padding: 0;
-		margin: 0;
 		max-width: $_o-forms-field-max-width;
-
-		// legend {
-		// 	// @include oFontsWeight('semibold');
-		// 	// font-weight: 600;
-		// 	// color: _oFormsGet('default-text');
-		// 	// padding: 0;
-		// 	// margin: 0;
-		// }
+		padding: 0;
 
 		label {
 			display: block;
-			position: relative;
 			margin: oTypographySpacingSize(3) 0;
+			position: relative;
+		}
 
-			&:last-of-type {
-				@include oTypographyMargin($bottom: 0);
-			}
+		label:last-of-type {
+			@include oTypographyMargin($bottom: 0);
 		}
 	}
 
 	.o-forms__label {
-		// @include oFontsWeight('semibold');
-		font-weight: 600;
+		@include oTypographyBold('sans');
 		display: block;
 		color: _oFormsGet('default-text');
-		padding: 0;
 		margin: 0;
+		padding: 0;
 	}
 }
 
+/// @access private
+/// @output Shared invalid styles for all form elements.
+@mixin _oFormsInvalid {
+	.o-forms--invalid {
+		.o-forms__error-message {
+			@include oTypographyMargin($top: 1);
+			@include oTypographySans($scale: -1);
+			border: 0;
+			clear: both;
+			color: _oFormsGet('invalid-base');
+			display: block;
+			padding: 0;
+		}
+	}
+}
+
+/// @access private
+/// @output Shared optional text styles for all form elements.
 @mixin _oFormsOptional {
 	.o-forms--optional {
 		.o-forms__label,
@@ -45,31 +56,22 @@
 	}
 }
 
-@mixin _oFormsWide {
-	.o-forms--wide {
-		max-width: 100%;
-	}
-}
-
+/// @access private
+/// @output Shared optional text styles for all form elements.
 @mixin _oFormsPrompt {
 	.o-forms__prompt {
-		@include oTypographySize(-1);
+		@include oTypographySize($scale: -1);
 		color: _oFormsGet('default-prompt-text');
 		display: block;
 		padding: 0;
 	}
 }
 
-@mixin _oFormsInvalid {
-	.o-forms--invalid {
-		.o-forms__error-message {
-			@include oTypographyMargin($top: 1);
-			@include oTypographySans($scale: -1);
-			color: _oFormsGet('invalid-base');
-			display: block;
-			padding: 0;
-			border: 0;
-			clear: both;
-		}
+
+/// @access private
+/// @output Shared full width styling for all form elements.
+@mixin _oFormsWide {
+	.o-forms--wide {
+		max-width: 100%;
 	}
 }

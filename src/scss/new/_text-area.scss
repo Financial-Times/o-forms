@@ -1,9 +1,9 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $inline-label Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text areas
-
 @mixin _oFormsTextArea(
 	$disabled: null,
 	$inline-label: null,
