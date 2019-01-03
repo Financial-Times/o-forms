@@ -36,6 +36,28 @@
 	</fieldset>
 </div>
 
+
+<div class="demo">
+	<fieldset class="o-forms o-forms--radio o-forms--inline o-forms--invalid">
+		<legend>
+			<span class="o-forms__label">Errors</span>
+		</legend>
+		<section>
+			<label>
+				<input type="radio" value="1" name="radio-2" checked/>
+				<span>Error 1</span>
+			</label>
+			<label>
+				<input type="radio" value="2" name="radio-2"/>
+				<span>Error 2</span>
+			</label>
+			<span class="o-forms__error-message">
+				Something has gone wrong.
+			</span>
+		</section>
+	</fieldset>
+</div>
+
 <div class="demo">
 	<fieldset class="o-forms o-forms--checkbox o-forms--inline">
 		<legend>
@@ -64,6 +86,17 @@
 		<span class="o-forms__label">Text Input</span>
 		<span class="o-forms__prompt">Optional prompt text</span>
 		<input type="text" name="" value="">
+	</label>
+</div>
+
+
+<div class="demo">
+	<label class="o-forms o-forms--text-input o-forms--inline o-forms--invalid">
+		<span class="o-forms__label">Text Input with an invalid entry</span>
+		<input type="text" value="hp://invalid.com">
+		<span class="o-forms__error-message">
+			Please enter a valid url
+		</span>
 	</label>
 </div>
 
