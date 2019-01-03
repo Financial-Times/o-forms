@@ -1,5 +1,5 @@
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--state">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--inline">
 		<legend>
 			<span class="o-forms__label">standard</span>
 		</legend>
@@ -17,27 +17,26 @@
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--saving">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--inline o-forms--state o-forms--saving">
 		<legend>
 			<span class="o-forms__label">inline saving</span>
 		</legend>
-			<section>
-				<label>
-					<input type="radio" value="1" name="radio2"/>
-					<span>Daily</span>
-				</label>
-				<label>
-					<input type="radio" value="2" name="radio2" checked/>
-					<span>Weekly</span>
-				</label>
-			</section>
-			<span class="o-forms__status"></span>
+		<section>
+			<label>
+				<input type="radio" value="1" name="radio2"/>
+				<span>Daily</span>
+			</label>
+			<label>
+				<input type="radio" value="2" name="radio2" checked/>
+				<span>Weekly</span>
+			</label>
 		</section>
+		<span class="o-forms__status"></span>
 	</fieldset>
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--saved">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--inline o-forms--state o-forms--saved">
 		<legend>
 			<span class="o-forms__label">inline saved</span>
 		</legend>
@@ -56,7 +55,7 @@
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--saving">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--inline o-forms--state o-forms--saving">
 		<legend>
 			<span class="o-forms__label">inline status icon only</span>
 		</legend>
@@ -75,11 +74,12 @@
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--saving">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--inline o-forms--state o-forms--saving">
 		<legend>
 			<span class="o-forms__label">inline status below control</span>
 		</legend>
-		<div class="o-forms__inline-container">
+		<!-- <div class="o-forms__inline-container"> -->
+
 			<section>
 				<label>
 					<input type="radio" value="1" name="radio5" checked/>
@@ -91,56 +91,31 @@
 				</label>
 			</section>
 			<span class="o-forms__status"></span>
-		</div>
+		<!-- </div> -->
 	</fieldset>
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--invalid">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--inline o-forms--state o-forms--invalid">
 		<legend>
 			<span class="o-forms__label">Error</span>
 		</legend>
-		<div class="o-forms__inline-container">
-			<section>
-				<label>
-					<input type="radio" value="1" name="radio6"vchecked/>
-					<span>Daily</span>
-				</label>
-				<label>
-					<input type="radio" value="2" name="radio6"/>
-					<span>Weekly</span>
-				</label>
-			</section>
-			<span class="o-forms__error-message">
-				Sorry, there was a problem.
-			</span>
-		</div>
-	</fieldset>
-</div>
-
-<div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--stacked o-forms--state o-forms--stacked o-forms--invalid">
-		<legend>
-			<span class="o-forms__label">stacked status error</span>
-		</legend>
 		<section>
 			<label>
-				<input type="radio" value="1" name="radio7"/>
+				<input type="radio" value="1" name="radio6"vchecked/>
 				<span>Daily</span>
 			</label>
 			<label>
-				<input type="radio" value="2" name="radio7" checked/>
+				<input type="radio" value="2" name="radio6"/>
 				<span>Weekly</span>
 			</label>
 		</section>
-		<span class="o-forms__error-message">
-			Sorry, there was a problem.
-		</span>
+		<span class="o-forms__error-message"> Sorry, there was a problem. </span>
 	</fieldset>
 </div>
 
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--buttons o-forms--stacked o-forms--state o-forms--saving">
+	<fieldset class="o-forms o-forms--radio--buttons o-forms--state o-forms--saving">
 		<legend>
 			<span class="o-forms__label">stacked status</span>
 		</legend>

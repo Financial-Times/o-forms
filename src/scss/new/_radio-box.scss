@@ -1,4 +1,8 @@
-@mixin _oFormsRadioBox($disabled: null, $invalid: null) {
+@mixin _oFormsRadioBox(
+	$disabled: null,
+	$inline-label: null,
+	$invalid: null
+) {
 	.o-forms--radio--buttons {
 		section {
 			@include oTypographyMargin($top: 3);
@@ -54,6 +58,12 @@
 					cursor: default;
 					opacity: 0.4;
 				}
+			}
+		}
+
+		@if $inline-label {
+			&.o-forms--inline {
+				@include _oFormsInlineLabel($fieldset: true);
 			}
 		}
 

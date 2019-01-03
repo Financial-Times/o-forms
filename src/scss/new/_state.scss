@@ -1,34 +1,17 @@
 @mixin _oFormsState {
 	.o-forms--state {
-		// @include oFormsInline
-		// max-width: 470px;
-		//
-		// legend {
-		// 	padding: 8px 0;
-		// 	line-height: 1;
-		//
-		// 	@include oGridRespondTo(S) {
-		// 		float: left;
-		// 	}
-		// }
-		//
-		// section {
-		// 	@include oTypographyMargin($top: 0);
-		// 	@include oGridRespondTo(S) {
-		// 		float: right;
-		// 	}
-		// }
-
+		@include oGridRespondTo(S) {
+			&.o-forms--inline .o-forms__status {
+				float: right;
+			}
+		}
+		
 		.o-forms__status {
 			@include oTypographySize($scale: -1, $line-height: 1);
 			color: inherit;
 			display: block;
 			padding: 6px 12px 0 0;
 			white-space: nowrap;
-
-			@include oGridRespondTo(S) {
-				float: right;
-			}
 
 			&:before,
 			&:after {
