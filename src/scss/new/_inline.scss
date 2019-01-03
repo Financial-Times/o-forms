@@ -1,5 +1,11 @@
 @mixin _oFormsInlineLabel($fieldset: null) {
 	max-width: 470px;
+	clear: both;
+
+	.o-forms__prompt,
+	.o-forms__error-message {
+		@include oTypographyPadding($bottom: 3);
+	}
 
 	@if $fieldset {
 		legend {
