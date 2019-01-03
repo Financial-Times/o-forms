@@ -4,7 +4,13 @@
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text areas
 
-@mixin _oFormsSelect($disabled: null, $small: false, $invalid: false, $valid: false) {
+@mixin _oFormsSelect(
+	$disabled: null,
+	$small: null,
+	$inline-label: null,
+	$invalid: null,
+	$valid: null
+) {
 	.o-forms--select {
 		display: block;
 
@@ -27,6 +33,12 @@
 
 		@if $small {
 			@include _oFormsSmall('select');
+		}
+
+		@if $inline-label {
+			&.o-forms--inline {
+				@include _oFormsInlineLabel($fieldset: false);
+			}
 		}
 
 		@if $invalid {

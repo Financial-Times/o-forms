@@ -1,6 +1,9 @@
-@mixin _oFormsRadioRound($disabled: null, $invalid: null) {
+@mixin _oFormsRadioRound(
+	$disabled: null,
+	$inline-children: null,
+	$inline-label: null,
+	$invalid: null) {
 	.o-forms--radio {
-		@include _oFormsInlineInputs();
 		label span {
 			padding: 2px 0 2px 34px;
 			display: inline-block;
@@ -35,6 +38,18 @@
 				+ span:before {
 					border-color: _oFormsGet('controls-base');
 				}
+			}
+		}
+
+		@if $inline-children {
+			&.o-forms--inline-children {
+				@include _oFormsInlineChildren();
+			}
+		}
+
+		@if $inline-label {
+			&.o-forms--inline {
+				@include _oFormsInlineLabel($fieldset: true);
 			}
 		}
 

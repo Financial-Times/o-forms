@@ -30,21 +30,6 @@
 	box-sizing: border-box;
 }
 
-@mixin _oFormsInlineInputs {
-	&.o-forms--inline {
-		label {
-			display: inline-block;
-			margin-bottom: 0;
-			max-width: 70%;
-			vertical-align: top;
-
-			span {
-				margin-right: 16px;
-			}
-		}
-	}
-}
-
 @mixin _oFormsBoxControlsBase {
 	display: inline-block;
 	cursor: pointer;
@@ -53,4 +38,18 @@
 	min-height: 28px;
 	min-width: 60px;
 	vertical-align: middle;
+}
+
+
+@mixin _oFormsInlineChildren {
+		label {
+		display: inline-block;
+		margin-bottom: 0;
+		max-width: 70%;
+		vertical-align: top;
+
+		span {
+			margin-right: 16px;
+		}
+	}
 }

@@ -1,0 +1,39 @@
+@mixin _oFormsInlineLabel($fieldset: null) {
+	max-width: 470px;
+
+	@if $fieldset {
+		legend {
+			padding: 8px 0;
+			line-height: 1;
+			width: 250px; //to align inputs
+			@include oGridRespondTo(S) {
+				float: left;
+			};
+		}
+
+		section {
+			@include oTypographyMargin($top: 0);
+			@include oGridRespondTo(S) {
+				float: left;
+				max-width: 220px; //to cover the 'rest' of the space (470 - 300px)
+			}
+		}
+	} @else {
+		span {
+			width: 250px; //to align inputs
+			@include oGridRespondTo(S) {
+				float: left;
+			};
+		}
+
+		input,
+		select,
+		textarea {
+			@include oTypographyMargin($top: 0);
+			@include oGridRespondTo(S) {
+				display: inline-block;
+				max-width: 220px; //to cover the 'rest' of the space (470 - 300px)
+			}
+		}
+	}
+}

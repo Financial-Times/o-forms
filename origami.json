@@ -20,6 +20,12 @@
 	},
 	"demos": [
 		{
+			"name": "test-inline",
+			"title": "Test",
+			"template": "/demos/src/tests/inline.mustache",
+			"description": "This is a test"
+		},
+		{
 			"name": "test-state",
 			"title": "Test",
 			"template": "/demos/src/tests/state.mustache",

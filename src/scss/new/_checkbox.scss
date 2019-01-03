@@ -1,4 +1,11 @@
-@mixin _oFormsCheckbox($additional-content: null, $disabled: null, $inline: null, $invalid: null, $wide: null) {
+@mixin _oFormsCheckbox(
+	$additional-content: null,
+	$disabled: null,
+	$inline-children: null,
+	$inline-label: null,
+	$invalid: null,
+	$wide: null
+) {
 	.o-forms--checkbox {
 		label span {
 			display: inline-block;
@@ -48,8 +55,16 @@
 			}
 		}
 
-		@if $inline {
-			@include _oFormsInlineInputs();
+		@if $inline-children {
+			&.o-forms--inline-children {
+				@include _oFormsInlineChildren();
+			}
+		}
+
+		@if $inline-label {
+			&.o-forms--inline {
+				@include _oFormsInlineLabel($fieldset: true);
+			}
 		}
 
 		@if $invalid {

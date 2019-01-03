@@ -2,7 +2,10 @@ $_o-forms-default-input-size: 24px;
 $_o-forms-field-max-width: 380px;
 
 @import 'o-brand/main';
+@import 'o-grid/main';
 @import 'o-icons/main';
+@import 'o-loading/main';
+@import 'o-normalise/main';
 @import 'o-typography/main';
 
 @import './brand';
@@ -10,20 +13,21 @@ $_o-forms-field-max-width: 380px;
 @import './anchor-box';
 @import './checkbox';
 @import './date';
+@import './inline';
 @import './radio-box';
 @import './radio-round';
 @import './shared/main';
 @import './select';
+@import './state';
 @import './text-area';
 @import './text-input';
 @import './toggle';
 
 @mixin oForms($opts: (
 	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle', 'toggle-inverse'),
-	'features': ('additional-content', 'disabled', 'inline',
+	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children',
 		// 'inline-stacked',
-		'optional', 'invalid', 'prompt', 'small',
-		// 'status',
+		'optional', 'invalid', 'prompt', 'small', 'state',
 		// 'stacked',
 		'valid', 'wide' )
 )) {
@@ -32,9 +36,11 @@ $_o-forms-field-max-width: 380px;
 
 	$additional-content: index($features, 'additional-content');
 	$disabled: index($features, 'disabled');
-	$inline: index($features, 'inline');
+	$inline-label: index($features, 'inline-label');
+	$inline-children: index($features, 'inline-children');
 	$invalid: index($features, 'invalid');
 	$small: index($features, 'small');
+	$state: index($features, 'state');
 	$valid: index($features, 'valid');
 	$wide: index($features, 'wide');
 
@@ -46,7 +52,14 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'checkbox') {
-		@include _oFormsCheckbox($additional-content, $disabled, $inline, $invalid, $wide);
+		@include _oFormsCheckbox(
+			$additional-content,
+			$disabled,
+			$inline-children,
+			$inline-label,
+			$invalid,
+			$wide
+		);
 	}
 
 	@if index($elements, 'date') {
@@ -54,7 +67,12 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'radio-round') {
-		@include _oFormsRadioRound($disabled, $invalid);
+		@include _oFormsRadioRound(
+			$disabled,
+			$inline-children,
+			$inline-label,
+			$invalid
+		);
 	}
 
 	@if index($elements, 'radio-box') {
@@ -70,12 +88,18 @@ $_o-forms-field-max-width: 380px;
 	}
 
 	@if index($elements, 'text-input') {
-		@include _oFormsTextInput($disabled, $small, $invalid, $valid);
+		@include _oFormsTextInput(
+			$disabled,
+			$small,
+			$inline-label,
+			$invalid,
+			$valid
+		);
 	}
 
 	@if index($elements, 'toggle') or index($elements, 'toggle-inverse') {
 		$inverse: index($elements, 'toggle-inverse');
-		@include _oFormsToggle($inverse);
+		@include _oFormsToggle($inverse, $inline-label);
 	}
 
 	@if index($features, 'optional') {
@@ -88,6 +112,10 @@ $_o-forms-field-max-width: 380px;
 
 	@if $invalid {
 		@include _oFormsInvalid();
+	}
+
+	@if $state {
+		@include _oFormsState();
 	}
 
 	@if $wide {

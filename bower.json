@@ -7,10 +7,10 @@
   "dependencies": {
     "o-colors": "^4.0.1",
     "o-grid": "^4.0.0",
-    "o-normalise": "^1.5.1",
+    "o-normalise": "^1.6.2",
     "o-typography": "#v5.8.0",
     "o-icons": "^5.7.0",
     "o-brand": ">=2.2.0 <4",
-    "o-loading": "^2.2.1"
+    "o-loading": "^2.3.0"
   }
 }

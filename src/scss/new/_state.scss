@@ -1,0 +1,84 @@
+@mixin _oFormsState {
+	.o-forms--state {
+		// @include oFormsInline
+		// max-width: 470px;
+		//
+		// legend {
+		// 	padding: 8px 0;
+		// 	line-height: 1;
+		//
+		// 	@include oGridRespondTo(S) {
+		// 		float: left;
+		// 	}
+		// }
+		//
+		// section {
+		// 	@include oTypographyMargin($top: 0);
+		// 	@include oGridRespondTo(S) {
+		// 		float: right;
+		// 	}
+		// }
+
+		.o-forms__status {
+			@include oTypographySize($scale: -1, $line-height: 1);
+			color: inherit;
+			display: block;
+			padding: 6px 12px 0 0;
+			white-space: nowrap;
+
+			@include oGridRespondTo(S) {
+				float: right;
+			}
+
+			&:before,
+			&:after {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			&.o-forms__status--icon-only {
+				padding-right: 6px;
+				&:after {
+					@include oNormaliseVisuallyHidden;
+				}
+			}
+		}
+
+		&.o-forms--saving .o-forms__status {
+			&:after {
+				content: 'Saving';
+			}
+
+			&:before {
+				@include oLoading();
+				@include oLoadingSize('small');
+				@include oLoadingColor('dark');
+				//Resize loading spinner to match icon
+				border-width: 2px;
+				margin: 0 7px 0 0;
+				height: 10px;
+				width: 10px;
+			}
+		}
+
+		&.o-forms--saved .o-forms__status {
+			padding-top: 2px;
+			margin: -8px 0 -8px -8px;
+
+			@include oGridRespondTo(S) {
+				margin: 0;
+			}
+
+			&:after {
+				content: 'Saved';
+				color: _oFormsGet('valid-base');
+			}
+
+			&:before {
+				@include oIconsGetIcon('tick', _oFormsGet('valid-base'), 28px);
+				vertical-align: middle;
+			}
+		}
+	}
+}
