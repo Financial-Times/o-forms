@@ -7,10 +7,10 @@
 	@if $fieldset {
 		legend {
 			line-height: 1;
+			padding: 0;
 			width: 200px;
 
 			@include oGridRespondTo(S) {
-				padding: 8px 0;
 				float: left;
 			};
 		}
@@ -37,8 +37,8 @@
 		input,
 		select,
 		textarea {
-			@include oTypographyMargin($top: 0);
 			@include oGridRespondTo(S) {
+				@include oTypographyMargin($top: 0);
 				margin-left: 16px;
 				max-width: calc(100% - 216px);
 			}
@@ -54,6 +54,7 @@
 		.o-forms__error-message {
 			float: right;
 			width: calc(100% - 216px);
+			// padding-bottom: 16px;
 		}
 	}
 }

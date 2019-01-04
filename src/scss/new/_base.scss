@@ -3,20 +3,27 @@
 @mixin _oFormsBase {
 	.o-forms {
 		@include oTypographySans(0);
-		@include oTypographyMargin($bottom: 4);
+		@include oTypographyMargin($bottom: 5);
 		border: none;
-		// max-width: $_o-forms-field-max-width;
 		padding: 0;
 
 		label {
 			display: block;
-			margin: oTypographySpacingSize(3) 0;
+			margin: 12px 0;
 			position: relative;
 		}
 
 		label:last-of-type {
 			@include oTypographyMargin($bottom: 0);
 		}
+
+		@include oGridRespondTo(S) {
+			label:first-of-type {
+				@include oTypographyMargin($top: 0);
+			}
+
+			@include oTypographyMargin($bottom: 7);
+		};
 	}
 
 	.o-forms__label {

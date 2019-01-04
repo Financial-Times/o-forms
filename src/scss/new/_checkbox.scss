@@ -38,6 +38,12 @@
 			}
 		}
 
+		@include oGridRespondTo(S) {
+			label:first-of-type {
+				margin: 12px 0;
+			}
+		};
+
 		input[type=checkbox] {
 			@include _oFormsControlsBase($disabled);
 			float: left;
