@@ -1,6 +1,6 @@
 /// @access private
 /// @output styles for state animation for the box-styled radio inputs
-@mixin _oFormsState($stacked: null) {
+@mixin _oFormsStatus {
 	.o-forms__status {
 		@include oTypographySize($scale: -1, $line-height: 1);
 		color: inherit;
@@ -67,18 +67,16 @@
 		}
 	}
 
-	@if $stacked {
-		@include oGridRespondTo(S) {
-			.o-forms--inline .o-forms__status.o-forms__status--stacked {
-				float: right;
-				width: calc(100% - 216px);
-			}
+	@include oGridRespondTo(S) {
+		.o-forms--inline .o-forms__status.o-forms__status--stacked {
+			float: right;
+			width: calc(100% - 216px);
+		}
 
-			.o-forms--saved .o-forms__status.o-forms__status--stacked {
-				padding: 0;
-				margin-top: -4px;
-				margin-left: -4px;
-			}
+		.o-forms--saved .o-forms__status.o-forms__status--stacked {
+			padding: 0;
+			margin-top: -4px;
+			margin-left: -4px;
 		}
 	}
 }

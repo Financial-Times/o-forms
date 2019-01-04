@@ -17,7 +17,7 @@
 				background-color: rgba(_oFormsGet('controls-base'), 0.15);
 			}
 
-			&.current {
+			&.o-forms__current {
 				background-color: _oFormsGet('controls-base');
 				color: _oFormsGet('controls-checked');
 			}
