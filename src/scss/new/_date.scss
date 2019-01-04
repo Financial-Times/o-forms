@@ -1,14 +1,3 @@
-/// Field and label padding variables.
-/// big button 40px, line height 20px, border 1px
-/// ((big button - line height) / 2) - border = 9
-/// @access private
-/// @type String
-$_o-forms-field-default-padding-leftright: 9px;
-
-// We want to use `box-sizing: border-box` to set a max-height which includes padding.
-// However when setting width to an `ex` value we want padding to be in addition.
-$padding-width: $_o-forms-field-default-padding-leftright * 2;
-
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $invalid Whether to output invalid state styling
@@ -38,14 +27,15 @@ $padding-width: $_o-forms-field-default-padding-leftright * 2;
 			display: block;
 			margin: 4px 12px 0 0;
 
-			&[pattern$='{2}'] {
-				// Based on character width (plus some for kerning).
-				width: calc(2.2ch + #{$padding-width});
+			&[pattern$='{2}'],
+			&[pattern$='[012]'] {
+				// Based on character width (plus kerning) and line height.
+				width: calc(2.2ch + 1em);
 			}
 
 			&[pattern$='{4}'] {
-				// Based on character width (plus some for kerning).
-				width: calc(4.2ch + #{$padding-width});
+				// Based on character width (plus kerning) and line height.
+				width: calc(4.2ch + 1em);
 			}
 		}
 
