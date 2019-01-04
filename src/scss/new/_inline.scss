@@ -48,11 +48,11 @@
 				max-width: calc(100% - 216px);
 			}
 		}
+	}
 
-		.o-forms__error-message {
-			float: right;
-			width: calc(100% - 216px);
-			padding-bottom: 12px;
-		}
+	.o-forms__error-message {
+		float: right;
+		width: calc(100% - 216px);
+		// padding-bottom: 12px;
 	}
 }

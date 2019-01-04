@@ -1,68 +1,88 @@
+@mixin _oFormsStateBase() {
+
+}
 /// @access private
 /// @output styles for state animation for the box-styled radio inputs
-@mixin _oFormsState {
+@mixin _oFormsState($stacked: null) {
 	.o-forms--state {
-		@include oGridRespondTo(S) {
-			&.o-forms--inline .o-forms__status {
-				float: right;
-			}
-		}
-
 		.o-forms__status {
-			@include oTypographySize($scale: -1, $line-height: 1);
-			color: inherit;
-			display: block;
-			padding: 6px 12px 0 0;
-			white-space: nowrap;
+			padding: 8px 0 0 12px;
+		}
+	}
 
-			&:before,
-			&:after {
-				content: '';
-				display: inline-block;
-				vertical-align: middle;
+	.o-forms__status {
+		@include oTypographySize($scale: -1, $line-height: 1);
+		color: inherit;
+		display: block;
+
+		&:before,
+		&:after {
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		&.o-forms__status--icon-only:after {
+			@include oNormaliseVisuallyHidden;
+		}
+	}
+
+	.o-forms--saving .o-forms__status {
+		&:after {
+			content: 'Saving';
+		}
+
+		&:before {
+			@include oLoading();
+			@include oLoadingSize('small');
+			@include oLoadingColor('dark');
+			//Resize loading spinner to match icon
+			border-width: 2px;
+			margin: 0 7px 0 0;
+			height: 10px;
+			width: 10px;
+		}
+	}
+
+	.o-forms--saved .o-forms__status {
+		padding-top: 2px;
+		padding-left: 6px;
+
+		&:after {
+			content: 'Saved';
+			color: _oFormsGet('valid-base');
+		}
+
+		&:before {
+			@include oIconsGetIcon('tick', _oFormsGet('valid-base'), 28px);
+			vertical-align: middle;
+			padding: 0
+		}
+	}
+
+
+	@include oGridRespondTo(S) {
+		.o-forms--state.o-forms--inline .o-forms__status {
+			float: left;
+		}
+	}
+
+	@if $stacked {
+		.o-forms--stacked-state {
+			.o-forms__status {
+				padding: 8px 0 0;
 			}
 
-			&.o-forms__status--icon-only {
-				padding-right: 6px;
-				&:after {
-					@include oNormaliseVisuallyHidden;
-				}
+			&.o-forms--saved .o-forms__status {
+				padding: 0;
+				margin-left: -4px;
 			}
 		}
 
-		&.o-forms--saving .o-forms__status {
-			&:after {
-				content: 'Saving';
-			}
-
-			&:before {
-				@include oLoading();
-				@include oLoadingSize('small');
-				@include oLoadingColor('dark');
-				//Resize loading spinner to match icon
-				border-width: 2px;
-				margin: 0 7px 0 0;
-				height: 10px;
-				width: 10px;
-			}
-		}
-
-		&.o-forms--saved .o-forms__status {
-			padding-top: 2px;
-			margin: -8px 0 -8px -8px;
-
-			@include oGridRespondTo(S) {
-				margin: 0;
-			}
-
-			&:after {
-				content: 'Saved';
-				color: _oFormsGet('valid-base');
-			}
-
-			&:before {
-				@include oIconsGetIcon('tick', _oFormsGet('valid-base'), 28px);
-				vertical-align: middle;
+		@include oGridRespondTo(S) {
+			.o-forms--stacked-state.o-forms--inline .o-forms__status {
+				float: right;
+				width: calc(100% - 216px);
 			}
 		}
 	}

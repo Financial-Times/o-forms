@@ -26,10 +26,7 @@ $_o-forms-field-max-width: 380px;
 @mixin oForms($opts: (
 	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle', 'toggle-inverse'),
 	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children',
-		// 'inline-stacked',
-		'optional', 'invalid', 'prompt', 'small', 'state',
-		// 'stacked',
-		'valid' )
+		'optional', 'invalid', 'prompt', 'small', 'stacked-state', 'state', 'valid' )
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
@@ -40,6 +37,7 @@ $_o-forms-field-max-width: 380px;
 	$inline-children: index($features, 'inline-children');
 	$invalid: index($features, 'invalid');
 	$small: index($features, 'small');
+	$stacked: index($features, 'stacked-state');
 	$state: index($features, 'state');
 	$valid: index($features, 'valid');
 
@@ -112,8 +110,8 @@ $_o-forms-field-max-width: 380px;
 		@include _oFormsInvalid();
 	}
 
-	@if $state {
-		@include _oFormsState();
+	@if $state or $stacked {
+		@include _oFormsState($stacked);
 	}
 }
 
