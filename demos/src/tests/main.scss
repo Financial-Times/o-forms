@@ -4,8 +4,9 @@ body {
 	@include oColorsFor(page, background);
 }
 
-.o-forms {
-	margin: 10px;
+.demo {
+	margin: 12px;
+	max-width: 500px;
 }
 
 .inverse {
