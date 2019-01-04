@@ -10,15 +10,7 @@
 ) {
 	.o-forms--radio--box {
 		section {
-			@include oTypographyMargin($top: 3);
-			@include oTypographySize($scale: -1, $line-height: 1)
-			@include oTypographyBold('sans');
-			box-sizing: border-box;
-			border: 1px solid _oFormsGet('default-border');
-			color: _oFormsGet('controls-base');
-			display: inline-block;
-			padding: 2px;
-			text-align: center;
+			@include _oFormsBoxSectionBase();
 		}
 
 		label {

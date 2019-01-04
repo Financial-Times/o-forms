@@ -2,24 +2,29 @@
 /// @output Styling for anchor 'controls'
 
 @mixin _oFormsAnchorBox {
-	a {
-		@include _oFormsBoxControlsBase();
-		box-sizing: border-box;
-		color: _oFormsGet('controls-base');
-		padding: 6px;
-		text-decoration: none;
+	.o-forms--anchor {
+		@include _oFormsBoxSectionBase();
+		@include oTypographyMargin($top: 0);
 
-		&:hover {
-			background-color: rgba(_oFormsGet('controls-base'), 0.15);
-		}
+		a {
+			@include _oFormsBoxControlsBase();
+			box-sizing: border-box;
+			color: _oFormsGet('controls-base');
+			padding: 6px;
+			text-decoration: none;
 
-		&.current {
-			background-color: _oFormsGet('controls-base');
-			color: _oFormsGet('controls-checked');
-		}
+			&:hover {
+				background-color: rgba(_oFormsGet('controls-base'), 0.15);
+			}
 
-		&:not(:first-of-type) {
-			border-left: 1px solid _oFormsGet('default-border');
+			&.current {
+				background-color: _oFormsGet('controls-base');
+				color: _oFormsGet('controls-checked');
+			}
+
+			&:not(:first-of-type) {
+				border-left: 1px solid _oFormsGet('default-border');
+			}
 		}
 	}
 }
