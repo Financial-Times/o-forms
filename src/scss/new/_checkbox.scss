@@ -11,13 +11,12 @@
 	$disabled: null,
 	$inline-children: null,
 	$inline-label: null,
-	$invalid: null,
-	$wide: null
+	$invalid: null
 ) {
 	.o-forms--checkbox {
 		label span {
 			display: inline-block;
-			max-width: calc(380px - 34px);
+			max-width: calc(100% - 34px);
 			padding: 2px 0 2px 34px;
 			vertical-align: top;
 
@@ -80,14 +79,5 @@
 				@include oTypographyMargin($top: 2);
 			}
 		}
-
-		@if $wide {
-			&.o-forms--wide {
-				label span {
-					max-width: calc(100% - 34px);
-				}
-			}
-		}
 	}
-
 }

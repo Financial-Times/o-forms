@@ -2,19 +2,19 @@
 /// @param {Boolean} $fieldset Changes affected elements depending on form elements
 /// @output Styling for inline labels and inputs
 @mixin _oFormsInlineLabel($fieldset: null) {
-	max-width: 470px;
 	clear: both;
 
 	@include oGridRespondTo(S) {
 		.o-forms__prompt {
 			@include oTypographyPadding($bottom: 3);
+			clear: left;
 		}
 	}
 
 	@if $fieldset {
 		legend {
 			line-height: 1;
-			width: 250px; //to align inputs
+			width: 200px;
 
 			@include oGridRespondTo(S) {
 				padding: 8px 0;
@@ -26,12 +26,14 @@
 			@include oTypographyMargin($top: 0);
 			@include oGridRespondTo(S) {
 				float: left;
-				max-width: 220px; //to cover the 'rest' of the space (470 - 300px)
+				margin-left: 16px;
+				max-width: calc(100% - 216px);
 			}
 		}
 	} @else {
 		span {
-			width: 250px; //to align inputs
+			width: 200px; //to align inputs
+
 			@include oGridRespondTo(S) {
 				float: left;
 			};
@@ -42,14 +44,14 @@
 		textarea {
 			@include oTypographyMargin($top: 0);
 			@include oGridRespondTo(S) {
-				display: inline-block;
-				max-width: 220px; //to cover the 'rest' of the space (470 - 300px)
+				margin-left: 16px;
+				max-width: calc(100% - 216px);
 			}
 		}
 
 		.o-forms__error-message {
-			max-width: 220px;
 			float: right;
+			width: calc(100% - 216px);
 			padding-bottom: 12px;
 		}
 	}

@@ -5,7 +5,7 @@
 		@include oTypographySans(0);
 		@include oTypographyMargin($bottom: 4);
 		border: none;
-		max-width: $_o-forms-field-max-width;
+		// max-width: $_o-forms-field-max-width;
 		padding: 0;
 
 		label {
@@ -64,14 +64,5 @@
 		color: _oFormsGet('default-prompt-text');
 		display: block;
 		padding: 0;
-	}
-}
-
-
-/// @access private
-/// @output Shared full width styling for all form elements.
-@mixin _oFormsWide {
-	.o-forms--wide {
-		max-width: 100%;
 	}
 }
