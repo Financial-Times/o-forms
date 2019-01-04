@@ -19,14 +19,35 @@
 			@include _oFormsInputsBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
 			appearance: none;
+			background-repeat: no-repeat;
+			background-size: auto 24px;
+			border-radius: 0;
+			background-clip: padding-box;
 			color: _oFormsGet('default-text');
 			cursor: pointer;
-			background-position: right 9px center;
-			background-repeat: no-repeat;
-			background-size: $_o-forms-default-input-size $_o-forms-default-input-size;
-			border-radius: 0;
+			outline: none;
 
-			&:disabled,
+			// For iOS 6 that doesn't support 4-value background-position
+			// Handles background sizing and positioning issues with IE10+
+			// sass-lint:disable no-duplicate-properties no-vendor-prefixes
+			background-position: right center;
+			background-position: right 8px center;
+			-ms-background-position-x: right -75%;
+			-ms-background-position-y: center;
+			// sass-lint:enable no-duplicate-properties no-vendor-prefixes
+
+			// Hide stock browser arrow in IE 10+
+			// sass-lint:disable no-vendor-prefixes
+			&::-ms-expand {
+				color: oColorsGetPaletteColor('white');
+				display: none;
+			}
+			// sass-lint:enable no-vendor-prefixes
+
+			&:disabled {
+				@include oIconsGetIcon('arrow-down', _oFormsGet('disabled-text'), $apply-base-styles: false, $apply-width-height: false);
+			}
+
 			&[multiple] {
 				background-image:	none;
 			}

@@ -24,7 +24,7 @@
 			&:before {
 				background-color: _oFormsGet('default-text');
 				border-radius: $toggle-width;
-				height: $_o-forms-default-input-size;
+				height: 24px;
 				width: $toggle-width;
 			}
 
@@ -33,8 +33,8 @@
 				border: $toggle-spacing solid _oFormsGet('default-text');
 				border-radius: 50%;
 				box-sizing: border-box;
-				height: $_o-forms-default-input-size;
-				width: $_o-forms-default-input-size;
+				height:24px;
+				width:24px;
 				transition: left 75ms ease-in-out;
 			}
 		}
