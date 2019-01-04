@@ -4,13 +4,6 @@
 @mixin _oFormsInlineLabel($fieldset: null) {
 	clear: both;
 
-	@include oGridRespondTo(S) {
-		.o-forms__prompt {
-			@include oTypographyPadding($bottom: 3);
-			clear: left;
-		}
-	}
-
 	@if $fieldset {
 		legend {
 			line-height: 1;
@@ -23,14 +16,16 @@
 		}
 
 		section {
-			@include oTypographyMargin($top: 0);
 			@include oGridRespondTo(S) {
+				@include oTypographyMargin($top: 0);
 				float: left;
 				margin-left: 16px;
 				max-width: calc(100% - 216px);
 			}
 		}
+
 	} @else {
+
 		span {
 			width: 200px; //to align inputs
 
@@ -50,9 +45,15 @@
 		}
 	}
 
-	.o-forms__error-message {
-		float: right;
-		width: calc(100% - 216px);
-		// padding-bottom: 12px;
+	@include oGridRespondTo(S) {
+		.o-forms__prompt {
+			@include oTypographyPadding($bottom: 3);
+			clear: left;
+		}
+
+		.o-forms__error-message {
+			float: right;
+			width: calc(100% - 216px);
+		}
 	}
 }

@@ -1,15 +1,6 @@
-@mixin _oFormsStateBase() {
-
-}
 /// @access private
 /// @output styles for state animation for the box-styled radio inputs
 @mixin _oFormsState($stacked: null) {
-	.o-forms--state {
-		.o-forms__status {
-			padding: 8px 0 0 12px;
-		}
-	}
-
 	.o-forms__status {
 		@include oTypographySize($scale: -1, $line-height: 1);
 		color: inherit;
@@ -45,8 +36,8 @@
 	}
 
 	.o-forms--saved .o-forms__status {
-		padding-top: 2px;
-		padding-left: 6px;
+		padding: 0;
+		margin-left: -4px;
 
 		&:after {
 			content: 'Saved';
@@ -62,27 +53,31 @@
 
 
 	@include oGridRespondTo(S) {
-		.o-forms--state.o-forms--inline .o-forms__status {
+		.o-forms__status {
+			padding: 8px 0 0 12px;
+		}
+
+		.o-forms--inline .o-forms__status {
 			float: left;
+		}
+
+		.o-forms--saved .o-forms__status {
+			padding-top: 3px;
+			padding-left: 6px;
 		}
 	}
 
 	@if $stacked {
-		.o-forms--stacked-state {
-			.o-forms__status {
-				padding: 8px 0 0;
-			}
-
-			&.o-forms--saved .o-forms__status {
-				padding: 0;
-				margin-left: -4px;
-			}
-		}
-
 		@include oGridRespondTo(S) {
-			.o-forms--stacked-state.o-forms--inline .o-forms__status {
+			.o-forms--inline .o-forms__status.o-forms__status--stacked {
 				float: right;
 				width: calc(100% - 216px);
+			}
+
+			.o-forms--saved .o-forms__status.o-forms__status--stacked {
+				padding: 0;
+				margin-top: -4px;
+				margin-left: -4px;
 			}
 		}
 	}
