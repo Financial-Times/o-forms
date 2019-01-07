@@ -43,6 +43,12 @@
 			}
 		}
 
+		@include oGridRespondTo(S) {
+			label:first-of-type {
+				margin: 12px 0;
+			}
+		};
+
 		input[type=radio] {
 			@include _oFormsControlsBase($disabled);
 

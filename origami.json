@@ -26,9 +26,9 @@
 			"description": "This is a test"
 		},
 		{
-			"name": "test-state",
+			"name": "test-status",
 			"title": "Test",
-			"template": "/demos/src/tests/state.mustache",
+			"template": "/demos/src/tests/status.mustache",
 			"description": "This is a test"
 		},
 		{
