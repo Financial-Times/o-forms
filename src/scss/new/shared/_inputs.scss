@@ -31,7 +31,7 @@
 @mixin _oFormsInputs($validity) {
 	&:not(:disabled) {
 		color: _oFormsGet('#{$validity}-base');
-		background-color: rgba(_oFormsGet('#{$validity}-base'), 0.05);
+		background-color: if($validity == 'invalid', _oFormsGet('default-background'), rgba(_oFormsGet('#{$validity}-base'), 0.05));
 		border-color: _oFormsGet('#{$validity}-base');
 	}
 }
