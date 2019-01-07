@@ -22,7 +22,7 @@
 
 @mixin oForms($opts: (
 	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle', 'toggle-inverse'),
-	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children', 'optional', 'invalid', 'prompt', 'small', 'status', 'valid' )
+	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children', 'optional', 'right', 'invalid', 'prompt', 'small', 'status', 'valid' )
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
@@ -32,6 +32,7 @@
 	$inline-label: index($features, 'inline-label');
 	$inline-children: index($features, 'inline-children');
 	$invalid: index($features, 'invalid');
+	$right: index($features, 'right');
 	$small: index($features, 'small');
 	$status: index($features, 'status');
 	$valid: index($features, 'valid');
@@ -49,7 +50,8 @@
 			$disabled,
 			$inline-children,
 			$inline-label,
-			$invalid
+			$invalid,
+			$right
 		);
 	}
 

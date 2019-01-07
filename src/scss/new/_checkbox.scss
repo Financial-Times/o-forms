@@ -4,14 +4,15 @@
 /// @param {Boolean} $inline-children Whether to output element inputs inline
 /// @param {Boolean} $inline-label Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
-/// @param {Boolean} $wide Whether to output full width styling
+/// @param {Boolean} $right Whether to display checkbox to the right of text
 /// @output Styling for text inputs
 @mixin _oFormsCheckbox(
 	$additional-content: null,
 	$disabled: null,
 	$inline-children: null,
 	$inline-label: null,
-	$invalid: null
+	$invalid: null,
+	$right: null
 ) {
 	.o-forms--checkbox {
 		label span {
@@ -83,6 +84,40 @@
 		@if $invalid {
 			&.o-forms--invalid .o-forms__error-message {
 				@include oTypographyMargin($top: 2);
+			}
+		}
+
+		@if $right {
+			&.o-forms--checkbox--right {
+				label:first-of-type {
+					@include oTypographyMargin($top: 0);
+					width: auto;
+
+					input[type="password"] {
+						@include _oFormsInputsBase($disabled);
+					}
+				}
+
+				label {
+					width: max-content;
+					white-space: nowrap;
+
+					span {
+						padding-left: 0;
+						padding-right: 34px;
+
+						&:before,
+						&:after {
+							right: 0;
+							left: unset;
+						}
+					}
+
+					input[type="checkbox"] {
+						right: 0;
+						float: right;
+					}
+				}
 			}
 		}
 	}
