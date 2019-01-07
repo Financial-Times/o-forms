@@ -1,40 +1,110 @@
-////
-/// @ignore This main file outputs all form features if silent mode is off.
-/// @see {mixin} oForms
-////
-
-// Dependancies.
 @import 'o-brand/main';
+@import 'o-grid/main';
+@import 'o-icons/main';
+@import 'o-loading/main';
+@import 'o-normalise/main';
 @import 'o-typography/main';
-@import "o-normalise/main";
-@import "o-colors/main";
-@import "o-grid/main";
-@import "o-icons/main";
-@import "o-loading/main";
 
-// Deprecated form features.
-@import "src/scss/deprecated";
+@import 'src/scss/main';
 
-// Variables and colours.
-@import "src/scss/brand";
-@import "src/scss/variables";
+@mixin oForms($opts: (
+	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle', 'toggle-inverse'),
+	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children', 'optional', 'right', 'invalid', 'prompt', 'small', 'status', 'valid' )
+)) {
+	$elements: map-get($opts, 'elements');
+	$features: map-get($opts, 'features');
 
-// Partial mixins used together to generate form features.
-@import "src/scss/mixins/common";
-@import "src/scss/mixins/textarea";
-@import "src/scss/mixins/date";
-@import "src/scss/mixins/select";
-@import "src/scss/mixins/radio-checkbox";
-@import "src/scss/mixins/toggle";
-@import "src/scss/mixins/labels";
-@import "src/scss/mixins/suffix";
-@import "src/scss/mixins/sections";
-@import "src/scss/mixins/unskin";
+	$additional-content: index($features, 'additional-content');
+	$disabled: index($features, 'disabled');
+	$inline-label: index($features, 'inline-label');
+	$inline-children: index($features, 'inline-children');
+	$invalid: index($features, 'invalid');
+	$right: index($features, 'right');
+	$small: index($features, 'small');
+	$status: index($features, 'status');
+	$valid: index($features, 'valid');
 
-// High level form mixins.
-@import "src/scss/base";
 
-/// Output all form features if silent mode is off.
+	@include _oFormsBase();
+
+	@if index($elements, 'anchor') {
+		@include _oFormsAnchorBox();
+	}
+
+	@if index($elements, 'checkbox') {
+		@include _oFormsCheckbox(
+			$additional-content,
+			$disabled,
+			$inline-children,
+			$inline-label,
+			$invalid,
+			$right
+		);
+	}
+
+	@if index($elements, 'date') {
+		@include _oFormsDate($disabled, $invalid, $valid);
+	}
+
+	@if index($elements, 'radio-round') {
+		@include _oFormsRadioRound(
+			$disabled,
+			$inline-children,
+			$inline-label,
+			$invalid
+		);
+	}
+
+	@if index($elements, 'radio-box') {
+		@include _oFormsRadioBox($disabled, $invalid);
+	}
+
+	@if index($elements, 'select') {
+		@include _oFormsSelect(
+			$disabled,
+			$small,
+			$inline-label,
+			$invalid,
+			$valid);
+	}
+
+	@if index($elements, 'text-area') {
+		@include _oFormsTextArea($disabled, $invalid, $valid);
+	}
+
+	@if index($elements, 'text-input') {
+		@include _oFormsTextInput(
+			$disabled,
+			$small,
+			$inline-label,
+			$invalid,
+			$valid
+		);
+	}
+
+	@if index($elements, 'toggle') or index($elements, 'toggle-inverse') {
+		$inverse: index($elements, 'toggle-inverse');
+		@include _oFormsToggle($inverse, $inline-label);
+	}
+
+	@if index($features, 'optional') {
+		@include _oFormsOptional();
+	}
+
+	@if index($features, 'prompt') {
+		@include _oFormsPrompt();
+	}
+
+	@if $invalid {
+		@include _oFormsInvalid();
+	}
+
+	@if $status {
+		@include _oFormsStatus();
+	}
+}
+
+
 @if $o-forms-is-silent == false {
 	@include oForms();
 

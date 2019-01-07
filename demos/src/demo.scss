@@ -1,33 +1,44 @@
-// $o-forms-is-silent: false;
-//
-// @import "../../main";
-//
-// // $_o-forms-demo-theme: (
-// // 	'checked-background': 'claret-50',
-// // 	'border': 'black-30',
-// // 	'negative-checked-background': 'claret-80',
-// // );
-// //
-// // body {
-// // 	@include oColorsFor('page', 'background');
-// // 	margin: oGridGutter();
-// // }
-// //
-// // .inverse-demo {
-// // 	margin-left: -#{oGridGutter()};
-// // 	margin-right: -#{oGridGutter()};
-// // 	padding: oGridGutter();
-// // 	background-color: oColorsGetPaletteColor('slate');
-// // }
+$o-forms-is-silent: false;
+@import "../../../main";
 
-// .o-forms__radio-button--custom-theme {
-// 	@include oFormsRadioButtonsStyledTheme($theme: $_o-forms-demo-theme);
-// }
-//
-// .o-forms__radio-button--custom-list-icon {
-// 	@include oFormsRadioButtonsStyledIcon($icon-name: 'list', $theme: $_o-forms-demo-theme);
-// }
-//
-// .o-forms__radio-button--custom-grid-icon {
-// 	@include oFormsRadioButtonsStyledIcon($icon-name: 'grid', $theme: $_o-forms-demo-theme);
-// }
+body {
+	@include oColorsFor(page, background);
+}
+
+.demo {
+	margin: 12px;
+	max-width: 500px;
+}
+
+.inverse {
+	margin-top: 16px;
+	background-color: #262a33;
+	padding: 10px;
+
+	.o-forms {
+		margin: 0;
+	}
+}
+
+$custom-theme: (
+	controls-base: 'claret',
+	controls-checked: 'white',
+	controls-negative-checked-background: 'claret-30'
+);
+
+@include oFormsCustom(
+	$input: 'anchor',
+	$theme: $custom-theme,
+	$custom-class: 'demo-custom-anchor-theme',
+	$has-icon: true
+)
+
+@include oFormsCustom(
+	$input: 'radio',
+	$theme: $custom-theme,
+	$custom-class: 'demo-custom-radio-theme',
+	$has-icon: true
+)
+
+@include oFormsCustomIcon('list', 'demo-list-icon', $custom-theme);
+@include oFormsCustomIcon('grid', 'demo-grid-icon', $custom-theme);

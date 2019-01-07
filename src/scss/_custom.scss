@@ -24,6 +24,8 @@
 	@return $theme;
 }
 
+/// @access private
+/// Outputs base styling for custom icons
 @mixin _oFormsCustomIconBase {
 	label {
 		min-width: unset;
@@ -37,6 +39,10 @@
 	}
 }
 
+/// @access public
+/// @param {String} $icon-name Name of the icon to request from the image set
+/// @param {String} $icon-class Class name for custom icon
+/// @param {Map|null} $theme Custom theme map
 @mixin oFormsCustomIcon($icon-name, $icon-class, $theme: null) {
 	@if not $icon-class {
 		@error('Custom icons require a class name, e.g. my-list-icon');
@@ -87,11 +93,17 @@
 	}
 }
 
+
+/// @access public
+/// @param {String} $input Type of input to customise, one of 'anchor' or 'radio'
+/// @param {String} $custom-class Class name for custom theme
+/// @param {Boolean} $has-icon Whether to output custom icon base styles
+/// @param {Map|null} $theme Custom theme map
 @mixin oFormsCustom(
 	$input: null,
-	$theme: null,
 	$custom-class: null,
-	$has-icon: false
+	$has-icon: false,
+	$theme: null
 ) {
 
 	@if not $input {

@@ -20,80 +20,80 @@
 	},
 	"demos": [
 		{
-			"name": "test-inline",
+			"name": "inline",
 			"title": "Test",
-			"template": "/demos/src/tests/inline.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/inline.mustache",
+			"description": "Form elements inline with their respective labels"
 		},
 		{
-			"name": "test-status",
+			"name": "status",
 			"title": "Test",
-			"template": "/demos/src/tests/status.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/status.mustache",
+			"description": "Saving/saved status for box-style radio inputs"
 		},
 		{
-			"name": "test-anchor-box",
+			"name": "anchor-box",
 			"title": "Test",
-			"template": "/demos/src/tests/anchor-box.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/anchor-box.mustache",
+			"description": "Box-styled anchors"
 		},
 		{
-			"name": "test-custom",
+			"name": "custom",
 			"title": "Test",
-			"template": "/demos/src/tests/custom.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/custom.mustache",
+			"description": "Custom theme for box-styled anchors and radio inputs"
 		},
 		{
-			"name": "test-radio-box",
+			"name": "radio-box",
 			"title": "Test",
-			"template": "/demos/src/tests/radio-box.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/radio-box.mustache",
+			"description": "Box-styled radio inputs"
 		},
 		{
-			"name": "test-radio-round",
+			"name": "radio-round",
 			"title": "Test",
-			"template": "/demos/src/tests/radio-round.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/radio-round.mustache",
+			"description": "Round-styled radio inputs"
 		},
 		{
-			"name": "test-checkboxes",
+			"name": "checkboxes",
 			"title": "Test",
-			"template": "/demos/src/tests/checkboxes.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/checkboxes.mustache",
+			"description": "checkbox inputs"
 		},
 		{
-			"name": "test-date",
+			"name": "date",
 			"title": "Test",
-			"template": "/demos/src/tests/date.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/date.mustache",
+			"description": "Date input"
 		},
 		{
-			"name": "test-toggle",
+			"name": "toggle",
 			"title": "Test",
-			"template": "/demos/src/tests/toggle.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/toggle.mustache",
+			"description": "Toggle input"
 		},
 		{
-			"name": "test-text-input",
+			"name": "text-input",
 			"title": "Test",
-			"template": "/demos/src/tests/text-input.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/text-input.mustache",
+			"description": "Text Input"
 		},
 		{
-			"name": "test-text-area",
+			"name": "text-area",
 			"title": "Test",
-			"template": "/demos/src/tests/textarea.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/textarea.mustache",
+			"description": "Text areas"
 		},
 		{
-			"name": "test-select",
+			"name": "select",
 			"title": "Test",
-			"template": "/demos/src/tests/select.mustache",
-			"description": "This is a test"
+			"template": "/demos/src/select.mustache",
+			"description": "Select inputs"
 		}
 	],
 	"demosDefaults": {
-		"sass": "demos/src/tests/main.scss",
+		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
 			"o-fonts@^3",

@@ -59,6 +59,9 @@
 	}
 }
 
+/// @access private
+/// @param {Map|null} $theme Custom theme map
+/// Outpus styling for box-styled radio inputs
 @mixin _oFormsRadioBoxInputStyles($theme: null) {
 	$theme: _oFormsThemeToBrandVariants($theme);
 

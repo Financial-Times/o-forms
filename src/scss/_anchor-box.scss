@@ -9,6 +9,9 @@
 	}
 }
 
+/// @access private
+/// @param {Map|null} $theme Custom theme map
+/// Outpus styling for box-styled anchors
 @mixin _oFormsAnchorBoxStyles($theme: null) {
 	a {
 		@include _oFormsBoxControlsBase();
