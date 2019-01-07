@@ -15,6 +15,7 @@
 
 		textarea {
 			@include _oFormsInputsBase($disabled);
+			resize: vertical;
 		}
 
 		@if $inline-label {
