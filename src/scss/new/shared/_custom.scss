@@ -1,0 +1,120 @@
+/// Transforms a custom theme map into brand variables. See `_brand.scss`.
+/// @access private
+/// @param {map|null} $theme - A custom theme map.
+/// @return {map} Brand variables.
+@function _oFormsThemeToBrandVariants($theme) {
+	@if $theme {
+			@if not index(map-keys($theme), 'controls-base') {
+				@error "The custom theme for box-styled controls is missing a 'controls-base' key. (see @mixin _oFormsAnchorBox)";
+			}
+		// Add default value for checked background if not specified.
+		@if not map-get($theme, 'negative-checked-background') {
+			$theme: map-merge($theme, (
+				'negative-checked-background': map-get($theme, 'checked-background')
+			));
+		}
+
+		$theme: (
+			controls-base: oColorsGetPaletteColor(map-get($theme, 'controls-base')),
+			controls-checked: oColorsGetPaletteColor(map-get($theme, 'controls-checked')),
+			controls-negative-checked-background: oColorsGetPaletteColor(map-get($theme, 'controls-negative-checked-background'))
+		);
+	}
+
+	@return $theme;
+}
+
+@mixin _oFormsCustomIconBase {
+	label {
+		min-width: unset;
+	}
+
+	.o-forms__current,
+	input[type=radio]:checked + span {
+		&:after {
+			display: block
+		}
+	}
+}
+
+@mixin oFormsCustomIcon($icon-name, $icon-class, $theme: null) {
+	@if not $icon-class {
+		@error('Custom icons require a class name, e.g. my-list-icon');
+	}
+
+	$theme: _oFormsThemeToBrandVariants($theme);
+
+	.o-forms--anchor  a.#{$icon-class},
+	input[type=radio] + .#{$icon-class} {
+		padding-left: 24px;
+		padding-right: 8px;
+		text-align: left;
+
+		&:after,
+		&:before {
+			content: '';
+			background-repeat: no-repeat;
+			background-position-y: 0.175em;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&:before {
+			@include oIconsGetIcon(
+				$icon-name: $icon-name,
+				$color: _oFormsGet('controls-base', $from: $theme),
+				$apply-base-styles: false,
+				$high-contrast-fallback: true,
+				$container-width: 24px
+			);
+		}
+
+		&:after {
+			@include oIconsGetIcon(
+				$icon-name: $icon-name,
+				$color: _oFormsGet('controls-checked', $from: $theme),
+				$apply-base-styles: false,
+				$high-contrast-fallback: true,
+				$container-width: 24px
+			);
+			display: none;
+		}
+
+		&.o-forms__current:after {
+			display: block;
+		}
+	}
+}
+
+@mixin oFormsCustom(
+	$input: null,
+	$theme: null,
+	$custom-class: null,
+	$has-icon: false
+) {
+
+	@if not $input {
+		@error('Please specifiy whether you would like to customise anchor or radio inputs');
+	}
+
+	$theme: _oFormsThemeToBrandVariants($theme);
+
+	.#{$custom-class} {
+		@if $input == 'anchor' {
+			&.o-forms--anchor {
+				@include _oFormsAnchorBoxStyles($theme);
+			}
+		} @elseif $input == 'radio' {
+			&.o-forms--radio--box {
+				@include _oFormsRadioBoxInputStyles($theme);
+			}
+		} @else {
+			@error('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');
+		};
+
+		@if $has-icon {
+			@include _oFormsCustomIconBase();
+		}
+	}
+}

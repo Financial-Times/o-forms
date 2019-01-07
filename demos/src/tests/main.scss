@@ -25,10 +25,19 @@ $custom-theme: (
 	controls-negative-checked-background: 'claret-30'
 );
 
-.o-forms--anchor.o-forms--custom-theme {
-	@include oFormsAnchorBoxStyles($custom-theme);
-}
+@include oFormsCustom(
+	$input: 'anchor',
+	$theme: $custom-theme,
+	$custom-class: 'demo-custom-anchor-theme',
+	$has-icon: true
+)
 
-.o-forms--radio--box.o-forms--custom-theme {
-	@include oFormsRadioBoxInputStyles($custom-theme);
-}
+@include oFormsCustom(
+	$input: 'radio',
+	$theme: $custom-theme,
+	$custom-class: 'demo-custom-radio-theme',
+	$has-icon: true
+)
+
+@include oFormsCustomIcon('list', 'demo-list-icon', $custom-theme);
+@include oFormsCustomIcon('grid', 'demo-grid-icon', $custom-theme);

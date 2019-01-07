@@ -9,7 +9,7 @@
 	$invalid: null
 ) {
 	.o-forms--radio--box {
-		@include oFormsRadioBoxInputStyles();
+		@include _oFormsRadioBoxInputStyles();
 
 		section {
 			@include _oFormsBoxSectionBase();
@@ -18,25 +18,24 @@
 		label {
 			@include _oFormsBoxControlsBase();
 
-			&:not(:first-of-type) span {
+			&:not(:first-of-type) {
 				border-left: 1px solid _oFormsGet('default-border');
 			}
 
 			span {
-				padding: 6px 0;
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
+				box-sizing: border-box;
+				display: inline-block;
+				max-height: 28px;
+				padding: 4px;
 				transition: 0.3s background-color, 0.15s color ease-out;
+				white-space: nowrap;
+				width: 100%;
 			}
 		}
 
 		input[type=radio] {
-			clip-path: inset(0px 0px 0px 0px);
-			height: 1px;
-			width: 1px;
+			position: absolute;
+			opacity: 0;
 
 			@if $disabled {
 				&:disabled + span {
@@ -60,7 +59,7 @@
 	}
 }
 
-@mixin oFormsRadioBoxInputStyles($theme: null) {
+@mixin _oFormsRadioBoxInputStyles($theme: null) {
 	$theme: _oFormsThemeToBrandVariants($theme);
 
 	input[type=radio] {
