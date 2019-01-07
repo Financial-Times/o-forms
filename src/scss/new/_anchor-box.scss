@@ -5,26 +5,58 @@
 	.o-forms--anchor {
 		@include _oFormsBoxSectionBase();
 		@include oTypographyMargin($top: 0);
+		@include oFormsAnchorBoxStyles();
+	}
+}
 
-		a {
-			@include _oFormsBoxControlsBase();
-			box-sizing: border-box;
-			color: _oFormsGet('controls-base');
-			padding: 6px;
-			text-decoration: none;
+///@access public
+@mixin oFormsAnchorBoxStyles($theme: null) {
+	$theme: _oFormsThemeToBrandVariants($theme);
 
-			&:hover {
-				background-color: rgba(_oFormsGet('controls-base'), 0.15);
-			}
+	a {
+		@include _oFormsBoxControlsBase();
+		box-sizing: border-box;
+		color: _oFormsGet('controls-base', $from: $theme);
+		padding: 6px;
+		text-decoration: none;
 
-			&.o-forms__current {
-				background-color: _oFormsGet('controls-base');
-				color: _oFormsGet('controls-checked');
-			}
+		&:hover {
+			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
+		}
 
-			&:not(:first-of-type) {
-				border-left: 1px solid _oFormsGet('default-border');
-			}
+		&.o-forms__current {
+			background-color: _oFormsGet('controls-base', $from: $theme);
+			color: _oFormsGet('controls-checked', $from: $theme);
+		}
+
+		&:not(:first-of-type) {
+			border-left: 1px solid _oFormsGet('default-border');
 		}
 	}
+}
+
+/// Transforms a custom theme map into brand variables. See `_brand.scss`.
+/// @access private
+/// @param {map|null} $theme - A custom theme map.
+/// @return {map} Brand variables.
+@function _oFormsThemeToBrandVariants($theme) {
+	@if $theme {
+			@if not index(map-keys($theme), 'controls-base') {
+				@error "The custom theme for box-styled controls is missing a 'controls-base' key. (see @mixin _oFormsAnchorBox)";
+			}
+		// Add default value for checked background if not specified.
+		@if not map-get($theme, 'negative-checked-background') {
+			$theme: map-merge($theme, (
+				'negative-checked-background': map-get($theme, 'checked-background')
+			));
+		}
+
+		$theme: (
+			controls-base: oColorsGetPaletteColor(map-get($theme, 'controls-base')),
+			controls-checked: oColorsGetPaletteColor(map-get($theme, 'controls-checked')),
+			controls-negative-checked-background: oColorsGetPaletteColor(map-get($theme, 'controls-negative-checked-background'))
+		);
+	}
+
+	@return $theme;
 }

@@ -54,7 +54,6 @@
 	@include oTypographyBold('sans');
 	box-sizing: border-box;
 	border: 1px solid _oFormsGet('default-border');
-	color: _oFormsGet('controls-base');
 	display: inline-block;
 	padding: 2px;
 	text-align: center;

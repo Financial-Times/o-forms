@@ -38,6 +38,12 @@
 			"description": "This is a test"
 		},
 		{
+			"name": "test-custom",
+			"title": "Test",
+			"template": "/demos/src/tests/custom.mustache",
+			"description": "This is a test"
+		},
+		{
 			"name": "test-radio-box",
 			"title": "Test",
 			"template": "/demos/src/tests/radio-box.mustache",

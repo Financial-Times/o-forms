@@ -18,3 +18,17 @@ body {
 		margin: 0;
 	}
 }
+
+$custom-theme: (
+	controls-base: 'claret',
+	controls-checked: 'white',
+	controls-negative-checked-background: 'claret-30'
+);
+
+.o-forms--anchor.o-forms--custom-theme {
+	@include oFormsAnchorBoxStyles($custom-theme);
+}
+
+.o-forms--radio--box.o-forms--custom-theme {
+	@include oFormsRadioBoxInputStyles($custom-theme);
+}

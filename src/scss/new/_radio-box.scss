@@ -9,6 +9,8 @@
 	$invalid: null
 ) {
 	.o-forms--radio--box {
+		@include oFormsRadioBoxInputStyles();
+
 		section {
 			@include _oFormsBoxSectionBase();
 		}
@@ -36,19 +38,6 @@
 			height: 1px;
 			width: 1px;
 
-			&:not(:checked):not(:disabled):hover + span {
-				background-color: rgba(_oFormsGet('controls-base'), 0.15);
-			}
-
-			&:checked + span {
-				background-color: _oFormsGet('controls-base');
-				color: _oFormsGet('controls-checked');
-
-				&.o-forms--radio--button--negative {
-					background-color: _oFormsGet('controls-negative-checked-background');
-				}
-			}
-
 			@if $disabled {
 				&:disabled + span {
 					cursor: default;
@@ -66,6 +55,29 @@
 		@if $invalid {
 			&.o-forms--invalid section {
 				border: 1px solid _oFormsGet('invalid-base');
+			}
+		}
+	}
+}
+
+@mixin oFormsRadioBoxInputStyles($theme: null) {
+	$theme: _oFormsThemeToBrandVariants($theme);
+
+	input[type=radio] {
+		& + span {
+			color: _oFormsGet('controls-base', $from: $theme);
+		}
+
+		&:not(:checked):not(:disabled):hover + span {
+			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
+		}
+
+		&:checked + span {
+			background-color: _oFormsGet('controls-base', $from: $theme);
+			color: _oFormsGet('controls-checked', $from: $theme);
+
+			&.o-forms--radio--button--negative {
+				background-color: _oFormsGet('controls-negative-checked-background', $from: $theme);
 			}
 		}
 	}
