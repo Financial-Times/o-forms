@@ -35,6 +35,18 @@
 }
 
 /// @access private
+/// @output Shared styles for box-style radio buttons and anchor controls
+@mixin _oFormsBoxControlsBase {
+	display: inline-block;
+	cursor: pointer;
+	float: left;
+	margin: 0;
+	min-height: 28px;
+	min-width: 60px;
+	vertical-align: middle;
+}
+
+/// @access private
 /// @output Shared styles for box-style sections
 @mixin _oFormsBoxSectionBase {
 	@include oTypographyMargin($top: 3);
@@ -46,18 +58,6 @@
 	display: inline-block;
 	padding: 2px;
 	text-align: center;
-}
-
-/// @access private
-/// @output Shared styles for box-style radio buttons and anchor controls
-@mixin _oFormsBoxControlsBase {
-	display: inline-block;
-	cursor: pointer;
-	float: left;
-	margin: 0;
-	min-height: 28px;
-	min-width: 60px;
-	vertical-align: middle;
 }
 
 /// @access private
