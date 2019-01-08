@@ -1,3 +1,4 @@
+// sass-lint:disable no-qualifying-elements
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $invalid Whether to output invalid state styling
@@ -22,7 +23,7 @@
 
 		}
 
-		input[type=text] {
+		input[type=text] { 
 			@include _oFormsInputsBase($disabled);
 			display: block;
 			margin: 4px 12px 0 0;
@@ -52,3 +53,4 @@
 		}
 	}
 }
+// sass-lint:enable no-qualifying-elements

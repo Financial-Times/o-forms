@@ -29,12 +29,12 @@
 
 			// For iOS 6 that doesn't support 4-value background-position
 			// Handles background sizing and positioning issues with IE10+
-			// sass-lint:disable no-duplicate-properties no-vendor-prefixes
+			// sass-lint:disable no-duplicate-properties no-vendor-prefixes no-misspelled-properties
 			background-position: right center;
 			background-position: right 8px center;
 			-ms-background-position-x: right -75%;
 			-ms-background-position-y: center;
-			// sass-lint:enable no-duplicate-properties no-vendor-prefixes
+			// sass-lint:enable no-duplicate-properties no-vendor-prefixes no-misspelled-properties
 
 			// Hide stock browser arrow in IE 10+
 			// sass-lint:disable no-vendor-prefixes

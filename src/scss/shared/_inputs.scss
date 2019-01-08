@@ -1,6 +1,6 @@
 /// @access private
 /// @output base styles for select, textarea and text input
-@mixin _oFormsInputsBase($disabled){
+@mixin _oFormsInputsBase($disabled) {
 	@include oTypographyMargin($top: 3);
 	@include oTypographySans(0);
 	background-color: _oFormsGet('default-background');

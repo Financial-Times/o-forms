@@ -45,7 +45,7 @@
 		&:before {
 			@include oIconsGetIcon('tick', _oFormsGet('valid-base'), 28px);
 			vertical-align: middle;
-			padding: 0
+			padding: 0;
 		}
 	}
 

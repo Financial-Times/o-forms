@@ -49,10 +49,9 @@
 
 // Having a hard time wrapping my head around this one
 @mixin oFormsRadioButtonsStyled($class: 'o-forms') {
-		// Output base radio button styles.
-		@at-root #{selector_unify(input, &)} {
-			@include oNormaliseVisuallyHidden;
-		}
-		// ...
+	// Output base radio button styles.
+	@at-root #{selector_unify(input, &)} {
+		@include oNormaliseVisuallyHidden;
 	}
+	// ...
 }

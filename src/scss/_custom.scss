@@ -32,9 +32,9 @@
 	}
 
 	.o-forms__current,
-	input[type=radio]:checked + span {
+	input[type=radio]:checked + span {  // sass-lint:disable-line no-qualifying-elements
 		&:after {
-			display: block
+			display: block;
 		}
 	}
 }
@@ -50,8 +50,8 @@
 
 	$theme: _oFormsThemeToBrandVariants($theme);
 
-	.o-forms--anchor  a.#{$icon-class},
-	input[type=radio] + .#{$icon-class} {
+	.o-forms--anchor  a.#{$icon-class},  // sass-lint:disable-line no-qualifying-elements
+	input[type=radio] + .#{$icon-class} {  // sass-lint:disable-line no-qualifying-elements
 		padding-left: 24px;
 		padding-right: 8px;
 		text-align: left;

@@ -45,7 +45,7 @@
 			}
 		};
 
-		input[type=checkbox] {
+		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 			cursor: pointer;
 			position: relative;
 			left: 12px;
@@ -94,7 +94,7 @@
 			}
 		}
 
-		input[type=checkbox]:checked {
+		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
 			+ span:before {
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}

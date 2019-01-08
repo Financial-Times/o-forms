@@ -15,7 +15,7 @@
 	.o-forms--text-input {
 		display: block;
 
-		input[type=text] {
+		input[type=text] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsInputsBase($disabled);
 		}
 
@@ -30,13 +30,13 @@
 		}
 
 		@if $invalid {
-			&.o-forms--invalid input[type=text] {
+			&.o-forms--invalid input[type=text] { // sass-lint:disable-line no-qualifying-elements
 				@include _oFormsInputs('invalid');
 			}
 		}
 
 		@if $valid {
-			&.o-forms--valid input[type=text] {
+			&.o-forms--valid input[type=text] { // sass-lint:disable-line no-qualifying-elements
 				@include _oFormsInputs('valid');
 			}
 		}
