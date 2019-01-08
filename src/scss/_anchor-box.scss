@@ -27,7 +27,7 @@
 
 		&.o-forms__current {
 			background-color: _oFormsGet('controls-base', $from: $theme);
-			color: _oFormsGet('controls-checked', $from: $theme);
+			color: _oFormsGet('controls-checked-base', $from: $theme);
 		}
 
 		&:not(:first-of-type) {

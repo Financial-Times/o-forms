@@ -76,7 +76,7 @@
 
 		&:checked + span {
 			background-color: _oFormsGet('controls-base', $from: $theme);
-			color: _oFormsGet('controls-checked', $from: $theme);
+			color: _oFormsGet('controls-checked-base', $from: $theme);
 
 			&.o-forms--radio--button--negative {
 				background-color: _oFormsGet('controls-negative-checked-background', $from: $theme);

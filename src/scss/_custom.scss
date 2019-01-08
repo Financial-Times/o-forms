@@ -16,7 +16,7 @@
 
 		$theme: (
 			controls-base: oColorsGetPaletteColor(map-get($theme, 'controls-base')),
-			controls-checked: oColorsGetPaletteColor(map-get($theme, 'controls-checked')),
+			controls-checked-base: oColorsGetPaletteColor(map-get($theme, 'controls-checked-base')),
 			controls-negative-checked-background: oColorsGetPaletteColor(map-get($theme, 'controls-negative-checked-background'))
 		);
 	}
@@ -79,7 +79,7 @@
 		&:after {
 			@include oIconsGetIcon(
 				$icon-name: $icon-name,
-				$color: _oFormsGet('controls-checked', $from: $theme),
+				$color: _oFormsGet('controls-checked-base', $from: $theme),
 				$apply-base-styles: false,
 				$high-contrast-fallback: true,
 				$container-width: 24px
