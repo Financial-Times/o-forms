@@ -6,11 +6,11 @@
 		</legend>
 		<section>
 			<label>
-				<input type="checkbox" value="1" checked/>
+				<input type="checkbox" value="1" name="checkbox" checked/>
 				<span>Stacked 1</span>
 			</label>
 			<label>
-				<input type="checkbox" value="2"/>
+				<input type="checkbox" value="2" name="checkbox"/>
 				<span>Stacked 2</span>
 			</label>
 		</section>
@@ -75,15 +75,15 @@
 		</legend>
 		<section>
 			<label>
-				<input type="checkbox" value="1" checked/>
+				<input type="checkbox" value="1" name="checkbox-2" checked/>
 				<span>Stacked 1</span>
 			</label>
 			<label>
-				<input type="checkbox" value="2"/>
+				<input type="checkbox" value="2" name="checkbox-2"/>
 				<span>Stacked 2</span>
 			</label>
 			<label>
-				<input type="checkbox" value="3" checked/>
+				<input type="checkbox" value="3" name="checkbox-2" checked/>
 				<span>Stacked 3</span>
 			</label>
 		</section>
@@ -92,18 +92,18 @@
 	<label class="o-forms o-forms--text-input o-forms--inline">
 		<span class="o-forms__label">Text Input</span>
 		<span class="o-forms__prompt">Optional prompt text</span>
-		<input type="text" name="" value="">
+		<input type="text" name="text" value="">
 	</label>
 
 	<label class="o-forms o-forms--text-input o-forms--inline">
 		<span class="o-forms__label">Text Input</span>
 		<span class="o-forms__prompt">Inline inputs with long labels / additonal content have a unique class to align them to the start and span error messages.</span>
-		<input type="text" name="" value="">
+		<input type="text" name="text" value="">
 	</label>
 
 	<label class="o-forms o-forms--text-input o-forms--inline o-forms--invalid">
 		<span class="o-forms__label">Text Input with an invalid entry</span>
-		<input type="text" value="hp://invalid.com">
+		<input type="text" name="text" value="hp://invalid.com">
 		<span class="o-forms__error-message">
 			Please enter a valid url
 		</span>
