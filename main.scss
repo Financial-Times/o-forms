@@ -65,7 +65,8 @@
 			$small,
 			$inline-label,
 			$invalid,
-			$valid);
+			$valid
+		);
 	}
 
 	@if index($elements, 'text-area') {
