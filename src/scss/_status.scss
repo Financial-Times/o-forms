@@ -24,12 +24,9 @@
 		}
 
 		&:before {
-			@include oLoadingContent($opts: ('color': 'dark', 'size': 'small'));
+			@include oLoadingContent($opts: ('color': 'dark', 'size': 'mini'));
 			//Resize loading spinner to match icon
-			border-width: 2px;
-			margin: 0 7px 0 0;
-			height: 10px;
-			width: 10px;
+			margin: 0 8px 0 0;
 		}
 	}
 
@@ -61,7 +58,7 @@
 
 		.o-forms--saved .o-forms__status {
 			padding-top: 3px;
-			padding-left: 6px;
+			padding-left: 10px;
 		}
 	}
 
