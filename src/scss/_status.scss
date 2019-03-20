@@ -24,7 +24,7 @@
 		}
 
 		&:before {
-			@include oLoadingContent($opts: ('color': 'dark', 'size': 'mini'));
+			@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
 			//Resize loading spinner to match icon
 			margin: 0 8px 0 0;
 		}
