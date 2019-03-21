@@ -12,7 +12,7 @@
 	.o-forms--radio--box {
 		@include _oFormsRadioBoxInputStyles();
 
-		section {
+		div {
 			@include _oFormsBoxSectionBase();
 		}
 

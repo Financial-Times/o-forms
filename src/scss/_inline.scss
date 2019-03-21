@@ -15,7 +15,7 @@
 			};
 		}
 
-		section {
+		div {
 			@include oGridRespondTo(S) {
 				@include oTypographyMargin($top: 0);
 				float: left;

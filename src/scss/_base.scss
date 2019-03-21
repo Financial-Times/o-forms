@@ -39,6 +39,10 @@
 /// @output Shared invalid styles for all form elements.
 @mixin _oFormsInvalid {
 	.o-forms--invalid {
+		div {
+			border-color: _oFormsGet('invalid-base');
+		}
+
 		.o-forms__error-message {
 			@include oTypographyMargin($top: 1);
 			@include oTypographySans($scale: -1);
@@ -48,6 +52,7 @@
 			display: block;
 			padding: 0;
 		}
+
 	}
 }
 
