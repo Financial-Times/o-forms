@@ -9,8 +9,12 @@
 
 		label {
 			display: block;
-			margin: 12px 0;
+			margin: 16px 0;
 			position: relative;
+		}
+
+		legend {
+			padding: 0;
 		}
 
 		label:last-of-type {
@@ -22,7 +26,7 @@
 				@include oTypographyMargin($top: 0);
 			}
 
-			@include oTypographyMargin($bottom: 7);
+			// @include oTypographyMargin($bottom: 7);
 		};
 	}
 
@@ -39,7 +43,7 @@
 /// @output Shared invalid styles for all form elements.
 @mixin _oFormsInvalid {
 	.o-forms--invalid {
-		div {
+		.o-forms--radio--box__container {
 			border-color: _oFormsGet('invalid-base');
 		}
 

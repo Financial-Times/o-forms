@@ -15,11 +15,10 @@
 			};
 		}
 
-		.o-forms--inline__wrapper {
+		.o-forms--radio--box__container {
 			@include oGridRespondTo(S) {
 				@include oTypographyMargin($top: 0);
 				float: left;
-				// margin-left: 16px;
 				max-width: 50%;
 
 				label:first-of-type {
