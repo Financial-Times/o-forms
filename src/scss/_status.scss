@@ -65,7 +65,7 @@
 	@include oGridRespondTo(S) {
 		.o-forms--inline .o-forms__status.o-forms__status--stacked {
 			float: right;
-			width: calc(100% - 216px);
+			width: 50%;
 		}
 
 		.o-forms--saved .o-forms__status.o-forms__status--stacked {

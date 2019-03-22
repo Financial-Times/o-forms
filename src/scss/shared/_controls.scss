@@ -49,7 +49,7 @@
 /// @output Shared styles for box-style sections
 @mixin _oFormsBoxSectionBase {
 	@include oTypographyMargin($top: 3);
-	@include oTypographySize($scale: -1, $line-height: unset)
+	@include oTypographySize($scale: -1, $line-height: unset);
 	@include oTypographyBold('sans');
 	box-sizing: border-box;
 	border: 1px solid _oFormsGet('default-border');

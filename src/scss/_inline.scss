@@ -8,29 +8,33 @@
 		legend {
 			line-height: 1;
 			padding: 0;
-			width: 200px;
+			width: 50%;
 
 			@include oGridRespondTo(S) {
 				float: left;
 			};
 		}
 
-		div {
+		.o-forms--inline__wrapper {
 			@include oGridRespondTo(S) {
 				@include oTypographyMargin($top: 0);
 				float: left;
-				margin-left: 16px;
-				max-width: calc(100% - 216px);
+				// margin-left: 16px;
+				max-width: 50%;
+
+				label:first-of-type {
+					@include oTypographyMargin($top: 0);
+				}
 			}
 		}
 
 	} @else {
 
-		span {
-			width: 200px; //to align inputs
-
+		.o-forms__label,
+		.o-forms__prompt {
 			@include oGridRespondTo(S) {
 				float: left;
+				width: 50%; //to align inputs
 			};
 		}
 
@@ -39,8 +43,8 @@
 		textarea {
 			@include oGridRespondTo(S) {
 				@include oTypographyMargin($top: 0);
-				margin-left: 16px;
-				max-width: calc(100% - 216px);
+				// margin-left: 16px;
+				max-width: 50%;
 			}
 		}
 	}
@@ -53,8 +57,7 @@
 
 		.o-forms__error-message {
 			float: right;
-			width: calc(100% - 216px);
-			// padding-bottom: 16px;
+			width: 50%;
 		}
 	}
 }

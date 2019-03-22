@@ -19,7 +19,7 @@
 		display: block;
 
 		input[type=text] { // sass-lint:disable-line no-qualifying-elements
-			@include _oFormsInputsBase($disabled, $suffix);
+			@include _oFormsInputsBase($disabled);
 		}
 
 		@if $small {
@@ -27,7 +27,7 @@
 		}
 
 		@if $suffix {
-			@include _oFormsSuffix();
+			@include _oFormsSuffix('input[type=text]');
 		}
 
 		@if $inline-label {

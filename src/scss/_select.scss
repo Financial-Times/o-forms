@@ -18,7 +18,7 @@
 		display: block;
 
 		select {
-			@include _oFormsInputsBase($disabled, $suffix);
+			@include _oFormsInputsBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
 			appearance: none;
 			background-repeat: no-repeat;
@@ -60,7 +60,7 @@
 		}
 
 		@if $suffix {
-			@include _oFormsSuffix();
+			@include _oFormsSuffix('select');
 		}
 
 		@if $inline-label {
