@@ -31,14 +31,14 @@ $custom-theme: (
 	$theme: $custom-theme,
 	$custom-class: 'demo-custom-anchor-theme',
 	$has-icon: true
-)
+);
 
 @include oFormsCustom(
 	$input: 'radio',
 	$theme: $custom-theme,
 	$custom-class: 'demo-custom-radio-theme',
 	$has-icon: true
-)
+);
 
 @include oFormsCustomIcon('list', 'demo-list-icon', $custom-theme);
 @include oFormsCustomIcon('grid', 'demo-grid-icon', $custom-theme);

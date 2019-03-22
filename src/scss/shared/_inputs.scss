@@ -1,6 +1,6 @@
 /// @access private
 /// @output base styles for select, textarea and text input
-@mixin _oFormsInputsBase($disabled) {
+@mixin _oFormsInputsBase($disabled, $suffix: null) {
 	@include oTypographyMargin($top: 3);
 	@include oTypographySans(0);
 	background-color: _oFormsGet('default-background');
@@ -12,6 +12,11 @@
 
 	@if $disabled {
 		@include _oFormsInputsDisabled();
+	}
+
+	@if $suffix {
+		flex: 1;
+		margin-right: 8px;
 	}
 }
 
@@ -41,9 +46,28 @@
 @mixin _oFormsSmall($element) {
 	&.o-forms--small {
 		#{$element} {
-			line-height: 28px;
 			min-height: 28px;
 			padding: 0 8px;
 		}
+	}
+}
+
+/// @access private
+/// @output Shared suffix styles for select and text input.
+@mixin _oFormsSuffix() {
+	&.o-forms--suffix {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.o-forms__label,
+	.o-forms__prompt {
+		flex: 100%;
+	}
+
+	.o-forms__suffix-container {
+		flex: 0;
+		display: block;
+		margin-top: 12px;
 	}
 }

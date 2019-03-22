@@ -1,6 +1,7 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $small Whether to output small input styles
+/// @param {Boolean} $suffix Whether to output suffix styles
 /// @param {Boolean} $inline-label Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $valid Whether to output valid state styling
@@ -8,6 +9,7 @@
 @mixin _oFormsSelect(
 	$disabled: null,
 	$small: null,
+	$suffix: null,
 	$inline-label: null,
 	$invalid: null,
 	$valid: null
@@ -16,7 +18,7 @@
 		display: block;
 
 		select {
-			@include _oFormsInputsBase($disabled);
+			@include _oFormsInputsBase($disabled, $suffix);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
 			appearance: none;
 			background-repeat: no-repeat;
@@ -55,6 +57,10 @@
 
 		@if $small {
 			@include _oFormsSmall('select');
+		}
+
+		@if $suffix {
+			@include _oFormsSuffix();
 		}
 
 		@if $inline-label {

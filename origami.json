@@ -62,6 +62,12 @@
 			"description": "checkbox inputs"
 		},
 		{
+			"name": "suffix",
+			"title": "Test",
+			"template": "/demos/src/suffix.mustache",
+			"description": "input suffixes"
+		},
+		{
 			"name": "date",
 			"title": "Test",
 			"template": "/demos/src/date.mustache",

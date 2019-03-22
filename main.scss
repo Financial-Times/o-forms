@@ -9,7 +9,7 @@
 
 @mixin oForms($opts: (
 	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle', 'toggle-inverse'),
-	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children', 'optional', 'right', 'invalid', 'prompt', 'small', 'status', 'valid' )
+	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children', 'optional', 'right', 'invalid', 'prompt', 'small', 'status', 'suffix', 'valid' )
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
@@ -22,8 +22,8 @@
 	$right: index($features, 'right');
 	$small: index($features, 'small');
 	$status: index($features, 'status');
+	$suffix: index($features, 'suffix');
 	$valid: index($features, 'valid');
-
 
 	@include _oFormsBase();
 
@@ -63,6 +63,7 @@
 		@include _oFormsSelect(
 			$disabled,
 			$small,
+			$suffix,
 			$inline-label,
 			$invalid,
 			$valid
@@ -77,6 +78,7 @@
 		@include _oFormsTextInput(
 			$disabled,
 			$small,
+			$suffix,
 			$inline-label,
 			$invalid,
 			$valid
