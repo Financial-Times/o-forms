@@ -7,7 +7,7 @@
 		$toggle-spacing: oTypographySpacingSize(1) / 2; // to align text to pseudo elements
 		$toggle-width: oTypographySpacingSize(10);
 
-		label span {
+		.o-forms__input-label {
 			display: inline-block;
 			padding: $toggle-spacing 0 $toggle-spacing oTypographySpacingSize(8);
 			vertical-align: top;
@@ -39,19 +39,19 @@
 			}
 		}
 
-		@include oGridRespondTo(S) {
-			label:first-of-type {
-				margin: 12px 0;
-			}
-		};
+		// @include oGridRespondTo(S) {
+		// 	label:first-of-type {
+		// 		margin: 12px 0;
+		// 	}
+		// };
 
 		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
-			cursor: pointer;
+			// cursor: pointer;
 			position: relative;
 			left: 12px;
 
 			&:checked {
-				+ span:after {
+				+ .o-forms__input-label:after {
 					left: 16px;
 				}
 			}
@@ -65,25 +65,21 @@
 	}
 
 	@if $inverse {
-		@include _oFormsToggleInverse();
+		@include _oFormsInverse();
 	}
-
-
 }
 
 /// @access private
 /// @output styles for inverse toggle based on a checkbox input
-@mixin _oFormsToggleInverse {
-	.o-forms--toggle--inverse {
-		span {
-			color: _oFormsGet('toggle-inverse-base');
-		}
+@mixin _oFormsInverse {
+	&.o-forms--inverse {
+		color: _oFormsGet('toggle-inverse-base');
 
-		.o-forms__prompt {
+		.o-forms__label--prompt {
 			color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
 		}
 
-		label span {
+		.o-forms__input-label {
 			&:before {
 				background-color: _oFormsGet('toggle-inverse-base');
 			}
@@ -95,11 +91,11 @@
 		}
 
 		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
-			+ span:before {
+			+ .o-forms__input-label:before {
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}
 
-			+ span:after {
+			+ .o-forms__input-label:after {
 				border-color: _oFormsGet('toggle-inverse-selected');
 			}
 		}

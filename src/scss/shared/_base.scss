@@ -10,26 +10,27 @@
 		// border: 0;
 		// padding: 0;
 
-		// label {
-		// 	display: block;
-		// 	margin: 16px 0;
-		// 	position: relative;
-		// }
+		label {
+			display: block;
+			margin: 12px 0;
+			position: relative;
+		}
 
 		// legend {
 		// 	padding: 0;
 		// }
 
-		// label:last-of-type {
-		// 	@include oTypographyMargin($bottom: 0);
-		// }
+		label:first-of-type {
+			@include oTypographyMargin($top: 0);
+		}
+
+		label:last-of-type {
+			@include oTypographyMargin($bottom: 0);
+		}
 
 		// @include oGridRespondTo(S) {
-		// 	label:first-of-type {
-		// 		@include oTypographyMargin($top: 0);
-		// 	}
 
-		// 	// @include oTypographyMargin($bottom: 7);
+			// @include oTypographyMargin($bottom: 7);
 		// };
 	}
 
