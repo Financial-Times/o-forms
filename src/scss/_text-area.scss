@@ -11,7 +11,7 @@
 	$valid: null
 ) {
 	.o-forms--text-area {
-		display: block;
+		// display: block;
 
 		textarea {
 			@include _oFormsInputsBase($disabled);

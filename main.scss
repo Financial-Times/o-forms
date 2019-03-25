@@ -71,7 +71,7 @@
 	}
 
 	@if index($elements, 'text-area') {
-		@include _oFormsTextArea($disabled, $invalid, $valid);
+		@include _oFormsTextArea($disabled, $inline-label, $invalid, $valid);
 	}
 
 	@if index($elements, 'text-input') {
