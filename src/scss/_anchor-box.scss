@@ -3,7 +3,7 @@
 
 @mixin _oFormsAnchorBox {
 	.o-forms--anchor {
-		@include _oFormsBoxSectionBase();
+		@include _oFormsBoxContainerBase();
 		@include _oFormsAnchorBoxStyles();
 		@include oTypographyMargin($top: 0);
 	}

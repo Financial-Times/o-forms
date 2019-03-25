@@ -46,8 +46,8 @@
 }
 
 /// @access private
-/// @output Shared styles for box-style sections
-@mixin _oFormsBoxSectionBase {
+/// @output Shared styles for box-style containers
+@mixin _oFormsBoxContainerBase {
 	@include oTypographyMargin($top: 3);
 	@include oTypographySize($scale: -1, $line-height: unset);
 	@include oTypographyBold('sans');

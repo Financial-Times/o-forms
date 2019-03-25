@@ -12,8 +12,8 @@
 	.o-forms--radio--box {
 		@include _oFormsRadioBoxInputStyles();
 
-		div {
-			@include _oFormsBoxSectionBase();
+		.o-forms--radio--box__container {
+			@include _oFormsBoxContainerBase();
 		}
 
 		label {
@@ -53,8 +53,8 @@
 		}
 
 		@if $invalid {
-			&.o-forms--invalid section {
-				border: 1px solid _oFormsGet('invalid-base');
+			&.o-forms--invalid .o-forms--radio--box__container {
+				border-color: _oFormsGet('invalid-base');
 			}
 		}
 	}

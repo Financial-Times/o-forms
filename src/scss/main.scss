@@ -1,7 +1,11 @@
 $o-forms-is-silent: true !default;
 
 @import './brand';
-@import './base';
+
+@import './shared/base';
+@import './shared/controls';
+@import './shared/inputs';
+
 @import './anchor-box';
 @import './checkbox';
 @import './custom';
@@ -9,8 +13,6 @@ $o-forms-is-silent: true !default;
 @import './inline';
 @import './radio-box';
 @import './radio-round';
-@import './shared/controls';
-@import './shared/inputs';
 @import './select';
 @import './status';
 @import './text-area';

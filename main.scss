@@ -56,7 +56,7 @@
 	}
 
 	@if index($elements, 'radio-box') {
-		@include _oFormsRadioBox($disabled, $invalid);
+		@include _oFormsRadioBox($disabled, $inline-label, $invalid);
 	}
 
 	@if index($elements, 'select') {
