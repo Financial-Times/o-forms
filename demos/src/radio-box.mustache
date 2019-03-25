@@ -1,89 +1,99 @@
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--box">
-		<legend>
-			<span class="o-forms__label">Box style radio buttons</span>
-			<span class="o-forms__prompt">Optional prompt text</span>
-		</legend>
-		<div class="o-forms--radio--box__container">
-			<label>
-				<input type="radio" value="1" name="radio"/>
-				<span>Daily</span>
-			</label>
-			<label>
-				<input type="radio" value="2" name="radio"/>
-				<span>Weekly</span>
-			</label>
+	<div class="o-forms o-forms--radio--box">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Box style radio buttons</span>
+			<span class="o-forms__label--prompt">Optional prompt text</span>
+		</span>
+		<div class="o-forms__input">
+			<div class="o-forms--radio--box__container">
+				<label>
+					<input type="radio" value="1" name="radio"/>
+					<span class="o-forms__input-label">Daily</span>
+				</label>
+				<label>
+					<input type="radio" value="2" name="radio"/>
+					<span class="o-forms__input-label">Weekly</span>
+				</label>
+			</div>
 		</div>
-	</fieldset>
+	</div>
 
-	<fieldset class="o-forms o-forms--radio--box">
-		<legend>
-			<span class="o-forms__label">Negative highlight</span>
-		</legend>
-		<div class="o-forms--radio--box__container">
-			<label>
-				<input type="radio" value="yes" name="radio-1"/>
-				<span>Yes</span>
-			</label>
-			<label>
-				<input type="radio" value="no" name="radio-1" checked/>
-				<span class="o-forms--radio--button--negative">No</span>
-			</label>
+	<div class="o-forms o-forms--radio--box">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Negative highlight</span>
+		</span>
+		<div class="o-forms__input">
+			<div class="o-forms--radio--box__container">
+				<label>
+					<input type="radio" value="yes" name="negative"/>
+					<span class="o-forms__input-label">Yes</span>
+				</label>
+				<label>
+					<input type="radio" value="no" name="negative" checked/>
+					<span class="o-forms__input-label o-forms--radio--button--negative">No</span>
+				</label>
+			</div>
 		</div>
-	</fieldset>
+	</div>
 
-	<fieldset class="o-forms o-forms--radio--box">
-		<legend>
-			<span class="o-forms__label">Multiple choice with default selection</span>
-		</legend>
-		<div class="o-forms--radio--box__container">
-			<label>
-				<input type="radio" value="1" name="radio-2" checked/>
-				<span>Daily</span>
-			</label>
-			<label>
-				<input type="radio" value="2" name="radio-2"/>
-				<span>Weekly</span>
-			</label>
-			<label>
-				<input type="radio" value="2" name="radio-2"/>
-				<span>Monthly</span>
-			</label>
+	<div class="o-forms o-forms--radio--box">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Multiple choice with default selection</span>
+		</span>
+		<div class="o-forms__input">
+			<div class="o-forms--radio--box__container">
+				<label>
+					<input type="radio" value="1" name="multiple"/>
+					<span class="o-forms__input-label">Daily</span>
+				</label>
+				<label>
+					<input type="radio" value="2" name="multiple" checked/>
+					<span class="o-forms__input-label">Weekly</span>
+				</label>
+				<label>
+					<input type="radio" value="3" name="multiple"/>
+					<span class="o-forms__input-label">Monthly</span>
+				</label>
+			</div>
 		</div>
-	</fieldset>
+	</div>
 
-	<fieldset class="o-forms o-forms--radio--box o-forms--invalid">
-		<legend>
-			<span class="o-forms__label">Error</span>
-		</legend>
-		<div class="o-forms--radio--box__container">
-			<label>
-				<input type="radio" value="yes" name="radio-3"/>
-				<span>Yes</span>
-			</label>
-			<label>
-				<input type="radio" value="no" name="radio-3"/>
-				<span>No</span>
-			</label>
+	<div class="o-forms o-forms--radio--box o-forms--invalid">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Error</span>
+		</span>
+		<div class="o-forms__input">
+			<div class="o-forms--radio--box__container">
+				<label>
+					<input type="radio" value="yes" name="error" checked/>
+					<span class="o-forms__input-label">Yes</span>
+				</label>
+				<label>
+					<input type="radio" value="no" name="error"/>
+					<span class="o-forms__input-label">No</span>
+				</label>
+			</div>
 		</div>
 		<span class="o-forms__error-message">
 			We were unable to update your preference, please try again.
 		</span>
-	</fieldset>
+	</div>
 
-	<fieldset class="o-forms o-forms--radio--box">
-		<legend>
-			<span class="o-forms__label">Disabled</span>
-		</legend>
-		<div class="o-forms--radio--box__container">
-			<label>
-				<input type="radio" value="1" name="radio-4" disabled/>
-				<span>Yes</span>
-			</label>
-			<label>
-				<input type="radio" value="2" name="radio-4" disabled/>
-				<span>No</span>
-			</label>
+	<div class="o-forms o-forms--radio--box">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Disabled</span>
+		</span>
+		<div class="o-forms__input">
+			<div class="o-forms--radio--box__container">
+				<label>
+					<input type="radio" value="yes" name="disabled" disabled checked/>
+					<span class="o-forms__input-label">Daily</span>
+				</label>
+				<label>
+					<input type="radio" value="no" name="disabled" disabled/>
+					<span class="o-forms__input-label">Monthly</span>
+				</label>
+			</div>
 		</div>
-	</fieldset>
+	</div>
 </div>
