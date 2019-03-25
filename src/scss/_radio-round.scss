@@ -11,7 +11,7 @@
 	$invalid: null
 ) {
 	.o-forms--radio--round {
-		label span {
+		.o-forms__input-label {
 			padding: 2px 0 2px 34px;
 			display: inline-block;
 
@@ -43,17 +43,11 @@
 			}
 		}
 
-		@include oGridRespondTo(S) {
-			label:first-of-type {
-				margin: 12px 0;
-			}
-		};
-
 		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
 
 			&:checked {
-				+ span:before {
+				+ .o-forms__input-label:before {
 					border-color: _oFormsGet('controls-base');
 				}
 			}

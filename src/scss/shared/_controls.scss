@@ -6,7 +6,7 @@
 	width: 24px;
 	height: 24px;
 
-	&:checked + span:after {
+	&:checked + .o-forms__input-label:after {
 		opacity: 1;
 	}
 
@@ -14,7 +14,7 @@
 		&:disabled {
 			opacity: 0;
 
-			+ span {
+			+ .o-forms__input-label {
 				opacity: 0.4;
 			}
 		}
@@ -61,14 +61,12 @@
 /// @access private
 /// @output Shared inline styles for checkboxes, round- and box-style radio buttons, under label
 @mixin _oFormsInlineChildren {
-		label {
-		display: inline-block;
-		margin-bottom: 0;
-		max-width: 70%;
-		vertical-align: top;
+	.o-forms__input {
+		display: flex;
+		flex-wrap: wrap;
 
-		span {
-			margin-right: 16px;
+		label {
+			margin: 0 16px 12px 0;
 		}
 	}
 }
