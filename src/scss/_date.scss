@@ -8,19 +8,18 @@
 	.o-forms--date {
 		label {
 			@include oTypographyMargin($bottom: 0);
-			display: inline-block;
+			// display: inline-block;
 			float: left;
 
-			@include oGridRespondTo(S) {
-				&:first-of-type {
-					margin: 12px 0;
-				}
-			};
+			// @include oGridRespondTo(S) {
+			// 	&:first-of-type {
+			// 		margin: 12px 0;
+			// 	}
+			// };
 
-			span {
-				display: block;
-			}
-
+			// span {
+			// 	display: block;
+			// }
 		}
 
 		input[type=text] { 
