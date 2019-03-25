@@ -12,7 +12,7 @@
 
 		label {
 			display: block;
-			margin: 12px 0;
+			margin: 0 0 12px;
 			position: relative;
 		}
 
@@ -20,9 +20,9 @@
 		// 	padding: 0;
 		// }
 
-		label:first-of-type {
-			@include oTypographyMargin($top: 0);
-		}
+		// label:first-of-type {
+		// 	@include oTypographyMargin($top: 0, $bottom: 0);
+		// }
 
 		label:last-of-type {
 			@include oTypographyMargin($bottom: 0);
@@ -66,7 +66,7 @@
 			// border: 0;
 			// clear: both;
 			color: _oFormsGet('invalid-base');
-			// display: block;
+			display: block;
 			// padding: 0;
 		}
 

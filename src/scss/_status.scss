@@ -5,33 +5,34 @@
 		@include oTypographySize($scale: -1, $line-height: 1);
 		color: inherit;
 		display: block;
-
+		
 		&:before,
 		&:after {
 			content: '';
 			display: inline-block;
 			vertical-align: middle;
 		}
-
+		
 		&.o-forms__status--icon-only:after {
 			@include oNormaliseVisuallyHidden;
 		}
 	}
-
+	
 	.o-forms--saving .o-forms__status {
+		padding: 0 12px;
+
 		&:after {
 			content: 'Saving';
 		}
 
 		&:before {
 			@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
-			//Resize loading spinner to match icon
 			margin: 0 8px 0 0;
 		}
 	}
 
 	.o-forms--saved .o-forms__status {
-		padding: 0;
+		padding: 0 12px 0 8px; // to handle padding on tick icon;
 		margin-left: -4px;
 
 		&:after {
@@ -47,31 +48,14 @@
 	}
 
 
-	@include oGridRespondTo(S) {
-		.o-forms__status {
-			padding: 8px 0 0 12px;
-		}
-
-		.o-forms--inline .o-forms__status {
-			float: left;
-		}
-
+	@include oGridRespondTo($until: S) {
 		.o-forms--saved .o-forms__status {
-			padding-top: 3px;
-			padding-left: 10px;
-		}
-	}
-
-	@include oGridRespondTo(S) {
-		.o-forms--inline .o-forms__status.o-forms__status--stacked {
-			float: right;
-			width: 50%;
-		}
-
-		.o-forms--saved .o-forms__status.o-forms__status--stacked {
 			padding: 0;
 			margin-top: -4px;
-			margin-left: -4px;
+		}
+	
+		.o-forms--saving .o-forms__status {
+			padding: 0;
 		}
 	}
 }

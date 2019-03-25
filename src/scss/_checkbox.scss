@@ -39,11 +39,11 @@
 			}
 		}
 
-		@include oGridRespondTo(S) {
-			label:first-of-type {
-				margin: 16px 0;
-			}
-		};
+		// @include oGridRespondTo(S) {
+		// 	label:first-of-type {
+		// 		margin: 16px 0;
+		// 	}
+		// };
 
 		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
