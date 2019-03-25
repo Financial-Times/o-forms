@@ -1,36 +1,47 @@
 <div class="demo">
 	<label class="o-forms o-forms--text-input">
-		<span class="o-forms__label">Text Input</span>
-		<span class="o-forms__prompt">Optional prompt text</span>
+		<span	class="o-forms__label">
+			<span class="o-forms__label--title">Text Input</span>
+			<span class="o-forms__label--prompt">Optional prompt text</span>
+		</span>
 		<input type="text" name="text" value="">
 	</label>
 
-	<label class="o-forms o-forms--text-input o-forms--optional">
-		<span class="o-forms__label">Text Input</span>
-		<span class="o-forms__prompt">(optional)</span>
-		<input type="text" name="text" value="">
+	<label class="o-forms o-forms--text-input o-forms--required">
+		<span	class="o-forms__label">
+			<span class="o-forms__label--title">Required text input</span>
+		</span>
+		<input type="text" name="text" value="" required>
 	</label>
 
 	<label class="o-forms o-forms--text-input o-forms--valid">
-		<span class="o-forms__label">Text Input with a valid entry</span>
-		<input type="text" name="text" value="Value">
+		<span	class="o-forms__label">
+			<span class="o-forms__label--title">Text input with a valid entry</span>
+		</span>
+		<input type="text" name="text" value="Good input">
 	</label>
 
 	<label class="o-forms o-forms--text-input o-forms--invalid">
-		<span class="o-forms__label">Text Input with an invalid entry</span>
-		<input type="text" name="text" value="hp://invalid.com">
+		<span	class="o-forms__label">
+			<span class="o-forms__label--title">Text input with an invalid entry</span>
+		</span>
+		<input type="text" name="text"  value="hp://invalid.com">
 		<span class="o-forms__error-message">
 			Please enter a valid url
 		</span>
 	</label>
 
 	<label class="o-forms o-forms--text-input">
-		<span class="o-forms__label">Disabled text input</span>
+		<span	class="o-forms__label">
+			<span class="o-forms__label--title">Disabled text input</span>
+		</span>
 		<input type="text" name="text" value="Value" disabled>
 	</label>
 
 	<label class="o-forms o-forms--text-input o-forms--small">
-		<span class="o-forms__label">Small text input</span>
+		<span	class="o-forms__label">
+			<span class="o-forms__label--title">Small text input</span>
+		</span>
 		<input type="text" name="text" value="Value">
 	</label>
 </div>

@@ -16,7 +16,7 @@
 ) {
 
 	.o-forms--text-input {
-		display: block;
+		// display: block;
 
 		input[type=text] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsInputsBase($disabled);

@@ -41,6 +41,7 @@
 @mixin _oFormsSmall($element) {
 	&.o-forms--small {
 		#{$element} {
+			@include oTypographySize($scale: -1);
 			min-height: 28px;
 			padding: 0 8px;
 		}

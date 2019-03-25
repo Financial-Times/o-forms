@@ -92,6 +92,7 @@
 
 	@if index($features, 'optional') {
 		@include _oFormsOptional();
+		@include _oFormsRequired();
 	}
 
 	@if index($features, 'prompt') {
