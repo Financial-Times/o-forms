@@ -1,13 +1,11 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $inline-children Whether to output element inputs inline
-/// @param {Boolean} $inline-label Whether to output entire element inline with its label
+/// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @output Styling for box-styled radio inputs
 @mixin _oFormsRadioRound(
 	$disabled: null,
-	$inline-children: null,
-	$inline-label: null,
+	$inline: null,
 	$invalid: null
 ) {
 	.o-forms--radio--round {
@@ -53,17 +51,10 @@
 			}
 		}
 
-		@if $inline-children {
-			&.o-forms--inline-children {
-				@include _oFormsInlineChildren();
-			}
+		@if $inline {
+			@include _oFormsInline($label: true, $inputs: true);
 		}
 
-		@if $inline-label {
-			&.o-forms--inline {
-				@include _oFormsInlineLabel($fieldset: true);
-			}
-		}
 
 		@if $invalid {
 			&.o-forms--invalid .o-forms__error-message {

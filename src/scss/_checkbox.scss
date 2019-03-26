@@ -1,16 +1,14 @@
 /// @access private
 /// @param {Boolean} $additional-content Whether to output additional content styling
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $inline-children Whether to output element inputs inline
-/// @param {Boolean} $inline-label Whether to output entire element inline with its label
+/// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $right Whether to display checkbox to the right of text
 /// @output Styling for text inputs
 @mixin _oFormsCheckbox(
 	$additional-content: null,
 	$disabled: null,
-	$inline-children: null,
-	$inline-label: null,
+	$inline: null,
 	$invalid: null,
 	$right: null
 ) {
@@ -59,16 +57,8 @@
 			}
 		}
 
-		@if $inline-children {
-			&.o-forms--inline-children {
-				@include _oFormsInlineChildren();
-			}
-		}
-
-		@if $inline-label {
-			&.o-forms--inline {
-				@include _oFormsInlineLabel($fieldset: true);
-			}
+		@if $inline {
+			@include _oFormsInline($label: true, $inputs: true);
 		}
 
 		@if $invalid {

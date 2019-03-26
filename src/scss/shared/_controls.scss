@@ -56,17 +56,3 @@
 	padding: 2px;
 	text-align: center;
 }
-
-/// @access private
-/// @output Shared inline styles for checkboxes, round- and box-style radio buttons, under label
-@mixin _oFormsInlineChildren {
-	.o-forms__input {
-		display: flex;
-		flex-wrap: wrap;
-
-		label {
-			margin: 0 16px 12px 0;
-			max-width: 75%;
-		}
-	}
-}

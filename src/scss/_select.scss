@@ -2,7 +2,7 @@
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $small Whether to output small input styles
 /// @param {Boolean} $suffix Whether to output suffix styles
-/// @param {Boolean} $inline-label Whether to output entire element inline with its label
+/// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text areas
@@ -10,7 +10,7 @@
 	$disabled: null,
 	$small: null,
 	$suffix: null,
-	$inline-label: null,
+	$inline: null,
 	$invalid: null,
 	$valid: null
 ) {
@@ -62,10 +62,8 @@
 			@include _oFormsSuffix('select');
 		}
 
-		@if $inline-label {
-			&.o-forms--inline {
-				@include _oFormsInlineLabel($fieldset: false);
-			}
+		@if $inline {
+			@include _oFormsInline($label: true);
 		}
 
 		@if $invalid {
