@@ -18,7 +18,7 @@
 		label span {
 			display: inline-block;
 			max-width: calc(100% - 34px);
-			padding: 2px 0 2px 34px;
+			padding: 2px 0 0 34px;
 			vertical-align: top;
 
 			&:before,
@@ -39,12 +39,6 @@
 			}
 		}
 
-		// @include oGridRespondTo(S) {
-		// 	label:first-of-type {
-		// 		margin: 16px 0;
-		// 	}
-		// };
-
 		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
 			float: left;
@@ -52,10 +46,6 @@
 
 		@if $additional-content {
 			&.o-forms--checkbox--extra-content {
-				> *:not(legend) {
-					margin-bottom: 10px;
-				}
-
 				input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 					display: inline-block;
 					vertical-align: top;

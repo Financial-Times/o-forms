@@ -15,8 +15,6 @@
 	$valid: null
 ) {
 	.o-forms--select {
-		// display: block;
-
 		select {
 			@include _oFormsInputsBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
