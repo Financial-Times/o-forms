@@ -1,5 +1,5 @@
 <div class="demo">
-	<div class="o-forms o-forms--radio--box o-forms--inline">
+	<div class="o-forms o-forms--radio--box o-forms--inline o-forms--status">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Standard</span>
 		</span>
@@ -17,7 +17,7 @@
 		</span>
 	</div>
 
-	<div class="o-forms o-forms--radio--box o-forms--inline o-forms--saving">
+	<div class="o-forms o-forms--radio--box o-forms--inline o-forms--status">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Inline saving</span>
 		</span>
@@ -32,11 +32,11 @@
 					<span class="o-forms__input-label">Weekly</span>
 				</label>
 			</div>
-			<span class="o-forms__status"></span>
+			<span class="o-forms__state o-forms__state--saving"></span>
 		</span>
 	</div>
 
-	<div class="o-forms o-forms--radio--box o-forms--inline o-forms--saved">
+	<div class="o-forms o-forms--radio--box o-forms--inline o-forms--status">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Inline saved</span>
 		</span>
@@ -51,11 +51,11 @@
 					<span class="o-forms__input-label">Weekly</span>
 				</label>
 			</div>
-			<span class="o-forms__status"></span>
+			<span class="o-forms__state o-forms__state--saved"></span>
 		</span>
 	</div>
 
-	<div class="o-forms o-forms--radio--box o-forms--inline o-forms--saving">
+	<div class="o-forms o-forms--radio--box o-forms--inline o-forms--status">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Inline saving icon only</span>
 		</span>
@@ -70,12 +70,12 @@
 					<span class="o-forms__input-label">Weekly</span>
 				</label>
 			</div>
-			<span class="o-forms__status o-forms__status--icon-only"></span>
+			<span class="o-forms__state o-forms__state--saving o-forms__state--icon-only"></span>
 		</span>
 	</div>
 
 
-	<div class="o-forms o-forms--radio--box o-forms--inline o-forms--saved">
+	<div class="o-forms o-forms--radio--box o-forms--inline o-forms--status">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Inline stacked</span>
 		</span>
@@ -90,26 +90,7 @@
 					<span class="o-forms__input-label">Weekly</span>
 				</label>
 			</div>
-			<span class="o-forms__status"></span>
-		</span>
-	</div>
-
-	<div class="o-forms o-forms--radio--box o-forms--saving">
-		<span class="o-forms__label">
-			<span class="o-forms__label--title">Stacked Status</span>
-		</span>
-		<span class="o-forms__input">
-			<div class="o-forms--radio--box__container">
-				<label>
-					<input type="radio" value="1" name="stacked" checked/>
-					<span class="o-forms__input-label">Daily</span>
-				</label>
-				<label>
-					<input type="radio" value="2" name="stacked"/>
-					<span class="o-forms__input-label">Weekly</span>
-				</label>
-			</div>
-			<span class="o-forms__status"></span>
+			<span class="o-forms__state o-forms__state--saved"></span>
 		</span>
 	</div>
 
@@ -131,4 +112,25 @@
 			<span class="o-forms__error-message"> Sorry, there was a problem. </span>
 		</span>
 	</div>
+
+	<div class="o-forms o-forms--radio--box o-forms--status">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Stacked Status</span>
+		</span>
+		<span class="o-forms__input">
+			<div class="o-forms--radio--box__container">
+				<label>
+					<input type="radio" value="1" name="stacked" checked/>
+					<span class="o-forms__input-label">Daily</span>
+				</label>
+				<label>
+					<input type="radio" value="2" name="stacked"/>
+					<span class="o-forms__input-label">Weekly</span>
+				</label>
+			</div>
+			<span class="o-forms__state o-forms__state--saved"></span>
+		</span>
+	</div>
 </div>
+
+

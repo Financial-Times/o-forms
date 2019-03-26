@@ -2,7 +2,7 @@
 /// @param {Boolean} $inline Whether to output inline states
 /// @output styles for state animation for the box-styled radio inputs
 @mixin _oFormsStatus($inline: null) {
-	.o-forms__status {
+	.o-forms__state {
 		@include oTypographySize($scale: -1, $line-height: 1);
 		color: inherit;
 		display: block;
@@ -10,31 +10,28 @@
 		&:before,
 		&:after {
 			content: '';
-			display: inline-block;
 			vertical-align: middle;
 		}
-		
-		&.o-forms__status--icon-only:after {
-			@include oNormaliseVisuallyHidden;
-			padding-right: 0;
-		}
 	}
-	
-	.o-forms--saving .o-forms__status {
-		padding: 0 12px;
+
+	.o-forms__state--icon-only:after {
+		@include oNormaliseVisuallyHidden;
+	}
+
+	.o-forms__state--saving {
+		padding: 0;
 
 		&:after {
 			content: 'Saving';
 		}
-
+		
 		&:before {
 			@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
 			margin: 0 8px 0 0;
 		}
 	}
 
-	.o-forms--saved .o-forms__status {
-		padding: 0 12px 0 8px; // to handle padding on tick icon;
+	.o-forms__state--saved {
 		margin-left: -4px;
 
 		&:after {
@@ -49,30 +46,28 @@
 		}
 	}
 
-	@include oGridRespondTo($until: S) {
-		.o-forms--saved .o-forms__status {
-			padding: 0;
-			margin-top: -4px;
-		}
-	
-		.o-forms--saving .o-forms__status {
-			padding: 0;
-		}
-		
-	}
-
 	@if $inline {
 		@include oGridRespondTo(S) {
 			@include _oFormsInline($inputs: true);
-			&.o-forms--saving,
-			&.o-forms--saved {
-				.o-forms__input.o-forms__input--inline {
-					flex-direction: row-reverse;
-					align-items: center;
-					
-					label {
-						margin: 0;
-					}
+			&.o-forms--status .o-forms__input.o-forms__input--inline {
+				flex-direction: row-reverse;
+				align-items: center;
+
+				label {
+					margin: 0;
+				}
+				
+				.o-forms__state--saving {
+					padding: 0 12px
+				}
+				
+				.o-forms__state--saved {
+					padding: 0 12px 0 8px;
+					margin-top: -4px;
+				}
+
+				.o-forms__state--icon-only {
+					padding: 0;
 				}
 			}
 		}
