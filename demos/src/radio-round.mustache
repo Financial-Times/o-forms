@@ -4,7 +4,7 @@
 			<span class="o-forms__label--title">Default Radio buttons</span>
 			<span class="o-forms__label--prompt">This is an optional prompt.</span>
 		</span>
-		<div class="o-forms__input">
+		<span class="o-forms__input">
 			<label>
 				<input type="radio" value="1" name="radio" checked/>
 				<span class="o-forms__input-label">Default 1</span>
@@ -13,14 +13,14 @@
 				<input type="radio" value="2" name="radio"/>
 				<span class="o-forms__input-label">Default 2</span>
 			</label>
-		</div>
+		</span>
 	</div>
 
 	<div class="o-forms o-forms--radio--round o-forms--required">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Required Radio buttons</span>
 		</span>
-		<div class="o-forms__input">
+		<span class="o-forms__input">
 			<label>
 				<input type="radio" value="1" name="required" required checked/>
 				<span class="o-forms__input-label">Default 1</span>
@@ -29,14 +29,14 @@
 				<input type="radio" value="2" name="required" required/>
 				<span class="o-forms__input-label">Default 2</span>
 			</label>
-		</div>
+		</span>
 	</div>
 
 	<div class="o-forms o-forms--radio--round o-forms--invalid">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Error</span>
 		</span>
-		<div class="o-forms__input">
+		<span class="o-forms__input">
 			<label>
 				<input type="radio" value="1" name="error" required checked/>
 				<span class="o-forms__input-label">Error 1</span>
@@ -45,9 +45,9 @@
 				<input type="radio" value="2" name="error" required/>
 				<span class="o-forms__input-label">Error 2</span>
 			</label>
-		</div>
 		<span class="o-forms__error-message">
 			Something has gone wrong.
+		</span>
 		</span>
 	</div>
 
@@ -55,7 +55,7 @@
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Disabled</span>
 		</span>
-		<div class="o-forms__input">
+		<span class="o-forms__input">
 			<label>
 				<input type="radio" value="1" name="disabled" disabled checked/>
 				<span class="o-forms__input-label">Disabled 1</span>
@@ -64,14 +64,14 @@
 				<input type="radio" value="2" name="disabled" disabled/>
 				<span class="o-forms__input-label">Disabled 2</span>
 			</label>
-		</div>
+		</span>
 	</div>
 
 	<div class="o-forms o-forms--radio--round o-forms--inline-children">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Inline inputs</span>
 		</span>
-		<div class="o-forms__input">
+		<span class="o-forms__input">
 			<label>
 				<input type="radio" value="1" name="inline"/>
 				<span class="o-forms__input-label">Inline 1</span>
@@ -84,26 +84,7 @@
 				<input type="radio" value="3" name="inline"/>
 				<span class="o-forms__input-label">Inline 3</span>
 			</label>
-		</div>
+		</span>
 	</div>
 
-	{{! 
-	<div class="o-forms o-forms--radio--round o-forms--inline-children">
-		<span>
-			<span class="o-forms__label">Inline Radio Buttons</span>
-		</span>
-		<label>
-			<input type="radio" value="1" name="radio-1" checked/>
-			<span>Inline 1</span>
-		</label>
-		<label>
-			<input type="radio" value="2" name="radio-1"/>
-			<span>Inline 2</span>
-		</label>
-		<label>
-			<input type="radio" value="3" name="radio-1"/>
-			<span>Inline 3</span>
-		</label>
-	</div>
-}}
 </div>
