@@ -13,9 +13,8 @@
 	$right: null
 ) {
 	.o-forms--checkbox {
-		label span {
+		.o-forms__input-label {
 			display: inline-block;
-			max-width: calc(100% - 34px);
 			padding: 2px 0 0 34px;
 			vertical-align: top;
 
@@ -39,7 +38,6 @@
 
 		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
-			float: left;
 		}
 
 		@if $additional-content {
@@ -68,10 +66,10 @@
 		}
 
 		@if $right {
-			&.o-forms--checkbox--right {
+			.o-forms__input--right {
 				label:first-of-type {
-					@include oTypographyMargin($top: 0);
 					width: auto;
+					display: block;
 
 					input[type="password"] { // sass-lint:disable-line no-qualifying-elements
 						@include _oFormsInputsBase($disabled);
@@ -79,10 +77,13 @@
 				}
 
 				label {
-					width: max-content;
-					white-space: nowrap;
+					display: inline-block;
 
-					span {
+					input[type="checkbox"] { // sass-lint:disable-line no-qualifying-elements
+						right: 0;
+					}
+
+					.o-forms__input-label {
 						padding-left: 0;
 						padding-right: 34px;
 
@@ -91,11 +92,6 @@
 							right: 0;
 							left: unset;
 						}
-					}
-
-					input[type="checkbox"] { // sass-lint:disable-line no-qualifying-elements
-						right: 0;
-						float: right;
 					}
 				}
 			}
