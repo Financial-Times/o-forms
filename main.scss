@@ -8,17 +8,17 @@
 @import 'src/scss/main';
 
 @mixin oForms($opts: (
-	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle', 'toggle-inverse'),
-	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children', 'optional', 'right', 'invalid', 'prompt', 'small', 'status', 'suffix', 'valid' )
+	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle'),
+	'features': ('additional-content', 'disabled', 'inline', 'right', 'invalid', 'inverse', 'small', 'status', 'suffix', 'valid' )
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
 
 	$additional-content: index($features, 'additional-content');
 	$disabled: index($features, 'disabled');
-	$inline-label: index($features, 'inline-label');
-	$inline-children: index($features, 'inline-children');
+	$inline: index($features, 'inline');
 	$invalid: index($features, 'invalid');
+	$inverse: index($features, 'inverse');
 	$right: index($features, 'right');
 	$small: index($features, 'small');
 	$status: index($features, 'status');
@@ -35,8 +35,7 @@
 		@include _oFormsCheckbox(
 			$additional-content,
 			$disabled,
-			$inline-children,
-			$inline-label,
+			$inline,
 			$invalid,
 			$right
 		);
@@ -49,14 +48,16 @@
 	@if index($elements, 'radio-round') {
 		@include _oFormsRadioRound(
 			$disabled,
-			$inline-children,
-			$inline-label,
+			$inline,
 			$invalid
 		);
 	}
 
 	@if index($elements, 'radio-box') {
-		@include _oFormsRadioBox($disabled, $inline-label, $invalid);
+		@include _oFormsRadioBox(
+			$disabled,
+			$inline,
+			$invalid);
 	}
 
 	@if index($elements, 'select') {
@@ -64,14 +65,14 @@
 			$disabled,
 			$small,
 			$suffix,
-			$inline-label,
+			$inline,
 			$invalid,
 			$valid
 		);
 	}
 
 	@if index($elements, 'text-area') {
-		@include _oFormsTextArea($disabled, $invalid, $valid);
+		@include _oFormsTextArea($disabled, $inline, $invalid, $valid);
 	}
 
 	@if index($elements, 'text-input') {
@@ -79,23 +80,18 @@
 			$disabled,
 			$small,
 			$suffix,
-			$inline-label,
+			$inline,
 			$invalid,
 			$valid
 		);
 	}
 
-	@if index($elements, 'toggle') or index($elements, 'toggle-inverse') {
-		$inverse: index($elements, 'toggle-inverse');
-		@include _oFormsToggle($inverse, $inline-label);
+	@if index($elements, 'toggle') {
+		@include _oFormsToggle($inline);
 	}
 
-	@if index($features, 'optional') {
-		@include _oFormsOptional();
-	}
-
-	@if index($features, 'prompt') {
-		@include _oFormsPrompt();
+	@if $inverse {
+		@include _oFormsInverse();
 	}
 
 	@if $invalid {
@@ -103,7 +99,7 @@
 	}
 
 	@if $status {
-		@include _oFormsStatus();
+		@include _oFormsStatus($inline);
 	}
 }
 

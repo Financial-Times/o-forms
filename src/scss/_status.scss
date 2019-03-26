@@ -1,37 +1,37 @@
 /// @access private
+/// @param {Boolean} $inline Whether to output inline states
 /// @output styles for state animation for the box-styled radio inputs
-@mixin _oFormsStatus {
-	.o-forms__status {
+@mixin _oFormsStatus($inline: null) {
+	.o-forms__state {
 		@include oTypographySize($scale: -1, $line-height: 1);
 		color: inherit;
 		display: block;
-
+		
 		&:before,
 		&:after {
 			content: '';
-			display: inline-block;
 			vertical-align: middle;
-		}
-
-		&.o-forms__status--icon-only:after {
-			@include oNormaliseVisuallyHidden;
 		}
 	}
 
-	.o-forms--saving .o-forms__status {
+	.o-forms__state--icon-only:after {
+		@include oNormaliseVisuallyHidden;
+	}
+
+	.o-forms__state--saving {
+		padding: 0;
+
 		&:after {
 			content: 'Saving';
 		}
-
+		
 		&:before {
 			@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
-			//Resize loading spinner to match icon
 			margin: 0 8px 0 0;
 		}
 	}
 
-	.o-forms--saved .o-forms__status {
-		padding: 0;
+	.o-forms__state--saved {
 		margin-left: -4px;
 
 		&:after {
@@ -46,32 +46,30 @@
 		}
 	}
 
+	@if $inline {
+		@include oGridRespondTo(S) {
+			@include _oFormsInline($inputs: true);
+			&.o-forms--status .o-forms__input.o-forms__input--inline {
+				flex-direction: row-reverse;
+				align-items: center;
 
-	@include oGridRespondTo(S) {
-		.o-forms__status {
-			padding: 8px 0 0 12px;
-		}
+				label {
+					margin: 0;
+				}
+				
+				.o-forms__state--saving {
+					padding: 0 12px
+				}
+				
+				.o-forms__state--saved {
+					padding: 0 12px 0 8px;
+					margin-top: -4px;
+				}
 
-		.o-forms--inline .o-forms__status {
-			float: left;
-		}
-
-		.o-forms--saved .o-forms__status {
-			padding-top: 3px;
-			padding-left: 10px;
-		}
-	}
-
-	@include oGridRespondTo(S) {
-		.o-forms--inline .o-forms__status.o-forms__status--stacked {
-			float: right;
-			width: 50%;
-		}
-
-		.o-forms--saved .o-forms__status.o-forms__status--stacked {
-			padding: 0;
-			margin-top: -4px;
-			margin-left: -4px;
+				.o-forms__state--icon-only {
+					padding: 0;
+				}
+			}
 		}
 	}
 }

@@ -4,38 +4,38 @@
 	.o-forms {
 		@include oTypographySans(0);
 		@include oTypographyMargin($bottom: 5);
-		border: 0;
-		padding: 0;
+		
+		@include _oFormsRequired();
+		
+		display: flex;
+		flex-direction: column;
 
 		label {
 			display: block;
-			margin: 16px 0;
+			margin: 0 0 12px;
 			position: relative;
-		}
-
-		legend {
-			padding: 0;
 		}
 
 		label:last-of-type {
 			@include oTypographyMargin($bottom: 0);
 		}
-
-		@include oGridRespondTo(S) {
-			label:first-of-type {
-				@include oTypographyMargin($top: 0);
-			}
-
-			// @include oTypographyMargin($bottom: 7);
-		};
 	}
 
 	.o-forms__label {
-		@include oTypographyBold('sans');
-		display: block;
-		color: _oFormsGet('default-text');
-		margin: 0;
-		padding: 0;
+		.o-forms__label--title {
+			@include oTypographyBold('sans');
+			display: block;
+		}
+
+		.o-forms__label--prompt {
+			@include oTypographySize($scale: -1);
+			color: _oFormsGet('default-prompt-text');
+			display: block;
+		}
+	}
+
+	.o-forms__input {
+		@include oTypographyMargin($top: 3);
 	}
 }
 
@@ -45,36 +45,58 @@
 	.o-forms--invalid {
 		.o-forms__error-message {
 			@include oTypographyMargin($top: 1);
-			@include oTypographySans($scale: -1);
-			border: 0;
-			clear: both;
+			@include oTypographySize($scale: -1);
 			color: _oFormsGet('invalid-base');
 			display: block;
-			padding: 0;
 		}
 
 	}
 }
 
 /// @access private
-/// @output Shared optional text styles for all form elements.
-@mixin _oFormsOptional {
-	.o-forms--optional {
-		.o-forms__label,
-		.o-forms__prompt {
-			display: inline-block;
-			line-height: 20px;
+/// @output Shared required text styles for all form elements.
+@mixin _oFormsRequired {
+	&.o-forms--required {
+		.o-forms__label--title:after {
+			content: '(required)';
+			@include oTypographySize($scale: -1);
+			color: _oFormsGet('default-prompt-text');
+			font-weight: 400;
+			margin-left: 4px;
 		}
 	}
 }
 
+
 /// @access private
-/// @output Shared optional text styles for all form elements.
-@mixin _oFormsPrompt {
-	.o-forms__prompt {
-		@include oTypographySize($scale: -1);
-		color: _oFormsGet('default-prompt-text');
-		display: block;
-		padding: 0;
+/// @output styles for inverse toggle based on a checkbox input
+@mixin _oFormsInverse {
+	&.o-forms--inverse {
+		color: _oFormsGet('toggle-inverse-base');
+
+		.o-forms__label--prompt {
+			color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
+		}
+
+		.o-forms__input-label {
+			&:before {
+				background-color: _oFormsGet('toggle-inverse-base');
+			}
+
+			&:after {
+				background-color: _oFormsGet('toggle-inverse-knob');
+				border-color: _oFormsGet('toggle-inverse-base');
+			}
+		}
+
+		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
+			+ .o-forms__input-label:before {
+				background-color: _oFormsGet('toggle-inverse-selected');
+			}
+
+			+ .o-forms__input-label:after {
+				border-color: _oFormsGet('toggle-inverse-selected');
+			}
+		}
 	}
 }

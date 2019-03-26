@@ -1,102 +1,114 @@
 <div class="demo">
-	<fieldset class="o-forms o-forms--checkbox">
-		<legend>
-			<span class="o-forms__label">Default checkboxes</span>
-			<span class="o-forms__prompt">Optional prompt text</span>
-		</legend>
-		<label>
-			<input type="checkbox" value="1" checked/>
-			<span>Stacked 1</span>
-		</label>
-		<label>
-			<input type="checkbox" value="2"/>
-			<span>Stacked 2</span>
-		</label>
-		<label>
-			<input type="checkbox" value="3" checked/>
-			<span>Stacked 3</span>
-		</label>
-	</fieldset>
-
-	<fieldset class="o-forms o-forms--checkbox o-forms--inline-children">
-		<legend>
-			<span class="o-forms__label">Inline checkboxes</span>
-		</legend>
-		<label>
-			<input type="checkbox" value="1" checked/>
-			<span>Inlined 1</span>
-		</label>
-		<label>
-			<input type="checkbox" value="2"/>
-			<span>This will be a very long inlined checkbox just to demonstrate the correct alignment of checkboxes</span>
-		</label>
-		<label>
-			<input type="checkbox" value="3"/>
-			<span>Inlined 3</span>
-		</label>
-	</fieldset>
-
-	<fieldset class="o-forms o-forms--checkbox o-forms--checkbox--right">
-		<legend>
-			<span class="o-forms__label">Right side checkbox</span>
-			<span class="o-forms__prompt">Interface demo only, password hide/show functionality is not currently included in o-forms.</span>
-		</legend>
-		<label>
-			<input type="password" value="Value">
-		</label>
-		<label>
-			<input type="checkbox" value="1" checked/>
-			<span>Password</span>
-		</label>
-	</fieldset>
-
-
-	<fieldset class="o-forms o-forms--checkbox">
-		<legend>
-			<span class="o-forms__label">Disabled</span>
-		</legend>
-		<label>
-			<input type="checkbox" value="1" disabled/>
-			<span>Disabled 1</span>
-		</label>
-		<label>
-			<input type="checkbox" value="2" checked disabled/>
-			<span>Disabled 2</span>
-		</label>
-	</fieldset>
-
-	<fieldset class="o-forms o-forms--checkbox o-forms--invalid">
-		<legend>
-			<span class="o-forms__label">Error</span>
-		</legend>
-		<label>
-			<input type="checkbox" value="1"/>
-			<span>Error 1</span>
-		</label>
-		<label>
-			<input type="checkbox" value="2" checked/>
-			<span>Error 2</span>
-		</label>
-		<span class="o-forms__error-message">
-			Something has gone wrong.
+	<div class="o-forms o-forms--checkbox">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Default checkboxes</span>
+			<span class="o-forms__label--prompt">Optional prompt text</span>
 		</span>
-	</fieldset>
+		<span class="o-forms__input">
+			<label>
+				<input type="checkbox" name="default" value="1" checked/>
+				<span class="o-forms__input-label">Stacked 1</span>
+			</label>
+			<label>
+				<input type="checkbox" name="default" value="2"/>
+				<span class="o-forms__input-label">Stacked 2</span>
+			</label>
+			<label>
+				<input type="checkbox" name="default" value="3" checked/>
+				<span class="o-forms__input-label">Stacked 3</span>
+			</label>
+		</span>
+	</div>
 
-	<fieldset class="o-forms o-forms--checkbox o-forms--checkbox--extra-content">
-		<legend>
-			<span class="o-forms__label">Checkboxes with extra content</span>
-		</legend>
-		<label>
-			<input type="checkbox" value="1" checked/>
-			<span>
-				I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.
+	<div class="o-forms o-forms--checkbox">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Inline checkboxes</span>
+		</span>
+		<span class="o-forms__input o-forms__input--inline">
+			<label>
+				<input type="checkbox" name="inline" value="1" checked/>
+				<span class="o-forms__input-label">Inlined 1</span>
+			</label>
+			<label>
+				<input type="checkbox" name="inline" value="2"/>
+				<span class="o-forms__input-label">This will be a very long inlined checkbox just to demonstrate the correct alignment of checkboxes</span>
+			</label>
+			<label>
+				<input type="checkbox" name="inline" value="3"/>
+				<span class="o-forms__input-label">Inlined 3</span>
+			</label>
+		</span>
+	</div>
+
+	<div class="o-forms o-forms--checkbox o-forms--checkbox--right">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Right side checkbox</span>
+			<span class="o-forms__label--prompt">Interface demo only, password hide/show functionality is not currently included in o-forms.</span>
+		</span>
+		<span class="o-forms__input">
+			<label>
+				<input type="password" value="Value">
+			</label>
+			<label>
+				<input type="checkbox" value="1" checked/>
+				<span class="o-forms__input-label">Show password</span>
+			</label>
+		</span>
+	</div>
+
+
+	<div class="o-forms o-forms--checkbox">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Disabled</span>
+		</span>
+		<span class="o-forms__input">
+			<label>
+				<input type="checkbox" value="1" disabled/>
+				<span class="o-forms__input-label">Disabled 1</span>
+			</label>
+			<label>
+				<input type="checkbox" value="2" checked disabled/>
+				<span class="o-forms__input-label">Disabled 2</span>
+			</label>
+		</span>
+	</div>
+
+	<div class="o-forms o-forms--checkbox o-forms--invalid">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Error</span>
+		</span>
+		<span class="o-forms__input">
+			<label>
+				<input type="checkbox" name="error" value="1"/>
+				<span class="o-forms__input-label">Error 1</span>
+			</label>
+			<label>
+				<input type="checkbox" name="error" value="2" checked/>
+				<span class="o-forms__input-label">Error 2</span>
+			</label>
+			<span class="o-forms__error-message">
+				Something has gone wrong.
 			</span>
-		</label>
-		<p>We will send you occasional emails to improve your experience of the Financial Times.</p>
+		</span>
+	</div>
 
-		<label>
-			<input type="checkbox" value="2" checked/>
-			<span>By submitting this form, you indicate your consent to also being contacted by the Financial Times by email. post or phone about our other products, services or special offers unless you untick this box. You can change your preferences anytime in the My Account section.</span>
-		</label>
-	</fieldset>
+	<div class="o-forms o-forms--checkbox o-forms--checkbox--extra-content">
+		<span class="o-forms__label">
+			<span class="o-forms__label--title">Checkboxes with extra content</span>
+		</span>
+		<span class="o-forms__input">
+			<label>
+				<input type="checkbox" value="1" checked/>
+				<span class="o-forms__input-label">
+					I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.
+				</span>
+			</label>
+			<p class="o-forms__input-label">We will send you occasional emails to improve your experience of the Financial Times.</p>
+
+			<label>
+				<input type="checkbox" value="2" checked/>
+				<span class="o-forms__input-label">By submitting this form, you indicate your consent to also being contacted by the Financial Times by email. post or phone about our other products, services or special offers unless you untick this box. You can change your preferences anytime in the My Account section.</span>
+			</label>
+		</span>
+	</div>
 </div>

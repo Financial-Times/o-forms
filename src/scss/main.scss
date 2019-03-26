@@ -4,13 +4,13 @@ $o-forms-is-silent: true !default;
 
 @import './shared/base';
 @import './shared/controls';
+@import './shared/inline';
 @import './shared/inputs';
 
 @import './anchor-box';
 @import './checkbox';
 @import './custom';
 @import './date';
-@import './inline';
 @import './radio-box';
 @import './radio-round';
 @import './select';

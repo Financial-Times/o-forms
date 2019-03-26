@@ -1,12 +1,12 @@
 // sass-lint:disable no-qualifying-elements
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $inline-label Whether to output entire element inline with its label
+/// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @output Styling for box-styled radio inputs
 @mixin _oFormsRadioBox(
 	$disabled: null,
-	$inline-label: null,
+	$inline: null,
 	$invalid: null
 ) {
 	.o-forms--radio--box {
@@ -23,7 +23,7 @@
 				border-left: 1px solid _oFormsGet('default-border');
 			}
 
-			span {
+			.o-forms__input-label {
 				box-sizing: border-box;
 				display: inline-block;
 				max-height: 28px;
@@ -46,10 +46,8 @@
 			}
 		}
 
-		@if $inline-label {
-			&.o-forms--inline {
-				@include _oFormsInlineLabel($fieldset: true);
-			}
+		@if $inline {
+			@include _oFormsInline($label: true);
 		}
 
 		@if $invalid {
