@@ -8,8 +8,8 @@
 @import 'src/scss/main';
 
 @mixin oForms($opts: (
-	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle', 'toggle-inverse'),
-	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children', 'optional', 'right', 'invalid', 'prompt', 'small', 'status', 'suffix', 'valid' )
+	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle'),
+	'features': ('additional-content', 'disabled', 'inline-label', 'inline-children', 'right', 'invalid', 'inverse', 'small', 'status', 'suffix', 'valid' )
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
@@ -19,6 +19,7 @@
 	$inline-label: index($features, 'inline-label');
 	$inline-children: index($features, 'inline-children');
 	$invalid: index($features, 'invalid');
+	$inverse: index($features, 'inverse');
 	$right: index($features, 'right');
 	$small: index($features, 'small');
 	$status: index($features, 'status');
@@ -85,18 +86,12 @@
 		);
 	}
 
-	@if index($elements, 'toggle') or index($elements, 'toggle-inverse') {
-		$inverse: index($elements, 'toggle-inverse');
-		@include _oFormsToggle($inverse, $inline-label);
+	@if index($elements, 'toggle') {
+		@include _oFormsToggle($inline-label);
 	}
 
-	@if index($features, 'optional') {
-		@include _oFormsOptional();
-		@include _oFormsRequired();
-	}
-
-	@if index($features, 'prompt') {
-		@include _oFormsPrompt();
+	@if $inverse {
+		@include _oFormsInverse();
 	}
 
 	@if $invalid {
