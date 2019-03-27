@@ -9,7 +9,7 @@
 	$invalid: null
 ) {
 	.o-forms--radio--round {
-		.o-forms__input-label {
+		.o-forms__input__label {
 			padding: 2px 0 2px 34px;
 			display: inline-block;
 
@@ -45,7 +45,7 @@
 			@include _oFormsControlsBase($disabled);
 
 			&:checked {
-				+ .o-forms__input-label:before {
+				+ .o-forms__input__label:before {
 					border-color: _oFormsGet('controls-base');
 				}
 			}

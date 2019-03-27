@@ -6,7 +6,7 @@
 		$toggle-spacing: oTypographySpacingSize(1) / 2; // to align text to pseudo elements
 		$toggle-width: oTypographySpacingSize(10);
 
-		.o-forms__input-label {
+		.o-forms__input__label {
 			display: inline-block;
 			padding: $toggle-spacing 0 $toggle-spacing oTypographySpacingSize(8);
 			vertical-align: top;
@@ -43,7 +43,7 @@
 			left: 12px;
 
 			&:checked {
-				+ .o-forms__input-label:after {
+				+ .o-forms__input__label:after {
 					left: 16px;
 				}
 			}

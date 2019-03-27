@@ -1,58 +1,46 @@
 /// @access private
-/// @param {Boolean} $additional-content Whether to output additional content styling
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $right Whether to display checkbox to the right of text
 /// @output Styling for text inputs
 @mixin _oFormsCheckbox(
-	$additional-content: null,
 	$disabled: null,
 	$inline: null,
 	$invalid: null,
 	$right: null
 ) {
-	.o-forms--checkbox {
-		.o-forms__input-label {
+	$element: 'input[type=checkbox]';
+
+	.o-forms__input--checkbox {
+		.o-forms__input__label {
 			display: inline-block;
 			padding: 2px 0 0 34px;
 			vertical-align: top;
 
-			&:before,
-			&:after {
-				@include _oFormsControlsPseudoElements();
-			}
-
 			&:before {
+				@include _oFormsControlsPseudoElements();
 				border: 1px solid _oFormsGet('default-border');
 				background-color: _oFormsGet('default-background');
 			}
 
 			&:after {
+				@include _oFormsControlsPseudoElements();
 				@include oIconsGetIcon('tick', _oFormsGet('controls-checked-base'), 24px);
 				background-color: _oFormsGet('controls-base');
 				opacity: 0;
 				transition: opacity 0.1s ease;
 			}
-		}
 
-		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
-			@include _oFormsControlsBase($disabled);
-		}
-
-		@if $additional-content {
-			&.o-forms--checkbox--extra-content {
-				input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
-					display: inline-block;
-					vertical-align: top;
-				}
-
-				p {
-					margin-top: 10px;
-					padding-top: 2px;
-					padding-left: 34px;
-				}
+			// this handles spacing between two input__label spans for the same input element, 
+			// which is necessary in the case of 'additional content'
+			& + .o-forms__input__label {
+				padding-top: 12px; 
 			}
+		}
+
+		#{$element} { // sass-lint:disable-line no-qualifying-elements
+			@include _oFormsControlsBase($disabled);
 		}
 
 		@if $inline {
@@ -60,38 +48,38 @@
 		}
 
 		@if $invalid {
-			&.o-forms--invalid .o-forms__error-message {
+			&.o-forms__input--invalid .o-forms__error-message {
 				@include oTypographyMargin($top: 2);
 			}
 		}
+	}
 
-		@if $right {
-			.o-forms__input--right {
-				label:first-of-type {
-					width: auto;
-					display: block;
+	@if $right {
+		.o-forms__input--right {
+			label:first-of-type {
+				width: auto;
+				display: block;
 
-					input[type="password"] { // sass-lint:disable-line no-qualifying-elements
-						@include _oFormsInputsBase($disabled);
-					}
+				input[type="password"] { // sass-lint:disable-line no-qualifying-elements
+					@include _oFormsInputsBase($disabled);
+				}
+			}
+
+			label {
+				display: inline-block;
+
+				#{$element} { // sass-lint:disable-line no-qualifying-elements
+					right: 0;
 				}
 
-				label {
-					display: inline-block;
+				.o-forms__input__label {
+					padding-left: 0;
+					padding-right: 34px;
 
-					input[type="checkbox"] { // sass-lint:disable-line no-qualifying-elements
+					&:before,
+					&:after {
 						right: 0;
-					}
-
-					.o-forms__input-label {
-						padding-left: 0;
-						padding-right: 34px;
-
-						&:before,
-						&:after {
-							right: 0;
-							left: unset;
-						}
+						left: unset;
 					}
 				}
 			}

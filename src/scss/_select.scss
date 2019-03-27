@@ -56,8 +56,6 @@
 			}
 		}
 
-
-
 		@if $inline {
 			@include _oFormsInline($label: true);
 		}

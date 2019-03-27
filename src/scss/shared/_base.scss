@@ -77,7 +77,7 @@
 			color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
 		}
 
-		.o-forms__input-label {
+		.o-forms__input__label {
 			&:before {
 				background-color: _oFormsGet('toggle-inverse-base');
 			}
@@ -89,11 +89,11 @@
 		}
 
 		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
-			+ .o-forms__input-label:before {
+			+ .o-forms__input__label:before {
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}
 
-			+ .o-forms__input-label:after {
+			+ .o-forms__input__label:after {
 				border-color: _oFormsGet('toggle-inverse-selected');
 			}
 		}

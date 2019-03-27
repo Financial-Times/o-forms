@@ -9,12 +9,11 @@
 
 @mixin oForms($opts: (
 	'elements': ('anchor', 'checkbox', 'date', 'radio-round', 'radio-box', 'select', 'text-area', 'text-input', 'toggle'),
-	'features': ('additional-content', 'disabled', 'inline', 'right', 'invalid', 'inverse', 'small', 'status', 'suffix', 'valid' )
+	'features': ('disabled', 'inline', 'right', 'invalid', 'inverse', 'small', 'status', 'suffix', 'valid' )
 )) {
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
 
-	$additional-content: index($features, 'additional-content');
 	$disabled: index($features, 'disabled');
 	$inline: index($features, 'inline');
 	$invalid: index($features, 'invalid');
@@ -33,7 +32,6 @@
 
 	@if index($elements, 'checkbox') {
 		@include _oFormsCheckbox(
-			$additional-content,
 			$disabled,
 			$inline,
 			$invalid,

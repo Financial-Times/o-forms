@@ -6,7 +6,7 @@
 	width: 24px;
 	height: 24px;
 
-	&:checked + .o-forms__input-label:after {
+	&:checked + .o-forms__input__label:after {
 		opacity: 1;
 	}
 
@@ -14,7 +14,7 @@
 		&:disabled {
 			opacity: 0;
 
-			+ .o-forms__input-label {
+			+ .o-forms__input__label {
 				opacity: 0.4;
 			}
 		}
