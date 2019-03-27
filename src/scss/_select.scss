@@ -14,8 +14,11 @@
 	$invalid: null,
 	$valid: null
 ) {
+
+	$element: 'select';
+
 	.o-forms__input--select {
-		select {
+		#{$element} {
 			@include _oFormsInputsBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
 			appearance: none;
@@ -60,24 +63,24 @@
 		}
 
 		@if $invalid {
-			&.o-forms__input--invalid select {
-				@include _oFormsInputs('invalid');
+			&.o-forms__input--invalid {
+				@include _oFormsInputs('invalid', $element);
 			}
 		}
 
 		@if $valid {
-			&.o-forms__input--valid select {
-				@include _oFormsInputs('valid');
+			&.o-forms__input--valid {
+				@include _oFormsInputs('valid', $element);
 			}
 		}
 	}
 
 	@if $small {
-		@include _oFormsSmall('select');
+		@include _oFormsSmall($element);
 		// line-height: 1.5;
 	}
 
 	@if $suffix {
-		@include _oFormsSuffix('select');
+		@include _oFormsSuffix($element);
 	}
 }

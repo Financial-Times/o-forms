@@ -27,8 +27,8 @@
 
 /// @access private
 /// @output Shared valid or invalid state styles for select, textarea and text input.
-@mixin _oFormsInputs($validity) {
-	&:not(:disabled) {
+@mixin _oFormsInputs($validity, $element) {
+	#{$element}:not(:disabled) {
 		color: _oFormsGet('#{$validity}-base');
 		background-color: if($validity == 'invalid', _oFormsGet('default-background'), rgba(_oFormsGet('valid-base'), 0.05));
 		border-color: _oFormsGet('#{$validity}-base');

@@ -14,8 +14,10 @@
 	$inline: null,
 	$valid: null
 ) {
+	$element: 'input[type=text]';
+
 	.o-forms__input--text {
-		input[type=text] { // sass-lint:disable-line no-qualifying-elements
+		#{$element} { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsInputsBase($disabled);
 		}
 
@@ -24,23 +26,23 @@
 		}
 		
 		@if $invalid {
-			&.o-forms__input--invalid input[type=text] { // sass-lint:disable-line no-qualifying-elements
-				@include _oFormsInputs('invalid');
+			&.o-forms__input--invalid { // sass-lint:disable-line no-qualifying-elements
+				@include _oFormsInputs('invalid', $element);
 			}
 		}
 	
 		@if $valid {
-			&.o-forms__input--valid input[type=text] { // sass-lint:disable-line no-qualifying-elements
-				@include _oFormsInputs('valid');
+			&.o-forms__input--valid { // sass-lint:disable-line no-qualifying-elements
+				@include _oFormsInputs('valid', $element);
 			}
 		}
 	}
 
 	@if $small {
-		@include _oFormsSmall('input[type=text]');
+		@include _oFormsSmall($element);
 	}
 
 	@if $suffix {
-		@include _oFormsSuffix('input[type=text]');
+		@include _oFormsSuffix($element);
 	}
 }

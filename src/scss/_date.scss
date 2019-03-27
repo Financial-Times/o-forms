@@ -5,13 +5,15 @@
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for date inputs
 @mixin _oFormsDate ($disabled: null, $invalid: null, $valid: null) {
-	.o-forms--date {
+	$element: 'input[type=text]';
+
+	.o-forms__input--date {
 		label {
 			@include oTypographyMargin($bottom: 0);
 			float: left;
 		}
 
-		input[type=text] { 
+		#{$element} { 
 			@include _oFormsInputsBase($disabled);
 			display: block;
 			margin: 4px 12px 0 0;
@@ -29,14 +31,19 @@
 		}
 
 		@if $invalid {
-			&.o-forms--invalid input[type=text] {
-				@include _oFormsInputs('invalid');
+			&.o-forms__input--invalid {
+				@include _oFormsInputs('invalid', $element);
+
+				.o-forms__error-message {
+					padding-top: 4px;
+					clear: both;
+				}
 			}
 		}
 
 		@if $valid {
-			&.o-forms--valid input[type=text] {
-				@include _oFormsInputs('valid');
+			&.o-forms__input--valid {
+				@include _oFormsInputs('valid', $element);
 			}
 		}
 	}

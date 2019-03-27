@@ -1,10 +1,10 @@
 <div class="demo">
-	<div class="o-forms o-forms--date">
+	<div class="o-forms">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Example date</span>
 			<span class="o-forms__label--prompt">Optional prompt text</span>
 		</span>
-		<span class="o-forms__input">
+		<span class="o-forms__input o-forms__input--date">
 			<label>
 				<span class="o-forms__input-label">DD</span>
 				<input type="text" pattern="[0-9]{2}">
@@ -20,11 +20,11 @@
 		</span>
 	</div>
 
-	<div class="o-forms o-forms--date o-forms--required">
+	<div class="o-forms o-forms--required">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Required date</span>
 		</span>
-		<span class="o-forms__input">
+		<span class="o-forms__input o-forms__input--date">
 			<label>
 				<span class="o-forms__input-label">DD</span>
 				<input type="text" pattern="[0-9]{2}" required>
@@ -40,11 +40,11 @@
 		</span>
 	</div>
 
-	<div class="o-forms o-forms--date">
+	<div class="o-forms">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Disabled date</span>
 		</span>
-		<span class="o-forms__input">
+		<span class="o-forms__input o-forms__input--date">
 			<label>
 				<span class="o-forms__input-label">DD</span>
 				<input type="text" pattern="[0-9]{2}" value="01" disabled>
@@ -60,11 +60,11 @@
 		</span>
 	</div>
 
-	<div class="o-forms o-forms--date o-forms--invalid">
+	<div class="o-forms">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Disabled date</span>
 		</span>
-		<span class="o-forms__input">
+		<span class="o-forms__input o-forms__input--date o-forms__input--invalid">
 			<label>
 				<span class="o-forms__input-label">DD</span>
 				<input type="text" pattern="[0-9]{2}" value="01">
@@ -77,7 +77,7 @@
 				<span class="o-forms__input-label">YYYY</span>
 				<input type="text" pattern="[0-9]{4}" value="2019" >
 			</label>
+			<span class="o-forms__error-message">Not a valid date</span>
 		</span>
-		<span class="o-forms__error-message">Not a valid date</span>
 	</div>
 </div>
