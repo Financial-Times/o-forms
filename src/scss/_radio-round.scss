@@ -1,14 +1,13 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @output Styling for box-styled radio inputs
 @mixin _oFormsRadioRound(
 	$disabled: null,
-	$inline: null,
 	$invalid: null
 ) {
-	.o-forms--radio--round {
+
+	.o-forms__input--radio-round {
 		.o-forms__input__label {
 			padding: 2px 0 2px 34px;
 			display: inline-block;
@@ -44,20 +43,13 @@
 		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
 
-			&:checked {
-				+ .o-forms__input__label:before {
-					border-color: _oFormsGet('controls-base');
-				}
+			&:checked	+ .o-forms__input__label:before {
+				border-color: _oFormsGet('controls-base');
 			}
 		}
 
-		@if $inline {
-			@include _oFormsInline($label: true, $inputs: true);
-		}
-
-
 		@if $invalid {
-			&.o-forms--invalid .o-forms__error-message {
+			&.o-forms__input--invalid .o-forms__error-message {
 				@include oTypographyMargin($top: 2);
 			}
 		}

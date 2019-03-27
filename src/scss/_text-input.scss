@@ -2,7 +2,6 @@
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $small Whether to output small input styles
 /// @param {Boolean} $suffix Whether to output suffix styles
-/// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text inputs
@@ -11,20 +10,23 @@
 	$small: null,
 	$suffix: null,
 	$invalid: null,
-	$inline: null,
 	$valid: null
 ) {
 	$element: 'input[type=text]';
+
+	@if $small {
+		@include _oFormsSmall($element);
+	}
+
+	@if $suffix {
+		@include _oFormsSuffix($element);
+	}
 
 	.o-forms__input--text {
 		#{$element} { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsInputsBase($disabled);
 		}
 
-		@if $inline {
-			@include _oFormsInline($label: true);
-		}
-		
 		@if $invalid {
 			&.o-forms__input--invalid { // sass-lint:disable-line no-qualifying-elements
 				@include _oFormsInputs('invalid', $element);
@@ -36,13 +38,5 @@
 				@include _oFormsInputs('valid', $element);
 			}
 		}
-	}
-
-	@if $small {
-		@include _oFormsSmall($element);
-	}
-
-	@if $suffix {
-		@include _oFormsSuffix($element);
 	}
 }

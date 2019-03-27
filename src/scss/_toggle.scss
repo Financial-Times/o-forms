@@ -1,8 +1,7 @@
 /// @access private
-/// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @output styles for toggle based on a checkbox input
-@mixin _oFormsToggle($inline: null) {
-	.o-forms--toggle {
+@mixin _oFormsToggle() {
+	.o-forms__input--toggle {
 		$toggle-spacing: oTypographySpacingSize(1) / 2; // to align text to pseudo elements
 		$toggle-width: oTypographySpacingSize(10);
 
@@ -47,10 +46,6 @@
 					left: 16px;
 				}
 			}
-		}
-
-		@if $inline {
-			@include _oFormsInline($label: true);
 		}
 	}
 }

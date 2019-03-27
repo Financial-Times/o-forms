@@ -1,7 +1,7 @@
 /// @access private
 /// @param {Boolean} $inline Whether to output inline states
 /// @output styles for state animation for the box-styled radio inputs
-@mixin _oFormsStatus($inline: null) {
+@mixin _oFormsStatus() {
 	.o-forms__state {
 		@include oTypographySize($scale: -1, $line-height: 1);
 		color: inherit;
@@ -46,10 +46,10 @@
 		}
 	}
 
-	@if $inline {
+	// @if $inline {
 		@include oGridRespondTo(S) {
-			@include _oFormsInline($inputs: true);
-			&.o-forms--status .o-forms__input.o-forms__input--inline {
+			// @include _oFormsInline($inputs: true);
+			.o-forms__input--status.o-forms__input--inline {
 				flex-direction: row-reverse;
 				align-items: center;
 
@@ -71,5 +71,5 @@
 				}
 			}
 		}
-	}
+	// }
 }

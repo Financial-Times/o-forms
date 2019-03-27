@@ -10,12 +10,24 @@
 	$disabled: null,
 	$small: null,
 	$suffix: null,
-	$inline: null,
+	// $inline: null,
 	$invalid: null,
 	$valid: null
 ) {
-
 	$element: 'select';
+	
+	// @if $inline {
+	// 	@include _oFormsInline($label: true);
+	// }
+
+	@if $small {
+		@include _oFormsSmall($element);
+		// line-height: 1.5;
+	}
+
+	@if $suffix {
+		@include _oFormsSuffix($element);
+	}
 
 	.o-forms__input--select {
 		#{$element} {
@@ -55,11 +67,6 @@
 				background-image:	none;
 			}
 		}
-
-		@if $inline {
-			@include _oFormsInline($label: true);
-		}
-
 		@if $invalid {
 			&.o-forms__input--invalid {
 				@include _oFormsInputs('invalid', $element);
@@ -71,14 +78,5 @@
 				@include _oFormsInputs('valid', $element);
 			}
 		}
-	}
-
-	@if $small {
-		@include _oFormsSmall($element);
-		// line-height: 1.5;
-	}
-
-	@if $suffix {
-		@include _oFormsSuffix($element);
 	}
 }

@@ -1,10 +1,10 @@
 <div class="demo">
-	<div class="o-forms o-forms--toggle">
+	<div class="o-forms">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Default checkboxes</span>
 			<span class="o-forms__label--prompt">Optional prompt text</span>
 		</span>
-		<span class="o-forms__input">
+		<span class="o-forms__input o-forms__input--toggle">
 			<label>
 				<input type="checkbox" name="default" value="1" checked/>
 				<span class="o-forms__input__label">Stacked 1</span>
@@ -16,11 +16,11 @@
 		</span>
 	</div>
 
-	<div class="o-forms o-forms--toggle o-forms--required">
+	<div class="o-forms o-forms--required">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Default checkboxes</span>
 		</span>
-		<span class="o-forms__input">
+		<span class="o-forms__input o-forms__input--toggle">
 			<label>
 				<input type="checkbox" name="required" value="1" required checked/>
 				<span class="o-forms__input__label">Stacked 1</span>
@@ -32,11 +32,11 @@
 		</span>
 	</div>
 
-	<div class="o-forms o-forms--toggle o-forms--invalid">
+	<div class="o-forms">
 		<span class="o-forms__label">
 			<span class="o-forms__label--title">Error</span>
 		</span>
-		<span class="o-forms__input">
+		<span class="o-forms__input o-forms__input--toggle o-forms__input--invalid">
 			<label>
 				<input type="checkbox" name="error" value="1" required checked/>
 				<span class="o-forms__input__label">Stacked 1</span>
@@ -45,17 +45,17 @@
 				<input type="checkbox" name="error" value="2" required/>
 				<span class="o-forms__input__label">Stacked 2</span>
 			</label>
-			<span class="o-forms__error-message">Whoops</span
+			<span class="o-forms__error-message">Whoops</span>
 		</span>
 	</div>
 
 	<div class="demo-inverse">
-		<div class="o-forms o-forms--toggle o-forms--inverse o-forms--required">
+		<div class="o-forms o-forms--inverse o-forms--required">
 			<span class="o-forms__label">
 				<span class="o-forms__label--title">Inverse checkboxes</span>
 				<span class="o-forms__label--prompt">Optional prompt text</span>
 			</span>
-			<span class="o-forms__input">
+			<span class="o-forms__input o-forms__input--toggle">
 				<label>
 					<input type="checkbox" name="checkbox-3" value="1" required checked/>
 					<span class="o-forms__input__label">Stacked 1</span>

@@ -1,12 +1,10 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $right Whether to display checkbox to the right of text
 /// @output Styling for text inputs
 @mixin _oFormsCheckbox(
 	$disabled: null,
-	$inline: null,
 	$invalid: null,
 	$right: null
 ) {
@@ -41,10 +39,6 @@
 
 		#{$element} { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
-		}
-
-		@if $inline {
-			@include _oFormsInline($label: true, $inputs: true);
 		}
 
 		@if $invalid {

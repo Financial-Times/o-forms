@@ -4,7 +4,11 @@
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for date inputs
-@mixin _oFormsDate ($disabled: null, $invalid: null, $valid: null) {
+@mixin _oFormsDate (
+	$disabled: null,
+	$invalid: null,
+	$valid: null
+) {
 	$element: 'input[type=text]';
 
 	.o-forms__input--date {

@@ -1,32 +1,30 @@
 /// @access private
 /// @output Styling for inlining labels and inputs
-@mixin _oFormsInline($label: null, $inputs: null) {
-	@if $label {
-		@include oGridRespondTo(S) {
-			&.o-forms--inline {
-				flex-direction: row;
-				justify-content: space-between;
-			
-				.o-forms__label {
-					flex: 0 1 50%;
-				}
-			
-				.o-forms__input {
-					display: flex;
-					flex-direction: column;
-					flex: 1 0 50%;
-					align-items: flex-start;
-					margin: 0;
-				}
+@mixin _oFormsInline() {
+	//inline labels and inputs
+	@include oGridRespondTo(S) {
+		&.o-forms--inline {
+			flex-direction: row;
+			justify-content: space-between;
+		
+			.o-forms__label {
+				flex: 0 1 50%;
+			}
+		
+			.o-forms__input {
+				display: flex;
+				flex-direction: column;
+				flex: 1 0 50%;
+				align-items: flex-start;
+				margin: 0;
 			}
 		}
-	}
-
-	@if $inputs {
+		
+		// inline inputs only
 		.o-forms__input.o-forms__input--inline {
 			display: flex;
 			flex-flow: row wrap;
-
+			
 			label {
 				margin: 0 16px 12px 0;
 				max-width: 75%;
