@@ -14,7 +14,7 @@
 	$invalid: null,
 	$valid: null
 ) {
-	.o-forms--select {
+	.o-forms__input--select {
 		select {
 			@include _oFormsInputsBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
@@ -53,29 +53,31 @@
 			}
 		}
 
-		@if $small {
-			@include _oFormsSmall('select');
-			line-height: 1.5;
-		}
 
-		@if $suffix {
-			@include _oFormsSuffix('select');
-		}
 
 		@if $inline {
 			@include _oFormsInline($label: true);
 		}
 
 		@if $invalid {
-			&.o-forms--invalid select {
+			&.o-forms__input--invalid select {
 				@include _oFormsInputs('invalid');
 			}
 		}
 
 		@if $valid {
-			&.o-forms--valid select {
+			&.o-forms__input--valid select {
 				@include _oFormsInputs('valid');
 			}
 		}
+	}
+
+	@if $small {
+		@include _oFormsSmall('select');
+		// line-height: 1.5;
+	}
+
+	@if $suffix {
+		@include _oFormsSuffix('select');
 	}
 }

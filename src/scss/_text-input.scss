@@ -14,33 +14,33 @@
 	$inline: null,
 	$valid: null
 ) {
-	.o-forms--text-input {
+	.o-forms__input--text {
 		input[type=text] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsInputsBase($disabled);
-		}
-
-		@if $small {
-			@include _oFormsSmall('input[type=text]');
-		}
-
-		@if $suffix {
-			@include _oFormsSuffix('input[type=text]');
 		}
 
 		@if $inline {
 			@include _oFormsInline($label: true);
 		}
-
+		
 		@if $invalid {
-			&.o-forms--invalid input[type=text] { // sass-lint:disable-line no-qualifying-elements
+			&.o-forms__input--invalid input[type=text] { // sass-lint:disable-line no-qualifying-elements
 				@include _oFormsInputs('invalid');
 			}
 		}
-
+	
 		@if $valid {
-			&.o-forms--valid input[type=text] { // sass-lint:disable-line no-qualifying-elements
+			&.o-forms__input--valid input[type=text] { // sass-lint:disable-line no-qualifying-elements
 				@include _oFormsInputs('valid');
 			}
 		}
+	}
+
+	@if $small {
+		@include _oFormsSmall('input[type=text]');
+	}
+
+	@if $suffix {
+		@include _oFormsSuffix('input[type=text]');
 	}
 }

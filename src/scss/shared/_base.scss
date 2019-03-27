@@ -42,14 +42,13 @@
 /// @access private
 /// @output Shared invalid styles for all form elements.
 @mixin _oFormsInvalid {
-	.o-forms--invalid {
+	.o-forms__input--invalid {
 		.o-forms__error-message {
 			@include oTypographyMargin($top: 1);
 			@include oTypographySize($scale: -1);
 			color: _oFormsGet('invalid-base');
 			display: block;
 		}
-
 	}
 }
 

@@ -10,7 +10,7 @@
 	$invalid: null,
 	$valid: null
 ) {
-	.o-forms--text-area {
+	.o-forms__input--textarea {
 		textarea {
 			@include _oFormsInputsBase($disabled);
 			resize: vertical;
@@ -21,13 +21,13 @@
 		}
 
 		@if $invalid {
-			&.o-forms--invalid textarea {
+			&.o-forms__input--invalid textarea {
 				@include _oFormsInputs('invalid');
 			}
 		}
 
 		@if $valid {
-			&.o-forms--valid textarea {
+			&.o-forms__input--valid textarea {
 				@include _oFormsInputs('valid');
 			}
 		}
