@@ -14,14 +14,14 @@
 			@include _oFormsBoxContainerBase();
 		}
 
-		label {
+		.o-forms__element {
 			@include _oFormsBoxControlsBase();
 
 			&:not(:first-of-type) {
 				border-left: 1px solid _oFormsGet('default-border');
 			}
 
-			.o-forms__input__label {
+			.o-forms__element__label {
 				box-sizing: border-box;
 				display: inline-block;
 				max-height: 28px;
@@ -71,7 +71,7 @@
 			background-color: _oFormsGet('controls-base', $from: $theme);
 			color: _oFormsGet('controls-checked-base', $from: $theme);
 
-			&.o-forms__input__label--negative {
+			&.o-forms__element__label--negative {
 				background-color: _oFormsGet('controls-negative-checked-background', $from: $theme);
 			}
 		}

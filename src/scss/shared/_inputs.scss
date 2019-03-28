@@ -38,7 +38,7 @@
 /// @access private
 /// @output Shared small styles for select and text input.
 @mixin _oFormsSmall($element) {
-	.o-forms--small {
+	.o-forms__input.o-forms__input--small {
 		#{$element} {
 			@include oTypographySize($scale: -1);
 			min-height: 28px;

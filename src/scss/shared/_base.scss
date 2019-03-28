@@ -10,24 +10,25 @@
 		display: flex;
 		flex-direction: column;
 
-		label {
+		.o-forms__element {
 			display: block;
 			margin: 0 0 12px;
 			position: relative;
 		}
 
-		label:last-of-type {
+		.o-forms__element:last-of-type {
 			@include oTypographyMargin($bottom: 0);
 		}
 	}
-
-	.o-forms__label {
-		.o-forms__label--title {
+	
+	.o-forms__group__title,
+	.o-forms__element__title {
+		&--main {
 			@include oTypographyBold('sans');
 			display: block;
 		}
 
-		.o-forms__label--prompt {
+		&--prompt {
 			@include oTypographySize($scale: -1);
 			color: _oFormsGet('default-prompt-text');
 			display: block;
@@ -56,12 +57,15 @@
 /// @output Shared required text styles for all form elements.
 @mixin _oFormsRequired {
 	&.o-forms--required {
-		.o-forms__label--title:after {
-			content: '(required)';
-			@include oTypographySize($scale: -1);
-			color: _oFormsGet('default-prompt-text');
-			font-weight: 400;
-			margin-left: 4px;
+		.o-forms__group__title--main,
+		.o-forms__element__title--main {
+			&:after {
+				content: '(required)';
+				@include oTypographySize($scale: -1);
+				color: _oFormsGet('default-prompt-text');
+				font-weight: 400;
+				margin-left: 4px;
+			}
 		}
 	}
 }
@@ -73,11 +77,14 @@
 	&.o-forms--inverse {
 		color: _oFormsGet('toggle-inverse-base');
 
-		.o-forms__label--prompt {
-			color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
+		.o-forms__group__title,
+		.o-forms__element__title {
+			&--prompt {
+				color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
+			}
 		}
 
-		.o-forms__input__label {
+		.o-forms__element__label {
 			&:before {
 				background-color: _oFormsGet('toggle-inverse-base');
 			}
@@ -89,11 +96,11 @@
 		}
 
 		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
-			+ .o-forms__input__label:before {
+			+ .o-forms__element__label:before {
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}
 
-			+ .o-forms__input__label:after {
+			+ .o-forms__element__label:after {
 				border-color: _oFormsGet('toggle-inverse-selected');
 			}
 		}

@@ -7,7 +7,8 @@
 			flex-direction: row;
 			justify-content: space-between;
 		
-			.o-forms__label {
+			.o-forms__group__title,
+			.o-forms__element__title {
 				flex: 0 1 50%;
 			}
 		
@@ -25,9 +26,15 @@
 			display: flex;
 			flex-flow: row wrap;
 			
-			label {
-				margin: 0 16px 12px 0;
-				max-width: 75%;
+				.o-forms__element {
+					margin: 0 16px 12px 0;
+					max-width: 75%;
+				}
+			&.o-forms__input--date,
+			&.o-forms__input--radio-box {
+				.o-forms__element {
+					margin: 0;
+				}
 			}
 		}
 	}
