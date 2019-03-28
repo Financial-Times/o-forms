@@ -6,7 +6,6 @@
 	$disabled: null,
 	$invalid: null
 ) {
-
 	.o-forms__input--radio-round {
 		.o-forms__element__label {
 			padding: 2px 0 2px 34px;
@@ -45,6 +44,12 @@
 
 			&:checked	+ .o-forms__element__label:before {
 				border-color: _oFormsGet('controls-base');
+			}
+
+			&:focus {
+				border-color: $o-normalise-focus-color;
+				box-shadow: 0 0 0 2px $o-normalise-focus-color;
+				outline:none;
 			}
 		}
 

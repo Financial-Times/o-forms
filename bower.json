@@ -5,7 +5,7 @@
 		"main.js"
 	],
 	"dependencies": {
-		"o-brand": ">=2.2.0 <4",
+		"o-brand": "^3.2.3",
 		"o-colors": "^4.0.1",
 		"o-grid": "^4.0.0",
 		"o-icons": "^5.7.0",

@@ -117,7 +117,7 @@
 			&.o-forms--anchor {
 				@include _oFormsAnchorBoxStyles($theme);
 			}
-		} @elseif $input == 'radio' {
+		} @else if $input == 'radio' {
 			&.o-forms--radio--box {
 				@include _oFormsRadioBoxInputStyles($theme);
 			}
