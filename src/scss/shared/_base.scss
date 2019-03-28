@@ -60,8 +60,8 @@
 		.o-forms__group__title--main,
 		.o-forms__element__title--main {
 			&:after {
-				content: '(required)';
 				@include oTypographySize($scale: -1);
+				content: '(required)';
 				color: _oFormsGet('default-prompt-text');
 				font-weight: 400;
 				margin-left: 4px;

@@ -20,12 +20,6 @@
 	},
 	"demos": [
 		{
-			"name": "groups",
-			"title": "Test",
-			"template": "/demos/src/groups.mustache",
-			"description": "Grouped elements"
-		},
-		{
 			"name": "inline",
 			"title": "Test",
 			"template": "/demos/src/inline.mustache",
