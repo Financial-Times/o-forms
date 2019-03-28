@@ -1,43 +1,47 @@
 <div class="demo">
-	<fieldset class="o-forms o-forms--radio--box">
-		<legend>
-			<span class="o-forms__label">Custom Box style radio buttons</span>
-		</legend>
-		<div>
-			<label>
-				<input type="radio" value="1" name="radio"/>
-				<span>Daily</span>
-			</label>
-			<label>
-				<input type="radio" value="2" name="radio" checked/>
-				<span>Weekly</span>
-			</label>
-		</div>
-	</fieldset>
-
-	<div class="o-forms o-forms--anchor">
-		<a href="#" class="o-forms__current">Custom Link A</a>
-		<a href="#">Custom Link B</a>
+	<div class="o-forms o-forms__group demo-custom-radio-theme">
+		<span class="o-forms__group__title">
+			<span class="o-forms__group__title--main">Custom Box style radio buttons / anchors</span>
+		</span>
+		<span class="o-forms__input o-forms__input--radio-box">
+			<div class="o-forms__input--radio-box__container">
+				<label class="o-forms__element">
+					<input type="radio" value="1" name="custom-radio"/>
+					<span class="o-forms__element__label">Daily</span>
+				</label>
+				<label class="o-forms__element">
+					<input type="radio" value="2" name="custom-radio" checked/>
+					<span class="o-forms__element__label">Weekly</span>
+				</label>
+			</div>
+		</span>
 	</div>
 
-	<fieldset class="o-forms o-forms--radio--box demo-custom-radio-theme">
-		<legend>
-			<span class="o-forms__label">Custom Icons</span>
-		</legend>
-		<div>
-			<label>
-				<input type="radio" value="1" name="radio2"/>
-				<span class="demo-grid-icon">Grid</span>
-			</label>
-			<label>
-				<input type="radio" value="2" name="radio2"/>
-				<span class="demo-list-icon">List</span>
-			</label>
-		</div>
-	</fieldset>
+	<div class="o-forms demo-custom-anchor-theme o-forms__input--pseudo-radio-box">
+		<a class="o-forms__anchor o-forms__anchor--current" href="#">Custom Link A</a>
+		<a class="o-forms__anchor" href="#">Custom Link B</a>
+	</div>
 
-	<div class="o-forms o-forms--anchor demo-custom-anchor-theme">
-		<a href="#" class="o-forms__current demo-grid-icon">Grid Link</a>
-		<a href="#" class="demo-list-icon">List Link</a>
+	<div class="o-forms o-forms__group demo-custom-radio-theme">
+		<span class="o-forms__group__title">
+			<span class="o-forms__group__title--main">Custom Box style radio buttons / anchors with icons</span>
+		</span>
+		<span class="o-forms__input o-forms__input--radio-box">
+			<div class="o-forms__input--radio-box__container">
+				<label class="o-forms__element">
+					<input type="radio" value="1" name="icon-radio"/>
+					<span class="o-forms__element__label o-forms__element__label__grid-icon">Grid</span>
+				</label>
+				<label class="o-forms__element">
+					<input type="radio" value="2" name="icon-radio" checked/>
+					<span class="o-forms__element__label o-forms__element__label__list-icon">List</span>
+				</label>
+			</div>
+		</span>
+	</div>
+ 
+	<div class="o-forms demo-custom-anchor-theme o-forms__input--pseudo-radio-box">
+		<a class="o-forms__anchor o-forms__anchor__grid-icon o-forms__anchor--current" href="#">Grid Link</a>
+		<a class="o-forms__anchor o-forms__anchor__list-icon" href="#">List Link</a>
 	</div>
 </div>

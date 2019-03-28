@@ -27,12 +27,12 @@
 /// @access private
 /// Outputs base styling for custom icons
 @mixin _oFormsCustomIconBase {
-	label {
+	.o-forms__element__label {
 		min-width: unset;
 	}
 
-	.o-forms__current,
-	input[type=radio]:checked + span {  // sass-lint:disable-line no-qualifying-elements
+	.o-forms__anchor.o-forms__anchor--current,
+	input[type=radio]:checked + .o-forms__element__label {  // sass-lint:disable-line no-qualifying-elements
 		&:after {
 			display: block;
 		}
@@ -40,18 +40,21 @@
 }
 
 /// @access public
-/// @param {String} $icon-name Name of the icon to request from the image set
-/// @param {String} $icon-class Class name for custom icon
+/// @param {String} $icon Name of the icon to request from the image set
+/// @param {String} $input Type of input to set icons on ('anchor' or radio)
 /// @param {Map|null} $theme Custom theme map
-@mixin oFormsCustomIcon($icon-name, $icon-class, $theme: null) {
-	@if not $icon-class {
-		@error('Custom icons require a class name, e.g. my-list-icon');
-	}
-
+@mixin _oFormsCustomIcon($icon, $input, $theme: null) {
+	@include _oFormsCustomIconBase();
 	$theme: _oFormsThemeToBrandVariants($theme);
+	$element: '';
 
-	.o-forms--anchor  a.#{$icon-class},  // sass-lint:disable-line no-qualifying-elements
-	input[type=radio] + .#{$icon-class} {  // sass-lint:disable-line no-qualifying-elements
+	@if $input == 'radio' {
+		$element: '.o-forms__element__label.o-forms__element__label__#{$icon}-icon';
+	} @else {
+		$element: '.o-forms__anchor.o-forms__anchor__#{$icon}-icon';
+	} 
+	
+	#{$element} {
 		padding-left: 24px;
 		padding-right: 8px;
 		text-align: left;
@@ -68,7 +71,7 @@
 
 		&:before {
 			@include oIconsGetIcon(
-				$icon-name: $icon-name,
+				$icon-name: $icon,
 				$color: _oFormsGet('controls-base', $from: $theme),
 				$apply-base-styles: false,
 				$high-contrast-fallback: true,
@@ -78,7 +81,7 @@
 
 		&:after {
 			@include oIconsGetIcon(
-				$icon-name: $icon-name,
+				$icon-name: $icon,
 				$color: _oFormsGet('controls-checked-base', $from: $theme),
 				$apply-base-styles: false,
 				$high-contrast-fallback: true,
@@ -86,23 +89,17 @@
 			);
 			display: none;
 		}
-
-		&.o-forms__current:after {
-			display: block;
-		}
 	}
 }
 
 
 /// @access public
 /// @param {String} $input Type of input to customise, one of 'anchor' or 'radio'
-/// @param {String} $custom-class Class name for custom theme
-/// @param {Boolean} $has-icon Whether to output custom icon base styles
+/// @param {Boolean} $icons A list of icons to render
 /// @param {Map|null} $theme Custom theme map
 @mixin oFormsCustom(
 	$input: null,
-	$custom-class: null,
-	$has-icon: false,
+	$icons: null,
 	$theme: null
 ) {
 
@@ -112,21 +109,21 @@
 
 	$theme: _oFormsThemeToBrandVariants($theme);
 
-	.#{$custom-class} {
-		@if $input == 'anchor' {
-			&.o-forms--anchor {
-				@include _oFormsAnchorBoxStyles($theme);
-			}
-		} @else if $input == 'radio' {
-			&.o-forms--radio--box {
-				@include _oFormsRadioBoxInputStyles($theme);
-			}
-		} @else {
-			@error('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');
-		};
+	@if $input == 'anchor' {
+		&.o-forms__input--pseudo-radio-box {
+			@include _oFormsAnchorBoxStyles($theme);
+		}
+	} @else if $input == 'radio' {
+		.o-forms__input--radio-box {
+			@include _oFormsRadioBoxInputStyles($theme);
+		}
+	} @else {
+		@error('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');
+	};
 
-		@if $has-icon {
-			@include _oFormsCustomIconBase();
+	@if $icons {
+		@each $icon in $icons {
+			@include _oFormsCustomIcon($icon, $input, $theme);
 		}
 	}
 }

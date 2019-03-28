@@ -22,23 +22,24 @@ body {
 
 $custom-theme: (
 	controls-base: 'claret',
-	controls-checked: 'white',
+	controls-checked-base: 'white',
 	controls-negative-checked-background: 'claret-30'
 );
 
-@include oFormsCustom(
-	$input: 'anchor',
-	$theme: $custom-theme,
-	$custom-class: 'demo-custom-anchor-theme',
-	$has-icon: true
-);
+$icon-list: ('grid', 'list');
 
-@include oFormsCustom(
-	$input: 'radio',
-	$theme: $custom-theme,
-	$custom-class: 'demo-custom-radio-theme',
-	$has-icon: true
-);
+.demo-custom-anchor-theme {
+	@include oFormsCustom(
+		$input: 'anchor',
+		$icons: $icon-list,
+		$theme: $custom-theme
+	);
+}
 
-@include oFormsCustomIcon('list', 'demo-list-icon', $custom-theme);
-@include oFormsCustomIcon('grid', 'demo-grid-icon', $custom-theme);
+.demo-custom-radio-theme {
+	@include oFormsCustom(
+		$input: 'radio',
+		$icons: $icon-list,
+		$theme: $custom-theme
+	);
+}
