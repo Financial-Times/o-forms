@@ -30,7 +30,7 @@
 				transition: opacity 0.1s ease;
 			}
 
-			// this handles spacing between two input__label spans for the same input element, 
+			// this handles spacing between two element__label spans for the same input element, 
 			// which is necessary in the case of 'additional content'
 			& + .o-forms__element__label {
 				padding-top: 12px; 

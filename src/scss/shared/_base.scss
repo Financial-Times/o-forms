@@ -74,7 +74,7 @@
 /// @access private
 /// @output styles for inverse toggle based on a checkbox input
 @mixin _oFormsInverse {
-	&.o-forms--inverse {
+	.o-forms--inverse {
 		color: _oFormsGet('toggle-inverse-base');
 
 		.o-forms__group__title,

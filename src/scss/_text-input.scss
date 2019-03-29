@@ -10,19 +10,20 @@
 	$small: null,
 	$suffix: null,
 	$invalid: null,
-	$valid: null
+	$valid: null,
+	$input-type: 'text'
 ) {
-	$element: 'input[type=text]';
+	$element: 'input[type=#{$input-type}]';
 
-	@if $small {
+	@if $small and $input-type == 'text' {
 		@include _oFormsSmall($element);
 	}
 
-	@if $suffix {
+	@if $suffix and $input-type == 'text' {
 		@include _oFormsSuffix($element);
 	}
 
-	.o-forms__input--text {
+	.o-forms__input--#{$input-type} {
 		#{$element} { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsInputsBase($disabled);
 		}
