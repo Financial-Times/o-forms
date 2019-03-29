@@ -79,7 +79,11 @@
 
 		.o-forms__group__title,
 		.o-forms__element__title {
-			&--prompt {
+			//this is kind of awful, but exists because of 'required' specificity. To be revisted.
+			.o-forms__group__title--main:after,
+			.o-forms__group__title--prompt,
+			.o-forms__element__title--main:after,
+			.o-forms__element__title--prompt {
 				color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
 			}
 		}
