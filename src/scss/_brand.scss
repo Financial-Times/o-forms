@@ -20,13 +20,11 @@ $_o-forms-shared-brand-config: (
 	controls-base: oColorsGetPaletteColor('teal'),
 	controls-checked-base: oColorsGetPaletteColor('white'),
 	controls-negative-checked-background: oColorsGetPaletteColor('teal-30'),
-	invalid-text: oColorsGetPaletteColor('crimson'),
-	invalid-background: oColorsMix('crimson', 'white', 10),
+	invalid-base: oColorsGetPaletteColor('crimson'),
 	toggle-inverse-base: oColorsGetPaletteColor('white'),
 	toggle-inverse-selected: oColorsGetPaletteColor('teal-100'),
 	toggle-inverse-knob: oColorsGetPaletteColor('teal'),
-	valid-text: oColorsMix('jade', 'black', 80),
-	valid-background: oColorsMix('jade', 'white', 10)
+	valid-base: oColorsMix('jade', 'black', 80)
 );
 
 @include oBrandDefine('o-forms', 'master', (
