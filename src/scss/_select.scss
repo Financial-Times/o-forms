@@ -15,10 +15,6 @@
 	$valid: null
 ) {
 	$element: 'select';
-	
-	// @if $inline {
-	// 	@include _oFormsInline($label: true);
-	// }
 
 	@if $small {
 		@include _oFormsSmall($element);
