@@ -23,78 +23,91 @@
 			"name": "inline",
 			"title": "Test",
 			"template": "/demos/src/inline.mustache",
+			"documentClasses": "demo",
 			"description": "Form elements inline with their respective labels"
 		},
 		{
 			"name": "status",
 			"title": "Test",
 			"template": "/demos/src/status.mustache",
+			"documentClasses": "demo",
 			"description": "Saving/saved status for box-style radio inputs"
 		},
 		{
 			"name": "anchor-box",
 			"title": "Test",
 			"template": "/demos/src/anchor-box.mustache",
+			"documentClasses": "demo",
 			"description": "Box-styled anchors"
 		},
 		{
 			"name": "custom",
 			"title": "Test",
 			"template": "/demos/src/custom.mustache",
+			"documentClasses": "demo",
 			"description": "Custom theme for box-styled anchors and radio inputs"
 		},
 		{
 			"name": "radio-box",
 			"title": "Test",
 			"template": "/demos/src/radio-box.mustache",
+			"documentClasses": "demo",
 			"description": "Box-styled radio inputs"
 		},
 		{
 			"name": "radio-round",
 			"title": "Test",
 			"template": "/demos/src/radio-round.mustache",
+			"documentClasses": "demo",
 			"description": "Round-styled radio inputs"
 		},
 		{
 			"name": "checkboxes",
 			"title": "Test",
 			"template": "/demos/src/checkboxes.mustache",
+			"documentClasses": "demo",
 			"description": "checkbox inputs"
 		},
 		{
 			"name": "suffix",
 			"title": "Test",
 			"template": "/demos/src/suffix.mustache",
+			"documentClasses": "demo",
 			"description": "input suffixes"
 		},
 		{
 			"name": "date",
 			"title": "Test",
 			"template": "/demos/src/date.mustache",
+			"documentClasses": "demo",
 			"description": "Date input"
 		},
 		{
 			"name": "toggle",
 			"title": "Test",
 			"template": "/demos/src/toggle.mustache",
+			"documentClasses": "demo",
 			"description": "Toggle input"
 		},
 		{
 			"name": "text-input",
 			"title": "Test",
 			"template": "/demos/src/text-input.mustache",
+			"documentClasses": "demo",
 			"description": "Text Input"
 		},
 		{
 			"name": "text-area",
 			"title": "Test",
 			"template": "/demos/src/textarea.mustache",
+			"documentClasses": "demo",
 			"description": "Text areas"
 		},
 		{
 			"name": "select",
 			"title": "Test",
 			"template": "/demos/src/select.mustache",
+			"documentClasses": "demo",
 			"description": "Select inputs"
 		}
 	],

@@ -1,149 +1,147 @@
-<div class="demo">
-	<div class="o-forms o-forms__group o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Default toggle</span>
-			<span class="o-forms__title--prompt">Optional prompt text</span>
-		</span >
-		<span class="o-forms__input o-forms__input--toggle ">
-			<label class="o-forms__element">
-				<input type="checkbox" value="1" name="checkbox" checked/>
-				<span class="o-forms__element__label">Toggle 1</span>
-			</label>
-			<label class="o-forms__element">
-				<input type="checkbox" value="2" name="checkbox"/>
-				<span class="o-forms__element__label">Toggle 2</span>
-			</label>
-		</span>
-	</div>
-
-	 <div class="o-forms o-forms__group o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Default Radio buttons</span>
-			<span class="o-forms__title--prompt">This is an optional prompt.</span>
-		</span>
-		<span class="o-forms__input o-forms__input--radio-round">
-			<label class="o-forms__element">
-				<input type="radio" value="1" name="radio" checked/>
-				<span class="o-forms__element__label">Default 1</span>
-			</label>
-			<label class="o-forms__element">
-				<input type="radio" value="2" name="radio"/>
-				<span class="o-forms__element__label">Default 2</span>
-			</label>
-		</span>
-	</div>
-
-	<div class="o-forms o-forms__group o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Radio Errors</span>
-		</span>
-		<span class="o-forms__input o-forms__input--radio-round o-forms__input--invalid">
-			<label class="o-forms__element">
-				<input type="radio" value="1" name="radio-error" checked/>
-				<span class="o-forms__element__label">Error 1</span>
-			</label>
-			<label class="o-forms__element">
-				<input type="radio" value="2" name="radio-error"/>
-				<span class="o-forms__element__label">Error 2</span>
-			</label>
-			<span class="o-forms__error-message">Something has gone wrong.</span>
-		</span>
-	</div>
-
-	<div class="o-forms o-forms__group o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Default checkboxes</span>
-			<span class="o-forms__title--prompt">Optional prompt text</span>
-		</span>
-		<span class="o-forms__input o-forms__input--checkbox">
-			<label class="o-forms__element">
-				<input type="checkbox" value="1" name="checkbox-2" checked/>
-				<span class="o-forms__element__label">Stacked 1</span>
-			</label>
-			<label class="o-forms__element">
-				<input type="checkbox" value="2" name="checkbox-2"/>
-				<span class="o-forms__element__label">Stacked 2</span>
-			</label>
-			<label class="o-forms__element">
-				<input type="checkbox" value="3" name="checkbox-2" checked/>
-				<span class="o-forms__element__label">Stacked 3</span>
-			</label>
-		</span>
-	</div>
-
-	<div class="o-forms o-forms__group o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Inline saving</span>
-		</span>
-		<span class="o-forms__input o-forms__input--radio-box o-forms__input--status o-forms__input--inline">
-			<div class="o-forms__input--radio-box__container">
-				<label class="o-forms__element">
-					<input type="radio" value="1" name="saving" checked/>
-					<span class="o-forms__element__label">Daily</span>
-				</label>
-				<label class="o-forms__element">
-					<input type="radio" value="2" name="saving"/>
-					<span class="o-forms__element__label">Weekly</span>
-				</label>
-			</div>
-			<span class="o-forms__state o-forms__state--saving"></span>
-		</span>
-	</div>
-
-	<label class="o-forms o-forms__element o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Text Input</span>
-			<span class="o-forms__title--prompt">Optional prompt text</span>
-		</span>
-		<span class="o-forms__input o-forms__input--text">
-			<input type="text" name="text" value="">
-		</span>
-	</label>
-
-	<label class="o-forms o-forms__element o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Text Input</span>
-			<span class="o-forms__title--prompt">Inline inputs with long labels / additonal content have a unique class to align them to the start and span error messages.</span>
-		</span>
-		<span class="o-forms__input o-forms__input--text">
-			<input type="text" name="text" value="">
-		</span>
-	</label>
-
-	<label class="o-forms o-forms__element o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Text Input with an invalid entry</span>
-		</span>
-		<span class="o-forms__input o-forms__input--text o-forms__input--invalid">
-			<input type="text" name="text" value="hp://invalid.com">
-			<span class="o-forms__error-message">
-				Please enter a valid url
-			</span>
-		</span>
-	</label>
-
-	<label class="o-forms o-forms__element o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Select Box</span>
-			<span class="o-forms__title--prompt">Optional prompt text</span>
-		</span>
-		<span class="o-forms__input o-forms__input--select">
-			<select>
-				<option value="option1" selected>Option 1</option>
-				<option value="option2">Option 2</option>
-				<option value="option3">Option 3</option>
-				<option value="option4">Option 4</option>
-			</select>
-		</span>
-	</label>
-
-	<label class="o-forms o-forms__element o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Text area</span>
-			<span class="o-forms__title--prompt">Optional prompt text</span>
-		</span>
-		<span class="o-forms__input o-forms__input--textarea">
-			<textarea></textarea>
-		</span>
-	</label>
+<div class="o-forms o-forms__group o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Default toggle</span>
+		<span class="o-forms__title--prompt">Optional prompt text</span>
+	</span >
+	<span class="o-forms__input o-forms__input--toggle ">
+		<label class="o-forms__element">
+			<input type="checkbox" value="1" name="checkbox" checked/>
+			<span class="o-forms__element__label">Toggle 1</span>
+		</label>
+		<label class="o-forms__element">
+			<input type="checkbox" value="2" name="checkbox"/>
+			<span class="o-forms__element__label">Toggle 2</span>
+		</label>
+	</span>
 </div>
+
+	<div class="o-forms o-forms__group o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Default Radio buttons</span>
+		<span class="o-forms__title--prompt">This is an optional prompt.</span>
+	</span>
+	<span class="o-forms__input o-forms__input--radio-round">
+		<label class="o-forms__element">
+			<input type="radio" value="1" name="radio" checked/>
+			<span class="o-forms__element__label">Default 1</span>
+		</label>
+		<label class="o-forms__element">
+			<input type="radio" value="2" name="radio"/>
+			<span class="o-forms__element__label">Default 2</span>
+		</label>
+	</span>
+</div>
+
+<div class="o-forms o-forms__group o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Radio Errors</span>
+	</span>
+	<span class="o-forms__input o-forms__input--radio-round o-forms__input--invalid">
+		<label class="o-forms__element">
+			<input type="radio" value="1" name="radio-error" checked/>
+			<span class="o-forms__element__label">Error 1</span>
+		</label>
+		<label class="o-forms__element">
+			<input type="radio" value="2" name="radio-error"/>
+			<span class="o-forms__element__label">Error 2</span>
+		</label>
+		<span class="o-forms__error-message">Something has gone wrong.</span>
+	</span>
+</div>
+
+<div class="o-forms o-forms__group o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Default checkboxes</span>
+		<span class="o-forms__title--prompt">Optional prompt text</span>
+	</span>
+	<span class="o-forms__input o-forms__input--checkbox">
+		<label class="o-forms__element">
+			<input type="checkbox" value="1" name="checkbox-2" checked/>
+			<span class="o-forms__element__label">Stacked 1</span>
+		</label>
+		<label class="o-forms__element">
+			<input type="checkbox" value="2" name="checkbox-2"/>
+			<span class="o-forms__element__label">Stacked 2</span>
+		</label>
+		<label class="o-forms__element">
+			<input type="checkbox" value="3" name="checkbox-2" checked/>
+			<span class="o-forms__element__label">Stacked 3</span>
+		</label>
+	</span>
+</div>
+
+<div class="o-forms o-forms__group o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Inline saving</span>
+	</span>
+	<span class="o-forms__input o-forms__input--radio-box o-forms__input--status o-forms__input--inline">
+		<div class="o-forms__input--radio-box__container">
+			<label class="o-forms__element">
+				<input type="radio" value="1" name="saving" checked/>
+				<span class="o-forms__element__label">Daily</span>
+			</label>
+			<label class="o-forms__element">
+				<input type="radio" value="2" name="saving"/>
+				<span class="o-forms__element__label">Weekly</span>
+			</label>
+		</div>
+		<span class="o-forms__state o-forms__state--saving"></span>
+	</span>
+</div>
+
+<label class="o-forms o-forms__element o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Text Input</span>
+		<span class="o-forms__title--prompt">Optional prompt text</span>
+	</span>
+	<span class="o-forms__input o-forms__input--text">
+		<input type="text" name="text" value="">
+	</span>
+</label>
+
+<label class="o-forms o-forms__element o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Text Input</span>
+		<span class="o-forms__title--prompt">Inline inputs with long labels / additonal content have a unique class to align them to the start and span error messages.</span>
+	</span>
+	<span class="o-forms__input o-forms__input--text">
+		<input type="text" name="text" value="">
+	</span>
+</label>
+
+<label class="o-forms o-forms__element o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Text Input with an invalid entry</span>
+	</span>
+	<span class="o-forms__input o-forms__input--text o-forms__input--invalid">
+		<input type="text" name="text" value="hp://invalid.com">
+		<span class="o-forms__error-message">
+			Please enter a valid url
+		</span>
+	</span>
+</label>
+
+<label class="o-forms o-forms__element o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Select Box</span>
+		<span class="o-forms__title--prompt">Optional prompt text</span>
+	</span>
+	<span class="o-forms__input o-forms__input--select">
+		<select>
+			<option value="option1" selected>Option 1</option>
+			<option value="option2">Option 2</option>
+			<option value="option3">Option 3</option>
+			<option value="option4">Option 4</option>
+		</select>
+	</span>
+</label>
+
+<label class="o-forms o-forms__element o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Text area</span>
+		<span class="o-forms__title--prompt">Optional prompt text</span>
+	</span>
+	<span class="o-forms__input o-forms__input--textarea">
+		<textarea></textarea>
+	</span>
+</label>

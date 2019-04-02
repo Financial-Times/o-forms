@@ -1,70 +1,68 @@
-<div class="demo">
-	<div class="o-forms o-forms__group">
+<div class="o-forms o-forms__group">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Default checkboxes</span>
+		<span class="o-forms__title--prompt">Optional prompt text</span>
+	</span>
+	<span class="o-forms__input o-forms__input--toggle">
+		<label class="o-forms__element">
+			<input type="checkbox" name="default" value="1" checked/>
+			<span class="o-forms__element__label">Stacked 1</span>
+		</label>
+		<label class="o-forms__element">
+			<input type="checkbox" name="default" value="2"/>
+			<span class="o-forms__element__label">Stacked 2</span>
+		</label>
+	</span>
+</div>
+
+<div class="o-forms o-forms__group o-forms--required">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Default checkboxes</span>
+	</span>
+	<span class="o-forms__input o-forms__input--toggle">
+		<label class="o-forms__element">
+			<input type="checkbox" name="required" value="1" required checked/>
+			<span class="o-forms__element__label">Stacked 1</span>
+		</label>
+		<label class="o-forms__element">
+			<input type="checkbox" name="required" value="2" required/>
+			<span class="o-forms__element__label">Stacked 2</span>
+		</label>
+	</span>
+</div>
+
+<div class="o-forms o-forms__group">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Error</span>
+	</span>
+	<span class="o-forms__input o-forms__input--toggle o-forms__input--invalid">
+		<label class="o-forms__element">
+			<input type="checkbox" name="error" value="1" required checked/>
+			<span class="o-forms__element__label">Stacked 1</span>
+		</label>
+		<label class="o-forms__element">
+			<input type="checkbox" name="error" value="2" required/>
+			<span class="o-forms__element__label">Stacked 2</span>
+		</label>
+		<span class="o-forms__error-message">Whoops</span>
+	</span>
+</div>
+
+<div class="demo-inverse">
+	<div class="o-forms o-forms__group o-forms--inverse o-forms--required">
 		<span class="o-forms__title">
-			<span class="o-forms__title--main">Default checkboxes</span>
+			<span class="o-forms__title--main">Inverse checkboxes</span>
 			<span class="o-forms__title--prompt">Optional prompt text</span>
 		</span>
 		<span class="o-forms__input o-forms__input--toggle">
 			<label class="o-forms__element">
-				<input type="checkbox" name="default" value="1" checked/>
+				<input type="checkbox" name="checkbox-3" value="1" required checked/>
 				<span class="o-forms__element__label">Stacked 1</span>
 			</label>
 			<label class="o-forms__element">
-				<input type="checkbox" name="default" value="2"/>
+				<input type="checkbox" name="checkbox-3" value="2" required/>
 				<span class="o-forms__element__label">Stacked 2</span>
 			</label>
 		</span>
-	</div>
-
-	<div class="o-forms o-forms__group o-forms--required">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Default checkboxes</span>
-		</span>
-		<span class="o-forms__input o-forms__input--toggle">
-			<label class="o-forms__element">
-				<input type="checkbox" name="required" value="1" required checked/>
-				<span class="o-forms__element__label">Stacked 1</span>
-			</label>
-			<label class="o-forms__element">
-				<input type="checkbox" name="required" value="2" required/>
-				<span class="o-forms__element__label">Stacked 2</span>
-			</label>
-		</span>
-	</div>
-
-	<div class="o-forms o-forms__group">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Error</span>
-		</span>
-		<span class="o-forms__input o-forms__input--toggle o-forms__input--invalid">
-			<label class="o-forms__element">
-				<input type="checkbox" name="error" value="1" required checked/>
-				<span class="o-forms__element__label">Stacked 1</span>
-			</label>
-			<label class="o-forms__element">
-				<input type="checkbox" name="error" value="2" required/>
-				<span class="o-forms__element__label">Stacked 2</span>
-			</label>
-			<span class="o-forms__error-message">Whoops</span>
-		</span>
-	</div>
-
-	<div class="demo-inverse">
-		<div class="o-forms o-forms__group o-forms--inverse o-forms--required">
-			<span class="o-forms__title">
-				<span class="o-forms__title--main">Inverse checkboxes</span>
-				<span class="o-forms__title--prompt">Optional prompt text</span>
-			</span>
-			<span class="o-forms__input o-forms__input--toggle">
-				<label class="o-forms__element">
-					<input type="checkbox" name="checkbox-3" value="1" required checked/>
-					<span class="o-forms__element__label">Stacked 1</span>
-				</label>
-				<label class="o-forms__element">
-					<input type="checkbox" name="checkbox-3" value="2" required/>
-					<span class="o-forms__element__label">Stacked 2</span>
-				</label>
-			</span>
-		</div>
 	</div>
 </div>

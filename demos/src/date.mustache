@@ -1,103 +1,101 @@
-<div class="demo">
-	<div class="o-forms o-forms__group">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Example date</span>
-			<span class="o-forms__title--prompt">Optional prompt text</span>
-		</span>
-		<span class="o-forms__input o-forms__input--date">
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">DD</span>
-				<input type="text" pattern="[0-9]{2}">
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">MM</span>
-				<input type="text" pattern="0?[1-9]|1[012]">
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">YYYY</span>
-				<input type="text" pattern="[0-9]{4}">
-			</label>
-		</span>
-	</div>
+<div class="o-forms o-forms__group">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Example date</span>
+		<span class="o-forms__title--prompt">Optional prompt text</span>
+	</span>
+	<span class="o-forms__input o-forms__input--date">
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">DD</span>
+			<input type="text" pattern="[0-9]{2}">
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]">
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">YYYY</span>
+			<input type="text" pattern="[0-9]{4}">
+		</label>
+	</span>
+</div>
 
-	<div class="o-forms o-forms--required">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Required date</span>
-		</span>
-		<span class="o-forms__input o-forms__input--date">
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">DD</span>
-				<input type="text" pattern="[0-9]{2}" required>
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">MM</span>
-				<input type="text" pattern="0?[1-9]|1[012]" required>
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">YYYY</span>
-				<input type="text" pattern="[0-9]{4}" required>
-			</label>
-		</span>
-	</div>
+<div class="o-forms o-forms--required">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Required date</span>
+	</span>
+	<span class="o-forms__input o-forms__input--date">
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">DD</span>
+			<input type="text" pattern="[0-9]{2}" required>
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]" required>
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">YYYY</span>
+			<input type="text" pattern="[0-9]{4}" required>
+		</label>
+	</span>
+</div>
 
-	<div class="o-forms o-forms__group">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Disabled date</span>
-		</span>
-		<span class="o-forms__input o-forms__input--date">
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">DD</span>
-				<input type="text" pattern="[0-9]{2}" value="01" disabled>
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">MM</span>
-				<input type="text" pattern="0?[1-9]|1[012]" value="12"disabled>
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">YYYY</span>
-				<input type="text" pattern="[0-9]{4}" value="2019" disabled>
-			</label>
-		</span>
-	</div>
+<div class="o-forms o-forms__group">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Disabled date</span>
+	</span>
+	<span class="o-forms__input o-forms__input--date">
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">DD</span>
+			<input type="text" pattern="[0-9]{2}" value="01" disabled>
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]" value="12"disabled>
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">YYYY</span>
+			<input type="text" pattern="[0-9]{4}" value="2019" disabled>
+		</label>
+	</span>
+</div>
 
-	<div class="o-forms o-forms__group">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Error date</span>
-		</span>
-		<span class="o-forms__input o-forms__input--date o-forms__input--invalid">
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">DD</span>
-				<input type="text" pattern="[0-9]{2}" value="01">
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">MM</span>
-				<input type="text" pattern="0?[1-9]|1[012]" value="24">
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">YYYY</span>
-				<input type="text" pattern="[0-9]{4}" value="2019" >
-			</label>
-			<span class="o-forms__error-message">Not a valid date</span>
-		</span>
-	</div>
+<div class="o-forms o-forms__group">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Error date</span>
+	</span>
+	<span class="o-forms__input o-forms__input--date o-forms__input--invalid">
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">DD</span>
+			<input type="text" pattern="[0-9]{2}" value="01">
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]" value="24">
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">YYYY</span>
+			<input type="text" pattern="[0-9]{4}" value="2019" >
+		</label>
+		<span class="o-forms__error-message">Not a valid date</span>
+	</span>
+</div>
 
-	<div class="o-forms o-forms__group o-forms--inline">
-		<span class="o-forms__title">
-			<span class="o-forms__title--main">Inline date</span>
-		</span>
-		<span class="o-forms__input o-forms__input--date o-forms__input--inline">
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">DD</span>
-				<input type="text" pattern="[0-9]{2}" value="01" disabled>
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">MM</span>
-				<input type="text" pattern="0?[1-9]|1[012]" value="12"disabled>
-			</label>
-			<label class="o-forms__element">
-				<span class="o-forms__element__label">YYYY</span>
-				<input type="text" pattern="[0-9]{4}" value="2019" disabled>
-			</label>
-		</span>
-	</div>
+<div class="o-forms o-forms__group o-forms--inline">
+	<span class="o-forms__title">
+		<span class="o-forms__title--main">Inline date</span>
+	</span>
+	<span class="o-forms__input o-forms__input--date o-forms__input--inline">
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">DD</span>
+			<input type="text" pattern="[0-9]{2}" value="01" disabled>
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]" value="12"disabled>
+		</label>
+		<label class="o-forms__element">
+			<span class="o-forms__element__label">YYYY</span>
+			<input type="text" pattern="[0-9]{4}" value="2019" disabled>
+		</label>
+	</span>
 </div>
