@@ -106,6 +106,12 @@
 			"title": "Test",
 			"template": "/demos/src/select.mustache",
 			"description": "Select inputs"
+		},
+		{
+			"name": "pa11y",
+			"title": "Test",
+			"template": "/demos/src/pa11y.mustache",
+			"description": "pa11y"
 		}
 	]
 }
