@@ -49,32 +49,21 @@
 	}
 
 	@if $right {
-		.o-forms__input--right {
-			label:first-of-type {
-				width: auto;
-				display: block;
+		.o-forms__element.o-forms__element--reverse {
+			display: inline-block;
 
-				input[type="password"] { // sass-lint:disable-line no-qualifying-elements
-					@include _oFormsInputsBase($disabled);
-				}
+			#{$element} { // sass-lint:disable-line no-qualifying-elements
+				right: 0;
 			}
 
-			label {
-				display: inline-block;
+			.o-forms__element__label {
+				padding-left: 0;
+				padding-right: 34px;
 
-				#{$element} { // sass-lint:disable-line no-qualifying-elements
+				&:before,
+				&:after {
 					right: 0;
-				}
-
-				.o-forms__element__label {
-					padding-left: 0;
-					padding-right: 34px;
-
-					&:before,
-					&:after {
-						right: 0;
-						left: unset;
-					}
+					left: unset;
 				}
 			}
 		}

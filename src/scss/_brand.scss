@@ -25,8 +25,8 @@ $_o-forms-shared-brand-config: (
 	toggle-inverse-base: oColorsGetPaletteColor('white'),
 	toggle-inverse-selected: oColorsGetPaletteColor('teal-100'),
 	toggle-inverse-knob: oColorsGetPaletteColor('teal'),
-	valid-text: oColorsMix('jade','black', 80),
-	valid-background: oColorsMix('jade','white', 10),
+	valid-text: oColorsMix('jade', 'black', 80),
+	valid-background: oColorsMix('jade', 'white', 10)
 );
 
 @include oBrandDefine('o-forms', 'master', (
