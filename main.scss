@@ -18,8 +18,7 @@
 		'select',
 		'textarea',
 		'text',
-		'toggle',
-		'url'
+		'toggle'
 	),
 	'features': (
 		'disabled',
@@ -122,16 +121,6 @@
 
 	@if index($elements, 'toggle') {
 		@include _oFormsToggle();
-	}
-
-
-	@if index($elements, 'url') {
-		@include _oFormsTextInput(
-			$disabled,
-			$invalid,
-			$valid,
-			$input-type: 'url'
-		);
 	}
 
 	@if $inline {
