@@ -1,101 +1,101 @@
-<div class="o-forms o-forms__group">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Example date</span>
+<div class="o-forms o-forms__group" role="group" aria-labelledby="date-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="date-group-title">Example date</span>
 		<span class="o-forms__title--prompt">Optional prompt text</span>
 	</span>
 	<span class="o-forms__input o-forms__input--date">
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">DD</span>
-			<input type="text" pattern="[0-9]{2}">
+			<span class="o-forms__element__label" aria-hidden="true">DD</span>
+			<input type="text" pattern="[0-9]{2}" aria-label="Day (DD)">
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">MM</span>
-			<input type="text" pattern="0?[1-9]|1[012]">
+			<span class="o-forms__element__label" aria-hidden="true">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]" aria-label="Month (MM)">
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">YYYY</span>
-			<input type="text" pattern="[0-9]{4}">
+			<span class="o-forms__element__label" aria-hidden="true">YYYY</span>
+			<input type="text" pattern="[0-9]{4}" aria-label="Year (YYYY)">
 		</label>
 	</span>
 </div>
 
-<div class="o-forms o-forms--optional">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Optional date input</span>
+<div class="o-forms o-forms--optional" role="group" aria-labelledby="optional-date-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="optional-date-group-title">Optional date input</span>
 	</span>
 	<span class="o-forms__input o-forms__input--date">
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">DD</span>
-			<input type="text" pattern="[0-9]{2}" required>
+			<span class="o-forms__element__label" aria-hidden="true">DD</span>
+			<input type="text" pattern="[0-9]{2}" aria-label="Day (DD)">
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">MM</span>
-			<input type="text" pattern="0?[1-9]|1[012]" required>
+			<span class="o-forms__element__label" aria-hidden="true">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]" aria-label="Month (MM)">
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">YYYY</span>
-			<input type="text" pattern="[0-9]{4}" required>
+			<span class="o-forms__element__label" aria-hidden="true">YYYY</span>
+			<input type="text" pattern="[0-9]{4}" aria-label="Year (YYYY)">
 		</label>
 	</span>
 </div>
 
-<div class="o-forms o-forms__group">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Disabled date</span>
+<div class="o-forms o-forms__group" role="group" aria-labelledby="disabled-date-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="disabled-date-group-title">Disabled date</span>
 	</span>
 	<span class="o-forms__input o-forms__input--date">
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">DD</span>
-			<input type="text" pattern="[0-9]{2}" value="01" disabled>
+			<span class="o-forms__element__label" aria-hidden="true">DD</span>
+			<input type="text" pattern="[0-9]{2}" aria-label="Day (DD)" disabled>
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">MM</span>
-			<input type="text" pattern="0?[1-9]|1[012]" value="12"disabled>
+			<span class="o-forms__element__label" aria-hidden="true">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]" aria-label="Month (MM)" disabled>
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">YYYY</span>
-			<input type="text" pattern="[0-9]{4}" value="2019" disabled>
+			<span class="o-forms__element__label" aria-hidden="true">YYYY</span>
+			<input type="text" pattern="[0-9]{4}" aria-label="Year (YYYY)" disabled>
 		</label>
 	</span>
 </div>
 
-<div class="o-forms o-forms__group">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Error date</span>
+<div class="o-forms o-forms__group" role="group" aria-labelledby="error-date-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="error-date-group-title">Error date</span>
 	</span>
 	<span class="o-forms__input o-forms__input--date o-forms__input--invalid">
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">DD</span>
-			<input type="text" pattern="[0-9]{2}" value="01">
+			<span class="o-forms__element__label" aria-hidden="true">DD</span>
+			<input type="text" pattern="[0-9]{2}" value="01" aria-label="Day (DD)">
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">MM</span>
-			<input type="text" pattern="0?[1-9]|1[012]" value="24">
+			<span class="o-forms__element__label" aria-hidden="true">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]" value="24" aria-label="Month (MM)">
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">YYYY</span>
-			<input type="text" pattern="[0-9]{4}" value="2019" >
+			<span class="o-forms__element__label" aria-hidden="true">YYYY</span>
+			<input type="text" pattern="[0-9]{4}" value="2019" aria-label="Year (YYYY)">
 		</label>
 		<span class="o-forms__error-message">Not a valid date</span>
 	</span>
 </div>
 
-<div class="o-forms o-forms__group o-forms--inline">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Inline date</span>
+<div class="o-forms o-forms__group o-forms--inline" role="group" aria-labelledby="inline-date-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="inline-date-group-title">Inline date</span>
 	</span>
 	<span class="o-forms__input o-forms__input--date o-forms__input--inline">
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">DD</span>
-			<input type="text" pattern="[0-9]{2}" value="01" disabled>
+			<span class="o-forms__element__label" aria-hidden="true">DD</span>
+			<input type="text" pattern="[0-9]{2}" value="01" aria-label="Day (DD)" disabled>
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">MM</span>
-			<input type="text" pattern="0?[1-9]|1[012]" value="12"disabled>
+			<span class="o-forms__element__label" aria-hidden="true">MM</span>
+			<input type="text" pattern="0?[1-9]|1[012]" value="12" aria-label="Month (MM)" disabled>
 		</label>
 		<label class="o-forms__element">
-			<span class="o-forms__element__label">YYYY</span>
-			<input type="text" pattern="[0-9]{4}" value="2019" disabled>
+			<span class="o-forms__element__label" aria-hidden="true">YYYY</span>
+			<input type="text" pattern="[0-9]{4}" value="2019" aria-label="Year (YYYY)" disabled>
 		</label>
 	</span>
 </div>

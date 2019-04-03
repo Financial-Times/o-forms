@@ -37,7 +37,7 @@
 			opacity: 0;
 
 			@if $disabled {
-				&:disabled + span {
+				&:disabled + .o-forms__element__label {
 					cursor: default;
 					opacity: 0.4;
 				}
@@ -59,15 +59,15 @@
 	$theme: _oFormsThemeToBrandVariants($theme);
 
 	input[type=radio] {  // sass-lint:disable-line no-qualifying-elements
-		& + span {
+		& + .o-forms__element__label {
 			color: _oFormsGet('controls-base', $from: $theme);
 		}
 
-		&:not(:checked):not(:disabled):hover + span {
+		&:not(:checked):not(:disabled):hover + .o-forms__element__label {
 			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
 		}
 
-		&:checked + span {
+		&:checked + .o-forms__element__label {
 			background-color: _oFormsGet('controls-base', $from: $theme);
 			color: _oFormsGet('controls-checked-base', $from: $theme);
 

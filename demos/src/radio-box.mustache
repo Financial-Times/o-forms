@@ -1,75 +1,77 @@
-<div class="o-forms o-forms__group">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Box style radio buttons</span>
+<div class="o-forms o-forms__group" role="group" aria-labelledby="box-radio-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="box-radio-group-title">Box style radio buttons</span>
 		<span class="o-forms__title--prompt">Optional prompt text</span>
 	</span>
 	<span class="o-forms__input o-forms__input--radio-box">
 		<div class="o-forms__input--radio-box__container">
 			<label class="o-forms__element">
-				<input type="radio" value="1" name="radio"/>
-				<span class="o-forms__element__label">Daily</span>
+				<input type="radio" value="1" name="radio" aria-label="Daily"/>
+				<span class="o-forms__element__label" aria-hidden="true">Daily</span>
 			</label>
 			<label class="o-forms__element">
-				<input type="radio" value="2" name="radio"/>
-				<span class="o-forms__element__label">Weekly</span>
+				<input type="radio" value="2" name="radio" aria-label="Weekly"/>
+				<span class="o-forms__element__label" aria-hidden="true">Weekly</span>
 			</label>
 		</div>
 	</span>
 </div>
 
-<div class="o-forms o-forms__group">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Negative highlight</span>
+<div class="o-forms o-forms__group" role="group" aria-labelledby="neg-box-radio-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="neg-box-radio-group-title">Negative highlight</span>
 	</span>
 	<span class="o-forms__input o-forms__input--radio-box">
 		<div class="o-forms__input--radio-box__container">
 			<label class="o-forms__element">
-				<input type="radio" value="yes" name="negative"/>
-				<span class="o-forms__element__label">Yes</span>
+				<input type="radio" value="yes" name="negative" aria-label="Yes"/>
+				<span class="o-forms__element__label" aria-hidden="true">Yes</span>
 			</label>
 			<label class="o-forms__element">
-				<input type="radio" value="no" name="negative" checked/>
-				<span class="o-forms__element__label o-forms__element__label--negative">No</span>
+				<input type="radio" value="no" name="negative" checked aria-label="No"/>
+				<span class="o-forms__element__label o-forms__element__label--negative" aria-hidden="true">No</span>
 			</label>
 		</div>
 	</span>
 </div>
 
-<div class="o-forms o-forms__group">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Multiple choice with default selection</span>
+<div class="o-forms o-forms__group" role="group" aria-labelledby="multiple-box-radio-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="multiple-box-radio-group-title">
+			Multiple choice with default selection
+		</span>
 	</span>
 	<span class="o-forms__input o-forms__input--radio-box">
 		<div class="o-forms__input--radio-box__container">
 			<label class="o-forms__element">
-				<input type="radio" value="1" name="multiple"/>
-				<span class="o-forms__element__label">Daily</span>
+				<input type="radio" value="Daily" name="multiple" aria-label="Daily"/>
+				<span class="o-forms__element__label" aria-hidden="true">Daily</span>
 			</label>
 			<label class="o-forms__element">
-				<input type="radio" value="2" name="multiple" checked/>
-				<span class="o-forms__element__label">Weekly</span>
+				<input type="radio" value="Weekly" name="multiple" checked aria-label="Weekly"/>
+				<span class="o-forms__element__label" aria-hidden="true">Weekly</span>
 			</label>
 			<label class="o-forms__element">
-				<input type="radio" value="3" name="multiple"/>
-				<span class="o-forms__element__label">Monthly</span>
+				<input type="radio" value="Monthly" name="multiple" aria-label="Monthly"/>
+				<span class="o-forms__element__label" aria-hidden="true">Monthly</span>
 			</label>
 		</div>
 	</span>
 </div>
 
-<div class="o-forms o-forms__group">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Error</span>
+<div class="o-forms o-forms__group" role="group" aria-labelledby="error-box-radio-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="error-box-radio-group-title">Error</span>
 	</span>
 	<span class="o-forms__input o-forms__input--radio-box o-forms__input--invalid">
 		<div class="o-forms__input--radio-box__container">
 			<label class="o-forms__element">
-				<input type="radio" value="yes" name="error" checked/>
-				<span class="o-forms__element__label">Yes</span>
+				<input type="radio" value="yes" name="error" checked aria-label="Yes"/>
+				<span class="o-forms__element__label" aria-hidden="true">Yes</span>
 			</label>
 			<label class="o-forms__element">
-				<input type="radio" value="no" name="error"/>
-				<span class="o-forms__element__label">No</span>
+				<input type="radio" value="no" name="error" aria-label="No" aria-label="No"/>
+				<span class="o-forms__element__label" aria-hidden="true">No</span>
 			</label>
 		</div>
 		<span class="o-forms__error-message">
@@ -78,19 +80,19 @@
 	</span>
 </div>
 
-<div class="o-forms o-forms__group">
-	<span class="o-forms__title">
-		<span class="o-forms__title--main">Disabled</span>
+<div class="o-forms o-forms__group" role="group" aria-labelledby="disabled-box-radio-group-title">
+	<span class="o-forms__title" aria-hidden="true">
+		<span class="o-forms__title--main" id="disabled-box-radio-group-title">Disabled</span>
 	</span>
 	<span class="o-forms__input o-forms__input--radio-box">
 		<div class="o-forms__input--radio-box__container">
 			<label class="o-forms__element">
-				<input type="radio" value="yes" name="disabled" disabled checked/>
-				<span class="o-forms__element__label">Daily</span>
+				<input type="radio" value="yes" name="disabled" disabled checked aria-label="Daily"/>
+				<span class="o-forms__element__label" aria-hidden="true">Daily</span>
 			</label>
 			<label class="o-forms__element">
-				<input type="radio" value="no" name="disabled" disabled/>
-				<span class="o-forms__element__label">Monthly</span>
+				<input type="radio" value="no" name="disabled" disabled aria-label="Monthly"/>
+				<span class="o-forms__element__label" aria-hidden="true">Monthly</span>
 			</label>
 		</div>
 	</span>
