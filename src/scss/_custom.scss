@@ -27,11 +27,13 @@
 /// @access private
 /// Outputs base styling for custom icons
 @mixin _oFormsCustomIconBase {
+	.o-forms__input__label,
 	.o-forms__element__label {
 		min-width: unset;
 	}
 
 	.o-forms__anchor.o-forms__anchor--current,
+	input[type=radio]:checked + .o-forms__input__label,  // sass-lint:disable-line no-qualifying-elements
 	input[type=radio]:checked + .o-forms__element__label {  // sass-lint:disable-line no-qualifying-elements
 		&:after {
 			display: block;

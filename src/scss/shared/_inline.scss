@@ -24,13 +24,15 @@
 		.o-forms__input.o-forms__input--inline {
 			display: flex;
 			flex-flow: row wrap;
-			
+				
+				label,
 				.o-forms__element {
 					margin: 0 16px 12px 0;
 					max-width: 75%;
 				}
 			&.o-forms__input--date,
 			&.o-forms__input--radio-box {
+				label,
 				.o-forms__element {
 					margin: 0;
 				}

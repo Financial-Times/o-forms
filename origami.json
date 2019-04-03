@@ -66,9 +66,9 @@
 			"description": "Round-styled radio inputs"
 		},
 		{
-			"name": "checkboxes",
+			"name": "checkbox",
 			"title": "Test",
-			"template": "/demos/src/checkboxes.mustache",
+			"template": "/demos/src/checkbox.mustache",
 			"description": "checkbox inputs"
 		},
 		{

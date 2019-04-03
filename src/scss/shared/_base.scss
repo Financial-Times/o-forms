@@ -10,12 +10,14 @@
 		display: flex;
 		flex-direction: column;
 
+		label,
 		.o-forms__element {
 			display: block;
 			margin: 0 0 12px;
 			position: relative;
 		}
 
+		label:last-of-type,
 		.o-forms__element:last-of-type {
 			@include oTypographyMargin($bottom: 0);
 		}
@@ -82,6 +84,7 @@
 			}
 		}
 
+		.o-forms__input__label,
 		.o-forms__element__label {
 			&:before {
 				background-color: _oFormsGet('toggle-inverse-base');
@@ -94,10 +97,12 @@
 		}
 
 		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
+			+ .o-forms__input__label:before,
 			+ .o-forms__element__label:before {
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}
 
+			+ .o-forms__input__label:after,
 			+ .o-forms__element__label:after {
 				border-color: _oFormsGet('toggle-inverse-selected');
 			}

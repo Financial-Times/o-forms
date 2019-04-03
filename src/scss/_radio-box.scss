@@ -14,6 +14,7 @@
 			@include _oFormsBoxContainerBase();
 		}
 
+		label,
 		.o-forms__element {
 			@include _oFormsBoxControlsBase();
 
@@ -21,6 +22,7 @@
 				border-left: 1px solid _oFormsGet('default-border');
 			}
 
+			.o-forms__input__label,
 			.o-forms__element__label {
 				box-sizing: border-box;
 				display: inline-block;
@@ -37,6 +39,7 @@
 			opacity: 0;
 
 			@if $disabled {
+				&:disabled + .o-forms__input__label,
 				&:disabled + .o-forms__element__label {
 					cursor: default;
 					opacity: 0.4;
@@ -59,18 +62,22 @@
 	$theme: _oFormsThemeToBrandVariants($theme);
 
 	input[type=radio] {  // sass-lint:disable-line no-qualifying-elements
+		& + .o-forms__input__label,
 		& + .o-forms__element__label {
 			color: _oFormsGet('controls-base', $from: $theme);
 		}
 
+		&:not(:checked):not(:disabled):hover + .o-forms__input__label,
 		&:not(:checked):not(:disabled):hover + .o-forms__element__label {
 			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
 		}
 
+		&:checked + .o-forms__input__label,
 		&:checked + .o-forms__element__label {
 			background-color: _oFormsGet('controls-base', $from: $theme);
 			color: _oFormsGet('controls-checked-base', $from: $theme);
 
+			&.o-forms__input__label--negative,
 			&.o-forms__element__label--negative {
 				background-color: _oFormsGet('controls-negative-checked-background', $from: $theme);
 			}

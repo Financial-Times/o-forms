@@ -12,6 +12,7 @@
 	$element: 'input[type=text]';
 
 	.o-forms__input--date {
+		label,
 		.o-forms__element {
 			@include oTypographyMargin($bottom: 0);
 			float: left;

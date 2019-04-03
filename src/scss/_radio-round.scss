@@ -7,6 +7,7 @@
 	$invalid: null
 ) {
 	.o-forms__input--radio-round {
+		.o-forms__input__label,
 		.o-forms__element__label {
 			padding: 2px 0 2px 34px;
 			display: inline-block;
@@ -42,6 +43,7 @@
 		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
 
+			&:checked	+ .o-forms__input__label:before,
 			&:checked	+ .o-forms__element__label:before {
 				border-color: _oFormsGet('controls-base');
 			}
