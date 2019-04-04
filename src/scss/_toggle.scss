@@ -1,12 +1,11 @@
 /// @access private
 /// @output styles for toggle based on a checkbox input
 @mixin _oFormsToggle() {
-	.o-forms__input--toggle {
+	.o-forms-input--toggle {
 		$toggle-spacing: oTypographySpacingSize(1) / 2; // to align text to pseudo elements
 		$toggle-width: oTypographySpacingSize(10);
 
-		.o-forms__input__label,
-		.o-forms__element__label {
+		.o-forms-input__label {
 			display: inline-block;
 			padding: $toggle-spacing 0 $toggle-spacing oTypographySpacingSize(8);
 			vertical-align: top;
@@ -42,11 +41,8 @@
 			position: relative;
 			left: 12px;
 
-			&:checked {
-				+ .o-forms__input__label:after,
-				+ .o-forms__element__label:after {
-					left: 16px;
-				}
+			&:checked + .o-forms-input__label:after {
+				left: 16px;
 			}
 		}
 	}

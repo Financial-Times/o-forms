@@ -1,7 +1,8 @@
 /// @access private
 /// @output base styles for select, textarea and text input
-@mixin _oFormsInputsBase($disabled) {
-	@include oTypographySans(0);
+@mixin _oFormsInputBase($disabled) {
+	font-family: inherit;
+	font-size: inherit;
 	background-color: _oFormsGet('default-background');
 	border: 1px solid _oFormsGet('default-border');
 	box-sizing: border-box;
@@ -10,13 +11,13 @@
 	width: 100%;
 
 	@if $disabled {
-		@include _oFormsInputsDisabled();
+		@include _oFormsInputDisabled();
 	}
 }
 
 /// @access private
 /// @output Shared disabled state styles for inputs.
-@mixin _oFormsInputsDisabled {
+@mixin _oFormsInputDisabled {
 	&:disabled {
 		cursor: default;
 		color: _oFormsGet('disabled-text');
@@ -27,7 +28,7 @@
 
 /// @access private
 /// @output Shared valid or invalid state styles for select, textarea and text input.
-@mixin _oFormsInputs($validity, $element) {
+@mixin _oFormsInputValidity($validity, $element) {
 	#{$element}:not(:disabled) {
 		color: _oFormsGet('#{$validity}-base');
 		border-color: _oFormsGet('#{$validity}-base');
@@ -36,10 +37,10 @@
 
 /// @access private
 /// @output Shared small styles for select and text input.
-@mixin _oFormsSmall($element) {
-	.o-forms__input.o-forms__input--small {
+@mixin _oFormsInputSmall($element) {
+	&.o-forms-input--small {
 		#{$element} {
-			@include oTypographySize($scale: -1);
+			@include oTypographySize($scale: -1, $line-height: 1.65);
 			min-height: 28px;
 			padding: 0 8px;
 		}
@@ -48,19 +49,14 @@
 
 /// @access private
 /// @output Shared suffix styles for select and text input.
-@mixin _oFormsSuffix($element) {
-	.o-forms--suffix .o-forms__input {
+@mixin _oFormsInputSuffix($element) {
+	&.o-forms-input--suffix {
 		display: flex;
 		flex-wrap: wrap;
 
 		#{$element} {
 			flex: 1;
 			margin-right: 8px;
-		}
-
-		.o-forms__input__suffix {
-			flex: 0;
-			display: block;
 		}
 	}
 }

@@ -2,7 +2,7 @@
 /// @output Styling for anchor 'controls'
 
 @mixin _oFormsAnchorBox {
-	.o-forms__input--pseudo-radio-box {
+	.o-forms-input--pseudo-radio-box {
 		@include _oFormsBoxContainerBase();
 		@include oTypographyMargin($top: 0);
 

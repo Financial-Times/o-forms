@@ -7,22 +7,21 @@
 	$disabled: null,
 	$invalid: null
 ) {
-	.o-forms__input--radio-box {
+	.o-forms-input--radio-box {
 		@include _oFormsRadioBoxInputStyles();
 
-		.o-forms__input--radio-box__container {
+		.o-forms-input--radio-box__container {
 			@include _oFormsBoxContainerBase();
 		}
 
-		label,
-		.o-forms__element {
+		label {
 			@include _oFormsBoxControlsBase();
 
 			&:not(:first-of-type) {
 				border-left: 1px solid _oFormsGet('default-border');
 			}
 
-			.o-forms__input__label,
+			.o-forms-input__label,
 			.o-forms__element__label {
 				box-sizing: border-box;
 				display: inline-block;
@@ -39,8 +38,7 @@
 			opacity: 0;
 
 			@if $disabled {
-				&:disabled + .o-forms__input__label,
-				&:disabled + .o-forms__element__label {
+				&:disabled + .o-forms-input__label {
 					cursor: default;
 					opacity: 0.4;
 				}
@@ -48,7 +46,7 @@
 		}
 
 		@if $invalid {
-			&.o-forms__input--invalid .o-forms__input--radio--box__container {
+			&.o-forms-input--invalid .o-forms-input--radio--box__container {
 				border-color: _oFormsGet('invalid-base');
 			}
 		}
@@ -62,23 +60,19 @@
 	$theme: _oFormsThemeToBrandVariants($theme);
 
 	input[type=radio] {  // sass-lint:disable-line no-qualifying-elements
-		& + .o-forms__input__label,
-		& + .o-forms__element__label {
+		& + .o-forms-input__label {
 			color: _oFormsGet('controls-base', $from: $theme);
 		}
 
-		&:not(:checked):not(:disabled):hover + .o-forms__input__label,
-		&:not(:checked):not(:disabled):hover + .o-forms__element__label {
+		&:not(:checked):not(:disabled):hover + .o-forms-input__label {
 			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
 		}
 
-		&:checked + .o-forms__input__label,
-		&:checked + .o-forms__element__label {
+		&:checked + .o-forms-input__label {
 			background-color: _oFormsGet('controls-base', $from: $theme);
 			color: _oFormsGet('controls-checked-base', $from: $theme);
 
-			&.o-forms__input__label--negative,
-			&.o-forms__element__label--negative {
+			&.o-forms-input__label--negative {
 				background-color: _oFormsGet('controls-negative-checked-background', $from: $theme);
 			}
 		}

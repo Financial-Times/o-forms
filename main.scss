@@ -27,7 +27,7 @@
 		'invalid',
 		'inverse',
 		'small',
-		'status',
+		'state',
 		'suffix',
 		'valid'
 	)
@@ -41,7 +41,7 @@
 	$inverse: index($features, 'inverse');
 	$right: index($features, 'right');
 	$small: index($features, 'small');
-	$status: index($features, 'status');
+	$state: index($features, 'state');
 	$suffix: index($features, 'suffix');
 	$valid: index($features, 'valid');
 
@@ -135,8 +135,8 @@
 		@include _oFormsInvalid();
 	}
 
-	@if $status {
-		@include _oFormsStatus();
+	@if $state {
+		@include _oFormsState();
 	}
 }
 

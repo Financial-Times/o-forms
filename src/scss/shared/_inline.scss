@@ -3,15 +3,15 @@
 @mixin _oFormsInline() {
 	//inline labels and inputs
 	@include oGridRespondTo(S) {
-		&.o-forms--inline {
+		&.o-forms-field--inline {
 			flex-direction: row;
 			justify-content: space-between;
 		
-			.o-forms__title {
+			.o-forms-title {
 				flex: 0 1 50%;
 			}
 		
-			.o-forms__input {
+			.o-forms-input {
 				display: flex;
 				flex-direction: column;
 				flex: 1 0 50%;
@@ -21,21 +21,18 @@
 		}
 		
 		// inline inputs only
-		.o-forms__input.o-forms__input--inline {
+		.o-forms-input.o-forms-input--inline {
 			display: flex;
 			flex-flow: row wrap;
 				
-				label,
-				.o-forms__element {
-					margin: 0 16px 12px 0;
-					max-width: 75%;
-				}
-			&.o-forms__input--date,
-			&.o-forms__input--radio-box {
-				label,
-				.o-forms__element {
-					margin: 0;
-				}
+			label {
+				margin: 0 16px 12px 0;
+				max-width: 75%;
+			}
+
+			&.o-forms-input--date label,
+			&.o-forms-input--radio-box label{
+				margin: 0;
 			}
 		}
 	}

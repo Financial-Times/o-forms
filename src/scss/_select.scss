@@ -2,7 +2,6 @@
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $small Whether to output small input styles
 /// @param {Boolean} $suffix Whether to output suffix styles
-/// @param {Boolean} $inline Whether to output entire element inline with its label
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text areas
@@ -10,24 +9,36 @@
 	$disabled: null,
 	$small: null,
 	$suffix: null,
-	// $inline: null,
 	$invalid: null,
 	$valid: null
 ) {
 	$element: 'select';
 
-	@if $small {
-		@include _oFormsSmall($element);
-		// line-height: 1.5;
-	}
+	
+	
+	.o-forms-input--select {
+		@if $small {
+			@include _oFormsInputSmall($element);
+		}
+		
+		@if $suffix {
+			@include _oFormsInputSuffix($element);
+		}
 
-	@if $suffix {
-		@include _oFormsSuffix($element);
-	}
+		@if $invalid {
+			&.o-forms-input--invalid {
+				@include _oFormsInputValidity('invalid', $element);
+			}
+		}
 
-	.o-forms__input--select {
+		@if $valid {
+			&.o-forms-input--valid {
+				@include _oFormsInputValidity('valid', $element);
+			}
+		}
+
 		#{$element} {
-			@include _oFormsInputsBase($disabled);
+			@include _oFormsInputBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
 			appearance: none;
 			background-repeat: no-repeat;
@@ -61,17 +72,6 @@
 
 			&[multiple] {
 				background-image:	none;
-			}
-		}
-		@if $invalid {
-			&.o-forms__input--invalid {
-				@include _oFormsInputs('invalid', $element);
-			}
-		}
-
-		@if $valid {
-			&.o-forms__input--valid {
-				@include _oFormsInputs('valid', $element);
 			}
 		}
 	}

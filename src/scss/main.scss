@@ -2,6 +2,7 @@ $o-forms-is-silent: true !default;
 
 @import './brand';
 
+@import './shared/typography';
 @import './shared/base';
 @import './shared/controls';
 @import './shared/inline';
@@ -14,7 +15,7 @@ $o-forms-is-silent: true !default;
 @import './radio-box';
 @import './radio-round';
 @import './select';
-@import './status';
+@import './state';
 @import './text-area';
 @import './text-input';
 @import './toggle';

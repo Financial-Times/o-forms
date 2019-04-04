@@ -36,10 +36,10 @@
 			"description": "Form elements inline with their respective labels"
 		},
 		{
-			"name": "status",
+			"name": "state",
 			"title": "Test",
-			"template": "/demos/src/status.mustache",
-			"description": "Saving/saved status for box-style radio inputs"
+			"template": "/demos/src/state.mustache",
+			"description": "Saving/saved state for box-style radio inputs"
 		},
 		{
 			"name": "anchor-box",

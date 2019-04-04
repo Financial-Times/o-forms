@@ -27,14 +27,12 @@
 /// @access private
 /// Outputs base styling for custom icons
 @mixin _oFormsCustomIconBase {
-	.o-forms__input__label,
-	.o-forms__element__label {
+	.o-forms-input__label {
 		min-width: unset;
 	}
 
 	.o-forms__anchor.o-forms__anchor--current,
-	input[type=radio]:checked + .o-forms__input__label,  // sass-lint:disable-line no-qualifying-elements
-	input[type=radio]:checked + .o-forms__element__label {  // sass-lint:disable-line no-qualifying-elements
+	input[type=radio]:checked + .o-forms__input__label {  // sass-lint:disable-line no-qualifying-elements
 		&:after {
 			display: block;
 		}
@@ -106,17 +104,17 @@
 ) {
 
 	@if not $input {
-		@error('Please specifiy whether you would like to customise anchor or radio inputs');
+		@error('Please specifiy whether you would like to customise radio inputs or anchors');
 	}
 
 	$theme: _oFormsThemeToBrandVariants($theme);
 
 	@if $input == 'anchor' {
-		&.o-forms__input--pseudo-radio-box {
+		&.o-forms-input--pseudo-radio-box {
 			@include _oFormsAnchorBoxStyles($theme);
 		}
 	} @else if $input == 'radio' {
-		.o-forms__input--radio-box {
+		.o-forms-input--radio-box {
 			@include _oFormsRadioBoxInputStyles($theme);
 		}
 	} @else {

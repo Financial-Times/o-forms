@@ -15,29 +15,29 @@
 ) {
 	$element: 'input[type=#{$input-type}]';
 
-	@if $small and $input-type == 'text' {
-		@include _oFormsSmall($element);
-	}
+	.o-forms-input--#{$input-type} {
+		@if $small and $input-type == 'text' {
+			@include _oFormsInputSmall($element);
+		}
 
-	@if $suffix and $input-type == 'text' {
-		@include _oFormsSuffix($element);
-	}
-
-	.o-forms__input--#{$input-type} {
-		#{$element} { // sass-lint:disable-line no-qualifying-elements
-			@include _oFormsInputsBase($disabled);
+		@if $suffix and $input-type == 'text' {
+			@include _oFormsInputSuffix($element);
 		}
 
 		@if $invalid {
-			&.o-forms__input--invalid { // sass-lint:disable-line no-qualifying-elements
-				@include _oFormsInputs('invalid', $element);
+			&.o-forms-input--invalid { // sass-lint:disable-line no-qualifying-elements
+				@include _oFormsInputValidity('invalid', $element);
 			}
 		}
-	
+
 		@if $valid {
-			&.o-forms__input--valid { // sass-lint:disable-line no-qualifying-elements
-				@include _oFormsInputs('valid', $element);
+			&.o-forms-input--valid { // sass-lint:disable-line no-qualifying-elements
+				@include _oFormsInputValidity('valid', $element);
 			}
+		}
+
+		#{$element} { // sass-lint:disable-line no-qualifying-elements
+			@include _oFormsInputBase($disabled);
 		}
 	}
 }

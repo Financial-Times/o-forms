@@ -6,9 +6,14 @@
 	$disabled: null,
 	$invalid: null
 ) {
-	.o-forms__input--radio-round {
-		.o-forms__input__label,
-		.o-forms__element__label {
+	.o-forms-input--radio-round {
+		@if $invalid {
+			.o-forms-input__error {
+				@include oTypographyMargin($top: 2);
+			}
+		}
+
+		.o-forms-input__label {
 			padding: 2px 0 2px 34px;
 			display: inline-block;
 
@@ -43,8 +48,7 @@
 		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
 
-			&:checked	+ .o-forms__input__label:before,
-			&:checked	+ .o-forms__element__label:before {
+			&:checked	+ .o-forms-input__label:before {
 				border-color: _oFormsGet('controls-base');
 			}
 
@@ -52,12 +56,6 @@
 				border-color: $o-normalise-focus-color;
 				box-shadow: 0 0 0 2px $o-normalise-focus-color;
 				outline: none;
-			}
-		}
-
-		@if $invalid {
-			&.o-forms__input--invalid .o-forms__error-message {
-				@include oTypographyMargin($top: 2);
 			}
 		}
 	}

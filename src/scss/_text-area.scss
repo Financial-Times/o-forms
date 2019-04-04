@@ -10,22 +10,22 @@
 ) {
 	$element: 'textarea';
 
-	.o-forms__input--textarea {
-		#{$element} {
-			@include _oFormsInputsBase($disabled);
-			resize: vertical;
-		}
-
+	.o-forms-input--textarea {
 		@if $invalid {
-			&.o-forms__input--invalid {
-				@include _oFormsInputs('invalid', $element);
+			&.o-forms-input--invalid {
+				@include _oFormsInputValidity('invalid', $element);
 			}
 		}
 
 		@if $valid {
-			&.o-forms__input--valid {
-				@include _oFormsInputs('valid', $element);
+			&.o-forms-input--valid {
+				@include _oFormsInputValidity('valid', $element);
 			}
+		}
+
+		#{$element} {
+			@include _oFormsInputBase($disabled);
+			resize: vertical;
 		}
 	}
 }
