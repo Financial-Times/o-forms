@@ -35,7 +35,7 @@
 /// @access private
 /// @output Shared required text styles for all form elements.
 @mixin _oFormsRequired {
-	&.o-forms-field--optional {
+	.o-forms-field--optional {
 		.o-forms-title--main:after {
 			@include oTypographySize($scale: -1);
 			content: '(optional)';
