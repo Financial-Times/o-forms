@@ -3,8 +3,8 @@
 @mixin _oFormsControlsBase($disabled: null) {
 	position: absolute;
 	padding: 0;
-	width: 24px;
-	height: 24px;
+	width: $_o-forms-control-size;
+	height: $_o-forms-control-size;
 
 	&:checked + .o-forms-input__label:after {
 		opacity: 1;
@@ -29,8 +29,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 24px;
-	height: 24px;
+	width: $_o-forms-control-size;
+	height: $_o-forms-control-size;
 	box-sizing: border-box;
 }
 

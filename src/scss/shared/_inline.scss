@@ -1,7 +1,12 @@
 /// @access private
 /// @output Styling for inlining labels and inputs
 @mixin _oFormsInline() {
-	//inline labels and inputs
+	/* inline field titles and inputs
+		[title] [input]
+		or
+		[title] [input]
+						[input]
+	*/
 	@include oGridRespondTo(S) {
 		&.o-forms-field--inline {
 			flex-direction: row;
@@ -20,7 +25,12 @@
 			}
 		}
 		
-		// inline inputs only
+	/* inline inputs
+		[title] 
+		[input] [input]
+		or (combined with field inline)
+		[title] [input] [input]
+	*/
 		.o-forms-input.o-forms-input--inline {
 			display: flex;
 			flex-flow: row wrap;

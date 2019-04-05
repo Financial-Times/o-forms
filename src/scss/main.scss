@@ -1,7 +1,6 @@
-$o-forms-is-silent: true !default;
-
 @import './brand';
 
+@import './shared/variables';
 @import './shared/typography';
 @import './shared/base';
 @import './shared/controls';

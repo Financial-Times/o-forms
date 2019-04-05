@@ -6,8 +6,8 @@
 	background-color: _oFormsGet('default-background');
 	border: 1px solid _oFormsGet('default-border');
 	box-sizing: border-box;
-	min-height: 40px;
-	padding: 8px;
+	min-height: $_o-forms-input-height;
+	padding: $_o-forms-input-spacing;
 	width: 100%;
 
 	@if $disabled {
@@ -41,8 +41,8 @@
 	&.o-forms-input--small {
 		#{$element} {
 			@include oTypographySize($scale: -1, $line-height: 1.65);
-			min-height: 28px;
-			padding: 0 8px;
+			min-height: $_o-forms-small-input-height;
+			padding: 0 $_o-forms-input-spacing;
 		}
 	}
 }
@@ -56,7 +56,7 @@
 
 		#{$element} {
 			flex: 1;
-			margin-right: 8px;
+			margin-right: $_o-forms-input-spacing;
 		}
 	}
 }

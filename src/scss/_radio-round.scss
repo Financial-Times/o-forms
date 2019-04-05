@@ -14,7 +14,7 @@
 		}
 
 		.o-forms-input__label {
-			padding: 2px 0 2px 34px;
+			padding: 2px 0 2px $_o-forms-control-label-spacing;
 			display: inline-block;
 
 			&:before,
@@ -33,8 +33,8 @@
 			&:after {
 				background-color: _oFormsGet('controls-base');
 				border-radius: 50%;
-				height: 12px;
-				width: 12px;
+				height: $_o-forms-control-size / 2;
+				width: $_o-forms-control-size / 2;
 				margin: 6px;
 				opacity: 0;
 				// sass-lint:disable no-vendor-prefixes

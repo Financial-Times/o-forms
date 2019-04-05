@@ -31,7 +31,7 @@
 	
 				.o-forms-input__label {
 					padding-left: 0;
-					padding-right: 34px;
+					padding-right: $_o-forms-control-label-spacing;
 	
 					&:before,
 					&:after {
@@ -44,7 +44,7 @@
 
 		.o-forms-input__label {
 			display: inline-block;
-			padding: 2px 0 0 34px;
+			padding: 2px 0 0 $_o-forms-control-label-spacing;
 			vertical-align: top;
 
 			&:before {

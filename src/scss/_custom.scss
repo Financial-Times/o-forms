@@ -55,8 +55,8 @@
 	} 
 	
 	#{$element} {
-		padding-left: 24px;
-		padding-right: 8px;
+		padding-left: $_o-forms-control-size;
+		padding-right: $_o-forms-input-spacing;
 		text-align: left;
 
 		&:after,
@@ -75,7 +75,7 @@
 				$color: _oFormsGet('controls-base', $from: $theme),
 				$apply-base-styles: false,
 				$high-contrast-fallback: true,
-				$container-width: 24px
+				$container-width: $_o-forms-control-size
 			);
 		}
 
@@ -85,7 +85,7 @@
 				$color: _oFormsGet('controls-checked-base', $from: $theme),
 				$apply-base-styles: false,
 				$high-contrast-fallback: true,
-				$container-width: 24px
+				$container-width: $_o-forms-control-size
 			);
 			display: none;
 		}

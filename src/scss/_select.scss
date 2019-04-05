@@ -42,7 +42,7 @@
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
 			appearance: none;
 			background-repeat: no-repeat;
-			background-size: auto 24px;
+			background-size: auto $_o-forms-control-size;
 			border-radius: 0;
 			background-clip: padding-box;
 			color: _oFormsGet('default-text');
