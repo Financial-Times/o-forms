@@ -32,7 +32,7 @@
 	}
 
 	.o-forms__anchor.o-forms__anchor--current,
-	input[type=radio]:checked + .o-forms__input__label {  // sass-lint:disable-line no-qualifying-elements
+	input[type=radio]:checked + .o-forms-input__label {  // sass-lint:disable-line no-qualifying-elements
 		&:after {
 			display: block;
 		}
@@ -49,7 +49,7 @@
 	$element: '';
 
 	@if $input == 'radio' {
-		$element: '.o-forms__element__label.o-forms__element__label__#{$icon}-icon';
+		$element: '.o-forms-input__label.o-forms-input__label__#{$icon}-icon';
 	} @else {
 		$element: '.o-forms__anchor.o-forms__anchor__#{$icon}-icon';
 	} 

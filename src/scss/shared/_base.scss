@@ -1,18 +1,12 @@
 /// @access private
 /// @output Shared base state styles for all form elements.
 @mixin _oFormsBase {
-	@include _oFormsTypography();
-	@include _oFormsRequired();
-	@include _oFormsField();
-
+	.o-forms-field,
+	.o-forms-title,
 	.o-forms-input {
-		@include oTypographyMargin($top: 3);
+		@include oTypographySans(0);
 	}
-}
-
-/// @access private
-/// @output Shared base state styles for all form fields.
-@mixin _oFormsField() {
+	
 	.o-forms-field {
 		@include oTypographyMargin($bottom: 5);
 		display: flex;
@@ -28,38 +22,35 @@
 			@include oTypographyMargin($bottom: 0);
 		}
 	}
-}
 
-/// @access private
-/// @output styles for inverse toggle based on a checkbox input
-@mixin _oFormsInverse {
-	.o-forms-field--inverse {
-		color: _oFormsGet('toggle-inverse-base');
+	.o-forms-title--main {
+		@include oTypographyBold('sans');
+		display: block;
+	}
 
-		.o-forms-title {
-			.o-forms-title--main:after,
-			.o-forms-title--prompt {
-				color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
-			}
-		}
+	.o-forms-title--prompt {
+		@include oTypographySize($scale: -1);
+		color: _oFormsGet('default-prompt-text');
+		display: block;
+		padding-right: $_o-forms-input-spacing;
+	}
 
-		.o-forms-input__label:before {
-			background-color: _oFormsGet('toggle-inverse-base');
-		}
+	.o-forms-input {
+		@include oTypographyMargin($top: 3);
+	}
 
-		.o-forms-input__label:after {
-			background-color: _oFormsGet('toggle-inverse-knob');
-			border-color: _oFormsGet('toggle-inverse-base');
-		}
+	.o-forms-field--optional .o-forms-title--main:after {
+		@include oTypographySize($scale: -1);
+		content: '(optional)';
+		color: _oFormsGet('default-prompt-text');
+		font-weight: 400;
+		margin-left: 4px;
+	}
 
-		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
-			+ .o-forms-input__label:before {
-				background-color: _oFormsGet('toggle-inverse-selected');
-			}
-
-			+ .o-forms-input__label:after {
-				border-color: _oFormsGet('toggle-inverse-selected');
-			}
-		}
+	.o-forms-input--invalid .o-forms-input__error {
+		@include oTypographyMargin($top: 1);
+		@include oTypographySize($scale: -1);
+		color: _oFormsGet('invalid-base');
+		display: block;
 	}
 }

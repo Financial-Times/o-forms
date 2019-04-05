@@ -1,0 +1,33 @@
+/// @access private
+/// @output styles for inverse toggle based on a checkbox input
+@mixin _oFormsInverse {
+	.o-forms-field--inverse {
+		color: _oFormsGet('toggle-inverse-base');
+
+		.o-forms-title {
+			.o-forms-title--main:after,
+			.o-forms-title--prompt {
+				color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
+			}
+		}
+
+		.o-forms-input__label:before {
+			background-color: _oFormsGet('toggle-inverse-base');
+		}
+
+		.o-forms-input__label:after {
+			background-color: _oFormsGet('toggle-inverse-knob');
+			border-color: _oFormsGet('toggle-inverse-base');
+		}
+
+		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
+			+ .o-forms-input__label:before {
+				background-color: _oFormsGet('toggle-inverse-selected');
+			}
+
+			+ .o-forms-input__label:after {
+				border-color: _oFormsGet('toggle-inverse-selected');
+			}
+		}
+	}
+}

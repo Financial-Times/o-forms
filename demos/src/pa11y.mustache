@@ -1,12 +1,7 @@
-{{> anchor-box }}
-{{> checkboxes }}
-{{> date }}
-{{> inline }}
-{{> radio-box }}
-{{> radio-round }}
-{{> select }}
-{{> status }}
-{{> suffix }}
-{{> text-input }}
-{{> textarea }}
-{{> toggle }}
+{{#multiple-inputs}}
+  {{> multiple-input-field }}
+{{/multiple-inputs}}
+
+{{#single-input}}
+  {{> single-input-field }}
+{{/single-input}}

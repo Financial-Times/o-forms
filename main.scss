@@ -131,10 +131,6 @@
 		@include _oFormsInverse();
 	}
 
-	@if $invalid {
-		@include _oFormsInvalid();
-	}
-
 	@if $state {
 		@include _oFormsState();
 	}
