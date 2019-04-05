@@ -11,11 +11,11 @@
 		@include _oFormsRadioBoxInputStyles();
 
 		.o-forms-input--radio-box__container {
-			@include _oFormsBoxContainerBase();
+			@include _oFormsControlsBoxContainer();
 		}
 
 		label {
-			@include _oFormsBoxControlsBase();
+			@include _oFormsControlsBoxBase();
 
 			&:not(:first-of-type) {
 				border-left: 1px solid _oFormsGet('default-border');

@@ -3,7 +3,7 @@
 
 @mixin _oFormsAnchorBox {
 	.o-forms-input--pseudo-radio-box {
-		@include _oFormsBoxContainerBase();
+		@include _oFormsControlsBoxContainer();
 		@include oTypographyMargin($top: 0);
 
 		@include _oFormsAnchorBoxStyles();
@@ -15,7 +15,7 @@
 /// Outpus styling for box-styled anchors
 @mixin _oFormsAnchorBoxStyles($theme: null) {
 	.o-forms__anchor {
-		@include _oFormsBoxControlsBase();
+		@include _oFormsControlsBoxBase();
 		box-sizing: border-box;
 		color: _oFormsGet('controls-base', $from: $theme);
 		padding: 6px;

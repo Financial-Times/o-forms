@@ -36,7 +36,7 @@
 
 /// @access private
 /// @output Shared styles for box-style radio buttons and anchor controls
-@mixin _oFormsBoxControlsBase {
+@mixin _oFormsControlsBoxBase {
 	display: inline-block;
 	cursor: pointer;
 	float: left;
@@ -47,7 +47,7 @@
 
 /// @access private
 /// @output Shared styles for box-style containers
-@mixin _oFormsBoxContainerBase {
+@mixin _oFormsControlsBoxContainer {
 	@include oTypographySize($scale: -1, $line-height: unset);
 	@include oTypographyBold('sans');
 	box-sizing: border-box;

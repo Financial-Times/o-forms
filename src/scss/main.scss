@@ -6,7 +6,7 @@ $o-forms-is-silent: true !default;
 @import './shared/base';
 @import './shared/controls';
 @import './shared/inline';
-@import './shared/inputs';
+@import './shared/input';
 
 @import './anchor-box';
 @import './checkbox';
