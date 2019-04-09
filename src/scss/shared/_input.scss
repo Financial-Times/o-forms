@@ -31,8 +31,8 @@
 /// @output Shared valid or invalid state styles for select, textarea and text input.
 @mixin _oFormsInputValidity($validity) {
 	.o-forms-input--#{$validity} {
-		input[type="text"]:not(:disabled),
-		input[type="password"]:not(:disabled),
+		input[type="text"]:not(:disabled), // sass-lint:disable-line no-qualifying-elements
+		input[type="password"]:not(:disabled), // sass-lint:disable-line no-qualifying-elements
 		select:not(:disabled),
 		textarea:not(:disabled) {
 			color: _oFormsGet('#{$validity}-base');
