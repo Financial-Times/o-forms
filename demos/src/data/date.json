@@ -1,0 +1,120 @@
+{
+  "variants": [
+    {
+      "optional": true,
+      "field": {
+        "type": "date",
+        "aria": "date-group-title"
+      },
+      "title": {
+        "main": "Date input",
+        "prompt": "Optional prompt text"
+      },
+      "inputs": [
+        {
+          "type": "text",
+          "pattern":"[0-9]{2}",
+          "date": "DD"
+        },
+        {
+          "type": "text",
+          "pattern": "0?[1-9]|1[012]",
+          "date": "MM"
+        },
+        {
+          "type": "text",
+          "pattern": "[0-9]{4}",
+          "date": "YYYY"
+        }
+      ]
+    },
+    {
+      "field": {
+        "type": "date",
+        "aria": "disabled-date-group-title"
+      },
+      "title": {
+        "main": "Disabled date input"
+      },
+      "inputs": [
+        {
+          "type": "text",
+          "pattern":"[0-9]{2}",
+          "date": "DD",
+          "disabled": true
+        },
+        {
+          "type": "text",
+          "pattern": "0?[1-9]|1[012]",
+          "date": "MM",
+          "disabled": true
+        },
+        {
+          "type": "text",
+          "pattern": "[0-9]{4}",
+          "date": "YYYY",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "field": {
+        "type": "date",
+        "aria": "error-date-group-title",
+        "error": "Not a valid date",
+        "modifiers": [ "invalid" ]
+      },
+      "title": {
+        "main": "Invalid date input"
+      },
+      "inputs": [
+        {
+          "type": "text",
+          "pattern":"[0-9]{2}",
+          "date": "DD",
+          "value": "01"
+        },
+        {
+          "type": "text",
+          "pattern": "0?[1-9]|1[012]",
+          "date": "MM",
+          "value": "24"
+        },
+        {
+          "type": "text",
+          "pattern": "[0-9]{4}",
+          "date": "YYYY",
+          "value": "2019"
+        }
+      ]
+    },
+    {
+      "inline-field": true,
+      "field": {
+        "type": "date",
+        "aria": "inline-date-group-title",
+        "modifiers": [ "inline" ]
+      },
+      "title": {
+        "main": "Inline date input"
+      },
+      "inputs": [
+        {
+          "type": "text",
+          "pattern":"[0-9]{2}",
+          "date": "DD"
+        },
+        {
+          "type": "text",
+          "pattern": "0?[1-9]|1[012]",
+          "date": "MM"
+        },
+        {
+          "type": "text",
+          "pattern": "[0-9]{4}",
+          "date": "YYYY"
+        }
+      ]
+    }
+  ]
+}

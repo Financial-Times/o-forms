@@ -1,0 +1,18 @@
+{
+  "variants": [
+    {
+      "anchor": true,
+      "inputs": [
+        {
+          "value": "Anchor Link A",
+          "href": "#",
+          "current": true
+        },
+        {
+          "value": "Anchor Link B",
+          "href": "#"
+        }
+      ]
+    }
+  ]
+}

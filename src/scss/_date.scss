@@ -1,0 +1,39 @@
+// sass-lint:disable no-qualifying-elements
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @output Styling for date inputs
+@mixin _oFormsDate (
+	$disabled: null
+) {
+	.o-forms-input--date {
+		clear: both;
+
+		label {
+			@include oTypographyMargin($bottom: 0);
+			float: left;
+		}
+
+		input[type=text] { 
+			@include _oFormsInputBase($disabled);
+			display: block;
+			margin: 4px 12px 0 0;
+			
+			&[pattern$='{2}'],
+			&[pattern$='[012]'] {
+				// Based on character width (plus kerning) and line height.
+				width: calc(2.2ch + 1em);
+			}
+			
+			&[pattern$='{4}'] {
+				// Based on character width (plus kerning) and line height.
+				width: calc(4.2ch + 1em);
+			}
+		}
+
+		.o-forms-input__error {
+			padding-top: 4px;
+			clear: both;
+		}
+	}
+}
+// sass-lint:enable no-qualifying-elements
