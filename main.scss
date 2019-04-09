@@ -53,7 +53,7 @@
 
 	@if index($elements, 'checkbox') {
 		@include _oFormsCheckbox(
-			$disabled
+			$disabled,
 			$right
 		);
 	}

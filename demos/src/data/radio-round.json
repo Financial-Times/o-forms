@@ -27,34 +27,6 @@
     {
       "field": {
         "type": "radio-round",
-        "aria": "inline-radio-round-group-title",
-        "modifiers": ["inline"]
-      },
-      "title": {
-        "main": "Inline radio buttons"
-      },
-      "inputs": [
-        {
-          "type": "radio",
-          "name": "inline",
-          "value": "Inlined 1",
-          "checked": true
-        },
-        {
-          "type": "radio",
-          "name": "inline",
-          "value": "Inlined 2"
-        },
-        {
-          "type": "radio",
-          "name": "inline",
-          "value": "Inlined 3"
-        }
-      ]
-    },
-    {
-      "field": {
-        "type": "radio-round",
         "aria": "disabed-radio-round-group-title"
       },
       "title": {
@@ -101,6 +73,36 @@
       ]
     },
     {
+      "field": {
+        "type": "radio-round",
+        "aria": "inline-radio-round-group-title",
+        "modifiers": [
+          "inline"
+        ]
+      },
+      "title": {
+        "main": "Inline radio buttons"
+      },
+      "inputs": [
+        {
+          "type": "radio",
+          "name": "inline",
+          "value": "Inlined 1",
+          "checked": true
+        },
+        {
+          "type": "radio",
+          "name": "inline",
+          "value": "Inlined 2"
+        },
+        {
+          "type": "radio",
+          "name": "inline",
+          "value": "Inlined 3"
+        }
+      ]
+    },
+    {
       "inline-field": true,
       "field": {
         "type": "radio-round",
@@ -115,13 +117,13 @@
       "inputs": [
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-field",
           "value": "Inlined 1",
           "checked": true
         },
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-field",
           "value": "Inlined 2"
         }
       ]
@@ -138,18 +140,18 @@
       "inputs": [
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-stacked",
           "value": "Inlined 1",
           "checked": true
         },
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-stacked",
           "value": "Inlined 2"
         },
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-stacked",
           "value": "Inlined 3"
         }
       ]

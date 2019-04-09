@@ -41,7 +41,7 @@
 
 			&:before {
 				@include _oFormsControlsPseudoElements();
-				border: 1px solid _oFormsGet('default-border');
+				border: 2px solid _oFormsGet('default-border');
 				background-color: _oFormsGet('default-background');
 			}
 

@@ -33,34 +33,6 @@
     {
       "field": {
         "type": "checkbox",
-        "aria": "inline-checkbox-group-title",
-        "modifiers": ["inline"]
-      },
-      "title": {
-        "main": "Inline checkboxes"
-      },
-      "inputs": [
-        {
-          "type": "checkbox",
-          "name": "inline",
-          "value": "Inlined 1",
-          "checked": true
-        },
-        {
-          "type": "checkbox",
-          "name": "inline",
-          "value": "This will be a very long inlined checkbox just to demonstrate the correct alignment of checkboxes"
-        },
-        {
-          "type": "checkbox",
-          "name": "inline",
-          "value": "Inlined 3"
-        }
-      ]
-    },
-    {
-      "field": {
-        "type": "checkbox",
         "aria": "disabed-checkbox-group-title"
       },
       "title": {
@@ -103,6 +75,36 @@
           "type": "checkbox",
           "name": "error",
           "value": "Error 2"
+        }
+      ]
+    },
+    {
+      "field": {
+        "type": "checkbox",
+        "aria": "inline-checkbox-group-title",
+        "modifiers": [
+          "inline"
+        ]
+      },
+      "title": {
+        "main": "Inline checkboxes"
+      },
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "inline",
+          "value": "Inlined 1",
+          "checked": true
+        },
+        {
+          "type": "checkbox",
+          "name": "inline",
+          "value": "This will be a very long inlined checkbox just to demonstrate the correct alignment of checkboxes"
+        },
+        {
+          "type": "checkbox",
+          "name": "inline",
+          "value": "Inlined 3"
         }
       ]
     },
@@ -166,7 +168,8 @@
         "modifiers": [ "password" ]
       },
       "title": {
-        "main": "Right side checkboxes"
+        "main": "Right side checkboxes",
+        "prompt": "Interface demo only, password hide/show functionality is not currently included in o-forms."
       },
       "inputs": [
         {
