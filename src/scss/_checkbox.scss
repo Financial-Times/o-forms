@@ -6,18 +6,21 @@
 	$disabled: null,
 	$right: null
 ) {
-	$element: 'input[type=checkbox]';
-
 	.o-forms-input--checkbox {
-		#{$element} { // sass-lint:disable-line no-qualifying-elements
+		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
+
+			&:indeterminate + .o-forms-input__label:after {
+				@include oIconsGetIcon('minus', _oFormsGet('controls-checked-base'), 24px);
+				background-color: _oFormsGet('controls-base');
+			}
 		}
 
 		@if $right {
 			.o-forms-input__right {
 				display: inline-block;
 	
-				#{$element} { // sass-lint:disable-line no-qualifying-elements
+				input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 					right: 0;
 				}
 	
