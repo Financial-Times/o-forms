@@ -120,7 +120,7 @@
 	}
 
 	@if index($elements, 'toggle') {
-		@include _oFormsToggle();
+		@include _oFormsToggle($disabled);
 	}
 
 	@if $inline {

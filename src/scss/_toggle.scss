@@ -1,6 +1,7 @@
 /// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output styles for toggle based on a checkbox input
-@mixin _oFormsToggle() {
+@mixin _oFormsToggle($disabled: null) {
 	.o-forms-input--toggle {
 		.o-forms-input__label {
 			display: inline-block;
@@ -15,14 +16,14 @@
 				top: 0;
 				left: 0;
 			}
-
+			
 			&:before {
 				background-color: _oFormsGet('default-text');
 				border-radius: $_o-forms-input-height;
 				height: 24px;
 				width: $_o-forms-input-height;
 			}
-
+			
 			&:after {
 				background-color: oColorsGetColorFor(page, background);
 				border: 2px solid _oFormsGet('default-text');
@@ -32,14 +33,30 @@
 				width: $_o-forms-control-size;
 				transition: left 75ms ease-in-out;
 			}
+			
 		}
-
+		
 		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 			position: relative;
 			left: $_o-forms-control-size / 2;
 
 			&:checked + .o-forms-input__label:after {
 				left: 16px;
+			}
+		}
+
+		@if $disabled {
+			input[type=checkbox]:disabled + .o-forms-input__label {
+				color: _oFormsGet('disabled-text');
+				
+				&:before,
+				&:after {
+					border-color: _oFormsGet('disabled-base');
+				}
+
+				&:before {
+					background-color: _oFormsGet('disabled-base');
+				}
 			}
 		}
 	}

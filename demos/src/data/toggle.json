@@ -7,7 +7,7 @@
         "aria": "toggle-group-title"
       },
       "title": {
-        "main": "Default toggle checkboxes",
+        "main": "Default toggle inputs",
         "prompt": "Optional prompt text"
       },
       "inputs": [
@@ -53,7 +53,7 @@
         "aria": "disabed-toggle-group-title"
       },
       "title": {
-        "main": "Disabled checkboxes"
+        "main": "Disabled toggle inputs"
       },
       "inputs": [
         {
@@ -79,7 +79,7 @@
         "modifiers": [ "invalid" ]
       },
       "title": {
-        "main": "Error checkboxes"
+        "main": "Error toggle inputs"
       },
       "inputs": [
         {
