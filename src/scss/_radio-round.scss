@@ -1,18 +1,10 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $invalid Whether to output invalid state styling
 /// @output Styling for box-styled radio inputs
 @mixin _oFormsRadioRound(
-	$disabled: null,
-	$invalid: null
+	$disabled: null
 ) {
 	.o-forms-input--radio-round {
-		@if $invalid {
-			.o-forms-input__error {
-				@include oTypographyMargin($top: 2);
-			}
-		}
-
 		.o-forms-input__label {
 			padding: 2px 0 2px $_o-forms-control-label-spacing;
 			display: inline-block;
@@ -57,6 +49,10 @@
 				box-shadow: 0 0 0 2px $o-normalise-focus-color;
 				outline: none;
 			}
+		}
+
+		.o-forms-input__error {
+			@include oTypographyMargin($top: 2);
 		}
 	}
 };

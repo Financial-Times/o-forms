@@ -2,20 +2,13 @@
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $small Whether to output small input styles
 /// @param {Boolean} $suffix Whether to output suffix styles
-/// @param {Boolean} $invalid Whether to output invalid state styling
-/// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text areas
 @mixin _oFormsSelect(
 	$disabled: null,
 	$small: null,
-	$suffix: null,
-	$invalid: null,
-	$valid: null
+	$suffix: null
 ) {
 	$element: 'select';
-
-	
-	
 	.o-forms-input--select {
 		@if $small {
 			@include _oFormsInputSmall($element);
@@ -23,14 +16,6 @@
 		
 		@if $suffix {
 			@include _oFormsInputSuffix($element);
-		}
-
-		@if $invalid {
-			@include _oFormsInputValidity('invalid', $element);
-		}
-
-		@if $valid {
-			@include _oFormsInputValidity('valid', $element);
 		}
 
 		#{$element} {

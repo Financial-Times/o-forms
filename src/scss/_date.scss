@@ -1,16 +1,10 @@
 // sass-lint:disable no-qualifying-elements
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $invalid Whether to output invalid state styling
-/// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for date inputs
 @mixin _oFormsDate (
-	$disabled: null,
-	$invalid: null,
-	$valid: null
+	$disabled: null
 ) {
-	$element: 'input[type=text]';
-
 	.o-forms-input--date {
 		clear: both;
 
@@ -19,34 +13,26 @@
 			float: left;
 		}
 
-		@if $invalid {
-			@include _oFormsInputValidity('invalid', $element);
-
-			.o-forms-input__error {
-				padding-top: 4px;
-				clear: both;
-			}
-		}
-
-		@if $valid {
-			@include _oFormsInputValidity('valid', $element);
-		}
-		
-		#{$element} { 
+		input[type=text] { 
 			@include _oFormsInputBase($disabled);
 			display: block;
 			margin: 4px 12px 0 0;
-
+			
 			&[pattern$='{2}'],
 			&[pattern$='[012]'] {
 				// Based on character width (plus kerning) and line height.
 				width: calc(2.2ch + 1em);
 			}
-
+			
 			&[pattern$='{4}'] {
 				// Based on character width (plus kerning) and line height.
 				width: calc(4.2ch + 1em);
 			}
+		}
+
+		.o-forms-input__error {
+			padding-top: 4px;
+			clear: both;
 		}
 	}
 }

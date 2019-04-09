@@ -1,6 +1,6 @@
 /// @access private
 /// @output Shared base state styles for all form elements.
-@mixin _oFormsBase {
+@mixin _oFormsBase() {
 	.o-forms-field,
 	.o-forms-title,
 	.o-forms-input {
@@ -46,11 +46,5 @@
 		font-weight: 400;
 		margin-left: 4px;
 	}
-
-	.o-forms-input--invalid .o-forms-input__error {
-		@include oTypographyMargin($top: 1);
-		@include oTypographySize($scale: -1);
-		color: _oFormsGet('invalid-base');
-		display: block;
-	}
 }
+

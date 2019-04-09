@@ -53,40 +53,33 @@
 
 	@if index($elements, 'checkbox') {
 		@include _oFormsCheckbox(
-			$disabled,
-			$invalid,
+			$disabled
 			$right
 		);
 	}
 
 	@if index($elements, 'date') {
 		@include _oFormsDate(
-			$disabled,
-			$invalid,
-			$valid
+			$disabled
 		);
 	}
 
 	@if index($elements, 'password') {
 		@include _oFormsTextInput(
 			$disabled,
-			$invalid,
-			$valid,
 			$input-type: 'password'
 		);
 	}
 
 	@if index($elements, 'radio-round') {
 		@include _oFormsRadioRound(
-			$disabled,
-			$invalid
+			$disabled
 		);
 	}
 
 	@if index($elements, 'radio-box') {
 		@include _oFormsRadioBox(
-			$disabled,
-			$invalid
+			$disabled
 		);
 	}
 
@@ -94,18 +87,12 @@
 		@include _oFormsSelect(
 			$disabled,
 			$small,
-			$suffix,
-			$invalid,
-			$valid
+			$suffix
 		);
 	}
 
 	@if index($elements, 'textarea') {
-		@include _oFormsTextArea(
-			$disabled,
-			$invalid,
-			$valid
-		);
+		@include _oFormsTextArea($disabled);
 	}
 
 	@if index($elements, 'text') {
@@ -113,8 +100,6 @@
 			$disabled,
 			$small,
 			$suffix,
-			$invalid,
-			$valid,
 			$input-type: 'text'
 		);
 	}
@@ -133,6 +118,14 @@
 
 	@if $state {
 		@include _oFormsState();
+	}
+
+	@if $invalid {
+		@include _oFormsInputValidity('invalid');
+	}
+
+	@if $valid {
+		@include _oFormsInputValidity('valid');
 	}
 }
 

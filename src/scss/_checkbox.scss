@@ -1,22 +1,14 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $right Whether to display checkbox to the right of text
 /// @output Styling for text inputs
 @mixin _oFormsCheckbox(
 	$disabled: null,
-	$invalid: null,
 	$right: null
 ) {
 	$element: 'input[type=checkbox]';
 
 	.o-forms-input--checkbox {
-		@if $invalid {
-			.o-forms-input__error {
-				@include oTypographyMargin($top: 2);
-			}
-		}
-
 		#{$element} { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
 		}
@@ -67,6 +59,9 @@
 				padding-top: 12px; 
 			}
 		}
-	}
 
+		.o-forms-input__error {
+			@include oTypographyMargin($top: 2);
+		}
+	}
 }

@@ -1,17 +1,19 @@
 // sass-lint:disable no-qualifying-elements
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $invalid Whether to output invalid state styling
 /// @output Styling for box-styled radio inputs
 @mixin _oFormsRadioBox(
-	$disabled: null,
-	$invalid: null
+	$disabled: null
 ) {
 	.o-forms-input--radio-box {
 		@include _oFormsRadioBoxInputStyles();
 
 		.o-forms-input--radio-box__container {
 			@include _oFormsControlsBoxContainer();
+		}
+
+		&.o-forms-input--invalid .o-forms-input--radio--box__container {
+			border-color: _oFormsGet('invalid-base');
 		}
 
 		label {
@@ -42,12 +44,6 @@
 					cursor: default;
 					opacity: 0.4;
 				}
-			}
-		}
-
-		@if $invalid {
-			&.o-forms-input--invalid .o-forms-input--radio--box__container {
-				border-color: _oFormsGet('invalid-base');
 			}
 		}
 	}

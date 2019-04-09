@@ -1,25 +1,9 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
-/// @param {Boolean} $invalid Whether to output invalid state styling
-/// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text areas
-@mixin _oFormsTextArea(
-	$disabled: null,
-	$invalid: null,
-	$valid: null
-) {
-	$element: 'textarea';
-
+@mixin _oFormsTextArea($disabled: null) {
 	.o-forms-input--textarea {
-		@if $invalid {
-			@include _oFormsInputValidity('invalid', $element);
-		}
-
-		@if $valid {
-			@include _oFormsInputValidity('valid', $element);
-		}
-
-		#{$element} {
+		textarea {
 			@include _oFormsInputBase($disabled);
 			resize: vertical;
 		}
