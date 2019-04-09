@@ -12,11 +12,11 @@
 	$element: 'input[type=#{$input-type}]';
 
 	.o-forms-input--#{$input-type} {
-		@if $small and $input-type == 'text' {
+		@if $small {
 			@include _oFormsInputSmall($element);
 		}
 
-		@if $suffix and $input-type == 'text' {
+		@if $suffix {
 			@include _oFormsInputSuffix($element);
 		}
 
