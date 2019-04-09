@@ -33,7 +33,7 @@
 			}
 		}
 
-		input[type=radio] {  // sass-lint:disable-line no-qualifying-elements
+		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
 			position: absolute;
 			opacity: 0;
 
@@ -59,7 +59,7 @@
 @mixin _oFormsRadioBoxInputStyles($theme: null) {
 	$theme: _oFormsThemeToBrandVariants($theme);
 
-	input[type=radio] {  // sass-lint:disable-line no-qualifying-elements
+	input[type=radio] { // sass-lint:disable-line no-qualifying-elements
 		& + .o-forms-input__label {
 			color: _oFormsGet('controls-base', $from: $theme);
 		}

@@ -25,18 +25,14 @@
 		}
 
 		@if $invalid {
-			&.o-forms-input--invalid { // sass-lint:disable-line no-qualifying-elements
-				@include _oFormsInputValidity('invalid', $element);
-			}
+			@include _oFormsInputValidity('invalid', $element);
 		}
 
 		@if $valid {
-			&.o-forms-input--valid { // sass-lint:disable-line no-qualifying-elements
-				@include _oFormsInputValidity('valid', $element);
-			}
+			@include _oFormsInputValidity('valid', $element);
 		}
 
-		#{$element} { // sass-lint:disable-line no-qualifying-elements
+		#{$element} {
 			@include _oFormsInputBase($disabled);
 		}
 	}

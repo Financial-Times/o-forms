@@ -46,7 +46,7 @@
 		}
 
 		@if $disabled {
-			input[type=checkbox]:disabled + .o-forms-input__label {
+			input[type=checkbox]:disabled + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
 				color: _oFormsGet('disabled-text');
 				
 				&:before,

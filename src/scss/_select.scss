@@ -26,15 +26,11 @@
 		}
 
 		@if $invalid {
-			&.o-forms-input--invalid {
-				@include _oFormsInputValidity('invalid', $element);
-			}
+			@include _oFormsInputValidity('invalid', $element);
 		}
 
 		@if $valid {
-			&.o-forms-input--valid {
-				@include _oFormsInputValidity('valid', $element);
-			}
+			@include _oFormsInputValidity('valid', $element);
 		}
 
 		#{$element} {
