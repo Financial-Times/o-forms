@@ -102,10 +102,17 @@
 		},
 		{
 			"name": "pa11y",
-			"title": "Test",
+			"title": "Accessibility testing",
 			"template": "/demos/src/pa11y.mustache",
 			"description": "pa11y",
 			"data": "/demos/src/data/pa11y.json",
+			"hidden": true
+		},
+		{
+			"name": "validation",
+			"title": "Validation states",
+			"template": "/demos/src/validation.mustache",
+			"description": "validation states with js",
 			"hidden": true
 		}
 	]
