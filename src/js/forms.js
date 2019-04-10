@@ -10,19 +10,27 @@ class Forms {
 
 		this.opts = Object.assign({
 			useBrowserValidation: true
-		}, options)
-		
+		}, options);
+
 		this.class = {
 			invalid: 'o-forms-input--invalid',
 			valid: 'o-forms-input--valid'
+		};
+
+		if (!this.opts.useBrowserValidation) {
+			this.formEl.setAttribute('novalidate', true);
+			this.formEl.addEventListener('submit', this);
+		} else {
+			this.formEl.removeAttribute('novalidate');
+			let submit = this.formEl.querySelector('input[type=submit]');
+			submit.addEventListener('click', this);
+			submit.addEventListener('keydown', this);
 		}
 
-		this.formEl.addEventListener('submit', this)
-
 		this.inputFields.forEach(input => {
-			input.addEventListener('blur', this)
-			input.addEventListener('input', this)
-		})
+			input.addEventListener('blur', this);
+			input.addEventListener('input', this);
+		});
 	}
 
 	/**
@@ -30,20 +38,30 @@ class Forms {
 	 * @param {Object} event - The event emitted by element/window interactions
 	 */
 	handleEvent(e) {
-		let field = e.target.closest('.o-forms-input');
 		if (e.type === 'blur') {
-			this.validate(e.target, field);
+			this.validate(e.target);
 		}
 
 		if (e.type === 'input') {
-			this.updateValidity(e.target, field);
+			let field = e.target.closest('.o-forms-input');
+			if (e.target.validity.valid && field.classList.contains(this.class.invalid)) {
+				field.classList.replace(this.class.invalid, this.class.valid);
+			}
 		}
 
-		if (!this.opts.useBrowserValidation && e.type === 'submit') {
+		if (e.type === 'click' || (e.type === 'keydown' && e.key === 13)) {
+			if (!this.formEl.reportValidity()) {
+				this.inputFields.forEach(input => this.validate(input));
+			}
+		}
+
+		if (e.type === 'submit') {
 			e.preventDefault();
-			let validatedInputs = this.inputFields.map(input => this.validate(input, field));
-			if (validatedInputs.includes(false)) return;
-			
+			let validatedInputs = this.inputFields.map(input => this.validate(input));
+			if (validatedInputs.includes(false)) {
+				return;
+			}
+
 			e.target.submit();
 		}
 	}
@@ -51,26 +69,14 @@ class Forms {
 	/**
 	 * Input validation
 	 * @param {Element} input - The input to validate
-	 * @param {Element} field - The parent element to toggle the invalid class on
 	 */
-	validate(input, field) {
+	validate(input) {
 		if (!input.validity.valid) {
-			field.classList.add(this.class.invalid);
+			input.closest('.o-forms-input').classList.add(this.class.invalid);
 			return false;
 		}
 
 		return true;
-	}
-
-	/**
-	* Input re-validation
-	* @param {Element} input - The input to re-evaluate
-	* @param {Element} field - The parent element to toggle the validity classes on
-	*/
-	updateValidity(input, field) {
-		if (input.validity.valid && field.classList.contains(this.class.invalid)) {
-			field.classList.replace(this.class.invalid, this.class.valid)
-		}
 	}
 
 	/**
