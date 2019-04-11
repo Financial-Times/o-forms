@@ -12,12 +12,12 @@ if (invalidField) {
 	if (invalidTextInput) {
 		invalidTextInput.setAttribute('required', true);
 	}
-	
+
 	let invalidTextArea = invalidField.querySelector("textarea");
 	if (invalidTextArea) {
 		invalidTextArea.setAttribute('required', true);
 	}
-	
+
 	let invalidSelect = invalidField.querySelector("select");
 	if (invalidSelect) {
 		invalidSelect.setAttribute('required', true);
