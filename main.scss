@@ -45,7 +45,7 @@
 	$suffix: index($features, 'suffix');
 	$valid: index($features, 'valid');
 
-	@include _oFormsBase();
+	@include _oFormsBase($invalid);
 
 	@if index($elements, 'anchor') {
 		@include _oFormsAnchorBox();
@@ -60,13 +60,17 @@
 
 	@if index($elements, 'date') {
 		@include _oFormsDate(
-			$disabled
+			$disabled,
+			$invalid,
+			$valid
 		);
 	}
 
 	@if index($elements, 'password') {
 		@include _oFormsTextInput(
 			$disabled,
+			$invalid,
+			$valid,
 			$input-type: 'password'
 		);
 	}
@@ -86,18 +90,26 @@
 	@if index($elements, 'select') {
 		@include _oFormsSelect(
 			$disabled,
+			$invalid,
+			$valid,
 			$small,
 			$suffix
 		);
 	}
 
 	@if index($elements, 'textarea') {
-		@include _oFormsTextArea($disabled);
+		@include _oFormsTextArea(
+			$disabled,
+			$invalid,
+			$valid
+		);
 	}
 
 	@if index($elements, 'text') {
 		@include _oFormsTextInput(
 			$disabled,
+			$invalid,
+			$valid,
 			$small,
 			$suffix,
 			$input-type: 'text'
@@ -118,14 +130,6 @@
 
 	@if $state {
 		@include _oFormsState();
-	}
-
-	@if $invalid {
-		@include _oFormsInputValidity('invalid');
-	}
-
-	@if $valid {
-		@include _oFormsInputValidity('valid');
 	}
 }
 

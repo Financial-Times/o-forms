@@ -1,10 +1,16 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $invalid Whether to output invalid state styling
+/// @param {Boolean} $valid Whether to output valid state styling
 /// @param {Boolean} $small Whether to output small input styles
 /// @param {Boolean} $suffix Whether to output suffix styles
+/// @param {Boolean} $small Whether to output small styles
+/// @param {String} $input-type Which text-like input to style (password, email, text)
 /// @output Styling for text inputs
 @mixin _oFormsTextInput(
 	$disabled: null,
+	$invalid: null, 
+	$valid: null, 
 	$small: null,
 	$suffix: null,
 	$input-type: 'text'
@@ -18,6 +24,14 @@
 
 		@if $suffix {
 			@include _oFormsInputSuffix($element);
+		}
+
+		@if $invalid {
+			@include _oFormsInputInvalid($element);
+		}
+
+		@if $valid {
+			@include _oFormsInputValid($element);
 		}
 
 		#{$element} {

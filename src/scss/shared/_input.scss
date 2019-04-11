@@ -28,27 +28,24 @@
 }
 
 /// @access private
-/// @output Shared valid or invalid state styles for select, textarea and text input.
-@mixin _oFormsInputValidity($validity) {
-	// .o-forms-input--#{$validity} {
-	// 	input[type="text"]:not(:disabled), // sass-lint:disable-line no-qualifying-elements
-	// 	input[type="password"]:not(:disabled), // sass-lint:disable-line no-qualifying-elements
-	// 	select:not(:disabled),
-	// 	textarea:not(:disabled) {
-	// 		color: _oFormsGet('#{$validity}-base');
-	// 		border-color: _oFormsGet('#{$validity}-base');
-	// 		box-shadow: none;
-	// 	}
-
-	// 	@if $validity == 'invalid' {
-	// 		.o-forms-input__error {
-	// 			@include oTypographyMargin($top: 1);
-	// 			@include oTypographySize($scale: -1);
-	// 			color: _oFormsGet('invalid-base');
-	// 			display: block;
-	// 		}
-	// 	}
-	// }
+/// @output Shared invalid state styles for select, textarea and text input.
+@mixin _oFormsInputInvalid($element) {
+	&.o-forms-input--invalid {
+		#{$element}:invalid:not(:disabled) {
+			color: _oFormsGet('invalid-base');
+			border-color: _oFormsGet('invalid-base');
+		}
+	}
+}
+/// @access private
+/// @output Shared valid state styles for select, textarea and text input.
+@mixin _oFormsInputValid($element) {
+	&.o-forms-input--valid {
+		#{$element}:valid:not(:disabled) {
+			color: _oFormsGet('valid-base');
+			border-color: _oFormsGet('valid-base');
+		}
+	}
 }
 
 /// @access private

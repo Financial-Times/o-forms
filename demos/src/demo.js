@@ -1,6 +1,26 @@
 require('../../main.js');
 
 document.addEventListener("DOMContentLoaded", function () {
-	// document.documentElement.className = document.documentElement.className.replace('core', 'enhanced');
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
+
+// to demonstrate :invalid pseudo-states work (without user interaction)
+let invalidField = document.querySelector('.o-forms-input--invalid');
+
+let invalidTextInput = invalidField.querySelector("input[type=text]");
+if (invalidTextInput) {
+	invalidTextInput.setAttribute('required', true);
+}
+
+let invalidTextArea = invalidField.querySelector("textarea");
+if (invalidTextArea) {
+	invalidTextArea.setAttribute('required', true);
+}
+
+let invalidSelect = invalidField.querySelector("select");
+if (invalidSelect) {
+	invalidSelect.setAttribute('required', true);
+	invalidSelect[0].setAttribute('disabled', true);
+	invalidSelect[0].setAttribute('selected', true);
+}
+

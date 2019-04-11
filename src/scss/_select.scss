@@ -1,24 +1,35 @@
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $invalid Whether to output invalid state styling
+/// @param {Boolean} $valid Whether to output valid state styling
 /// @param {Boolean} $small Whether to output small input styles
 /// @param {Boolean} $suffix Whether to output suffix styles
 /// @output Styling for text areas
 @mixin _oFormsSelect(
 	$disabled: null,
+	$invalid: null,
+	$valid: null,
 	$small: null,
 	$suffix: null
 ) {
-	$element: 'select';
 	.o-forms-input--select {
 		@if $small {
-			@include _oFormsInputSmall($element);
+			@include _oFormsInputSmall('select');
 		}
 		
 		@if $suffix {
-			@include _oFormsInputSuffix($element);
+			@include _oFormsInputSuffix('select');
 		}
 
-		#{$element} {
+		@if $invalid {
+			@include _oFormsInputInvalid('select');
+		}
+
+		@if $valid {
+			@include _oFormsInputValid('select');
+		}
+
+		select {
 			@include _oFormsInputBase($disabled);
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
 			appearance: none;
@@ -52,7 +63,7 @@
 			}
 
 			&[multiple] {
-				background-image:	none;
+				background-image: none;
 			}
 		}
 	}

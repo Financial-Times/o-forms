@@ -12,7 +12,7 @@
 			@include _oFormsControlsBoxContainer();
 		}
 
-		&.o-forms-input--invalid .o-forms-input--radio--box__container {
+		&.o-forms-input--invalid .o-forms-input--radio-box__container {
 			border-color: _oFormsGet('invalid-base');
 		}
 
@@ -23,8 +23,7 @@
 				border-left: 1px solid _oFormsGet('default-border');
 			}
 
-			.o-forms-input__label,
-			.o-forms__element__label {
+			.o-forms-input__label {
 				box-sizing: border-box;
 				display: inline-block;
 				max-height: 28px;
