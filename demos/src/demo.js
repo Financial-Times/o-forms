@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // to demonstrate :invalid pseudo-states work (without user interaction which is how they should work in prod)
 let invalidField = document.querySelector('.o-forms-input--invalid');
 
-if (invalidFied) {
+if (invalidField) {
 	let invalidTextInput = invalidField.querySelector("input[type=text]");
 	if (invalidTextInput) {
 		invalidTextInput.setAttribute('required', true);
