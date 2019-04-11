@@ -47,7 +47,7 @@
 		margin-left: 4px;
 	}
 
-	&.o-forms-input--valid {
+	.o-forms-input--valid {
 		*:valid:not(:disabled) {
 			color: _oFormsGet('valid-base');
 			border-color: _oFormsGet('valid-base');
@@ -58,7 +58,7 @@
 		box-shadow: none;
 	}
 
-	&.o-forms-input--invalid {
+	.o-forms-input--invalid {
 		*:invalid:not(:disabled) {
 			color: _oFormsGet('invalid-base');
 			border-color: _oFormsGet('invalid-base');
