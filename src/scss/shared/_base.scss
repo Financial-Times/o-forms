@@ -1,7 +1,6 @@
 /// @access private
-/// @param {Boolean} $invalid Whether to output invalid state styles
 /// @output Shared base state styles for all form elements.
-@mixin _oFormsBase($invalid: null) {
+@mixin _oFormsBase() {
 	.o-forms-field,
 	.o-forms-title,
 	.o-forms-input {
@@ -48,12 +47,24 @@
 		margin-left: 4px;
 	}
 
-	@if $invalid {
-		*:invalid {
-			box-shadow: none;
+	&.o-forms-input--valid {
+		*:valid:not(:disabled) {
+			color: _oFormsGet('valid-base');
+			border-color: _oFormsGet('valid-base');
+		}
+	}
+
+	*:invalid {
+		box-shadow: none;
+	}
+
+	&.o-forms-input--invalid {
+		*:invalid:not(:disabled) {
+			color: _oFormsGet('invalid-base');
+			border-color: _oFormsGet('invalid-base');
 		}
 
-		.o-forms-input--invalid .o-forms-input__error {
+		.o-forms-input__error {
 			@include oTypographyMargin($top: 1);
 			@include oTypographySize($scale: -1);
 			color: _oFormsGet('invalid-base');

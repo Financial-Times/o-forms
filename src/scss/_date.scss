@@ -6,19 +6,8 @@
 /// @output Styling for date inputs
 @mixin _oFormsDate (
 	$disabled: null,
-	$invalid: null,
-	$valid: null
 ) {
 	.o-forms-input--date {
-		clear: both;
-
-		@if $invalid {
-			@include _oFormsInputInvalid('input[type=text]');
-		}
-
-		@if $valid {
-			@include _oFormsInputValid('input[type=text]');
-		}
 
 		label {
 			@include oTypographyMargin($bottom: 0);

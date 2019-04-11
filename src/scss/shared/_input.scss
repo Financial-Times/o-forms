@@ -28,27 +28,6 @@
 }
 
 /// @access private
-/// @output Shared invalid state styles for select, textarea and text input.
-@mixin _oFormsInputInvalid($element) {
-	&.o-forms-input--invalid {
-		#{$element}:invalid:not(:disabled) {
-			color: _oFormsGet('invalid-base');
-			border-color: _oFormsGet('invalid-base');
-		}
-	}
-}
-/// @access private
-/// @output Shared valid state styles for select, textarea and text input.
-@mixin _oFormsInputValid($element) {
-	&.o-forms-input--valid {
-		#{$element}:valid:not(:disabled) {
-			color: _oFormsGet('valid-base');
-			border-color: _oFormsGet('valid-base');
-		}
-	}
-}
-
-/// @access private
 /// @output Shared small styles for select and text input.
 @mixin _oFormsInputSmall($element) {
 	&.o-forms-input--small {

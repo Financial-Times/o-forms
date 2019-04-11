@@ -4,19 +4,9 @@
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for text areas
 @mixin _oFormsTextArea(
-	$disabled: null,
-	$invalid: null,
-	$valid: null
+	$disabled: null
 ) {
 	.o-forms-input--textarea {
-		@if $invalid {
-			@include _oFormsInputInvalid('textarea');
-		}
-
-		@if $valid {
-			@include _oFormsInputValid('textarea');
-		}
-
 		textarea {
 			@include _oFormsInputBase($disabled);
 			resize: vertical;
