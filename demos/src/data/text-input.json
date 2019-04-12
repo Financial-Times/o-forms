@@ -30,8 +30,7 @@
       "input": {
         "type": "text",
         "modifiers": [ "invalid" ],
-        "value": "Invalid Input",
-        "error": "Something went wrong"
+        "error": "Please fill out this field"
       }
     },
     {
@@ -87,24 +86,6 @@
       "input": {
         "type": "password",
         "value": "password"
-      }
-    },
-    {
-      "select": true,
-      "title": {
-        "main": "Valid selection"
-      },
-      "input": {
-        "type": "select",
-        "options": [
-          "Option 1",
-          "Option 2",
-          "Option 3",
-          "Option 4"
-        ],
-        "modifiers": [
-          "valid"
-        ]
       }
     }
   ]

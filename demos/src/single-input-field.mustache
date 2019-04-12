@@ -9,7 +9,11 @@
 		<span class="o-forms-input o-forms-input--{{input.type}}{{#input.modifiers}} o-forms-input--{{.}}{{/input.modifiers}}">
 
 			{{#textInput}}
-				<input type="{{input.type}}" name="text" value="{{input.value}}" {{#disabled}}disabled{{/disabled}}>
+				<input 
+					type="{{input.type}}" 
+					name="text" 
+					value="{{input.value}}" 
+					{{#disabled}}disabled{{/disabled}}>
 			{{/textInput}}
 			
 			{{#textArea}}

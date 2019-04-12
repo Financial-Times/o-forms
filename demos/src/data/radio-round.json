@@ -36,18 +36,18 @@
       "inputs": [
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-radio",
           "value": "Inlined 1",
           "checked": true
         },
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-radio",
           "value": "Inlined 2"
         },
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-radio",
           "value": "Inlined 3"
         }
       ]
@@ -90,8 +90,7 @@
         {
           "type": "radio",
           "name": "error",
-          "value": "Error 1",
-          "checked": true
+          "value": "Error 1"
         },
         {
           "type": "radio",
@@ -115,13 +114,13 @@
       "inputs": [
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-field",
           "value": "Inlined 1",
           "checked": true
         },
         {
           "type": "radio",
-          "name": "inline",
+          "name": "inline-field",
           "value": "Inlined 2"
         }
       ]
