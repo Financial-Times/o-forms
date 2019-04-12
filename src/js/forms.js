@@ -12,7 +12,7 @@ class Forms {
 			useBrowserValidation: true
 		}, options);
 
-		this.class = {
+		this.className = {
 			invalid: 'o-forms-input--invalid',
 			valid: 'o-forms-input--valid'
 		};
@@ -38,18 +38,19 @@ class Forms {
 	 * @param {Object} event - The event emitted by element/window interactions
 	 */
 	handleEvent(e) {
+		let field = e.target.closest('.o-forms-input');
 		if (e.type === 'blur') {
-			this.validate(e.target);
+			field.querySelectorAll('input').forEach(input => this.validate(input));
 		}
 
 		if (e.type === 'input') {
-			let field = e.target.closest('.o-forms-input');
-			if (e.target.validity.valid && field.classList.contains(this.class.invalid)) {
-				field.classList.replace(this.class.invalid, this.class.valid);
+			if (e.target.validity.valid && field.classList.contains(this.className.invalid)) {
+				field.classList.replace(this.className.invalid, this.className.valid);
 			}
 		}
 
-		if (e.type === 'click' || (e.type === 'keydown' && e.key === 13)) {
+		const RETURN_KEY = 13;
+		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
 			if (!this.formEl.reportValidity()) {
 				this.inputFields.forEach(input => this.validate(input));
 			}
@@ -72,7 +73,7 @@ class Forms {
 	 */
 	validate(input) {
 		if (!input.validity.valid) {
-			input.closest('.o-forms-input').classList.add(this.class.invalid);
+			input.closest('.o-forms-input').classList.add(this.className.invalid);
 			return false;
 		}
 
