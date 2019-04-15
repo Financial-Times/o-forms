@@ -4,7 +4,10 @@
       "optional": true,
       "field": {
         "type": "date",
-        "aria": "date-group-title"
+        "aria": {
+          "label": "date-group-title",
+          "info": "date-group-info"
+        }
       },
       "title": {
         "main": "Date input",
@@ -31,7 +34,9 @@
     {
       "field": {
         "type": "date",
-        "aria": "disabled-date-group-title"
+        "aria": {
+          "label": "disabled-date-group-title"
+        }
       },
       "title": {
         "main": "Disabled date input"
@@ -60,7 +65,9 @@
     {
       "field": {
         "type": "date",
-        "aria": "error-date-group-title",
+        "aria": {
+          "label": "error-date-group-title"
+        },
         "error": "Not a valid date",
         "modifiers": [ "invalid" ]
       },
@@ -92,7 +99,9 @@
       "inline-field": true,
       "field": {
         "type": "date",
-        "aria": "inline-date-group-title",
+        "aria": {
+          "label": "inline-date-group-title"
+        },
         "modifiers": [ "inline" ]
       },
       "title": {

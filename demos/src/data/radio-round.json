@@ -4,7 +4,10 @@
       "optional": true,
       "field": {
         "type": "radio-round",
-        "aria": "radio-round-group-title"
+        "aria": {
+          "label": "radio-round-group-title",
+          "info": "radio-round-group-info"
+        }
       },
       "title": {
         "main": "Default radio buttons",
@@ -27,7 +30,9 @@
     {
       "field": {
         "type": "radio-round",
-        "aria": "inline-radio-round-group-title",
+        "aria": {
+          "label": "inline-radio-round-group-title"
+        },
         "modifiers": ["inline"]
       },
       "title": {
@@ -55,7 +60,9 @@
     {
       "field": {
         "type": "radio-round",
-        "aria": "disabed-radio-round-group-title"
+        "aria": {
+          "label": "disabed-radio-round-group-title"
+        }
       },
       "title": {
         "main": "Disabled radio buttons"
@@ -79,7 +86,9 @@
     {
       "field": {
         "type": "radio-round",
-        "aria": "error-radio-round-group-title",
+        "aria": {
+          "label": "error-radio-round-group-title"
+        },
         "error": "Something has gone wrong.",
         "modifiers": [ "invalid" ]
       },
@@ -103,7 +112,9 @@
       "inline-field": true,
       "field": {
         "type": "radio-round",
-        "aria": "inline-field-radio-round-group-title",
+        "aria": {
+          "label": "inline-field-radio-round-group-title"
+        },
         "modifiers": [
           "inline"
         ]
@@ -129,7 +140,9 @@
       "inline-field": true,
       "field": {
         "type": "radio-round",
-        "aria": "inline-field-stacked-radio-round-group-title"
+        "aria": {
+          "label": "inline-field-stacked-radio-round-group-title"
+        }
       },
       "title": {
         "main": "Inline field and stacked radio buttons"

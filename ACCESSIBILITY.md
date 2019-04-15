@@ -201,7 +201,7 @@ At its core, `aria-live` is an attribute that can be set to an area of a documen
 
 Things to note about `aria-live`:
 - it needs to be set on the markup so that the AT can register it when the document loads. Dynamically added regions won't be recognised. 
-	- `o-forms` cannot add it to a form or its elements)
+	- `o-forms` cannot add it to a form or its elements
 - it shoud **not** be set to the document `<body>`, as it could overrun the AT with unnecessary information. 
 	- in forms with many inputs we might end up with many live regions
 - the information a region relays can get lost or confusing amidst a users interaction with the page
