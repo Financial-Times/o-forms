@@ -1,19 +1,15 @@
 class Input {
 	/**
 	* Class constructor.
-	* @param {HTMLElement} [inputContainer] - An input container in the DOM
+	* @param {HTMLElement} [fieldElement] - An input container in the DOM
 	*/
 
-	constructor(inputContainer) {
-		this.inputContainer = inputContainer;
-		this.inputs = Array.from(
-			this.inputContainer.querySelectorAll('input', 'textarea', 'select'),
-			(input) => {
-				input.addEventListener('blur', this);
-				input.addEventListener('input', this);
-				return input;
-			}
-		);
+	constructor(element) {
+		this.input = element;
+		this.parent = element.closest('.o-forms-input');
+
+		this.input.addEventListener('blur', this);
+		this.input.addEventListener('input', this);
 
 		this.className = {
 			invalid: 'o-forms-input--invalid',
@@ -23,27 +19,31 @@ class Input {
 
 	handleEvent(e) {
 		if (e.type === 'blur') {
-			this.validate(e.target);
+			this.validate();
 		}
 
 		if (e.type === 'input') {
-			if (e.target.validity.valid && this.inputContainer.classList.contains(this.className.invalid)) {
-				this.inputContainer.classList.replace(this.className.invalid, this.className.valid);
+			if (this.input.validity.valid && this.parent.classList.contains(this.className.invalid)) {
+				this.parent.classList.replace(this.className.invalid, this.className.valid);
 			}
 		}
 	}
 
-	validate(input) {
-		if (input && !input.validity.valid) {
-			this.inputContainer.classList.add(this.className.invalid);
+	validate() {
+		if (!this.input.validity.valid) {
+			this.parent.classList.add(this.className.invalid);
 			return false;
-		} else if (!input) {
-			const validInputs = this.inputs.filter(input => this.validate(input));
-			return validInputs.length === this.inputs.length;
 		}
 
 		return true;
 	}
+
+	// setState(state) {
+	// 	if (!this.container.classList.contains('.o-forms-input--radio-box')) {
+	// 		throw new Error('State can only be set on radio inputs with a box style (o-forms-input--radio-box).');
+	// 	}
+
+	// }
 }
 
 export default Input;

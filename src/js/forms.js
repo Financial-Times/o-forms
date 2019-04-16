@@ -11,19 +11,19 @@ class Forms {
 			throw new Error(`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`);
 		}
 
-		this.formEl = formElement;
-		this.inputContainers = Array.from(formElement.querySelectorAll('.o-forms-input'), container => new Input(container));
+		this.form = formElement;
+		this.formElements = Array.from(this.form.elements, element => new Input(element));
 
 		this.opts = Object.assign({
 			useBrowserValidation: false
 		}, options);
 
 		if (!this.opts.useBrowserValidation) {
-			this.formEl.setAttribute('novalidate', true);
-			this.formEl.addEventListener('submit', this);
+			this.form.setAttribute('novalidate', true);
+			this.form.addEventListener('submit', this);
 		} else {
-			this.formEl.removeAttribute('novalidate');
-			let submit = this.formEl.querySelector('input[type=submit]');
+			this.form.removeAttribute('novalidate');
+			let submit = this.form.querySelector('input[type=submit]');
 			submit.addEventListener('click', this);
 			submit.addEventListener('keydown', this);
 		}
@@ -36,7 +36,7 @@ class Forms {
 	handleEvent(e) {
 		const RETURN_KEY = 13;
 		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
-			if (!this.formEl.reportValidity()) {
+			if (!this.form.reportValidity()) {
 				this.validateInputs();
 			}
 		}
@@ -55,7 +55,13 @@ class Forms {
 	* Input validation — Will validate each input field in a form
 	*/
 	validateInputs() {
-		return this.inputContainers.map(input => input.validate());
+		return this.formElements.map(input => input.validate());
+	}
+
+	setState(name) {
+		console.log(this.form.elements[name]);
+		console.log(this.formElements[name]);
+		// this.formElements.find(item => console.log(item.container.classList.contains('.o-forms-input--radio-box')))
 	}
 
 	/**

@@ -113,6 +113,7 @@
 			"title": "Validation states",
 			"template": "/demos/src/validation.mustache",
 			"description": "validation states with js",
+			"js": "demos/src/validation.js",
 			"hidden": true
 		}
 	]

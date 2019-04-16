@@ -29,7 +29,7 @@ describe('Input', () => {
 		sandbox.innerHTML = fixtures.field;
 		inputContainer = document.body.querySelector('.o-forms-input');
 		inputEl = inputContainer.querySelector('input');
-		new Input(inputContainer);
+		new Input(inputEl);
 
 		proclaim.isFalse(containerClass('invalid'));
 		proclaim.isFalse(containerClass('valid'));
@@ -40,12 +40,11 @@ describe('Input', () => {
 			sandbox.innerHTML = fixtures.requiredField;
 			inputContainer = document.body.querySelector('.o-forms-input');
 			inputEl = inputContainer.querySelector('input');
-			new Input(inputContainer);
+			new Input(inputEl);
 		});
 
 		it('`blur` event sets the field to invalid if required input is left empty', () => {
 			dispatch('blur', inputEl);
-
 			proclaim.isTrue(containerClass('invalid'));
 		});
 
@@ -66,7 +65,7 @@ describe('Input', () => {
 			sandbox.innerHTML = fixtures.fieldWithPattern;
 			inputContainer = document.body.querySelector('.o-forms-input');
 			inputEl = inputContainer.querySelector('input');
-			new Input(inputContainer);
+			new Input(inputEl);
 		});
 
 		it('`blur` event sets the field to invalid if input does not match pattern', () => {
