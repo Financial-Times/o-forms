@@ -12,11 +12,16 @@ class Forms {
 		}
 
 		this.form = formElement;
-		this.formElements = Array.from(this.form.elements, element => new Input(element));
+		this.formElements = this.form.elements;
 
 		this.opts = Object.assign({
 			useBrowserValidation: false
 		}, options);
+
+		this.className = {
+			invalid: 'o-forms-input--invalid',
+			valid: 'o-forms-input--valid'
+		};
 
 		if (!this.opts.useBrowserValidation) {
 			this.form.setAttribute('novalidate', true);
@@ -27,6 +32,11 @@ class Forms {
 			submit.addEventListener('click', this);
 			submit.addEventListener('keydown', this);
 		}
+
+		for (let input of this.formElements) {
+			input.addEventListener('blur', this);
+			input.addEventListener('input', this);
+		}
 	}
 
 	/**
@@ -34,16 +44,27 @@ class Forms {
 	 * @param {Object} event - The event emitted by element/window interactions
 	 */
 	handleEvent(e) {
+		if (e.type === 'blur' || e.type === 'input') {
+			this.validate(e.target);
+		}
+
 		const RETURN_KEY = 13;
 		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
-			if (!this.form.reportValidity()) {
-				this.validateInputs();
+			if (!this.form.checkValidity()) {
+				for (let input of this.formElements) {
+					this.validate(input)
+				}
 			}
 		}
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			if (this.validateInputs().includes(false)) {
+			let validatedInputs = [];
+			for (let input of this.formElements) {
+				validatedInputs.push(this.validate(input));
+			}
+
+			if (validatedInputs.includes(false)) {
 				return;
 			}
 
@@ -52,16 +73,36 @@ class Forms {
 	}
 
 	/**
-	* Input validation — Will validate each input field in a form
+	* Input validation
+	* @param {Object} input - the input element to validate
 	*/
-	validateInputs() {
-		return this.formElements.map(input => input.validate());
+	validate(input) {
+		let parent = input.closest('.o-forms-input');
+		if (!parent) {
+			return;
+		}
+
+		if (!input.validity.valid) {
+			parent.classList.add(this.className.invalid);
+			return false;
+		} else if (input.validity.valid && parent.classList.contains(this.className.invalid)) {
+			parent.classList.replace(this.className.invalid, this.className.valid);
+		}
+
+		return true;
 	}
 
-	setState(name) {
-		console.log(this.form.elements[name]);
-		console.log(this.formElements[name]);
-		// this.formElements.find(item => console.log(item.container.classList.contains('.o-forms-input--radio-box')))
+	setState(state, name) {
+		let node = this.formElements[name];
+		if (NodeList.prototype.isPrototypeOf(node)) {
+			let parent = node[0].closest('.o-forms-input');
+			if (parent.classList.contains('o-forms-input--radio-box')) {
+				let stateEl = document.createElement('span')
+				stateEl.classList.add('o-forms-input__state');
+				parent.classList.add(`o-forms-input--${state}`);
+				parent.append(stateEl);
+			}
+		}
 	}
 
 	/**
