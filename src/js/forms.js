@@ -1,3 +1,5 @@
+import Input from './input';
+
 class Forms {
 	/**
 	* Class constructor.
@@ -5,17 +7,16 @@ class Forms {
 	* @param {Object} [options={}] - An options object for configuring the form
 	*/
 	constructor(formElement, options) {
+		if (formElement.nodeName !== 'FORM') {
+			throw new Error(`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`);
+		}
+
 		this.formEl = formElement;
-		this.inputFields = Array.from(formElement.querySelectorAll('input', 'select', 'textarea'));
+		this.inputContainers = Array.from(formElement.querySelectorAll('.o-forms-input'), container => new Input(container));
 
 		this.opts = Object.assign({
-			useBrowserValidation: true
+			useBrowserValidation: false
 		}, options);
-
-		this.className = {
-			invalid: 'o-forms-input--invalid',
-			valid: 'o-forms-input--valid'
-		};
 
 		if (!this.opts.useBrowserValidation) {
 			this.formEl.setAttribute('novalidate', true);
@@ -26,11 +27,6 @@ class Forms {
 			submit.addEventListener('click', this);
 			submit.addEventListener('keydown', this);
 		}
-
-		this.inputFields.forEach(input => {
-			input.addEventListener('blur', this);
-			input.addEventListener('input', this);
-		});
 	}
 
 	/**
@@ -38,28 +34,16 @@ class Forms {
 	 * @param {Object} event - The event emitted by element/window interactions
 	 */
 	handleEvent(e) {
-		let field = e.target.closest('.o-forms-input');
-		if (e.type === 'blur') {
-			field.querySelectorAll('input').forEach(input => this.validate(input));
-		}
-
-		if (e.type === 'input') {
-			if (e.target.validity.valid && field.classList.contains(this.className.invalid)) {
-				field.classList.replace(this.className.invalid, this.className.valid);
-			}
-		}
-
 		const RETURN_KEY = 13;
 		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
 			if (!this.formEl.reportValidity()) {
-				this.inputFields.forEach(input => this.validate(input));
+				this.validateInputs();
 			}
 		}
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			let validatedInputs = this.inputFields.map(input => this.validate(input));
-			if (validatedInputs.includes(false)) {
+			if (this.validateInputs().includes(false)) {
 				return;
 			}
 
@@ -68,16 +52,10 @@ class Forms {
 	}
 
 	/**
-	 * Input validation
-	 * @param {Element} input - The input to validate
-	 */
-	validate(input) {
-		if (!input.validity.valid) {
-			input.closest('.o-forms-input').classList.add(this.className.invalid);
-			return false;
-		}
-
-		return true;
+	* Input validation — Will validate each input field in a form
+	*/
+	validateInputs() {
+		return this.inputContainers.map(input => input.validate());
 	}
 
 	/**

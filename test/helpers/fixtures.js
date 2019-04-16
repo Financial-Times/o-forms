@@ -2,7 +2,7 @@ export default {
 	form: `
 <form action="" data-o-component="o-forms">
 
-	<div class="o-forms-field o-forms-field--optional" role="group" aria-labelledby="date-group-title">
+	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
 		<span class="o-forms-title" aria-hidden="true">
 			<span class="o-forms-title--main" id="date-group-title">Date input</span>
 		</span>
@@ -32,6 +32,7 @@ export default {
 			<input type="text" name="text" value="" required>
 		</span>
 	</label>
+
 	<label class="o-forms-field o-forms-field--optional">
 		<span class="o-forms-title">
 			<span class="o-forms-title--main">Optional text input</span>
@@ -44,5 +45,38 @@ export default {
 
 	<input class="o-buttons" type="submit">
 </form>
+`,
+	field: `
+<label class="o-forms-field o-forms-field--optional">
+	<span class="o-forms-title">
+		<span class="o-forms-title--main">Optional text input</span>
+	</span>
+
+	<span class="o-forms-input o-forms-input--text">
+		<input type="text" name="text" value="">
+	</span>
+</label>
+`,
+	requiredField: `
+<label class="o-forms-field">
+	<span class="o-forms-title">
+		<span class="o-forms-title--main">Required text input</span>
+	</span>
+
+	<span class="o-forms-input o-forms-input--text">
+		<input type="text" name="text" value="" required>
+	</span>
+</label>
+`,
+	fieldWithPattern: `
+<label class="o-forms-field o-forms-field--optional">
+	<span class="o-forms-title">
+		<span class="o-forms-title--main">Required date input</span>
+	</span>
+
+	<span class="o-forms-input o-forms-input--text">
+		<input type="text" name="text" pattern="[0-9]{2}" value="" required>
+	</span>
+</label>
 `
 };
