@@ -1,4 +1,5 @@
 import Input from './input';
+import State from './state';
 
 class Forms {
 	/**
@@ -12,16 +13,12 @@ class Forms {
 		}
 
 		this.form = formElement;
-		this.formElements = this.form.elements;
+		this.formElements = Array.from(this.form.elements, element => new Input(element));
+		this.stateArray = [];
 
 		this.opts = Object.assign({
 			useBrowserValidation: false
 		}, options);
-
-		this.className = {
-			invalid: 'o-forms-input--invalid',
-			valid: 'o-forms-input--valid'
-		};
 
 		if (!this.opts.useBrowserValidation) {
 			this.form.setAttribute('novalidate', true);
@@ -32,11 +29,6 @@ class Forms {
 			submit.addEventListener('click', this);
 			submit.addEventListener('keydown', this);
 		}
-
-		for (let input of this.formElements) {
-			input.addEventListener('blur', this);
-			input.addEventListener('input', this);
-		}
 	}
 
 	/**
@@ -44,27 +36,16 @@ class Forms {
 	 * @param {Object} event - The event emitted by element/window interactions
 	 */
 	handleEvent(e) {
-		if (e.type === 'blur' || e.type === 'input') {
-			this.validate(e.target);
-		}
-
 		const RETURN_KEY = 13;
 		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
 			if (!this.form.checkValidity()) {
-				for (let input of this.formElements) {
-					this.validate(input)
-				}
+				this.validateForm();
 			}
 		}
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			let validatedInputs = [];
-			for (let input of this.formElements) {
-				validatedInputs.push(this.validate(input));
-			}
-
-			if (validatedInputs.includes(false)) {
+			if (this.validateForm().includes(false)) {
 				return;
 			}
 
@@ -73,35 +54,32 @@ class Forms {
 	}
 
 	/**
-	* Input validation
-	* @param {Object} input - the input element to validate
+	* Form validation
+	* Validates every element in the form
 	*/
-	validate(input) {
-		let parent = input.closest('.o-forms-input');
-		if (!parent) {
-			return;
-		}
-
-		if (!input.validity.valid) {
-			parent.classList.add(this.className.invalid);
-			return false;
-		} else if (input.validity.valid && parent.classList.contains(this.className.invalid)) {
-			parent.classList.replace(this.className.invalid, this.className.valid);
-		}
-
-		return true;
+	validateForm () {
+		return this.formElements.map(input => input.validate());
 	}
 
-	setState(state, name) {
-		let node = this.formElements[name];
-		if (NodeList.prototype.isPrototypeOf(node)) {
-			let parent = node[0].closest('.o-forms-input');
-			if (parent.classList.contains('o-forms-input--radio-box')) {
-				let stateEl = document.createElement('span')
-				stateEl.classList.add('o-forms-input__state');
-				parent.classList.add(`o-forms-input--${state}`);
-				parent.append(stateEl);
-			}
+	addState(collection) {
+		this.stateArray = collection.map(name => {
+			return {
+				name,
+				element: new State(this.form.elements[name])
+			};
+		});
+	}
+
+	setState(name, state) {
+		let object = this.stateArray.find(item => item.name === name);
+		if (state === 'saving') {
+			object.element.setSavingState();
+		} else if (state === 'saved') {
+			object.element.setSavedState();
+		} else if (state === 'none') {
+			object.element.removeState();
+		} else {
+			throw new Error(`${state} is not a recognised state, the options are 'saving', 'saved' or 'none'.`);
 		}
 	}
 

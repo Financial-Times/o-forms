@@ -1,7 +1,7 @@
 class Input {
 	/**
 	* Class constructor.
-	* @param {HTMLElement} [fieldElement] - An input container in the DOM
+	* @param {HTMLElement} [inputElement] - An input element in the DOM
 	*/
 
 	constructor(element) {
@@ -18,32 +18,26 @@ class Input {
 	}
 
 	handleEvent(e) {
-		if (e.type === 'blur') {
-			this.validate();
-		}
-
-		if (e.type === 'input') {
-			if (this.input.validity.valid && this.parent.classList.contains(this.className.invalid)) {
-				this.parent.classList.replace(this.className.invalid, this.className.valid);
-			}
+		if (e.type === 'blur' || e.type === 'input') {
+			this.validate(e.target);
 		}
 	}
 
 	validate() {
+		if (!this.parent) {
+			return;
+		}
+
 		if (!this.input.validity.valid) {
 			this.parent.classList.add(this.className.invalid);
 			return false;
+
+		} else if (this.input.validity.valid && this.parent.classList.contains(this.className.invalid)) {
+			this.parent.classList.replace(this.className.invalid, this.className.valid);
 		}
 
 		return true;
 	}
-
-	// setState(state) {
-	// 	if (!this.container.classList.contains('.o-forms-input--radio-box')) {
-	// 		throw new Error('State can only be set on radio inputs with a box style (o-forms-input--radio-box).');
-	// 	}
-
-	// }
 }
 
 export default Input;
