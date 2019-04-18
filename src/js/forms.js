@@ -14,7 +14,6 @@ class Forms {
 
 		this.form = formElement;
 		this.formElements = Array.from(this.form.elements, element => new Input(element));
-		this.stateArray = [];
 
 		this.opts = Object.assign({
 			useBrowserValidation: false
@@ -25,7 +24,7 @@ class Forms {
 			this.form.addEventListener('submit', this);
 		} else {
 			this.form.removeAttribute('novalidate');
-			let submit = this.form.querySelector('input[type=submit]');
+			let submit = this.form.querySelector('[type=submit]');
 			submit.addEventListener('click', this);
 			submit.addEventListener('keydown', this);
 		}
@@ -61,9 +60,11 @@ class Forms {
 		return this.formElements.map(input => input.validate());
 	}
 
+	/* eslint-disable class-methods-use-this */
 	addState(field) {
 		return new State(field);
 	}
+	/* eslint-enable class-methods-use-this */
 
 	/**
 	 * Initialise form component.
