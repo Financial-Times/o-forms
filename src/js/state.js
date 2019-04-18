@@ -1,7 +1,6 @@
 class State {
-	constructor(inputs) {
-		this.inputs = inputs;
-		this.parent = null;
+	constructor(input) {
+		this.input = input;
 
 		this.verifyInput();
 
@@ -13,28 +12,29 @@ class State {
 	}
 
 	setSavingState() {
-		this.stateEl = document.createElement('span');
-		this.stateEl.classList.add('o-forms-input__state');
-		this.parent.classList.add(this.className.saving);
-		this.parent.append(this.stateEl);
+		if (this.stateEl === null) {
+			this.stateEl = document.createElement('span');
+			this.stateEl.classList.add('o-forms-input__state');
+			this.input.classList.add(this.className.saving);
+			this.input.append(this.stateEl);
+		}
 	}
 
-
 	setSavedState() {
-		this.parent.classList.replace(this.className.saving, this.className.saved);
+		this.input.classList.replace(this.className.saving, this.className.saved);
 	}
 
 	removeState() {
-		this.parent.classList.remove(this.className.saved);
-		this.parent.removeChild(this.stateEl);
+		this.input.classList.remove(this.className.saved);
+		this.input.removeChild(this.stateEl);
+		this.stateEl = null;
 	}
 
-	verifyInput() {
-		this.parent = this.inputs[0].closest('.o-forms-input');
-
-		if (NodeList.prototype.isPrototypeOf(this.inputs)
-				&& this.parent && !this.parent.classList.contains('o-forms-input--radio-box')) {
+	verifyInput() {		
+		if (!this.input.classList.contains('o-forms-input--radio-box')) {
 			throw new Error('State can only be set on radio inputs with a box style (o-forms-input--radio-box).');
+		} else if (this.input.classList.contains('.o-forms--input-invalid')) {
+			throw new Error('State cannot be set on an invalid input field.')
 		}
 	}
 }
