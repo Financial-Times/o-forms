@@ -1,8 +1,8 @@
 class State {
-	constructor(input) {
-		this.input = input;
+	constructor(field) {
+		this.field = field;
 
-		this.verifyInput();
+		this.verify();
 
 		this.stateEl = null;
 		this.className = {
@@ -15,25 +15,25 @@ class State {
 		if (this.stateEl === null) {
 			this.stateEl = document.createElement('span');
 			this.stateEl.classList.add('o-forms-input__state');
-			this.input.classList.add(this.className.saving);
-			this.input.append(this.stateEl);
+			this.field.classList.add(this.className.saving);
+			this.field.append(this.stateEl);
 		}
 	}
 
 	setSavedState() {
-		this.input.classList.replace(this.className.saving, this.className.saved);
+		this.field.classList.replace(this.className.saving, this.className.saved);
 	}
 
 	removeState() {
-		this.input.classList.remove(this.className.saved);
-		this.input.removeChild(this.stateEl);
+		this.field.classList.remove(this.className.saved);
+		this.field.removeChild(this.stateEl);
 		this.stateEl = null;
 	}
 
-	verifyInput() {
-		if (!this.input.classList.contains('o-forms-input--radio-box')) {
+	verify() {
+		if (!this.field.classList.contains('o-forms-input--radio-box')) {
 			throw new Error('State can only be set on radio inputs with a box style (o-forms-input--radio-box).');
-		} else if (this.input.classList.contains('.o-forms--input-invalid')) {
+		} else if (this.field.classList.contains('.o-forms--input-invalid')) {
 			throw new Error('State cannot be set on an invalid input field.');
 		}
 	}

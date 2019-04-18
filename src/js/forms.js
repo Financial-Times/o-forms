@@ -61,26 +61,8 @@ class Forms {
 		return this.formElements.map(input => input.validate());
 	}
 
-	addState(collection) {
-		this.stateArray = collection.map(name => {
-			return {
-				name,
-				element: new State(this.form.elements[name])
-			};
-		});
-	}
-
-	setState(name, state) {
-		let object = this.stateArray.find(item => item.name === name);
-		if (state === 'saving') {
-			object.element.setSavingState();
-		} else if (state === 'saved') {
-			object.element.setSavedState();
-		} else if (state === 'none') {
-			object.element.removeState();
-		} else {
-			throw new Error(`${state} is not a recognised state, the options are 'saving', 'saved' or 'none'.`);
-		}
+	addState(field) {
+		return new State(field);
 	}
 
 	/**
