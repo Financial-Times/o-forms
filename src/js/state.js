@@ -30,11 +30,11 @@ class State {
 		this.stateEl = null;
 	}
 
-	verifyInput() {		
+	verifyInput() {
 		if (!this.input.classList.contains('o-forms-input--radio-box')) {
 			throw new Error('State can only be set on radio inputs with a box style (o-forms-input--radio-box).');
 		} else if (this.input.classList.contains('.o-forms--input-invalid')) {
-			throw new Error('State cannot be set on an invalid input field.')
+			throw new Error('State cannot be set on an invalid input field.');
 		}
 	}
 }
