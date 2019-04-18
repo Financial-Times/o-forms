@@ -78,5 +78,24 @@ export default {
 		<input type="text" name="text" pattern="[0-9]{2}" value="" required>
 	</span>
 </label>
-`
+`,
+	stateField: `
+<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
+	<span class="o-forms-title" aria-hidden="true">
+		<span class="o-forms-title--main" id="date-group-title">Radio box input</span>
+	</span>
+
+	<span class="o-forms-input o-forms-input--radio-box">
+		<div class="o-forms-input--radio-box__container">
+			<label>
+				<input type="radio" name="box2">
+				<span class="o-forms-input__label" aria-hidden="true">Yes</span>
+			</label>
+			<label>
+				<input type="radio" name="box2" checked>
+				<span class="o-forms-input__label o-forms-input__label--negative" aria-hidden="true">No</span>
+			</label>
+		</div>
+	</span>
+</div>`
 };

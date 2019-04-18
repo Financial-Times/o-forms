@@ -5,7 +5,7 @@
 		@include oTypographySize($scale: -1, $line-height: 1);
 		color: inherit;
 		display: block;
-		
+
 		&:before,
 		&:after {
 			content: '';

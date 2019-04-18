@@ -109,11 +109,11 @@
 			"hidden": true
 		},
 		{
-			"name": "validation",
-			"title": "Validation states",
-			"template": "/demos/src/validation.mustache",
-			"description": "validation states with js",
-			"js": "demos/src/validation.js",
+			"name": "interactive",
+			"title": "Interactive form demo",
+			"template": "/demos/src/interactive.mustache",
+			"description": "Illustrates validation and state behaviour with form JS",
+			"js": "demos/src/interactive.js",
 			"hidden": true
 		}
 	]

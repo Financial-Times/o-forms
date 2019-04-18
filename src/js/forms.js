@@ -14,6 +14,7 @@ class Forms {
 
 		this.form = formElement;
 		this.formElements = Array.from(this.form.elements, element => new Input(element));
+		this.stateArray = [];
 
 		this.opts = Object.assign({
 			useBrowserValidation: false
@@ -24,7 +25,7 @@ class Forms {
 			this.form.addEventListener('submit', this);
 		} else {
 			this.form.removeAttribute('novalidate');
-			let submit = this.form.querySelector('[type=submit]');
+			let submit = this.form.querySelector('input[type=submit]');
 			submit.addEventListener('click', this);
 			submit.addEventListener('keydown', this);
 		}
@@ -60,11 +61,29 @@ class Forms {
 		return this.formElements.map(input => input.validate());
 	}
 
-	/* eslint-disable class-methods-use-this */
-	addState(field) {
-		return new State(field);
+	/**
+	* Input state
+	* @param {String} [name] - name of the input fields to add state to
+	* @param {String} [state] - type of state to apply — one of 'saving', 'saved', 'none'
+	*/
+	setState(name, state) {
+		let object = this.stateArray.find(item => item.name === name);
+
+		if (!object) {
+			object = {
+				name,
+				element: new State(this.form.elements[name])
+			};
+
+			this.stateArray.push(object);
+		}
+
+		if (!state) {
+			throw new Error(`${state} is not a recognised state, the options are 'saving', 'saved' or 'none'.`);
+		}
+
+		object.element.set(state);
 	}
-	/* eslint-enable class-methods-use-this */
 
 	/**
 	 * Initialise form component.

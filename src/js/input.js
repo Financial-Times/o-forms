@@ -3,7 +3,6 @@ class Input {
 	* Class constructor.
 	* @param {HTMLElement} [inputElement] - An input element in the DOM
 	*/
-
 	constructor(element) {
 		this.input = element;
 		this.parent = element.closest('.o-forms-input');
@@ -17,12 +16,20 @@ class Input {
 		};
 	}
 
+	/**
+	* Event Handler
+	* @param {Object} event - The event emitted by element/window interactions
+	*/
 	handleEvent(e) {
 		if (e.type === 'blur' || e.type === 'input') {
 			this.validate(e.target);
 		}
 	}
 
+	/**
+	* Input validation
+	* Conditions for input validation
+	*/
 	validate() {
 		if (!this.parent) {
 			return;
