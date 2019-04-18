@@ -1,51 +1,53 @@
 /* eslint-env mocha, sinon, proclaim */
 
 import proclaim from 'proclaim';
-import * as fixtures from './helpers/fixtures';
+import formFixture from './helpers/fixtures';
 
 const State = require('../src/js/state');
 
 describe('State', () => {
-	let inputList;
-	let sandbox;
+	let form;
 	let state;
-	let stateClass;
-
-	before(() => {
-		sandbox = document.createElement('div');
-		document.body.appendChild(sandbox);
-
-		stateClass = (state) => inputList[0].closest('.o-forms-input').classList.contains(`o-forms-input--${state}`);
-	});
-
-	after(() => {
-		document.body.removeChild(sandbox);
-		inputList = null;
-	});
+	let nodeList;
 
 	context('new instance', () => {
+		before(() => {
+			document.body.innerHTML = formFixture;
+			form = document.forms[0];
+		});
+
+		after(() => {
+			document.body.innerHTML = null;
+		});
+
 		it('initialises a state instance successfully', () => {
-			sandbox.innerHTML = fixtures.stateField;
-			inputList = document.body.querySelectorAll('input');
-			state = new State(inputList);
+			nodeList = form.elements['radioBox'];
+			state = new State(nodeList);
 
 			proclaim.isInstanceOf(state, State);
 		});
 
 		it('throws an error if input type is not `o-forms-input--radio-box`', () => {
-			sandbox.innerHTML = fixtures.field;
-			inputList = document.body.querySelectorAll('input');
+			let field = form.elements['optional'];
 
 			let message = 'State can only be set on radio inputs with a box style (o-forms-input--radio-box).';
-			proclaim.throws(() => new State(inputList), message);
+			proclaim.throws(() => new State(field), message);
 		});
 	});
 
 	context('.set()', () => {
+		let stateClass;
+
 		before(() => {
-			sandbox.innerHTML = fixtures.stateField;
-			inputList = document.body.querySelectorAll('input');
-			state = new State(inputList);
+			document.body.innerHTML = formFixture;
+			form = document.forms[0];
+			nodeList = form.elements['radioBox'];
+			state = new State(nodeList);
+			stateClass = (state) => nodeList[0].closest('.o-forms-input').classList.contains(`o-forms-input--${state}`);
+		});
+
+		after(() => {
+			document.body.innerHTML = null;
 		});
 
 		it('`saving` state', () => {

@@ -1,5 +1,4 @@
-export default {
-	form: `
+export default `
 <form action="" data-o-component="o-forms">
 
 	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
@@ -10,15 +9,15 @@ export default {
 		<span class="o-forms-input o-forms-input--date">
 			<label>
 				<span class="o-forms-input__label" aria-hidden="true">DD</span>
-				<input type="text" name="" value="" pattern="[0-9]{2}" aria-label="" required>
+				<input type="text" name="date" value="" pattern="[0-9]{2}" aria-label="" required>
 			</label>
 			<label>
 				<span class="o-forms-input__label" aria-hidden="true">MM</span>
-				<input type="text" name="" value="" pattern="0?[1-9]|1[012]" aria-label="" required>
+				<input type="text" name="date" value="" pattern="0?[1-9]|1[012]" aria-label="" required>
 			</label>
 			<label>
 				<span class="o-forms-input__label" aria-hidden="true">YYYY</span>
-				<input type="text" name="" value="" pattern="[0-9]{4}" aria-label="" required>
+				<input type="text" name="date" value="" pattern="[0-9]{4}" aria-label="" required>
 			</label>
 		</span>
 	</div>
@@ -29,7 +28,7 @@ export default {
 		</span>
 
 		<span class="o-forms-input o-forms-input--text">
-			<input type="text" name="text" value="" required>
+			<input type="text" name="required" value="" required>
 		</span>
 	</label>
 
@@ -39,63 +38,29 @@ export default {
 		</span>
 
 		<span class="o-forms-input o-forms-input--text">
-			<input type="text" name="text" value="">
+			<input type="text" name="optional" value="">
 		</span>
 	</label>
 
+	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
+		<span class="o-forms-title" aria-hidden="true">
+			<span class="o-forms-title--main" id="date-group-title">Radio box input</span>
+		</span>
+
+		<span class="o-forms-input o-forms-input--radio-box">
+			<div class="o-forms-input--radio-box__container">
+				<label>
+					<input type="radio" name="radioBox">
+					<span class="o-forms-input__label" aria-hidden="true">Yes</span>
+				</label>
+				<label>
+					<input type="radio" name="radioBox" checked>
+					<span class="o-forms-input__label o-forms-input__label--negative" aria-hidden="true">No</span>
+				</label>
+			</div>
+		</span>
+	</div>
+
 	<input class="o-buttons" type="submit">
 </form>
-`,
-	field: `
-<label class="o-forms-field o-forms-field--optional">
-	<span class="o-forms-title">
-		<span class="o-forms-title--main">Optional text input</span>
-	</span>
-
-	<span class="o-forms-input o-forms-input--text">
-		<input type="text" name="text" value="">
-	</span>
-</label>
-`,
-	requiredField: `
-<label class="o-forms-field">
-	<span class="o-forms-title">
-		<span class="o-forms-title--main">Required text input</span>
-	</span>
-
-	<span class="o-forms-input o-forms-input--text">
-		<input type="text" name="text" value="" required>
-	</span>
-</label>
-`,
-	fieldWithPattern: `
-<label class="o-forms-field o-forms-field--optional">
-	<span class="o-forms-title">
-		<span class="o-forms-title--main">Required date input</span>
-	</span>
-
-	<span class="o-forms-input o-forms-input--text">
-		<input type="text" name="text" pattern="[0-9]{2}" value="" required>
-	</span>
-</label>
-`,
-	stateField: `
-<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
-	<span class="o-forms-title" aria-hidden="true">
-		<span class="o-forms-title--main" id="date-group-title">Radio box input</span>
-	</span>
-
-	<span class="o-forms-input o-forms-input--radio-box">
-		<div class="o-forms-input--radio-box__container">
-			<label>
-				<input type="radio" name="box2">
-				<span class="o-forms-input__label" aria-hidden="true">Yes</span>
-			</label>
-			<label>
-				<input type="radio" name="box2" checked>
-				<span class="o-forms-input__label o-forms-input__label--negative" aria-hidden="true">No</span>
-			</label>
-		</div>
-	</span>
-</div>`
-};
+`;

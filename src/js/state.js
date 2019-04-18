@@ -5,7 +5,7 @@ class State {
 	*/
 	constructor(inputs) {
 		this.inputs = inputs;
-		this.parent = this.inputs[0].closest('.o-forms-input');
+		this.parent = inputs.length > 1 ? this.inputs[0].closest('.o-forms-input') : null;
 
 		this._verify();
 
@@ -66,7 +66,7 @@ class State {
 	* @access private
 	*/
 	_verify() {
-		if (!this.parent.classList.contains('o-forms-input--radio-box')) {
+		if (!this.parent || !this.parent.classList.contains('o-forms-input--radio-box')) {
 			throw new Error('State can only be set on radio inputs with a box style (o-forms-input--radio-box).');
 		} else if (this.parent.classList.contains('.o-forms--input-invalid')) {
 			throw new Error('State cannot be set on an invalid input field.');

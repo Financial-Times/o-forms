@@ -66,9 +66,8 @@ class Forms {
 	* @param {String} [name] - name of the input fields to add state to
 	* @param {String} [state] - type of state to apply — one of 'saving', 'saved', 'none'
 	*/
-	setState(name, state) {
+	setState(state, name) {
 		let object = this.stateArray.find(item => item.name === name);
-
 		if (!object) {
 			object = {
 				name,
