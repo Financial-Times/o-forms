@@ -36,11 +36,20 @@
 	}
 
 	.o-forms__error-summary {
-		@include oTypographySansBold($scale: 0);
-		@include oTypographyMargin($top: 0);
-		list-style-type: none;
-		padding: 12px;
+		@include oTypographySans($scale: 0);
+		@include oTypographyMargin($bottom: 4);
 		border: 1px solid _oFormsGet('invalid-base');
+		padding: 12px;
+
+		span {
+			@include oTypographyBold('sans');
+		}
+
+		ul {
+			@include oTypographyMargin($top: 0, $bottom: 0);
+			list-style-type: none;
+			padding: 0;
+		}
 
 		a {
 			color: _oFormsGet('invalid-base');

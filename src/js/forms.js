@@ -58,8 +58,9 @@ class Forms {
 					}
 					this.summary.querySelector('a').focus();
 				}
+
 				return;
-			} 
+			}
 
 			e.target.submit();
 		}
@@ -67,20 +68,22 @@ class Forms {
 
 	/**
 	* Form validation
-	* Validates every element in the form
+	* Validates every element in the form and creates input objects for the error summary
 	*/
 	validateForm () {
 		return this.formElements.map(element => {
 			let valid = element.validate();
 			let input = element.input;
-			let errorElement = element.parent ? element.parent.querySelector('.o-forms-input__error') : null;
+			let errorElement = input.parentElement ? input.parentElement.querySelector('.o-forms-input__error') : null;
 			let error = errorElement ? errorElement.innerHTML : input.validationMessage;
+			let field = input.closest('.o-forms-field');
+			let label = field ? field.querySelector('.o-forms-title--main').innerHTML : null;
 			return {
 				id: input.id,
 				valid,
 				error: !valid ? error : null,
-				element
-			}
+				label
+			};
 		});
 	}
 
