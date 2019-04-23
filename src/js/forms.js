@@ -1,3 +1,7 @@
+import Input from './input';
+import State from './state';
+import ErrorSummary from './error-summary';
+
 class Forms {
 	/**
 	* Class constructor.
@@ -9,7 +13,8 @@ class Forms {
 		this.inputFields = Array.from(formElement.querySelectorAll('input', 'select', 'textarea'));
 
 		this.opts = Object.assign({
-			useBrowserValidation: true
+			useBrowserValidation: false,
+			errorSummary: true
 		}, options);
 
 		this.className = {
@@ -58,23 +63,57 @@ class Forms {
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			let validatedInputs = this.inputFields.map(input => this.validate(input));
-			if (validatedInputs.includes(false)) {
+			let checkedElements = this.validateForm();
+
+			if (checkedElements.some(input => input.valid === false)) {
+				if (this.opts.errorSummary) {
+					this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
+					this.summary.querySelector('a').focus();
+				}
 				return;
-			}
+			} 
 
 			e.target.submit();
 		}
 	}
 
 	/**
-	 * Input validation
-	 * @param {Element} input - The input to validate
-	 */
-	validate(input) {
-		if (!input.validity.valid) {
-			input.closest('.o-forms-input').classList.add(this.className.invalid);
-			return false;
+	* Form validation
+	* Validates every element in the form
+	*/
+	validateForm () {
+		return this.formElements.map(element => {
+			let valid = element.validate();
+			let input = element.input;
+			let errorElement = element.parent ? element.parent.querySelector('.o-forms-input__error') : null;
+			let error = errorElement ? errorElement.innerHTML : input.validationMessage;
+			return {
+				id: input.id,
+				valid,
+				error: !valid ? error : null,
+				element
+			}
+		});
+	}
+
+	/**
+	* Input state
+	* @param {String} [name] - name of the input fields to add state to
+	* @param {String} [state] - type of state to apply — one of 'saving', 'saved', 'none'
+	*/
+	setState(state, name) {
+		let object = this.stateArray.find(item => item.name === name);
+		if (!object) {
+			object = {
+				name,
+				element: new State(this.form.elements[name])
+			};
+
+			this.stateArray.push(object);
+		}
+
+		if (!state) {
+			throw new Error(`${state} is not a recognised state, the options are 'saving', 'saved' or 'none'.`);
 		}
 
 		return true;
