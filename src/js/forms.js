@@ -1,5 +1,6 @@
 import Input from './input';
 import State from './state';
+import ErrorSummary from './error-summary';
 
 class Forms {
 	/**
@@ -17,7 +18,8 @@ class Forms {
 		this.stateArray = [];
 
 		this.opts = Object.assign({
-			useBrowserValidation: false
+			useBrowserValidation: false,
+			errorSummary: true
 		}, options);
 
 		if (!this.opts.useBrowserValidation) {
@@ -45,9 +47,15 @@ class Forms {
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			if (this.validateForm().includes(false)) {
+			let checkedElements = this.validateForm();
+
+			if (checkedElements.some(input => input.valid === false)) {
+				if (this.opts.errorSummary) {
+					this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
+					this.summary.querySelector('a').focus();
+				}
 				return;
-			}
+			} 
 
 			e.target.submit();
 		}
@@ -58,7 +66,18 @@ class Forms {
 	* Validates every element in the form
 	*/
 	validateForm () {
-		return this.formElements.map(input => input.validate());
+		return this.formElements.map(element => {
+			let valid = element.validate();
+			let input = element.input;
+			let errorElement = element.parent ? element.parent.querySelector('.o-forms-input__error') : null;
+			let error = errorElement ? errorElement.innerHTML : input.validationMessage;
+			return {
+				id: input.id,
+				valid,
+				error: !valid ? error : null,
+				element
+			}
+		});
 	}
 
 	/**
