@@ -1,4 +1,19 @@
 class ErrorSummary {
+	/**
+	* Class constructor.
+	* @param {Array} [elements] - An array of objects, where each object describes an invalid input element
+	* @example
+	* const example = [
+	*	{
+	*		id: 'text-input',
+	*		valid: false,
+	*		error: 'Please fill out this field'
+	*		label: 'Input Label'
+	*	}
+	*	...
+	*	]
+	*	new ErrorSummary(example)
+	*/
 	constructor(elements) {
 		this.elements = elements;
 		this.invalidInputs = [];
@@ -6,42 +21,57 @@ class ErrorSummary {
 		return this.createSummary();
 	}
 
+	/**
+	 * Generate Node to hold list of invalid inputs
+	 */
 	createSummary() {
+		let invalidInputs = [];
 		this.elements.forEach(element => {
 			if (element.valid) {
 				return;
 			}
-			this.invalidInputs.push(element);
-		})
+			invalidInputs.push(element);
+		});
 
+		let div = document.createElement('div');
+		div.classList.add('o-forms__error-summary');
+		div.setAttribute('aria-labelledby', 'error-summary');
+		div.innerHTML = '<span id="error-summary">There is a problem</span>';
+
+		div.appendChild(ErrorSummary.createList(invalidInputs));
+		return div;
+	}
+
+	/**
+	 * Generate list of anchors
+	 */
+	static createList(inputs) {
 		let list = document.createElement('ul');
-		list.classList.add('o-forms__error-summary');
-		list.innerHTML = 'There is a problem';
-		this.invalidInputs.forEach(input => {
+		inputs.forEach(input => {
 			if (input.id && !input.valid) {
-				let listItem = document.createElement('li')
-				let anchor = this.createAnchor(input);
+				let listItem = document.createElement('li');
+				let anchor = ErrorSummary.createAnchor(input);
 				listItem.appendChild(anchor);
 				list.appendChild(listItem);
 			}
-		})
+		});
 
 		return list;
 	}
 
-	createAnchor(input) {
-		let anchor = document.createElement('a')
+	/**
+	 * Generate anchor element to point at invalid input
+	 * @param {Object} [input] - The input object to construct an anchor for
+	 */
+	static createAnchor(input) {
+		let anchor = document.createElement('a');
 		anchor.setAttribute('href', `#${input.id}`);
-		anchor.innerHTML = `${this.getLabel(input)}: ${input.error}`;
+		anchor.innerHTML = `${input.label}: ${input.error}`;
 		anchor.addEventListener('click', (e) => {
 			e.preventDefault();
-			document.querySelector(e.target.hash).focus()
+			document.querySelector(e.target.hash).focus();
 		});
 		return anchor;
-	}
-
-	getLabel(input) {
-		return input.element.parent.previousElementSibling.firstElementChild.innerHTML;
 	}
 }
 
