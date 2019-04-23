@@ -67,7 +67,11 @@ class Forms {
 
 			if (checkedElements.some(input => input.valid === false)) {
 				if (this.opts.errorSummary) {
-					this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
+					if (this.summary) {
+						this.summary = this.form.replaceChild(new ErrorSummary(checkedElements), this.summary);
+					} else {
+						this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
+					}
 					this.summary.querySelector('a').focus();
 				}
 				return;
