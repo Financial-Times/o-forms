@@ -5,7 +5,7 @@
 	"origamiVersion": 1,
 	"brands" : [
 		"master",
-		"internal",
+		"internal",d
 		"whitelabel"
 	],
 	"support": "https://github.com/Financial-Times/o-forms/issues",
@@ -17,6 +17,13 @@
 	"keywords": "tickbox radio input checkbox error",
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-forms"
+	},
+	"browserFeatures": {
+		"required": [
+			"DOMTokenList",
+			"Element.prototype.closest",
+			"Array.prototype.includes"
+		]
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
