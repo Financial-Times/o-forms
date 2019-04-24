@@ -26,8 +26,8 @@ class Forms {
 			this.form.addEventListener('submit', this);
 		} else {
 			this.form.removeAttribute('novalidate');
-			let submits = this.form.querySelectorAll('[type=submit]');
-			submits.forEach(submit => {
+			this.submits = this.form.querySelectorAll('[type=submit]');
+			this.submits.forEach(submit => {
 				submit.addEventListener('click', this);
 				submit.addEventListener('keydown', this);
 			});
@@ -80,6 +80,25 @@ class Forms {
 			this.stateElements.push(object);
 		}
 		object.element.set(state);
+	}
+
+	/**
+	* Destroy form instance
+	*/
+	destroy() {
+		if (!this.opts.useBrowserValidation) {
+			this.form.removeEventListener('submit', this);
+		} else {
+			this.submits.forEach(submit => {
+				submit.removeEventListener('click', this);
+				submit.removeEventListener('keydown', this);
+			});
+		}
+		this.form = null;
+		this.formInputs.forEach(input => input.destroy());
+		this.formInputs = null;
+		this.stateElements = null;
+		this.opts = null;
 	}
 
 	/**
