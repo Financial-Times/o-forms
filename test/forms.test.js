@@ -90,4 +90,36 @@ describe('Forms', () => {
 			proclaim.isFalse(parentClass(radioInputs[0], 'saved'));
 		});
 	});
+
+	context('.destroy()', () => {
+		let form;
+		let formSpy;
+		beforeEach(() => {
+			document.body.innerHTML = formFixture;
+			formEl = document.forms[0];
+			form = new Forms(formEl);
+		});
+
+		afterEach(() => {
+			document.body.innerHTML = null;
+		});
+
+		it('removes all references to Forms, Inputs and State', () => {
+			proclaim.isInstanceOf(form, Forms);
+
+			form.destroy();
+			proclaim.isNull(form.form);
+			proclaim.isNull(form.opts);
+			proclaim.isNull(form.formInputs);
+			proclaim.isNull(form.stateElements);
+		});
+
+		it('removes all event listeners', () => {
+			formSpy = sinon.spy(formEl, 'removeEventListener');
+
+			form.destroy();
+
+			proclaim.isTrue(formSpy.calledOnce);
+		});
+	});
 });

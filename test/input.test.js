@@ -1,6 +1,7 @@
 /* eslint-env mocha, sinon, proclaim */
 
 import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon';
 import formFixture from './helpers/fixtures';
 
 const Input = require('../src/js/input');
@@ -86,6 +87,30 @@ describe('Input', () => {
 
 			proclaim.isFalse(parentClass(dateField, 'invalid'));
 			proclaim.isTrue(parentClass(dateField, 'valid'));
+		});
+	});
+
+	context('.destroy()', () => {
+		let fieldSpy;
+		let input;
+		let requiredField;
+
+		before(() => {
+			document.body.innerHTML = formFixture;
+			form = document.forms[0];
+			requiredField = form.elements['required'];
+		});
+
+		after(() => {
+			document.body.innerHTML = null;
+		});
+
+		it('removes all event listeners', () => {
+			input = new Input(requiredField);
+			fieldSpy = sinon.spy(requiredField, 'removeEventListener');
+			input.destroy();
+
+			proclaim.isTrue(fieldSpy.calledTwice);
 		});
 	});
 });
