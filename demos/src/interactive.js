@@ -1,16 +1,15 @@
 import Forms from '../../src/js/forms.js';
 
-let formEl = document.querySelector('form');
+let formEl = document.forms[0];
 const form = new Forms(formEl);
 
-let inputContainer = document.querySelector('.o-forms-input.o-forms-input--radio-box');
-let inputs = inputContainer.querySelectorAll('input');
+let inputs = formEl.querySelectorAll('input[type="radio"]');
 
 for (let input of inputs) {
 	input.addEventListener('click', (e) => {
 		let name = e.target.name;
-		form.setState(name, 'saving');
-		setTimeout(() => form.setState(name, 'saved'), 400);
-		setTimeout(() => form.setState(name, 'none'), 1000);
+		form.setState('saving', name);
+		setTimeout(() => form.setState('saved', name), 400);
+		setTimeout(() => form.setState('none', name), 1000);
 	});
 }

@@ -5,7 +5,7 @@
 	"origamiVersion": 1,
 	"brands" : [
 		"master",
-		"internal",d
+		"internal",
 		"whitelabel"
 	],
 	"support": "https://github.com/Financial-Times/o-forms/issues",

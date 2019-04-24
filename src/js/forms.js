@@ -14,12 +14,13 @@ class Forms {
 
 		this.form = formElement;
 		this.formElements = Array.from(this.form.elements, element => new Input(element));
-		this.stateArray = [];
+
+		this.stateElements = [];
 
 		this.opts = Object.assign({
 			useBrowserValidation: false
 		}, options);
-
+		
 		if (!this.opts.useBrowserValidation) {
 			this.form.setAttribute('novalidate', true);
 			this.form.addEventListener('submit', this);
@@ -69,20 +70,15 @@ class Forms {
 	* @param {String} [state] - type of state to apply — one of 'saving', 'saved', 'none'
 	*/
 	setState(state, name) {
-		let object = this.stateArray.find(item => item.name === name);
+		let object = this.stateElements.find(item => item.name === name);
 		if (!object) {
 			object = {
 				name,
 				element: new State(this.form.elements[name])
 			};
 
-			this.stateArray.push(object);
+			this.stateElements.push(object);
 		}
-
-		if (!state) {
-			throw new Error(`${state} is not a recognised state, the options are 'saving', 'saved' or 'none'.`);
-		}
-
 		object.element.set(state);
 	}
 
