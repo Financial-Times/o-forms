@@ -14,8 +14,6 @@ class State {
 
 		this._verify();
 
-
-
 		this.className = {
 			saving: 'o-forms-input--saving',
 			saved: 'o-forms-input--saved'

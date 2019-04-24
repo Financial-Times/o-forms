@@ -13,7 +13,7 @@ class Forms {
 		}
 
 		this.form = formElement;
-		this.formElements = Array.from(this.form.elements, element => new Input(element));
+		this.formInputs = Array.from(this.form.elements, element => new Input(element));
 
 		this.stateElements = [];
 
@@ -41,14 +41,14 @@ class Forms {
 	handleEvent(e) {
 		const RETURN_KEY = 13;
 		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
-			if (!this.form.checkValidity()) {
-				this.validateForm();
+			if (this.form.checkValidity() === false) {
+				this.validateFormInputs();
 			}
 		}
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			if (this.validateForm().includes(false)) {
+			if (this.validateFormInputs().includes(false)) {
 				return;
 			}
 
@@ -58,10 +58,10 @@ class Forms {
 
 	/**
 	* Form validation
-	* Validates every element in the form
+	* Validates every element in the form (applies styling)
 	*/
-	validateForm () {
-		return this.formElements.map(input => input.validate());
+	validateFormInputs () {
+		return this.formInputs.map(input => input.validate());
 	}
 
 	/**
