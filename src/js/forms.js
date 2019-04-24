@@ -25,9 +25,10 @@ class Forms {
 			this.form.addEventListener('submit', this);
 		} else {
 			this.form.removeAttribute('novalidate');
-			let submit = this.form.querySelector('[type=submit]');
-			submit.addEventListener('click', this);
-			submit.addEventListener('keydown', this);
+			Array.from(this.form.querySelectorAll('[type=submit]'), submit => {
+				submit.addEventListener('click', this);
+				submit.addEventListener('keydown', this);
+			});
 		}
 	}
 
