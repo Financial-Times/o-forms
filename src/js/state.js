@@ -9,7 +9,7 @@ class State {
 			this.inputs = inputs;
 			this.parent = this.inputs[0].closest('.o-forms-input');
 		} else {
-			throw new Error('State can only be applied to `radio` type inputs.')
+			throw new Error('State can only be applied to `radio` type inputs.');
 		}
 
 		this._verify();
@@ -63,9 +63,7 @@ class State {
 	* @access private
 	*/
 	_saved() {
-		this.parent.classList.replace(this.className.saving, this.className.saved)
-		// this.parent.classList.remove(this.className.saving);
-		// this.parent.classList.add(this.className.saved);
+		this.parent.classList.replace(this.className.saving, this.className.saved);
 	}
 
 	/**
@@ -73,11 +71,9 @@ class State {
 	* @access private
 	*/
 	_remove() {
-		if (this.stateEl) {
-			this.parent.classList.remove(this.className.saved);
-			this.parent.removeChild(this.stateEl);
-			this.stateEl = null;
-		}
+		this.parent.classList.remove(this.className.saved);
+		this.parent.removeChild(this.stateEl);
+		this.stateEl = null;
 	}
 
 	/**

@@ -20,7 +20,7 @@ class Forms {
 		this.opts = Object.assign({
 			useBrowserValidation: false
 		}, options);
-		
+
 		if (!this.opts.useBrowserValidation) {
 			this.form.setAttribute('novalidate', true);
 			this.form.addEventListener('submit', this);
