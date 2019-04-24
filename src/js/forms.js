@@ -25,7 +25,8 @@ class Forms {
 			this.form.addEventListener('submit', this);
 		} else {
 			this.form.removeAttribute('novalidate');
-			Array.from(this.form.querySelectorAll('[type=submit]'), submit => {
+			let submits = this.form.querySelectorAll('[type=submit]');
+			submits.forEach(submit => {
 				submit.addEventListener('click', this);
 				submit.addEventListener('keydown', this);
 			});
