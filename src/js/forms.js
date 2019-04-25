@@ -76,10 +76,10 @@ class Forms {
 		return this.formInputs.map(element => {
 			let valid = element.validate();
 			let input = element.input;
-			let errorElement = input.parentElement ? input.parentElement.querySelector('.o-forms-input__error') : null;
-			let error = errorElement ? errorElement.innerHTML : input.validationMessage;
 			let field = input.closest('.o-forms-field');
 			let label = field ? field.querySelector('.o-forms-title--main').innerHTML : null;
+			let errorElement = field ? field.querySelector('.o-forms-input__error') : null;
+			let error = errorElement ? errorElement.innerHTML : input.validationMessage;
 			return {
 				id: input.id,
 				valid,
