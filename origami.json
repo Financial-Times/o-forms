@@ -18,6 +18,13 @@
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-forms"
 	},
+	"browserFeatures": {
+		"required": [
+			"DOMTokenList",
+			"Element.prototype.closest",
+			"Array.prototype.includes"
+		]
+	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",

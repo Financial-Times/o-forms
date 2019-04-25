@@ -37,7 +37,6 @@ describe('Forms', () => {
 
 		it('`opts.useBrowserValidation = true` relays form validation to browser on all invalid form inputs', () => {
 			new Forms(formEl, { useBrowserValidation: true });
-
 			submit.click();
 
 			proclaim.isTrue(formSpy.withArgs('submit').notCalled);
@@ -47,7 +46,6 @@ describe('Forms', () => {
 
 		it('`opts.useBrowserValidation = false` manually validates form inputs', () => {
 			new Forms(formEl);
-
 			submit.click();
 
 			proclaim.isTrue(formSpy.withArgs('submit').calledOnce);
@@ -135,6 +133,38 @@ describe('Forms', () => {
 			form.setState('none', name);
 			proclaim.isFalse(parentClass(radioInputs[0], 'saving'));
 			proclaim.isFalse(parentClass(radioInputs[0], 'saved'));
+		});
+	});
+
+	context('.destroy()', () => {
+		let form;
+		let formSpy;
+		beforeEach(() => {
+			document.body.innerHTML = formFixture;
+			formEl = document.forms[0];
+			form = new Forms(formEl);
+		});
+
+		afterEach(() => {
+			document.body.innerHTML = null;
+		});
+
+		it('removes all references to Forms, Inputs and State', () => {
+			proclaim.isInstanceOf(form, Forms);
+
+			form.destroy();
+			proclaim.isNull(form.form);
+			proclaim.isNull(form.opts);
+			proclaim.isNull(form.formInputs);
+			proclaim.isNull(form.stateElements);
+		});
+
+		it('removes all event listeners', () => {
+			formSpy = sinon.spy(formEl, 'removeEventListener');
+
+			form.destroy();
+
+			proclaim.isTrue(formSpy.calledOnce);
 		});
 	});
 });

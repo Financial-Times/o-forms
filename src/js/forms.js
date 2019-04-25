@@ -14,8 +14,8 @@ class Forms {
 		}
 
 		this.form = formElement;
-		this.formElements = Array.from(this.form.elements, element => new Input(element));
-		this.stateArray = [];
+		this.formInputs = Array.from(this.form.elements, element => new Input(element));
+		this.stateElements = [];
 
 		this.opts = Object.assign({
 			useBrowserValidation: false,
@@ -27,9 +27,11 @@ class Forms {
 			this.form.addEventListener('submit', this);
 		} else {
 			this.form.removeAttribute('novalidate');
-			let submit = this.form.querySelector('[type=submit]');
-			submit.addEventListener('click', this);
-			submit.addEventListener('keydown', this);
+			this.submits = this.form.querySelectorAll('[type=submit]');
+			this.submits.forEach(submit => {
+				submit.addEventListener('click', this);
+				submit.addEventListener('keydown', this);
+			});
 		}
 	}
 
@@ -40,14 +42,14 @@ class Forms {
 	handleEvent(e) {
 		const RETURN_KEY = 13;
 		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
-			if (!this.form.checkValidity()) {
-				this.validateForm();
+			if (this.form.checkValidity() === false) {
+				this.validateFormInputs();
 			}
 		}
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			let checkedElements = this.validateForm();
+			let checkedElements = this.validateFormInputs();
 
 			if (checkedElements.some(input => input.valid === false)) {
 				if (this.opts.errorSummary) {
@@ -70,8 +72,8 @@ class Forms {
 	* Form validation
 	* Validates every element in the form and creates input objects for the error summary
 	*/
-	validateForm () {
-		return this.formElements.map(element => {
+	validateFormInputs () {
+		return this.formInputs.map(element => {
 			let valid = element.validate();
 			let input = element.input;
 			let errorElement = input.parentElement ? input.parentElement.querySelector('.o-forms-input__error') : null;
@@ -93,21 +95,35 @@ class Forms {
 	* @param {String} [state] - type of state to apply — one of 'saving', 'saved', 'none'
 	*/
 	setState(state, name) {
-		let object = this.stateArray.find(item => item.name === name);
+		let object = this.stateElements.find(item => item.name === name);
 		if (!object) {
 			object = {
 				name,
 				element: new State(this.form.elements[name])
 			};
 
-			this.stateArray.push(object);
+			this.stateElements.push(object);
 		}
-
-		if (!state) {
-			throw new Error(`${state} is not a recognised state, the options are 'saving', 'saved' or 'none'.`);
-		}
-
 		object.element.set(state);
+	}
+
+	/**
+	* Destroy form instance
+	*/
+	destroy() {
+		if (!this.opts.useBrowserValidation) {
+			this.form.removeEventListener('submit', this);
+		} else {
+			this.submits.forEach(submit => {
+				submit.removeEventListener('click', this);
+				submit.removeEventListener('keydown', this);
+			});
+		}
+		this.form = null;
+		this.formInputs.forEach(input => input.destroy());
+		this.formInputs = null;
+		this.stateElements = null;
+		this.opts = null;
 	}
 
 	/**

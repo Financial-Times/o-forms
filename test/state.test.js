@@ -30,7 +30,7 @@ describe('State', () => {
 		it('throws an error if input type is not `o-forms-input--radio-box`', () => {
 			let field = form.elements['optional'];
 
-			let message = 'State can only be set on radio inputs with a box style (o-forms-input--radio-box).';
+			let message = 'State can only be applied to `radio` type inputs.';
 			proclaim.throws(() => new State(field), message);
 		});
 	});

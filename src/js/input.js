@@ -45,6 +45,12 @@ class Input {
 
 		return true;
 	}
+
+	destroy() {
+		this.input.removeEventListener('blur', this);
+		this.input.removeEventListener('input', this);
+		this.input = null;
+	}
 }
 
 export default Input;

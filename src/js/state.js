@@ -4,12 +4,16 @@ class State {
 	* @param {RadioNodeList} [inputs] - A NodeList of radio input elements
 	*/
 	constructor(inputs) {
-		this.inputs = inputs;
-		this.parent = inputs.length > 1 ? this.inputs[0].closest('.o-forms-input') : null;
+		let radioInputs = inputs instanceof RadioNodeList;
+		if (radioInputs) {
+			this.inputs = inputs;
+			this.parent = this.inputs[0].closest('.o-forms-input');
+		} else {
+			throw new Error('State can only be applied to `radio` type inputs.');
+		}
 
 		this._verify();
 
-		this.stateEl = null;
 		this.className = {
 			saving: 'o-forms-input--saving',
 			saved: 'o-forms-input--saved'
@@ -17,16 +21,32 @@ class State {
 	}
 
 	/**
+	* Create state element
+	* @access private
+	*/
+	_generateStateEl() {
+		this.stateEl = document.createElement('span');
+		this.stateEl.classList.add('o-forms-input__state');
+		this.parent.append(this.stateEl);
+	}
+
+	/**
 	* State setter
 	* @param {String} [state] type of state to display
 	*/
 	set(state) {
+		if (!this.stateEl) {
+			this._generateStateEl();
+		}
+
 		if (state === 'saving') {
 			this._saving();
 		} else if (state === 'saved') {
 			this._saved();
 		} else if (state === 'none') {
 			this._remove();
+		} else {
+			throw new Error(`${state} is not a recognised state, the options are 'saving', 'saved' or 'none'.`);
 		}
 	}
 
@@ -35,12 +55,7 @@ class State {
 	* @access private
 	*/
 	_saving() {
-		if (this.stateEl === null) {
-			this.stateEl = document.createElement('span');
-			this.stateEl.classList.add('o-forms-input__state');
-			this.parent.classList.add(this.className.saving);
-			this.parent.append(this.stateEl);
-		}
+		this.parent.classList.add(this.className.saving);
 	}
 
 	/**
@@ -66,7 +81,7 @@ class State {
 	* @access private
 	*/
 	_verify() {
-		if (!this.parent || !this.parent.classList.contains('o-forms-input--radio-box')) {
+		if (!this.parent.classList.contains('o-forms-input--radio-box')) {
 			throw new Error('State can only be set on radio inputs with a box style (o-forms-input--radio-box).');
 		} else if (this.parent.classList.contains('.o-forms--input-invalid')) {
 			throw new Error('State cannot be set on an invalid input field.');
