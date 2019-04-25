@@ -9,33 +9,28 @@ class Forms {
 	* @param {Object} [options={}] - An options object for configuring the form
 	*/
 	constructor(formElement, options) {
-		this.formEl = formElement;
-		this.inputFields = Array.from(formElement.querySelectorAll('input', 'select', 'textarea'));
+		if (formElement.nodeName !== 'FORM') {
+			throw new Error(`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`);
+		}
+
+		this.form = formElement;
+		this.formElements = Array.from(this.form.elements, element => new Input(element));
+		this.stateArray = [];
 
 		this.opts = Object.assign({
 			useBrowserValidation: false,
 			errorSummary: true
 		}, options);
 
-		this.className = {
-			invalid: 'o-forms-input--invalid',
-			valid: 'o-forms-input--valid'
-		};
-
 		if (!this.opts.useBrowserValidation) {
-			this.formEl.setAttribute('novalidate', true);
-			this.formEl.addEventListener('submit', this);
+			this.form.setAttribute('novalidate', true);
+			this.form.addEventListener('submit', this);
 		} else {
-			this.formEl.removeAttribute('novalidate');
-			let submit = this.formEl.querySelector('input[type=submit]');
+			this.form.removeAttribute('novalidate');
+			let submit = this.form.querySelector('[type=submit]');
 			submit.addEventListener('click', this);
 			submit.addEventListener('keydown', this);
 		}
-
-		this.inputFields.forEach(input => {
-			input.addEventListener('blur', this);
-			input.addEventListener('input', this);
-		});
 	}
 
 	/**
@@ -43,21 +38,10 @@ class Forms {
 	 * @param {Object} event - The event emitted by element/window interactions
 	 */
 	handleEvent(e) {
-		let field = e.target.closest('.o-forms-input');
-		if (e.type === 'blur') {
-			field.querySelectorAll('input').forEach(input => this.validate(input));
-		}
-
-		if (e.type === 'input') {
-			if (e.target.validity.valid && field.classList.contains(this.className.invalid)) {
-				field.classList.replace(this.className.invalid, this.className.valid);
-			}
-		}
-
 		const RETURN_KEY = 13;
 		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
-			if (!this.formEl.reportValidity()) {
-				this.inputFields.forEach(input => this.validate(input));
+			if (!this.form.checkValidity()) {
+				this.validateForm();
 			}
 		}
 
@@ -123,7 +107,7 @@ class Forms {
 			throw new Error(`${state} is not a recognised state, the options are 'saving', 'saved' or 'none'.`);
 		}
 
-		return true;
+		object.element.set(state);
 	}
 
 	/**
