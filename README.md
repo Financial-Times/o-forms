@@ -2,473 +2,332 @@
 
 FT-branded styles for form elements.
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
-	- [JavaScript](#javascript)
-- [Troubleshooting](#troubleshooting)
+- [Markup](#markup)
+	- [Single input fields](#single-input-fields)
+		- [`input[type=text]`](#input[type=text])
+		- [`input[type=password]`](#input[type=password])
+		- [`textarea`](#textarea)
+		- [`select`](#select)
+		- [Modifiers](#modifiers)
+	- [Multiple input fields](#multiple-input-fields)
+		- [`input[type=radio]` (Round)](#input[type=radio]-round)
+		- [`input[type=radio]` (Box)](#input[type=radio]-box)
+		- [`input[type=checkbox]` (Square)](#input[type=checkbox]-square)
+		- [`input[type=checkbox]` (Toggle)](#input[type=checkbox]-toggle)
+	- [Uncategorised input fields](#uncategorised-input-fields)
+		- [`Date inputs`](#date-inputs)
+		- [`Anchors`](#anchors)
+	- [Shared Modifiers](#shared-modifiers)
+		- [Field modifiers](#field-modifiers)
+		- [Input modifiers](#input-modifiers)
+- [Sass](#sass)
+- [JavaScript](#javascript)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
-- [Licence](#licence)
+- [License](#license)
 
 
-## Usage
+## Markup
+`o-forms` defines form elements as a combination of 'fields' and 'inputs'. At its core, a field holds the information about an input and the input itself.
 
-### Markup
+Regardless of the input type used, all elements follow the same structure:
+```
+┌— field container (.o-forms-field) —————┐
+|      (one of div or label)             |
+|                                        |
+|  ┌ title container (.o-forms-title) ┐  |
+|  |    (group titles or              |  |
+|  |     individual input labels)     |  |
+|  └——————————————————————————————————┘  |
+|                                        |
+|  ┌ input container (.o-forms-input) ┐  |
+|  |    (group inputs or              |  |
+|  |     individual inputs)           |  |
+|  └——————————————————————————————————┘  |
+└————————————————————————————————————————┘
+```
 
-Each form field is made up of at least 3 elements:
+Bearing that in mind, all form elements are divided into main two categories, with a couple of outliers: 
+- [single input fields](#single-input-fields)
+- [multiple input fields](#multiple-input-fields)
+- [uncategorised input fields](#uncategorised-input-fields)
 
-* A containing element defined by `.o-forms`.
-* Its label, defined by `.o-forms__label`.
-* One or more form controls e.g. `input`, `select`, `textarea` elements, defined by `.o-forms__text`, `.o-forms__select`, `.o-forms__textarea` etc.
+Overall, the same modifiers will work for the structure outlined above. 
+If a particular form element has a unique modifier, it will be under its markup description.
+- [Field modifiers](#field-modifiers)
+- [Input modifiers](#input-modifiers)
 
+### Single input fields
+
+Every single input field requires a root structure that looks like this:
 ```html
-<div class="o-forms">
-	<label for="o-forms-demo-text" class="o-forms__label">Text input example</label>
-	<input type="text" id="o-forms-demo-text" class="o-forms__text" required />
+<label class="o-forms-field">
+	<span class="o-forms-title">
+		<span class="o-forms-title--main"> Label for input here </span>
+		<span class="o-forms-title--prompt"> Optional text to describe the input here </span>
+	</span>
+
+	<span class="o-forms-input">
+		<!-- input element -->
+	</span>
+</label>
+```
+And each input in this structure input relies on a different modifier.
+
+#### `input[type=text]`
+```html
+...
+	<span class="o-forms-input o-forms-input--text">
+		<input type="text"/>
+	</span>
+...
+```
+
+#### `input[type=password]`
+```html
+...
+	<span class="o-forms-input o-forms-input--password">
+		<input type="password"/>
+	</span>
+...
+```
+
+#### `textarea`
+```html
+...
+	<span class="o-forms-input o-forms-input--textarea">
+		<textarea></textarea>
+	</span>
+...
+```
+
+#### `select`
+```html
+...
+	<span class="o-forms-input o-forms-input--select">
+		<select>
+			<option>Option 1</option>
+			<!-- further options -->
+		</select>
+	</span>
+...
+```
+It is also possible to have a multiple select input by adding the `multiple` attribute	:
+```diff
+...
+	<span class="o-forms-input o-forms-input--select">
+-		<select>
++		<select multiple>
+			<option>Option 1</option>
+			<!-- further options -->
+		</select>
+	</span>
+...
+```
+
+#### Modifiers
+All single input fields accept the following modifiers on the input container:
+- `o-forms-input--small`: reduces the height of the input field
+- `o-forms-input--suffix`: inlines a sibling element (e.g. a button) with the input
+- `o-forms-title--shrink`: shrinks the title container to the width of a shorter title:
+```diff
+...
+	<span class="o-forms-title o-forms-title--shrink">
+		<span class="o-forms-title--main"> Label for input here </span>
+		<span class="o-forms-title--prompt"> Optional text to describe the input here </span>
+	</span>
+...
+```
+### Multiple input fields
+A multiple input field is considered a field with multiple sibling inputs, e.g. radio buttons.
+
+Every multiple input field requires a root structure that looks like this:
+```html
+<div class="o-forms-field">
+	<span class="o-forms-title">
+		<span class="o-forms-title--main">Group Title</span>
+		<span class="o-forms-title--prompt">Group info</span>
+	</span>
+
+	<span class="o-forms-input">
+		<!-- sibling inputs -->
+	</span>
 </div>
 ```
+Both radio and checkbox inputs have two different styles in `o-forms`, and those can be output with different modifiers:
 
-#### Inline forms
-
-By default `o-forms` is stacked but form fields may also be displayed inline by adding a modifier `o-forms--inline`.
-
+#### `input[type=radio]` (Round)
+For a regular, round radio button, you'll need the following markup:
 ```html
-<div class="o-forms o-forms--inline">
-	<label for="o-forms-demo-text" class="o-forms__label">Text input example</label>
-	<input type="text" id="o-forms-demo-text" class="o-forms__text" required />
-</div>
+...
+	<span class="o-forms-input o-forms-input--radio-round">
+		<label>
+			<input type="radio" name="my-round-radio"/>
+			<span class="o-forms-input__label">Radio 1</span>
+		</label>
+		<label>
+			<input type="radio" name="my-round-radio"/>
+			<span class="o-forms-input__label">Radio 2</span>
+		</label>
+	</span>
+...
 ```
+[_See the full markup for a round radio button in the registry_](#TODO)
 
-Inline forms must wrap multiple messaging elements, such as a label and additional information, using `o-forms__inline-item`.
-
+#### `input[type=radio]` (Box)
+For a box-like, rectangular radio button, you'll need the following markup:
 ```html
-<div class="o-forms o-forms--inline">
-    <div class="o-forms__inline-item">
-	    <label for="o-forms__textarea" class="o-forms__label">Label</label>
-	    <div class="o-forms__additional-info">Additional information</div>
-    </div>
-	<!-- input markup -->
-</div>
-```
-
-If `o-forms` is used on a `fieldset` a wrapper `o-forms__inline-container` must also be addded.
-
-```html
-<fieldset class="o-forms o-forms--inline">
-    <div class="o-forms__inline-container">
-        <legend class="o-forms__label">Legend</legend>
-        <!-- radio button markup -->
-    </div>
-</fieldset>
-```
-
-Using `o-forms--inline-controls` instead of `o-forms--inline` keeps the inputs inline from mobile viewports upwards. It also expands the label forcing the inputs to align right. This is useful for long lists of simple styled radio buttons which are used as controls, e.g. repeated yes/no options. For an example see [the registry](https://www.ft.com/__origami/service/build/v2/demos/o-forms/inline-controls).
-
-```html
-<fieldset class="o-forms o-forms--inline-controls">
-    <div class="o-forms__inline-container">
-        <legend class="o-forms__label">Legend</legend>
-        <!-- styled radio button markup -->
-    </div>
-</fieldset>
-```
-
-Inline forms offer more options. For full demo markup see [inline examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/inline) on the Origami Registry.
-
-#### Additonal field information
-
-It is possible to add additional information to form fields with `.o-forms__additional-info`. Additonal information is not limited to a text input, it could also apply against a `select`, `textarea`, `checkbox`, etc.
-
-Note that the label has an `aria-describedby` attribute which matches the `id` of the additional information. This enables screen readers to automatically read the additonal information after reading the form label.
-
-```html
-<div class="o-forms">
-	<label aria-describedby="demo-additional-info" for="demo-text-input" class="o-forms__label">Text input example</label>
-	<div id="demo-additional-info" class="o-forms__additional-info">Additional info follows the label if required.</div>
-	<input type="text" id="demo-text-input" class="o-forms__text" required />
-</div>
-```
-
-#### Optional fields
-
-To indicate to the user that a field is optional, add the `.o-forms__label--optional` class to the label of the field. Any field label can be marked optional in this way.
-
-```html
-<div class="o-forms">
-	<label for="o-forms-demo-optional" class="o-forms__label o-forms__label--optional">Optional  input example</label>
-	<input type="text" id="o-forms-demo-optional" class="o-forms__text" />
-</div>
-```
-
-#### Wide fields
-
-The class `.o-forms--wide` can be used to show form fields without width restrictions. This is demonstrated below with a text input but can apply to any `.o-forms` field.
-
-```html
-<div class="o-forms o-forms--wide">
-	<label for="o-forms-full" class="o-forms__label">Text input full width</label>
-	<input type="text" id="o-forms-full" class="o-forms__text o-forms__text--valid" value="Field value" />
-</div>
-```
-
-Alternatively for a wide field without the default horizontal padding use `.o-forms--bleed`.
-
-```html
-<div class="o-forms o-forms--bleed">
-	<label for="o-forms-full" class="o-forms__label">Text input full width</label>
-	<input type="text" id="o-forms-full" class="o-forms__text o-forms__text--valid" value="Field value" />
-</div>
-```
-
-#### Text inputs
-
-The markup above demonstrates how to use text inputs. More [text input examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/text-inputs) are available on the Origami Registry.
-
-#### Textareas
-
-```html
-<div class="o-forms">
-	<label for="o-forms-demo-textarea" class="o-forms__label">Textarea</label>
-	<textarea id="o-forms-demo-textarea" class="o-forms__textarea"></textarea>
-</div>
-```
-
-[Textarea examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/textareas)
-
-#### Select boxes
-
-```html
-<div class="o-forms">
-	<label for="o-forms-demo-select" class="o-forms__label">Select box</label>
-	<select id="o-forms-demo-select" class="o-forms__select">
-		<option value="option1" selected>Option 1</option>
-		<option value="option2">Option 2</option>
-		<option value="option3">Option 3</option>
-		<option value="option4">Option 4</option>
-	</select>
-</div>
-```
-
-[Select boxes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/select-boxes)
-
-#### Checkbox and radio controls
-
-Unlike other inputs, multiple `checkbox` and `radio` inputs should be wrapped in  `.o-forms__group` to ensure correct vertical spacing.
-
-```html
-<!-- Radio -->
-<fieldset class="o-forms">
-	<legend class="o-forms__label">Default radio controls</legend>
-	<div class="o-forms__additional-info">Prompt text follows the legend if required.</div>
-	<div class="o-forms__group">
-		<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio11" checked="checked" />
-		<label for="radio11" class="o-forms__label">Radio 1</label>
-		<input type="radio" name="radio" value="2" class="o-forms__radio" id="radio12" />
-		<label for="radio12" class="o-forms__label">Radio 2</label>
-	</div>
-</fieldset>
-
-<!-- Checkboxes -->
-<fieldset class="o-forms">
-	<legend class="o-forms__label">Default checkboxes</legend>
-	<div class="o-forms__group">
-		<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox11" checked="checked" />
-		<label for="checkbox11" class="o-forms__label">Checkbox 1</label>
-		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox12" />
-		<label for="checkbox12" class="o-forms__label">Checkbox 2</label>
-		<input type="checkbox" name="checkbox" value="3" class="o-forms__checkbox" id="checkbox13" />
-		<label for="checkbox13" class="o-forms__label">Checkbox 3</label>
-	</div>
-</fieldset>
-```
-
-To display checkboxes/radios inline add `.o-forms__group--inline` to their group wrapper.
-
-```html
-<!-- Inline Radio -->
-<fieldset class="o-forms">
-	<legend class="o-forms__label">Radio controls inline</legend>
-	<div class="o-forms__group o-forms__group--inline">
-		<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio41" checked="checked" />
-		<label for="radio41" class="o-forms__label">Radio 1</label>
-		<input type="radio" name="radio" value="2" class="o-forms__radio" id="radio42" />
-		<label for="radio42" class="o-forms__label">Radio 2</label>
-	</div>
-</fieldset>
-
-<!-- Inline Checkboxes -->
-<fieldset class="o-forms">
-	<legend class="o-forms__label">Inline checkboxes</legend>
-	<div class="o-forms__group o-forms__group--inline">
-		<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox61" checked="checked" />
-		<label for="checkbox61" class="o-forms__label">Checkbox 1</label>
-		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox62" />
-		<label for="checkbox62" class="o-forms__label">Checkbox 2</label>
-	</div>
-</fieldset>
-```
-
-[Radio control examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/radios)
-[Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkboxes)
-
-#### Styled radio buttons
-
-To produce styled radio buttons wrap radio inputs with  `.o-forms__group .o-forms__group--inline-together` and use the class `.o-forms__radio-button` on the radio input.
-
-```html
-<!-- Styled radio buttons -->
-<fieldset class="o-forms">
-    <legend class="o-forms__label">Styled radio buttons with a default selection</legend>
-    <div class="o-forms__group o-forms__group--inline-together">
-        <input type="radio" name="radio5" value="daily" class="o-forms__radio-button" id="radio51"
-               checked="checked" />
-        <label for="radio51" class="o-forms__label">Daily</label>
-        <input type="radio" name="radio5" value="weekly" class="o-forms__radio-button" id="radio52" />
-        <label for="radio52" class="o-forms__label">Weekly</label>
-        <input type="radio" name="radio5" value="monthly" class="o-forms__radio-button" id="radio53" />
-        <label for="radio53" class="o-forms__label">Monthly</label>
-    </div>
-</fieldset>
-```
-
-[Styled radio button examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/radio-button-styling)
-
-
-#### Suffixes
-
-Suffixes are used to append content to an input, i.e. a button. Add a wrapper `.o-forms__affix-wrapper` to contain both the input and its suffix `.o-forms__suffix`. The suffix `.o-forms__suffix` wraps suffix content, i.e. a button.
-
-```html
-<div class="o-forms">
-	<label class="o-forms__label" for="text-suffix">Text input with suffix button</label>
-	<div class="o-forms__affix-wrapper">
-		<input id="text-suffix" type="text" class="o-forms__text" />
-		<div class="o-forms__suffix">
-			<button type="button" class="o-buttons o-buttons--secondary o-buttons--big">Go</button>
+...
+	<span class="o-forms-input o-forms-input--radio-box">
+		<div class="o-forms-input--radio-box__container">
+			<label>
+				<input type="radio" name="my-box-radio"/>
+				<span class="o-forms-input__label">Radio 1</span>
+			</label>
+			<label>
+				<input type="radio" name="my-box-radio"/>
+				<span class="o-forms-input__label">Radio 2</span>
+			</label>
 		</div>
-	</div>
-</div>
+	</span>
+...
 ```
+[_See the full markup for a box radio button in the registry_](#TODO)
 
-[Suffixes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/suffix)
+This is currently the only input type that accepts state. In order to add a spinner or tick to the radio box.
+The input container accepts one of two modifiers at a time:
+- `o-forms-input--saving`
+- `o-forms-input--saved`
 
-#### Toggles (checkbox toggles)
-
-To produce a toggle interface wrap checkboxes in `.o-forms__toggle` and add the data attribute `data-o-form-toggle` to the checkbox input.
-
-```html
-<!-- Toggle -->
-<fieldset class="o-forms">
-	<legend class="o-forms__label">Checkbox Toggle</legend>
-	<div class="o-forms__group">
-		<div class="o-forms__toggle">
-			<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle1" />
-			<label for="checkboxToggle1" class="o-forms__label">Checkbox Toggle 1</label>
+The markup will need to be updated to look like this:
+```diff
+...
+-	<span class="o-forms-input o-forms-input--radio-box">
++	<span class="o-forms-input o-forms-input--radio-box">
+		<div class="o-forms-input--radio-box__container">
+			<label>
+				<input type="radio" name="my-box-radio"/>
+				<span class="o-forms-input__label">Radio 1</span>
+			</label>
+			<label>
+				<input type="radio" name="my-box-radio"/>
+				<span class="o-forms-input__label">Radio 2</span>
+			</label>
 		</div>
-		<div class="o-forms__toggle">
-			<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle2" checked="checked" />
-			<label for="checkboxToggle2" class="o-forms__label">Checkbox Toggle 2</label>
-		</div>
-	</div>
-</fieldset>
++		<span class="o-forms-input__state"></span>
+	</span>
+...
 ```
+You can also add `o-forms-input__state--icon-only` to the `<span>` to avoid displaying the status text.
 
-[Toggle examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/toggle)
-
-
-#### Validation states
-
-Validation styles are applied by adding `.o-forms--error` or `.o-forms--valid` to the field's containing element (typically, `.o-forms`). Child `.o-forms__label`, `.o-forms__text`, `.o-forms__select`, `.o-forms__checkbox`, `.o-forms__radio`, `.o-forms__textarea` elements will be styled appropriately.
-
-An error message, defined with `.o-forms__errortext`, can be appended to the containing element.
-
+#### `input[type=checkbox]` (Square)
+For a regular, squared checkbox, you'll need the following markup:
 ```html
-<div class="o-forms o-forms--error">
-	<label class="o-forms__label">Text input</label>
-	<input type="text" class="o-forms__text" />
-	<div class="o-forms__errortext">Please enter a valid url</div>
+...
+	<span class="o-forms-input o-forms-input--checkbox">
+		<label>
+			<input type="checkbox" name="my-checkbox"/>
+			<span class="o-forms-input__label">Checkbox 1</span>
+		</label>
+		<label>
+			<input type="checkbox" name="my-checkbox"/>
+			<span class="o-forms-input__label">Checkbox 2</span>
+		</label>
+	</span>
+...
+```
+[_See the full markup for a square checkbox in the registry_](#TODO)
+
+#### `input[type=checkbox]` (Toggle)
+
+For a toggle checkbox, you'll need the following markup:
+```html
+...
+	<span class="o-forms-input o-forms-input--toggle">
+		<label>
+			<input type="checkbox" name="my-toggle"/>
+			<span class="o-forms-input__label">Toggle 1</span>
+		</label>
+		<label>
+			<input type="checkbox" name="my-toggle"/>
+			<span class="o-forms-input__label">Toggle 2</span>
+		</label>
+	</span>
+...
+```
+[_See the full markup for a toggle checkbox in the registry_](#TODO)
+
+This is currently the only input type that has an inverse state. 
+For this you'll need to add the `o-forms-field--inverse` to the parent element:
+
+```diff
+-<div class="o-forms-field">
++<div class="o-forms-field o-forms-field--inverse">
+	<span class="o-forms-title">
+		...
+	</span>
+
+	<span class="o-forms-input o-forms-input--toggle">
+		<!-- toggle inputs -->
+	</span>
 </div>
 ```
 
-#### Sections
+### Uncategorised input fields
+Date inputs and anchor with box-like styling are outliers to the rules above.
 
-Wrap a group of `.o-forms` fields in a section `.o-forms-section` to highlight them and provide a global message.
+#### Date inputs
+We do not use `input[type=date]`, but instead combine three `input[type=text]` within the [base structure for a multiple input field](#multiple-input-fields), as shown below:
+```html
+...
+	<span class="o-forms-input o-forms-input--date">
+		<label>
+			<input type="text" pattern="[0-9]{2}" name="my-date"/>
+			<span class="o-forms-input__label">DD</span>
+		</label>
+		<label>
+			<input type="text" pattern="0?[1-9]|1[012]" name="my-date"/>
+			<span class="o-forms-input__label">MM</span>
+		</label>
+		<label>
+			<input type="text" pattern="[0-9]{4}" name="my-date"/>
+			<span class="o-forms-input__label">YYYY</span>
+		</label>
+	</span>
+...
+```
+[_See the full markup for a date input in the registry_](#TODO)
+
+#### Anchors
+Anchors are an entirely separate entity. They _look_ like a form element but do not function as one.
 
 ```html
-<div class="o-forms-section">
-	<div class="o-forms-section__message">
-		<p>This is a section message.</p>
-	</div>
-	<div class="o-forms">
-		<label for="o-forms-message" class="o-forms__label">Field Label</label>
-		<input type="text" id="o-forms-message" class="o-forms__text" required />
-	</div>
+<div class="o-forms-input o-forms-input--pseudo-radio-box ">
+		<a class="o-forms__anchor o-forms__anchor--current" href="#">Anchor Link A</a>
+		<a class="o-forms__anchor" href="#">Anchor Link B</a>
 </div>
 ```
+[_See the full markup for an anchor in the registry_](#TODO)
 
-This can be used to highlight errors within a section of a form which contains multiple `.o-forms` fields.
+### Shared Modifiers
+The markup structure outlined at the beginning of this section indicates containers for a form field that accept modifiers.
 
-```html
-<div class="o-forms-section o-forms-section--error">
-	<div class="o-forms-section__message">
-		<p>This is a section error message</p>
-	</div>
-	<div class="o-forms o-forms--error">
-		<label for="o-forms-section-error" class="o-forms__label">Field Label</label>
-		<input type="text" id="o-forms-section-error" class="o-forms__text" required />
-		<div class="o-forms__errortext">Invalid entry</div>
-	</div>
-</div>
+#### Field Modifiers
+The following modifiers are available for the `o-forms-field` element:
+- `o-forms-field--optional`: indicates that a field is optional, and will append `(optional)` to the end of the field's title.
+- `o-forms-field--inline`: inlines the title container to the input container
+
+#### Input Modifiers
+- `o-forms-input--valid`: identifies a valid input, gets set dynamically on form valdiation
+- `o-forms-input--invalid`: identifies an invalid input, gets set dynamically on form valdiation. This requires additional markup to be added as a direct child of the `o-forms-input` element:
+```diff
+-<span class="o-forms-input">
++<span class="o-forms-input o-forms--invalid">
+	<!-- input(s) -->
++	<span class="o-forms-input__error>Error message here</span>
+</span>
 ```
-
-Add `.o-forms-section--wide` to remove max width restrictions.
-
-[Section examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/sections)
-
-
-#### Additional Features
-
-Additional features such as small text and select inputs are avalible. Please see [more examples on the Origami Registry](https://www.ft.com/__origami/service/build/v2/demos/o-forms/).
-
-### Sass
-
-#### Silent mode
-
-In silent mode `o-forms` provides mixins for each set of form fields as well as some mixins to output basic form styles in one large chunk.
-
-The `oForms` mixin will output all features of `o-forms`. Turn off silent mode to output all `o-forms` features using this mixin automatically.
-
-```sass
-$o-forms-is-silent: false;
-@import 'o-forms/main';
-```
-
-#### Mixins
-
-If your project does not need all `o-forms` features, you may reduce your project's CSS bundle size by using the following mixins to only output what you need.
-
-Required:
-- `oFormsBaseFeatures` - Basic form features including `.o-forms`. Required by the other mixins.
-
-Optional features:
-- `oFormsRadioCheckboxFeatures` - Checkbox and radio support.
-- `oFormsRadioCheckboxRightModifier` - Modifier styles to align checkbox/radio inputs right.
-- `oFormsRadioButtonsStyledFeature` - Styled radio buttons support.
-- `oFormsCheckboxToggleFeature` - Toggle support.
-- `oFormsSuffixFeature` - Suffix support.
-- `oFormsSectionFeature` - Section support.
-- `oFormsStatusFeature` - Styles for form status such as "saving" or "saved".
-- `oFormsInlineFeature` - Styles for inline forms.
-- `oFormsSmallFeature` - Modifier styles for small text and select inputs.
-- `oFormsWideFeature` - Modifier styles for form elements with no width restriction.
-- `oFormsBleedFeature` - Modifier styles for form elements with no width restriction and no padding.
-
-Customisation (see [SassDoc](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms/#o-forms)):
-- `oFormsRadioButtonsStyledTheme` - Used to customise the color of styled radio buttons.
-- `oFormsRadioButtonsStyledIcon` - Used to add an icon to styled radio buttons.
-
-For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms/#o-forms).
-
-### JavaScript
-
-`o-forms` provides some JavaScript to help with validating form inputs. The validation works with the browsers built-in validation API to add the appropriate `o-forms` classes when a user is completing or submitting a form.
-
-By default, `o-forms` listens to the `blur` event of an input field, when a user leaves a field, the input will be validated and if an invalid input is found, the error class will be added to the input.
-
-Additionally `o-forms` fires an event `oForms.toggled` when a toggle checkbox is clicked.
-
-#### Constructing
-
-An o-forms object must be constructed for every `<form>` element you have on your page that you want to validate with this module. You can do this for explicit elements like so:
-
-```js
-const OForms = require('o-forms');
-const formsEl = document.querySelector('#form-element');
-
-const forms = new OForms(formsEl);
-```
-
-Alternatively, an o.DOMContentLoaded event can be dispatched on the document to auto-construct an o-forms object for each element with a `data-o-component="o-forms"` attribute:
-
-```js
-require('o-forms');
-document.addEventListener("DOMContentLoaded", function() {
-    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
-```
-
-#### Validate on form submit
-
-By default `o-forms` tests inputs on the `blur` event for each input. To defer the validation to the `submit` event of the form, you can pass an config object to set the `testEvent` when constructing `o-forms`:
-
-```js
-const OForms = require('o-forms');
-const formsEl = document.querySelector('#form-element');
-
-const forms = new OForms(formsEl, { testEvent: 'submit' });
-```
-
-Or you can set an attribute on the `<form>` element to declaratively set the test event:
-
-```html
-<form data-o-component="o-forms" data-o-forms-test-event="submit">
-	[...]
-</form>
-```
-
-#### Apply valid state class
-
-By default `o-forms` does not apply the `o-forms--valid` class, relying on the absence of `o-forms--error` to indicate an input's validity. To have `o-forms` apply a class for valid inputs, pass in a `applyValidState` boolean configuration property when constructing:
-
-```js
-const OForms = require('o-forms');
-const formsEl = document.querySelector('#form-element');
-
-const forms = new OForms(formsEl, { applyValidState: true });
-```
-
-Or you can set the `data-o-forms-apply-valid-state` attribute to true on the `<form>` element:
-
-```html
-<form data-o-component="o-forms" data-o-forms-apply-valid-state="true">
-	[...]
-</form>
-```
-
-#### Status
-
-A form status is used to show an input is "saving" or is "saved". To show a status use the static method `updateInputStatus`.
-
-```js
-const OForms = require('o-forms');
-const formsInput = document.querySelector('input');
-
-OForms.updateInputStatus(formsInput, 'saving');
-```
-
-Valid statuses include "saving", "saved", or `null` to remove any current status.
-
-To add a left aligned status to an inline form input, add a placeholder status element `.o-forms__status .o-forms__status--left`, with attribute `aria-hidden="true"`, within the contaning `.o-forms` element.
-
-[Status examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/status)
-
-#### Listening to a toggle change
-Listening for the `oForms.toggled` event we can react to the status of a toggle checkbox. This event is fired when the toggle checkbox is clicked.
-```html
-document.addEventListener('oForms.toggled', (event) => {
-	console.log(`${event.target.id} is ${(event.target.checked ? 'on' : 'off')}`);
-}, false);
-```
-
-## Troubleshooting:
-
-* Checkboxes and radio controls will not receive custom styling in IE =< 8, though they'll still receive default browser styling
-* In older versions of Firefox and depending on the version of the operating system, the select dropdowns might a default system arrow *and* a decorated arrow
-* In some browsers (e.g. iOS 6, Android < 4.4…) there is no space between the select arrow and the right edge of the element. This is caused by a lack of [CSS background-position edge offsets](http://caniuse.com/#feat=css-background-offsets)
-
-There are a number of inconsistencies in how browsers handle form events, validation and auto-fill. The Membership team has [documented the quirks](https://sites.google.com/a/ft.com/membership-subscriptions/sign-up-registration/technical-documentation/front-end-development-notes/browser-inconsistencies) it ran into during the development of the Sign Up app.
-
+- `o-forms-input--inline`: inlines all inputs with each other (usually only used o multiple input fields).
 
 ## Migration
 
