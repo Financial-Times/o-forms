@@ -18,6 +18,7 @@ describe('Forms', () => {
 
 	context('on `submit`', () => {
 		let submit;
+		let summary;
 		let formSpy;
 
 		beforeEach(() => {
@@ -36,7 +37,6 @@ describe('Forms', () => {
 
 		it('`opts.useBrowserValidation = true` relays form validation to browser on all invalid form inputs', () => {
 			new Forms(formEl, { useBrowserValidation: true });
-
 			submit.click();
 
 			proclaim.isTrue(formSpy.withArgs('submit').notCalled);
@@ -44,14 +44,59 @@ describe('Forms', () => {
 			proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
 		});
 
-		it('`opts.useBrowserValidation = false manually validates form inputs', () => {
+		it('`opts.useBrowserValidation = false` manually validates form inputs', () => {
 			new Forms(formEl);
-
 			submit.click();
 
 			proclaim.isTrue(formSpy.withArgs('submit').calledOnce);
 			proclaim.isTrue(parentClass(dateFields[0], 'invalid'));
 			proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
+		});
+
+		context('`opts.errorSummary = true`', () => {
+			let listItems;
+			let textInput;
+
+			beforeEach(() => {
+				new Forms(formEl);
+			});
+
+			it('creates new summary when inputs are invalid', () => {
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				proclaim.isNotNull(summary);
+			});
+
+			it('the summary reflects the number of invalid inputs', () => {
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				listItems = summary.querySelectorAll('a');
+				proclaim.equal(listItems.length, 4);
+			});
+
+			it('the summary gets updated on second submit if a form field has been amended', () => {
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				listItems = summary.querySelectorAll('a');
+				proclaim.equal(listItems.length, 4);
+
+				textInput = formEl.elements['text'];
+				textInput.value = 'something';
+
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				listItems = summary.querySelectorAll('a');
+				proclaim.equal(listItems.length, 3);
+			});
+		});
+
+		context('`opts.errorSummary = false`', () => {
+			it('does not create a new summary when inputs are invalid ', () => {
+				new Forms(formEl, { errorSummary: false });
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				proclaim.isNull(summary);
+			});
 		});
 	});
 

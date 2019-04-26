@@ -1,5 +1,6 @@
 import Input from './input';
 import State from './state';
+import ErrorSummary from './error-summary';
 
 class Forms {
 	/**
@@ -14,11 +15,11 @@ class Forms {
 
 		this.form = formElement;
 		this.formInputs = Array.from(this.form.elements, element => new Input(element));
-
 		this.stateElements = [];
 
 		this.opts = Object.assign({
-			useBrowserValidation: false
+			useBrowserValidation: false,
+			errorSummary: true
 		}, options);
 
 		if (!this.opts.useBrowserValidation) {
@@ -48,7 +49,18 @@ class Forms {
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			if (this.validateFormInputs().includes(false)) {
+			let checkedElements = this.validateFormInputs();
+
+			if (checkedElements.some(input => input.valid === false)) {
+				if (this.opts.errorSummary) {
+					if (this.summary) {
+						this.summary = this.form.replaceChild(new ErrorSummary(checkedElements), this.summary);
+					} else {
+						this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
+					}
+					this.summary.querySelector('a').focus();
+				}
+
 				return;
 			}
 
@@ -58,10 +70,23 @@ class Forms {
 
 	/**
 	* Form validation
-	* Validates every element in the form (applies styling)
+	* Validates every element in the form and creates input objects for the error summary
 	*/
 	validateFormInputs () {
-		return this.formInputs.map(input => input.validate());
+		return this.formInputs.map(element => {
+			let valid = element.validate();
+			let input = element.input;
+			let field = input.closest('.o-forms-field');
+			let label = field ? field.querySelector('.o-forms-title--main').innerHTML : null;
+			let errorElement = field ? field.querySelector('.o-forms-input__error') : null;
+			let error = errorElement ? errorElement.innerHTML : input.validationMessage;
+			return {
+				id: input.id,
+				valid,
+				error: !valid ? error : null,
+				label
+			};
+		});
 	}
 
 	/**
