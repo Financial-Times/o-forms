@@ -32,7 +32,6 @@
 		@include oTypographySize($scale: -1);
 		color: _oFormsGet('default-prompt-text');
 		display: block;
-		padding-right: $_o-forms-input-spacing;
 	}
 
 	.o-forms-input {
