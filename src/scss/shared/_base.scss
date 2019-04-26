@@ -41,8 +41,9 @@
 		border: 1px solid _oFormsGet('invalid-base');
 		padding: 12px;
 
-		span {
+		h3 {
 			@include oTypographyBold('sans');
+			margin: 0;
 		}
 
 		ul {

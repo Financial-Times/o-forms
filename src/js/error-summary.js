@@ -36,7 +36,8 @@ class ErrorSummary {
 		let div = document.createElement('div');
 		div.classList.add('o-forms__error-summary');
 		div.setAttribute('aria-labelledby', 'error-summary');
-		div.innerHTML = '<span id="error-summary">There is a problem</span>';
+		div.setAttribute('role', 'alert');
+		div.innerHTML = '<h3 id="error-summary">There is a problem</h3>';
 
 		div.appendChild(ErrorSummary.createList(invalidInputs));
 		return div;
