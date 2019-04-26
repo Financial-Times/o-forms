@@ -21,9 +21,14 @@ $_o-forms-shared-brand-config: (
 	controls-checked-base: oColorsGetPaletteColor('white'),
 	controls-negative-checked-background: oColorsGetPaletteColor('teal-30'),
 	invalid-base: oColorsGetPaletteColor('crimson'),
-	toggle-inverse-base: oColorsGetPaletteColor('white'),
-	toggle-inverse-selected: oColorsGetPaletteColor('teal-100'),
-	toggle-inverse-knob: oColorsGetPaletteColor('teal'),
+	toggle: oColorsGetPaletteColor('black'),
+	toggle-knob: oColorsMix('black', 'white', 10),
+	toggle-selected: oColorsGetPaletteColor('teal'),
+	toggle-knob-selected: oColorsGetPaletteColor('white'),
+	toggle-disabled: oColorsGetPaletteColor('black-20'),
+	toggle-knob-disabled: oColorsGetPaletteColor('black-40'),
+	toggle-inverse: oColorsGetPaletteColor('white'),
+	toggle-inverse-knob: oColorsMix('black', 'white', 70),
 	valid-base: oColorsMix('jade', 'black', 80)
 );
 

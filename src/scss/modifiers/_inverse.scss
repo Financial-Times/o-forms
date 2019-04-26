@@ -2,22 +2,22 @@
 /// @output styles for inverse toggle based on a checkbox input
 @mixin _oFormsInverse {
 	.o-forms-field--inverse {
-		color: _oFormsGet('toggle-inverse-base');
+		color: _oFormsGet('toggle-inverse');
 
 		.o-forms-title {
 			.o-forms-title--main:after,
 			.o-forms-title--prompt {
-				color: rgba(_oFormsGet('toggle-inverse-base'), 0.7);
+				color: rgba(_oFormsGet('toggle-inverse'), 0.7);
 			}
 		}
 
 		.o-forms-input__label:before {
-			background-color: _oFormsGet('toggle-inverse-base');
+			background-color: _oFormsGet('toggle-inverse');
 		}
 
 		.o-forms-input__label:after {
 			background-color: _oFormsGet('toggle-inverse-knob');
-			border-color: _oFormsGet('toggle-inverse-base');
+			border-color: _oFormsGet('toggle-inverse');
 		}
 
 		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
@@ -26,7 +26,8 @@
 			}
 
 			+ .o-forms-input__label:after {
-				border-color: _oFormsGet('toggle-inverse-selected');
+				background-color: _oFormsGet('toggle-knob-selected');
+				border-color: _oFormsGet('toggle-selected');
 			}
 		}
 	}

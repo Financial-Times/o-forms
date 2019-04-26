@@ -14,11 +14,14 @@
 		
 			.o-forms-title {
 				flex: 0 1 50%;
-				align-self: center;
 				padding-right: $_o-forms-input-spacing;
 				
 				&.o-forms-title--shrink {
 					flex-basis: auto;
+				}
+				
+				&.o-forms-title--vertical-center {
+					align-self: center;
 				}
 			}
 		
