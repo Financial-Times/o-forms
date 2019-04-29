@@ -25,7 +25,7 @@
 			}
 			
 			&:after {
-				background-color: _oFormsGet('toggle-knob');
+				background-color: oColorsGetColorFor(page, background);
 				border: 2px solid _oFormsGet('default-text');
 				border-radius: 50%;
 				box-sizing: border-box;
@@ -46,7 +46,6 @@
 				}
 				&:after {
 					left: 16px;
-					background-color: _oFormsGet('toggle-knob-selected');
 					border-color: _oFormsGet('toggle-selected');
 				}
 			}

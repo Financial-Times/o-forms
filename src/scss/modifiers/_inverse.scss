@@ -26,8 +26,8 @@
 			}
 
 			+ .o-forms-input__label:after {
-				background-color: _oFormsGet('toggle-knob-selected');
-				border-color: _oFormsGet('toggle-selected');
+				// background-color: _oFormsGet('toggle-inverse-knob-selected');
+				border-color: _oFormsGet('toggle-inverse-selected');
 			}
 		}
 	}
