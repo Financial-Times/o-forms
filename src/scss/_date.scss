@@ -1,12 +1,13 @@
 // sass-lint:disable no-qualifying-elements
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $invalid Whether to output invalid state styling
+/// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for date inputs
 @mixin _oFormsDate (
-	$disabled: null
+	$disabled: null,
 ) {
 	.o-forms-input--date {
-		clear: both;
 
 		label {
 			@include oTypographyMargin($bottom: 0);

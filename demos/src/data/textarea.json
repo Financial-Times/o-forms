@@ -30,8 +30,8 @@
       "input": {
         "type": "textarea",
         "modifiers": [ "invalid" ],
-        "value": "Nope",
-        "error": "Something went wrong"
+        "value": "",
+        "error": "Please fill out this field"
       }
     },
     {

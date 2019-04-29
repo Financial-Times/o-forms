@@ -35,9 +35,9 @@
       },
       "input": {
         "type": "select",
-        "options": [ "Option 1", "Option 2", "Option 3", "Option 4" ],
+        "options": [ "", "Option 1", "Option 2", "Option 3" ],
         "modifiers": ["invalid"],
-        "error": "Invalid option"
+        "error": "Please select an option"
       }
     },
     {

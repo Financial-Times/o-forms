@@ -24,12 +24,10 @@
 		'disabled',
 		'inline',
 		'right',
-		'invalid',
 		'inverse',
 		'small',
 		'state',
-		'suffix',
-		'valid'
+		'suffix'
 	)
 )) {
 	$elements: map-get($opts, 'elements');
@@ -37,13 +35,11 @@
 
 	$disabled: index($features, 'disabled');
 	$inline: index($features, 'inline');
-	$invalid: index($features, 'invalid');
 	$inverse: index($features, 'inverse');
 	$right: index($features, 'right');
 	$small: index($features, 'small');
 	$state: index($features, 'state');
 	$suffix: index($features, 'suffix');
-	$valid: index($features, 'valid');
 
 	@include _oFormsBase();
 
@@ -118,14 +114,6 @@
 
 	@if $state {
 		@include _oFormsState();
-	}
-
-	@if $invalid {
-		@include _oFormsInputValidity('invalid');
-	}
-
-	@if $valid {
-		@include _oFormsInputValidity('valid');
 	}
 }
 
