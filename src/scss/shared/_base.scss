@@ -10,9 +10,10 @@
 	}
 	
 	.o-forms-field {	
-		@include oTypographyMargin($bottom: 5);
+		@include oTypographyMargin($bottom: 6);
 		display: flex;
 		flex-direction: column;
+		position: relative;
 
 		label {
 			display: block;
