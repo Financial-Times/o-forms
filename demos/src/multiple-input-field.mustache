@@ -34,7 +34,6 @@
 
 			{{#inputs}}
 				<label {{#label}}class="{{.}}"{{/label}}>
-					{{#pattern}}<span class="o-forms-input__label" aria-hidden="true">{{date}}</span>{{/pattern}}
 					<input 
 						type="{{type}}" 
 						name="{{name}}"
@@ -48,7 +47,7 @@
 						<span class="o-forms-input__label
 									{{#modifier}} o-forms-input__label--{{.}}{{/modifier}}
 									{{#icon}} o-forms-input__label__{{.}}-icon{{/icon}}" aria-hidden="true">
-									{{value}}
+									{{#pattern}}{{date}}{{/pattern}}{{^pattern}}{{value}}{{/pattern}}
 						</span>
 					{{/name}}
 					
