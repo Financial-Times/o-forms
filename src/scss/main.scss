@@ -5,6 +5,7 @@
 @import './shared/controls'; // grouped inputs (e.g. radio/checkboxes) 
 @import './shared/inline';
 @import './shared/input'; // individual inputs (e.g. text, select)
+@import './shared/error-summary'; // individual inputs (e.g. text, select)
 
 // Input-type specific styles
 @import './anchor-box';

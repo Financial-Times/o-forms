@@ -23,8 +23,9 @@
 	'features': (
 		'disabled',
 		'inline',
-		'right',
 		'inverse',
+		'error-summary',
+		'right',
 		'small',
 		'state',
 		'suffix'
@@ -36,6 +37,7 @@
 	$disabled: index($features, 'disabled');
 	$inline: index($features, 'inline');
 	$inverse: index($features, 'inverse');
+	$error-summary: index($features, 'error-summary');
 	$right: index($features, 'right');
 	$small: index($features, 'small');
 	$state: index($features, 'state');
@@ -110,6 +112,10 @@
 
 	@if $inverse {
 		@include _oFormsInverse();
+	}
+
+	@if $error-summary {
+		@include _oFormsErrorSummary();
 	}
 
 	@if $state {
