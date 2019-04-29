@@ -19,7 +19,7 @@
 
 			&:before {
 				@include oColorsFor(page, background);
-				border: 2px solid _oFormsGet('default-border');
+				border: 1px solid _oFormsGet('default-border');
 			}
 
 			&:after {
@@ -49,10 +49,6 @@
 				box-shadow: 0 0 0 2px $o-normalise-focus-color;
 				outline: none;
 			}
-		}
-
-		.o-forms-input__error {
-			@include oTypographyMargin($top: 2);
 		}
 	}
 };

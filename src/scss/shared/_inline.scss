@@ -14,7 +14,7 @@
 		
 			.o-forms-title {
 				flex: 0 1 50%;
-				padding-right: $_o-forms-input-spacing;
+				margin-right: oTypographySpacingSize(3);
 				
 				&.o-forms-title--shrink {
 					flex-basis: auto;

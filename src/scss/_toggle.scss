@@ -16,16 +16,16 @@
 				top: 0;
 				left: 0;
 			}
-			
+
 			&:before {
 				background-color: _oFormsGet('toggle');
 				border-radius: $_o-forms-input-height;
 				height: 24px;
 				width: $_o-forms-input-height;
 			}
-			
+
 			&:after {
-				background-color: _oFormsGet('toggle-knob');
+				background-color: oColorsGetColorFor(page, background);
 				border: 2px solid _oFormsGet('default-text');
 				border-radius: 50%;
 				box-sizing: border-box;
@@ -33,9 +33,8 @@
 				width: $_o-forms-control-size;
 				transition: left 75ms ease-in-out;
 			}
-			
 		}
-		
+
 		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 			position: relative;
 			left: $_o-forms-control-size / 2;
@@ -46,7 +45,6 @@
 				}
 				&:after {
 					left: 16px;
-					background-color: _oFormsGet('toggle-knob-selected');
 					border-color: _oFormsGet('toggle-selected');
 				}
 			}

@@ -37,14 +37,14 @@ class ErrorSummary {
 		div.classList.add('o-forms__error-summary');
 		div.setAttribute('aria-labelledby', 'error-summary');
 		div.setAttribute('role', 'alert');
-		div.innerHTML = '<h3 id="error-summary">There is a problem</h3>';
+		div.innerHTML = '<h4 id="error-summary">There is a problem</h4>';
 
 		div.appendChild(ErrorSummary.createList(invalidInputs));
 		return div;
 	}
 
 	/**
-	 * Generate list of anchors
+	 * Generate list of anchorsß
 	 */
 	static createList(inputs) {
 		let list = document.createElement('ul');
@@ -67,7 +67,7 @@ class ErrorSummary {
 	static createAnchor(input) {
 		let anchor = document.createElement('a');
 		anchor.setAttribute('href', `#${input.id}`);
-		anchor.innerHTML = `${input.label}: ${input.error}`;
+		anchor.innerHTML = `<span>${input.label}</span>: ${input.error}`;
 		anchor.addEventListener('click', (e) => {
 			e.preventDefault();
 			document.querySelector(e.target.hash).focus();

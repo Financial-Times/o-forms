@@ -28,7 +28,8 @@ $_o-forms-shared-brand-config: (
 	toggle-disabled: oColorsGetPaletteColor('black-20'),
 	toggle-knob-disabled: oColorsGetPaletteColor('black-40'),
 	toggle-inverse: oColorsGetPaletteColor('white'),
-	toggle-inverse-knob: oColorsMix('black', 'white', 70),
+	toggle-inverse-knob: oColorsGetPaletteColor('slate'),
+	toggle-inverse-selected: oColorsGetPaletteColor('teal-100'),
 	valid-base: oColorsMix('jade', 'black', 80)
 );
 

@@ -12,6 +12,8 @@
 		label {
 			@include oTypographyMargin($bottom: 0);
 			float: left;
+			display: flex;
+			flex-direction: column-reverse;
 		}
 
 		input[type=text] { 
