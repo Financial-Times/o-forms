@@ -19,7 +19,7 @@
 
 			&:before {
 				@include oColorsFor(page, background);
-				border: 2px solid _oFormsGet('default-border');
+				border: 1px solid _oFormsGet('default-border');
 			}
 
 			&:after {

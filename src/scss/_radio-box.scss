@@ -45,6 +45,16 @@
 				}
 			}
 		}
+		
+		&.o-forms-input--inline .o-forms-input__state {
+			position: relative;
+			bottom: 0;
+		}
+
+		.o-forms-input__state {
+			position: absolute;
+			bottom: -22px;
+		}
 
 		.o-forms-input__error {
 			bottom: -16px;

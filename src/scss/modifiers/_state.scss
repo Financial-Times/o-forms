@@ -2,7 +2,7 @@
 /// @output styles for state animation for the box-styled radio inputs
 @mixin _oFormsState() {
 	.o-forms-input__state {
-		@include oTypographySize($scale: -1, $line-height: 1);
+		@include oTypographySize($scale: -1, $line-height: 1.75);
 		color: inherit;
 		display: block;
 
