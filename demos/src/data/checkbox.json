@@ -58,7 +58,7 @@
       "field": {
         "type": "checkbox",
         "aria": "error-checkbox-group-title",
-        "error": "Something has gone wrong.",
+        "error": "Please select at least one option",
         "modifiers": [ "invalid" ]
       },
       "title": {
@@ -68,8 +68,7 @@
         {
           "type": "checkbox",
           "name": "error",
-          "value": "Error 1",
-          "checked": true
+          "value": "Error 1"
         },
         {
           "type": "checkbox",

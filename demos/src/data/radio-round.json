@@ -80,7 +80,7 @@
       "field": {
         "type": "radio-round",
         "aria": "error-radio-round-group-title",
-        "error": "Something has gone wrong.",
+        "error": "Please select an option",
         "modifiers": [ "invalid" ]
       },
       "title": {

@@ -23,4 +23,9 @@ if (invalidField) {
 		invalidSelect[0].setAttribute('disabled', true);
 		invalidSelect[0].setAttribute('selected', true);
 	}
+
+	let invalidControls = invalidField.querySelectorAll(".o-forms-input--checkbox input[type='checkbox']");
+	if (invalidControls) {
+		invalidControls.forEach(conrol => conrol.setAttribute('required', true));
+	}
 }

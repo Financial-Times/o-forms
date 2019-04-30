@@ -9,15 +9,20 @@
 	*:invalid {
 		box-shadow: none;
 	}
-
+	
 	.o-forms-input__error {
 		display: none;
 	}
-
+ 
 	.o-forms-input--invalid {
 		*:invalid:not(:disabled) {
 			color: _oFormsGet('invalid-base');
 			border-color: _oFormsGet('invalid-base');
+
+			+ .o-forms-input__label:before,
+			+ .o-forms-input__label:after {
+				border-color: _oFormsGet('invalid-base');
+			}
 		}
 
 		.o-forms-input__error {
@@ -26,7 +31,7 @@
 			color: _oFormsGet('invalid-base');
 			display: block;
 			position: absolute;
-			bottom: -22px;
+			bottom: -20px;
 		}
 	}
 }
