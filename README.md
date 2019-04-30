@@ -129,14 +129,17 @@ It is also possible to have a multiple select input by adding the `multiple` att
 All single input fields accept the following modifiers on the input container:
 - `o-forms-input--small`: reduces the height of the input field
 - `o-forms-input--suffix`: inlines a sibling element (e.g. a button) with the input
-- `o-forms-title--shrink`: shrinks the title container to the width of a shorter title:
+- `o-forms-title--shrink`: shrinks the title container to the width of a shorter title (should be used with `o-forms-field--inline`):
 ```diff
 ...
+-<div class="o-forms-field">
++<div class="o-forms-field o-forms-field--inline">
 	<span class="o-forms-title o-forms-title--shrink">
 		<span class="o-forms-title--main"> Label for input here </span>
 		<span class="o-forms-title--prompt"> Optional text to describe the input here </span>
 	</span>
-...
+	...
+</div>
 ```
 ### Multiple input fields
 A multiple input field is considered a field with multiple sibling inputs, e.g. radio buttons.
@@ -219,6 +222,26 @@ The markup will need to be updated to look like this:
 ...
 ```
 You can also add `o-forms-input__state--icon-only` to the `<span>` to avoid displaying the status text.
+
+This input type also accepts a 'negative' modifier `o-forms-input__label--negative`, which changes the background colour of an input when selected (usually for a negative choice):
+```html
+<div class="o-forms-field">
+	...
+	<span class="o-forms-input o-forms-input--radio-box">
+		<div class="o-forms-input--radio-box__container">
+			<label>
+				<input type="radio" name="negative" value="Yes">
+				<span class="o-forms-input__label">Yes</span>
+			</label>
+			<label>
+				<input type="radio" name="negative" value="No"checked>
+				<span class="o-forms-input__label o-forms-input__label--negative">No</span>
+			</label>
+		</div>
+	</span>
+</div>
+```
+[_See the full markup for a negative state in the registry_](#TODO)
 
 #### `input[type=checkbox]` (Square)
 For a regular, squared checkbox, you'll need the following markup:
