@@ -91,7 +91,7 @@ And each input in this structure input relies on a different modifier.
 	</span>
 ...
 ```
-
+[_See the full markup for text and password input in the registry_](https://registry.origami.ft.com/components/o-forms#text-input)
 #### `textarea`
 ```html
 ...
@@ -100,7 +100,7 @@ And each input in this structure input relies on a different modifier.
 	</span>
 ...
 ```
-
+[_See the full markup for text areas in the registry_](https://registry.origami.ft.com/components/o-forms#text-area)
 #### `select`
 ```html
 ...
@@ -124,17 +124,20 @@ It is also possible to have a multiple select input by adding the `multiple` att
 	</span>
 ...
 ```
+[_See the full markup for select inputs in the registry_](https://registry.origami.ft.com/components/o-forms#select)
 
 #### Modifiers
 All single input fields accept the following modifiers on the input container:
 - `o-forms-input--small`: reduces the height of the input field
 - `o-forms-input--suffix`: inlines a sibling element (e.g. a button) with the input
+- `o-forms-title--vertical-center`: aligns the title container vertically (most useful when there is no prompt text)
 - `o-forms-title--shrink`: shrinks the title container to the width of a shorter title (should be used with `o-forms-field--inline`):
 ```diff
 ...
 -<div class="o-forms-field">
 +<div class="o-forms-field o-forms-field--inline">
-	<span class="o-forms-title o-forms-title--shrink">
+-	<span class="o-forms-title">
++	<span class="o-forms-title o-forms-title--shrink">
 		<span class="o-forms-title--main"> Label for input here </span>
 		<span class="o-forms-title--prompt"> Optional text to describe the input here </span>
 	</span>
@@ -175,7 +178,7 @@ For a regular, round radio button, you'll need the following markup:
 	</span>
 ...
 ```
-[_See the full markup for a round radio button in the registry_](#TODO)
+[_See the full markup for a round radio button in the registry_](https://registry.origami.ft.com/components/o-forms#radio-round)
 
 #### `input[type=radio]` (Box)
 For a box-like, rectangular radio button, you'll need the following markup:
@@ -195,7 +198,6 @@ For a box-like, rectangular radio button, you'll need the following markup:
 	</span>
 ...
 ```
-[_See the full markup for a box radio button in the registry_](#TODO)
 
 This is currently the only input type that accepts state. In order to add a spinner or tick to the radio box.
 The input container accepts one of two modifiers at a time:
@@ -241,7 +243,7 @@ This input type also accepts a 'negative' modifier `o-forms-input__label--negati
 	</span>
 </div>
 ```
-[_See the full markup for a negative state in the registry_](#TODO)
+[_See the full markup for a box-style radio button in the registry_](https://registry.origami.ft.com/components/o-forms#radio-box)
 
 #### `input[type=checkbox]` (Square)
 For a regular, squared checkbox, you'll need the following markup:
@@ -259,7 +261,22 @@ For a regular, squared checkbox, you'll need the following markup:
 	</span>
 ...
 ```
-[_See the full markup for a square checkbox in the registry_](#TODO)
+
+Checkboxes accept a specific modifier that will align the checkbox to the **right** of its label. This is a combinatio of modifiers that looks like this:
+For a regular, squared checkbox, you'll need the following markup:
+```diff
+...
+<span class="o-forms-input o-forms-input--checkbox">
+-		<label>
++		<label class="o-forms-input__right">
+			<input type="checkbox" name="my-checkbox"/>
+			<span class="o-forms-input__label">Checkbox 1</span>
+		</label>
+	</span>
+...
+```
+
+[_See the full markup for regular checkboxes in the registry_](https://registry.origami.ft.com/components/o-forms#checkboxes)
 
 #### `input[type=checkbox]` (Toggle)
 
@@ -278,7 +295,6 @@ For a toggle checkbox, you'll need the following markup:
 	</span>
 ...
 ```
-[_See the full markup for a toggle checkbox in the registry_](#TODO)
 
 This is currently the only input type that has an inverse state. 
 For this you'll need to add the `o-forms-field--inverse` to the parent element:
@@ -295,6 +311,8 @@ For this you'll need to add the `o-forms-field--inverse` to the parent element:
 	</span>
 </div>
 ```
+[_See the full markup for regular checkboxes in the registry_](https://registry.origami.ft.com/components/o-forms#toggle)
+
 
 ### Uncategorised input fields
 Date inputs and anchor with box-like styling are outliers to the rules above.
@@ -319,7 +337,7 @@ We do not use `input[type=date]`, but instead combine three `input[type=text]` w
 	</span>
 ...
 ```
-[_See the full markup for a date input in the registry_](#TODO)
+[_See the full markup for date inputs in the registry_](https://registry.origami.ft.com/components/o-forms#date)
 
 #### Anchors
 Anchors are an entirely separate entity. They _look_ like a form element but do not function as one.
@@ -330,7 +348,8 @@ Anchors are an entirely separate entity. They _look_ like a form element but do 
 		<a class="o-forms__anchor" href="#">Anchor Link B</a>
 </div>
 ```
-[_See the full markup for an anchor in the registry_](#TODO)
+[_See the full markup for an anchor in the registry_](https://registry.origami.ft.com/components/o-forms#anchors)
+
 
 ### Shared Modifiers
 The markup structure outlined at the beginning of this section indicates containers for a form field that accept modifiers.
@@ -350,7 +369,7 @@ The following modifiers are available for the `o-forms-field` element:
 +	<span class="o-forms-input__error>Error message here</span>
 </span>
 ```
-- `o-forms-input--inline`: inlines all inputs with each other (usually only used o multiple input fields).
+- `o-forms-input--inline`: inlines all inputs with each other (usually only used on multiple input fields).
 
 ## Migration
 
@@ -372,5 +391,3 @@ If you have any questions or comments about this component, or need help using i
 ## Licence
 
 This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
-
-[bem]: http://getbem.com/naming/
