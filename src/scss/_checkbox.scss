@@ -13,6 +13,7 @@
 			&:indeterminate + .o-forms-input__label:after {
 				@include oIconsGetIcon('minus', _oFormsGet('controls-checked-base'), 24px);
 				background-color: _oFormsGet('controls-base');
+				opacity: 1;
 			}
 		}
 

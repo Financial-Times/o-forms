@@ -189,20 +189,26 @@
 				"aria": "extra-content-checkbox-group-title"
 			},
 			"title": {
-				"main": "Checkboxes with extra content"
+				"main": "Checkboxes with extra content",
+				"prompt": "And an indeterminate state"
 			},
 			"inputs": [
 				{
 					"type": "checkbox",
 					"name": "extra",
-					"value": "I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.",
-					"additionalContent": "We will send you occasional emails to improve your experience of the Financial Times.",
-					"checked": true
+					"value": "Select All"
 				},
 				{
 					"type": "checkbox",
 					"name": "extra",
-					"value": "By submitting this form, you indicate your consent to also being contacted by the Financial Times by email. post or phone about our other products, services or special offers unless you untick this box. You can change your preferences anytime in the My Account section."
+					"value": "I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.",
+					"additionalContent": "We will send you occasional emails to improve your experience of the Financial Times."
+				},
+				{
+					"type": "checkbox",
+					"name": "extra",
+					"value": "By submitting this form, you indicate your consent to also being contacted by the Financial Times by email. post or phone about our other products, services or special offers unless you untick this box. You can change your preferences anytime in the My Account section.",
+					"checked": true
 				}
 			]
 		}

@@ -40,7 +40,8 @@
 						{{#pattern}}pattern={{.}}{{/pattern}} 
 						aria-label="{{value}}" 
 						{{#checked}}checked{{/checked}} 
-						{{#disabled}}disabled{{/disabled}}>
+						{{#disabled}}disabled{{/disabled}}
+						{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
 					
 					{{#name}}
 						<span class="o-forms-input__label
