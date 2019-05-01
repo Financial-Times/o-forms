@@ -45,10 +45,11 @@
 				}
 			}
 		}
-
-		&.o-forms-input--inline .o-forms-input__state {
-			position: relative;
-			bottom: 0;
+		@include oGridRespondTo(S) {
+			&.o-forms-input--inline .o-forms-input__state {
+				position: relative;
+				bottom: 0;
+			}
 		}
 
 		.o-forms-input__state {

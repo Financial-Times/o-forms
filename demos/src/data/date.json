@@ -8,7 +8,7 @@
 			},
 			"title": {
 				"main": "Date input",
-				"prompt": "Optional prompt text"
+				"prompt": "Optional prompt/description text"
 			},
 			"inputs": [
 				{
@@ -71,7 +71,8 @@
 				"modifiers": [ "invalid" ]
 			},
 			"title": {
-				"main": "Invalid date input"
+				"main": "Invalid date input",
+				"prompt": "Exemplifies a pattern mismatch"
 			},
 			"inputs": [
 				{

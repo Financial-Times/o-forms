@@ -70,14 +70,14 @@
 		},
 		{
 			"textInput": true,
-			"inline-field": true,
 			"title": {
-				"main": "Inline text input",
-				"prompt": "Inline text fields can be set in this way."
+				"main": "Small text input with suffix"
 			},
 			"input": {
 				"type": "text",
-				"value": "Input goes here"
+				"modifiers": [ "small", "suffix" ],
+				"value": "",
+				"button": "o-buttons"
 			}
 		},
 		{

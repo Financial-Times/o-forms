@@ -4,8 +4,8 @@
 			"select": true,
 			"optional": true,
 			"title": {
-				"main": "Optional select box",
-				"prompt": "Prompt text can go here"
+				"main": "Default select box",
+				"prompt": "Optional prompt/description text"
 			},
 			"input": {
 				"type": "select",
@@ -42,7 +42,7 @@
 			"select": true,
 			"disabled": true,
 			"title": {
-				"main": "Disabled selection"
+				"main": "Disabled select box"
 			},
 			"input": {
 				"type": "select",

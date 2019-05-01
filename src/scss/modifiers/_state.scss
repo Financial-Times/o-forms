@@ -39,7 +39,6 @@
 
 		.o-forms-input__state {
 			margin-left: -4px;
-			margin-top: -4px;
 
 			&:after {
 				content: 'Saved';
@@ -76,7 +75,6 @@
 
 			&.o-forms-input--saved .o-forms-input__state {
 				padding: 0 12px 0 8px;
-				margin-top: -4px;
 			}
 		}
 	}
