@@ -9,12 +9,8 @@
 			},
 			"input": {
 				"type": "select",
-				"options": [
-					"Option 1 (low chars: qgjpy)",
-					"Option 2",
-					"Option 3",
-					"Option 4"
-				]
+				"selected": "Option 1 (low chars: qgjpy)",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
 			}
 		},
 		{
@@ -24,7 +20,8 @@
 			},
 			"input": {
 				"type": "select",
-				"options": [ "Option 1", "Option 2", "Option 3", "Option 4" ],
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ],
 				"modifiers": ["valid"]
 			}
 		},
@@ -35,7 +32,8 @@
 			},
 			"input": {
 				"type": "select",
-				"options": [ "", "Option 1", "Option 2", "Option 3" ],
+				"selected": "",
+				"options": ["", "Option 1", "Option 2", "Option 3" ],
 				"modifiers": ["invalid"],
 				"error": "Please select an option"
 			}
@@ -48,7 +46,8 @@
 			},
 			"input": {
 				"type": "select",
-				"options": [ "Option 1", "Option 2", "Option 3", "Option 4" ]
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
 			}
 		},
 		{
@@ -58,7 +57,8 @@
 			},
 			"input": {
 				"type": "select",
-				"options": [ "Option 1", "Option 2", "Option 3", "Option 4" ],
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ],
 				"modifiers": [ "small" ]
 			}
 		},
@@ -70,7 +70,8 @@
 			},
 			"input": {
 				"type": "select",
-				"options": [ "Option 1", "Option 2", "Option 3", "Option 4" ]
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
 			}
 		},
 		{
@@ -81,7 +82,8 @@
 			},
 			"input": {
 				"type": "select",
-				"options": [ "Option 1", "Option 2", "Option 3", "Option 4" ],
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ],
 				"modifiers": [ "suffix" ],
 				"button": "o-buttons o-buttons--big"
 			}
@@ -93,7 +95,8 @@
 			},
 			"input": {
 				"type": "select",
-				"options": [ "Option 1", "Option 2", "Option 3", "Option 4" ],
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ],
 				"modifiers": [ "suffix", "small" ],
 				"button": "o-buttons"
 			}
@@ -102,12 +105,27 @@
 			"select": true,
 			"inline-field": true,
 			"title": {
-				"main": "Inline selectbox",
-				"prompt": "Inline select boxes can be set in this way."
+				"main": "Short title",
+				"prompt": "Long input",
+				"modifiers": [ "shrink"]
 			},
 			"input": {
 				"type": "select",
-				"options": [ "Option 1", "Option 2", "Option 3", "Option 4" ]
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
+			}
+		},
+		{
+			"select": true,
+			"inline-field": true,
+			"title": {
+				"main": "Vertically centered title",
+				"modifiers": [ "vertical-center" ]
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
 			}
 		},
 		{
@@ -120,7 +138,8 @@
 			},
 			"input": {
 				"type": "select",
-				"options": [ "Option 1", "Option 2", "Option 3", "Option 4" ]
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
 			}
 		}
 	]
