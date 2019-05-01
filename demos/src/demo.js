@@ -6,4 +6,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let extraContentInput = document.querySelector("input[name='extra']");
 // indeterminate states can only be set dynamically, there is no attribute for them.
-if (extraContentInput) { extraContentInput.indeterminate = true }
+if (extraContentInput) { extraContentInput.indeterminate = true; }
