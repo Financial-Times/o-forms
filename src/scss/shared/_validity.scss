@@ -1,3 +1,5 @@
+/// @access private
+/// @output styles for valid and invalid inputs
 @mixin _oFormsValidityStates() {
 	.o-forms-input--valid {
 		*:valid:not(:disabled) {
@@ -26,7 +28,6 @@
 		}
 
 		.o-forms-input__error {
-			// @include oTypographyMargin($top: 1);
 			@include oTypographySize($scale: -1);
 			color: _oFormsGet('invalid-base');
 			display: block;
