@@ -13,7 +13,7 @@
 	.o-forms-input__error {
 		display: none;
 	}
- 
+
 	.o-forms-input--invalid {
 		*:invalid:not(:disabled) {
 			color: _oFormsGet('invalid-base');

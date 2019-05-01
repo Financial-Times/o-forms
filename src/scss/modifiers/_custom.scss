@@ -109,7 +109,7 @@
 	}
 
 	@if not $class {
-		@error('Please specify a name for the custom modifier (e.g. o-forms-input--{custom-modifier}).')
+		@error('Please specify a name for the custom modifier (e.g. o-forms-input--{custom-modifier}).');
 	}
 
 	$theme: _oFormsThemeToBrandVariants($theme);
