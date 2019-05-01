@@ -3,10 +3,10 @@
     {
       "radioBox": true,
       "optional": true,
-      "custom": true,
       "field": {
         "type": "radio-box",
-        "aria": "radio-box-group-title"
+        "aria": "radio-box-group-title",
+        "modifiers": [ "demo-radio" ]
       },
       "title": {
         "main": "Custom radio buttons and anchor"
@@ -27,7 +27,7 @@
     },
     {
       "anchor": true,
-      "custom": true,
+      "modifiers": [ "demo-anchor" ],
       "inputs": [
         {
           "value": "Anchor Link A",
@@ -42,10 +42,10 @@
     },
     {
       "radioBox": true,
-      "custom": true,
       "field": {
         "type": "radio-box",
-        "aria": "radio-box-group-title"
+        "aria": "radio-box-group-title",
+        "modifiers": [ "demo-radio" ]
       },
       "title": {
         "main": "Custom radio buttons and anchor",
@@ -69,7 +69,7 @@
     },
     {
       "anchor": true,
-      "custom": true,
+      "modifiers": [ "demo-anchor" ],
       "inputs": [
         {
           "value": "Grid Link",

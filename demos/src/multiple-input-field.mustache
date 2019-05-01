@@ -1,7 +1,7 @@
 {{#variants}}
 
 {{#anchor}}
-	<div class="o-forms-input o-forms-input--pseudo-radio-box {{#custom}}demo-custom-anchor-theme{{/custom}}">
+	<div class="o-forms-input o-forms-input--pseudo-radio-box {{#modifiers}}o-forms-input--{{.}}{{/modifiers}}">
 		{{#inputs}}
 			<a class="o-forms__anchor
 					{{#current}} o-forms__anchor--current{{/current}}
@@ -18,7 +18,6 @@
 		{{#inline-field}} o-forms-field--inline{{/inline-field}}
 		{{#inverse}} o-forms-field--inverse{{/inverse}}
 		{{#optional}} o-forms-field--optional{{/optional}}
-		{{#custom}} demo-custom-radio-theme{{/custom}}
 		" role="group" aria-labelledby="{{field.aria}}">
 		
 		<span	class="o-forms-title" aria-hidden="true">

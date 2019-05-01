@@ -32,7 +32,7 @@
 	}
 
 	.o-forms__anchor.o-forms__anchor--current,
-	input[type=radio]:checked + .o-forms-input__label {  // sass-lint:disable-line no-qualifying-elements
+	input[type=radio]:checked + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
 		&:after {
 			display: block;
 		}
@@ -49,7 +49,7 @@
 	$element: '';
 
 	@if $input == 'radio' {
-		$element: '.o-forms-input__label.o-forms-input__label__#{$icon}-icon';
+		$element: 'label .o-forms-input__label.o-forms-input__label__#{$icon}-icon';
 	} @else {
 		$element: '.o-forms__anchor.o-forms__anchor__#{$icon}-icon';
 	} 
@@ -97,29 +97,32 @@
 /// @param {String} $input Type of input to customise, one of 'anchor' or 'radio'
 /// @param {Boolean} $icons A list of icons to render
 /// @param {Map|null} $theme Custom theme map
-@mixin oFormsCustom(
+@mixin oFormsAddCustom(
 	$input: null,
+	$class: null, 
 	$icons: null,
 	$theme: null
 ) {
 
 	@if not $input {
-		@error('Please specifiy whether you would like to customise radio inputs or anchors');
+		@error('Please specify whether you would like to customise radio inputs or anchors');
+	}
+
+	@if not $class {
+		@error('Please specify a name for the custom modifier (e.g. o-forms-input--{custom-modifier}).')
 	}
 
 	$theme: _oFormsThemeToBrandVariants($theme);
 
-	@if $input == 'anchor' {
-		&.o-forms-input--pseudo-radio-box {
+	.o-forms-input--#{$class} {
+		@if $input == 'anchor' {
 			@include _oFormsAnchorBoxStyles($theme);
-		}
-	} @else if $input == 'radio' {
-		.o-forms-input--radio-box {
+		} @else if $input == 'radio' {
 			@include _oFormsRadioBoxInputStyles($theme);
-		}
-	} @else {
-		@error('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');
-	};
+		} @else {
+			@error('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');
+		};
+	}
 
 	@if $icons {
 		@each $icon in $icons {
