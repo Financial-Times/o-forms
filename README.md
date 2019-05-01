@@ -21,6 +21,7 @@ FT-branded styles for form elements.
 		- [Field modifiers](#field-modifiers)
 		- [Input modifiers](#input-modifiers)
 - [Sass](#sass)
+	- [Options](#options)
 - [JavaScript](#javascript)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
@@ -370,6 +371,48 @@ The following modifiers are available for the `o-forms-field` element:
 </span>
 ```
 - `o-forms-input--inline`: inlines all inputs with each other (usually only used on multiple input fields).
+
+## Sass
+You can include styles for every input type and feature by calling the `o-forms` primary mixin:
+```scss
+@import 'o-forms';
+@include oForms();
+```
+
+If you would like to be more specific about what aspects of the styles get output, then you'll need to provide the primary mixin with an `$opts` map. For example, in order to output styles for text inputs and checkboxes, and add the abilty to inlne them, you would use the following:
+```scss
+@import 'o-forms';
+@include oForms($opts: (
+	'elements': ('text-input', 'checkbox'),
+	'features': ('inline')
+));
+```
+### Options
+`o-forms` has many options due to its comprehensive nature.  
+The `$opts` map accepts two lists with the following options:
+- `'elements'`:
+	- `'anchor'`
+	- `'checkbox'`
+	- `'date'`
+	- `'password'`
+	- `'radio-round'`
+	- `'radio-box'`
+	- `'select'`
+	- `'textarea'`
+	- `'text'`
+	- `'toggle'`
+- `'features'`:
+	- `'disabled'`
+	- `'inline'`
+	- `'right'`
+	- `'inverse'`
+	- `'small'`
+	- `'state'`
+	- `'suffix'`
+
+_Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so there is no need to include them in the list above._
+
+_Note 2: It's important to remember that not all features will apply to all input types. If there are any features you would like to see added to an input, please [get in touch with the team](#contact)._
 
 ## Migration
 
