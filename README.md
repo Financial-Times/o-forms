@@ -4,7 +4,7 @@ FT-branded styles for form elements.
 
 - [Markup](#markup)
 	- [Single input fields](#single-input-fields)
-		- [`input[type=text]`](#input[type=text])
+		- [`input[type=text]`](#input-type-text-)
 		- [`input[type=password]`](#input[type=password])
 		- [`textarea`](#textarea)
 		- [`select`](#select)
