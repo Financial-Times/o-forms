@@ -22,6 +22,7 @@ FT-branded styles for form elements.
 		- [Input modifiers](#input-modifiers)
 - [Sass](#sass)
 	- [Options](#options)
+	- [Customisation](#customisation)
 - [Accessibility](#accessibility)
 - [JavaScript](#javascript)
 	- [Form Instance](#form-instance)
@@ -417,10 +418,34 @@ _Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so t
 
 _Note 2: It's important to remember that not all features will apply to all input types. If there are any features you would like to see added to an input, please [get in touch with the team](#contact)._
 
+### Customisation
+
+There is one public mixin to customise two types of input: [anchors](#anchors) and [box-styled `input[type=radio]`](#inputttyperadio-box).
+It accepts four arguments:
+- `$input`: (required) either `'anchor'` or `'radio'`
+- `$modifier`: (required) this will name the modifier to add to the input container class list
+- `$icons`: (optional) accepts an icon or a list of icons to output according to the custom theme
+- `$theme`: (required) a map of the colors that define the custom theme:
+	- `'controls-base'`: the base color of the theme
+	- `'controls-checked'`: the background color of a checked input
+	- `'controls-negative-checked-background'`: the background color for a 'negative' checked input
+
+```scss
+@include oFormsAddCustom({
+	$input: 'radio',
+	$modifier: 'my-theme', // outputs the class 'o-forms-input--my-theme',
+	$icons: 'burger'
+	$theme: (
+		controls-base: 'claret',
+		controls-checked-base: 'white',
+		controls-negative-checked-background: 'claret-30'
+	)
+})
+```
 ## Accessibility
 
 `o-forms` has been written with a strong focus on accessibility.
-We've chosen to override native browser validation and to provide an error summary on form submit, and [have a more detailed explanation](./ACCESSIBILITY.md) about these topics and writing markup to comply with that accessibility.
+We've chosen to override native browser validation and to provide an error summary on form submit (this behaviour relies on JavaScript to run). We [have a more detailed explanation](./ACCESSIBILITY.md) about these topics and writing markup to comply with that accessibility, please read through it to familiarise yourself with some of our reasoning and recommended practices.
 
 ## JavaScript
 
@@ -431,6 +456,7 @@ The JavaScript for this component is primarily responsible for individual input 
 If you would like to use an input without a form element, you can still apply validation to it with the `o-forms` [individual `Input` API](#individual-inputs).
 
 ### Form Instance
+
 The main `o-forms` JavaScript has been written to identify and run on a `<form>` element. You'll need to set up your form and include the data attribute `data-o-component="o-forms"`:
 ```html
 <form data-o-component="o-forms">

@@ -3,7 +3,11 @@
 
 ### Migrating from v6 to v7
 
-_TODO_
+Version 7 introduces a complete redesign to the `o-forms` markup and API, and makes small design changes and additions.
+
+All Sass mixins have been removed, and have been replaced with two public mixins:
+- `oForms()`
+- `oFormsAddCustom()`
 
 ### Migrating from v5 to v6
 Version 6 uses a new major version of o-loading. Make sure your project is compatible with o-loading@3.0.0
