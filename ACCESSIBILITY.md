@@ -224,13 +224,6 @@ Overall, it outlines that:
 
 This means that not only will ATs have clear access to what has happend on the page, but it will be clear for any other user of the product's form.
 
-<<<<<<< HEAD
 `o-forms` implements this behaviour for you if the [error summary options is enabled](#TODO)
 
 If you would like help implementing anything you've read here, please [get in touch with the team](./README.md#contact). 
-=======
-`o-forms` provides the option to add an error summary to a form, which happens on the `submit` event.
-If a product has supplied an error message for its individual inputs, those messages will be collected to create the summary at the top of the form when the form is submitted.
-
-If you would like help implementing anything you've read here, please [get in touch with the team](./README.md#contact). 
->>>>>>> e9123c5636c8f6f3fd834a053a7417bf2f53df3b
