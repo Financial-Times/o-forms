@@ -55,6 +55,18 @@
 			"input": {
 				"type": "textarea"
 			}
+		},
+		{
+			"textArea": true,
+			"inline-field": true,
+			"title": {
+				"main": "Shrunken title",
+				"prompt": "A prompt can go here",
+				"modifiers": [ "shrink"]
+			},
+			"input": {
+				"type": "textarea"
+			}
 		}
 	]
 }

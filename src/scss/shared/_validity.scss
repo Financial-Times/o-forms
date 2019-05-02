@@ -1,3 +1,5 @@
+/// @access private
+/// @output styles for valid and invalid inputs
 @mixin _oFormsValidityStates() {
 	.o-forms-input--valid {
 		*:valid:not(:disabled) {

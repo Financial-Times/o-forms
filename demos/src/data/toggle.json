@@ -85,8 +85,7 @@
 				{
 					"type": "checkbox",
 					"name": "error",
-					"value": "Error 1",
-					"checked": true
+					"value": "Error 1"
 				},
 				{
 					"type": "checkbox",

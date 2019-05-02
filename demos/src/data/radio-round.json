@@ -7,8 +7,8 @@
 				"aria": "radio-round-group-title"
 			},
 			"title": {
-				"main": "Default radio buttons",
-				"prompt": "Optional prompt text"
+				"main": "Default round-style radio buttons",
+				"prompt": "Optional prompt/description text"
 			},
 			"inputs": [
 				{
@@ -31,7 +31,7 @@
 				"modifiers": ["inline"]
 			},
 			"title": {
-				"main": "Inline radio buttons"
+				"main": "Inline round-style radio buttons"
 			},
 			"inputs": [
 				{
@@ -84,7 +84,7 @@
 				"modifiers": [ "invalid" ]
 			},
 			"title": {
-				"main": "Error radio buttons"
+				"main": "Error round-style radio buttons"
 			},
 			"inputs": [
 				{
@@ -108,7 +108,7 @@
 				]
 			},
 			"title": {
-				"main": "Inline radio buttons"
+				"main": "Inline round-style radio buttons"
 			},
 			"inputs": [
 				{
@@ -162,7 +162,8 @@
 				"aria": "inline-field-stacked-radio-round-group-title"
 			},
 			"title": {
-				"main": "Inline field and stacked radio buttons"
+				"main": "Inline field",
+				"prompt": "And stacked radio buttons"
 			},
 			"inputs": [
 				{

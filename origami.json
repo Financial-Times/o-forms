@@ -37,40 +37,26 @@
 	},
 	"demos": [
 		{
-			"name": "anchor",
-			"title": "Anchor",
+			"name": "anchors",
+			"title": "Anchors",
 			"template": "/demos/src/multiple-input-field.mustache",
-			"description": "Box-styled anchors",
+			"description": "Anchors that imitate box-style radio inputs",
 			"data": "/demos/src/data/anchor.json"
+		},
+		{
+			"name": "checkboxes",
+			"title": "Checkboxes",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Checkbox inputs with a default squared style",
+			"data": "/demos/src/data/checkboxes.json"
 		},
 		{
 			"name": "custom",
 			"title": "Customised anchors/radio-boxes",
 			"template": "/demos/src/multiple-input-field.mustache",
-			"description": "Custom theme for box-styled anchors and radio inputs",
+			"description": "Custom theme example for box-styled anchors and radio inputs",
 			"data": "/demos/src/data/custom.json",
 			"hidden": true
-		},
-		{
-			"name": "radio-box",
-			"title": "Box-styled radio inputs",
-			"template": "/demos/src/multiple-input-field.mustache",
-			"description": "Box-styled radio inputs",
-			"data": "/demos/src/data/radio-box.json"
-		},
-		{
-			"name": "radio-round",
-			"title": "Round-styled radio inputs",
-			"template": "/demos/src/multiple-input-field.mustache",
-			"description": "Round-styled radio inputs",
-			"data": "/demos/src/data/radio-round.json"
-		},
-		{
-			"name": "checkbox",
-			"title": "Checkboxes",
-			"template": "/demos/src/multiple-input-field.mustache",
-			"description": "checkbox inputs",
-			"data": "/demos/src/data/checkbox.json"
 		},
 		{
 			"name": "date",
@@ -80,31 +66,45 @@
 			"data": "/demos/src/data/date.json"
 		},
 		{
-			"name": "toggle",
-			"title": "Toggle input",
+			"name": "radio-box",
+			"title": "Box-styled radio inputs",
 			"template": "/demos/src/multiple-input-field.mustache",
-			"description": "Checkboxes styled as toggle buttons",
+			"description": "Radio button inputs with a box-like style",
+			"data": "/demos/src/data/radio-box.json"
+		},
+		{
+			"name": "radio-round",
+			"title": "Round-styled radio inputs",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Radio button inputs with a default circular style",
+			"data": "/demos/src/data/radio-round.json"
+		},
+		{
+			"name": "toggle",
+			"title": "Toggle",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Checkbox inputs with a toggle style",
 			"data": "/demos/src/data/toggle.json"
 		},
 		{
 			"name": "text-input",
 			"title": "Text input",
 			"template": "/demos/src/single-input-field.mustache",
-			"description": "Regular text Input",
+			"description": "Regular text input",
 			"data": "/demos/src/data/text-input.json"
 		},
 		{
 			"name": "text-area",
 			"title": "Text Area",
 			"template": "/demos/src/single-input-field.mustache",
-			"description": "Regular Text area inputs",
-			"data": "/demos/src/data/textarea.json"
+			"description": "Regular textarea input",
+			"data": "/demos/src/data/text-area.json"
 		},
 		{
 			"name": "select",
 			"title": "Select boxes",
 			"template": "/demos/src/single-input-field.mustache",
-			"description": "Dropdown inputs",
+			"description": "Dropdown/Selection inputs",
 			"data": "/demos/src/data/select.json"
 		},
 		{

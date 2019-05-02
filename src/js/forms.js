@@ -108,7 +108,7 @@ class Forms {
 			let valid = element.validate();
 			let input = element.input;
 			let field = input.closest('.o-forms-field');
-			let label = field ? field.querySelector('.o-forms-title--main').innerHTML : null;
+			let label = field ? field.querySelector('.o-forms-title__main').innerHTML : null;
 			let errorElement = field ? field.querySelector('.o-forms-input__error') : null;
 			let error = errorElement ? errorElement.innerHTML : input.validationMessage;
 			return {

@@ -57,6 +57,7 @@
 		},
 		{
 			"textInput": true,
+			"optional": true,
 			"title": {
 				"main": "Text input with suffix"
 			},
@@ -69,10 +70,24 @@
 		},
 		{
 			"textInput": true,
+			"title": {
+				"main": "Small text input with suffix"
+			},
+			"input": {
+				"type": "text",
+				"modifiers": [ "small", "suffix" ],
+				"value": "",
+				"button": "o-buttons"
+			}
+		},
+		{
+			"textInput": true,
+			"optional": true,
 			"inline-field": true,
 			"title": {
-				"main": "Inline text input",
-				"prompt": "Inline text fields can be set in this way."
+				"main": "Shrunken title",
+				"prompt": "Vertically centered",
+				"modifiers": [ "shrink", "vertical-center" ]
 			},
 			"input": {
 				"type": "text"

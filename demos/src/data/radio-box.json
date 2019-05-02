@@ -33,7 +33,8 @@
 				"modifiers": ["inline"]
 			},
 			"title": {
-				"main": "Negative highlight"
+				"main": "Negative highlight",
+				"prompt": "Requires a modifier on the label"
 			},
 			"inputs": [
 				{
@@ -57,7 +58,7 @@
 				"aria": "multiple-radio-box-group-title"
 			},
 			"title": {
-				"main": "Multiple checkboxes"
+				"main": "Multiple box-styled radio buttons"
 			},
 			"inputs": [
 				{
@@ -85,7 +86,7 @@
 				"aria": "disabed-radio-box-group-title"
 			},
 			"title": {
-				"main": "Disabled checkboxes"
+				"main": "Disabled box-styled radio buttons"
 			},
 			"inputs": [
 				{
@@ -108,18 +109,17 @@
 			"field": {
 				"type": "radio-box",
 				"aria": "error-radio-box-group-title",
-				"error": "Something has gone wrong.",
+				"error": "Please select an option",
 				"modifiers": [ "invalid" ]
 			},
 			"title": {
-				"main": "Error checkboxes"
+				"main": "Error box-style radio buttons"
 			},
 			"inputs": [
 				{
 					"type": "radio",
 					"name": "error",
-					"value": "Yes",
-					"checked": true
+					"value": "Yes"
 				},
 				{
 					"type": "radio",
@@ -138,8 +138,8 @@
 				"state": true
 			},
 			"title": {
-				"main": "Inline Radio box",
-				"prompt": "Radio box inlined without a state"
+				"main": "V-centered inline radio box",
+				"modifiers": [ "vertical-center" ]
 			},
 			"inputs": [
 				{
@@ -161,12 +161,12 @@
 			"field": {
 				"type": "radio-box",
 				"aria": "saving-state-group-title",
-				"modifiers": ["saving", "inline"],
+				"modifiers": ["saving"],
 				"state": true
 			},
 			"title": {
-				"main": "Inline Saving state",
-				"prompt": "When saving a preference"
+				"main": "Inline box-style radio buttons",
+				"prompt": "With a stacked saving state"
 			},
 			"inputs": [
 				{
@@ -219,7 +219,8 @@
 				"icon": true
 			},
 			"title": {
-				"main": "Inline Icon Saving state"
+				"main": "Inline saving state",
+				"prompt": "Icon only—also available for saved state"
 			},
 			"inputs": [
 				{

@@ -26,7 +26,7 @@
 		}
 	}
 	
-	.o-forms-field--optional .o-forms-title--main:after {
+	.o-forms-field--optional .o-forms-title__main:after {
 		@include oTypographySize($scale: -1);
 		content: '(optional)';
 		color: _oFormsGet('default-prompt-text');
@@ -34,12 +34,12 @@
 		margin-left: 4px;
 	}
 
-	.o-forms-title--main {
+	.o-forms-title__main {
 		@include oTypographyBold('sans');
 		display: block;
 	}
 
-	.o-forms-title--prompt {
+	.o-forms-title__prompt {
 		@include oTypographySize($scale: -1);
 		color: _oFormsGet('default-prompt-text');
 		display: block;

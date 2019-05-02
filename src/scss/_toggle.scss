@@ -48,6 +48,10 @@
 					border-color: _oFormsGet('toggle-selected');
 				}
 			}
+
+			&:invalid:not(:disabled) + .o-forms-input__label:after {
+				border-color: inherit;
+			}
 		}
 
 		@if $disabled {

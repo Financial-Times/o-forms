@@ -5,8 +5,8 @@
 		color: _oFormsGet('toggle-inverse');
 
 		.o-forms-title {
-			.o-forms-title--main:after,
-			.o-forms-title--prompt {
+			.o-forms-title__main:after,
+			.o-forms-title__prompt {
 				color: rgba(_oFormsGet('toggle-inverse'), 0.7);
 			}
 		}
