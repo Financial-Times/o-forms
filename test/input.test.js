@@ -3,8 +3,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import formFixture from './helpers/fixtures';
-
-const Input = require('../src/js/input');
+import Input from '../src/js/input';
 
 describe('Input', () => {
 	let form;
