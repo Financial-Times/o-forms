@@ -95,7 +95,7 @@
 
 /// @access public
 /// @param {String} $input Type of input to customise, one of 'anchor' or 'radio'
-/// @param {Boolean} $icons A list of icons to render
+/// @param {List} $icons A list of icons to render
 /// @param {Map|null} $theme Custom theme map
 @mixin oFormsAddCustom(
 	$input: null,

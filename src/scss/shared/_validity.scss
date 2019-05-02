@@ -26,7 +26,6 @@
 		}
 
 		.o-forms-input__error {
-			// @include oTypographyMargin($top: 1);
 			@include oTypographySize($scale: -1);
 			color: _oFormsGet('invalid-base');
 			display: block;

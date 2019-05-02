@@ -44,7 +44,7 @@ class ErrorSummary {
 	}
 
 	/**
-	 * Generate list of anchorsß
+	 * Generate list of anchors
 	 */
 	static createList(inputs) {
 		let list = document.createElement('ul');
