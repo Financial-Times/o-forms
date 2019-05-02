@@ -3,7 +3,7 @@ export default `
 
 	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
 		<span class="o-forms-title" aria-hidden="true">
-			<span class="o-forms-title--main" id="date-group-title">Date input</span>
+			<span class="o-forms-title__main" id="date-group-title">Date input</span>
 		</span>
 
 		<span class="o-forms-input o-forms-input--date">
@@ -24,7 +24,7 @@ export default `
 
 	<label class="o-forms-field">
 		<span class="o-forms-title">
-			<span class="o-forms-title--main">Required text input</span>
+			<span class="o-forms-title__main">Required text input</span>
 		</span>
 
 		<span class="o-forms-input o-forms-input--text">
@@ -34,7 +34,7 @@ export default `
 
 	<label class="o-forms-field o-forms-field--optional">
 		<span class="o-forms-title">
-			<span class="o-forms-title--main">Optional text input</span>
+			<span class="o-forms-title__main">Optional text input</span>
 		</span>
 
 		<span class="o-forms-input o-forms-input--text">
@@ -44,7 +44,7 @@ export default `
 
 	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
 		<span class="o-forms-title" aria-hidden="true">
-			<span class="o-forms-title--main" id="date-group-title">Radio box input</span>
+			<span class="o-forms-title__main" id="date-group-title">Radio box input</span>
 		</span>
 
 		<span class="o-forms-input o-forms-input--radio-box">
