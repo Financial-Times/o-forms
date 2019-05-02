@@ -112,7 +112,7 @@ This attribute should also be added to the parent `<div>`. It accepts an id, whi
 </div>
 ```
 
-The combination of the attribute at the id will help us simulate the behaviour that a `<legend>` is responsible for, which is linking a title to a group. This difference is important because we have more than one input in a group, and each one of those inputs has their own label, independent of the group title. `aria-labelledby` helps us do this.
+Using `aria-labelledby` will help us simulate the behaviour that a `<legend>` is responsible for, which is linking a title to a group. This difference is important because we have more than one input in a group, and each one of those inputs has their own label, independent of the group title. 
 
 If we are using "prompt" text to provide further explanation about the group, we should use `aria-describedby`, with an id of its own, to provide that description, e.g.:
 ```diff
