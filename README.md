@@ -22,10 +22,13 @@ FT-branded styles for form elements.
 		- [Input modifiers](#input-modifiers)
 - [Sass](#sass)
 	- [Options](#options)
+- [Accessibility](#accessibility)
 - [JavaScript](#javascript)
+	- [Form Instance](#form-instance)
+	- [Individual Inputs](#individual-inputs)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
-- [License](#license)
+- [Licence](#licence)
 
 
 ## Markup
@@ -413,6 +416,48 @@ The `$opts` map accepts two lists with the following options:
 _Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so there is no need to include them in the list above._
 
 _Note 2: It's important to remember that not all features will apply to all input types. If there are any features you would like to see added to an input, please [get in touch with the team](#contact)._
+
+## Accessibility
+
+`o-forms` has been written with a strong focus on accessibility.
+We've chosen to override native browser validation and to provide an error summary on form submit, and [have a more detailed explanation](./ACCESSIBILITY.md) about these topics and writing markup to comply with that accessibility.
+
+## JavaScript
+
+No code will run automatically unless you are using the Build Service. You must either construct an `o-forms` object or fire an `o.DOMContentLoaded` event, which `o-forms` listens for.
+
+The JavaScript for this component is primarily responsible for individual input validation and overall form validation.
+
+If you would like to use an input without a form element, you can still apply validation to it with the `o-forms` [individual `Input` API](#individual-inputs).
+
+### Form Instance
+The main `o-forms` JavaScript has been written to identify and run on a `<form>` element. You'll need to set up your form and include the data attribute `data-o-component="o-forms"`:
+```html
+<form data-o-component="o-forms">
+	<!-- form elements as demonstrated in the markup section above  -->
+</form>
+```
+
+By default, `o-forms` is initialised _without_ native browser validation, and with an error summary for invalid elements when the form is submitted. In order to use the default behaviour, you'll need to do the following:
+```js
+import oForms from 'o-forms';
+oForms.init()
+```
+The default behaviour can be changed by configuring the options object:
+```js
+oForms.init(null, {
+	useBrowserValidation: true, 
+	errorSummary: false
+})
+```
+
+### Individual Inputs
+
+In the case where a single input is enough for a product but requires validation, you can initialise an `Input` instance:
+```js
+import Input from 'o-forms/src/js/input';
+new Input(myInputEl);
+```
 
 ## Migration
 
