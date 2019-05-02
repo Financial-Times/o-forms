@@ -20,7 +20,7 @@ The base structure for all of these types of input is as follows:
 ```html
 <label>
 	<span class="o-forms-title">
-		<span class="o-forms-title--main">
+		<span class="o-forms-title__main">
 			Label to describe the input here
 		</span>
 	</span>
@@ -49,8 +49,8 @@ The base structure for these types of input (ignoring some modifiers) is:
 ```html
 <div class="o-forms-field">
 	<span class="o-forms-title">
-		<span class="o-forms-title--main">Group Title</span>
-		<span class="o-forms-title--prompt">Group info</span>
+		<span class="o-forms-title__main">Group Title</span>
+		<span class="o-forms-title__prompt">Group info</span>
 	</span>
 
 	<span class="o-forms-input o-forms-input--checkbox">
@@ -98,14 +98,14 @@ This denominates the `<div>` as the element that holds a group of inputs, simila
 >'A group should be used to form a logical collection of items with related functionality ...'
 
 #### `aria-labelledby` & `aria-describedby`
-This attribute should also be added to the parent `<div>`. It accepts an id, which should be set on `<span class="o-forms-title--main">`:
+This attribute should also be added to the parent `<div>`. It accepts an id, which should be set on `<span class="o-forms-title__main">`:
 ```diff
 -<div class="o-forms-field">
 +<div class="o-forms-field" role="group" aria-labelledby="example-group-title">
 	<span class="o-forms-title">
--		<span class="o-forms-title--main">Group Title</span>
-+		<span class="o-forms-title--main" id="example-group-title">Group Title</span>
-		<span class="o-forms-title--prompt">Group info</span>
+-		<span class="o-forms-title__main">Group Title</span>
++		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
+		<span class="o-forms-title__prompt">Group info</span>
 	</span>
 	...
 </div>
@@ -118,9 +118,9 @@ If we are using "prompt" text to provide further explanation about the group, we
 -<div class="o-forms-field" role="group" aria-labelledby="example-group-title">
 +<div class="o-forms-field" role="group" aria-labelledby="example-group-title" aria-describedby="example-group-info">
 	<span class="o-forms-title">
-		<span class="o-forms-title--main" id="example-group-title">Group Title</span>
--		<span class="o-forms-title--prompt">Group info</span>
-+		<span class="o-forms-title--prompt" id="example-group-info">Group info</span>
+		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
+-		<span class="o-forms-title__prompt">Group info</span>
++		<span class="o-forms-title__prompt" id="example-group-info">Group info</span>
 		...
 	</span>
 	...
@@ -158,8 +158,8 @@ Putting everything we've just seen together, our multiple input field should loo
 ```html
 <div class="o-forms-field" role="group" aria-labelledby="example-group-title" aria-describedby="example-group-info">
 	<span class="o-forms-title">
-		<span class="o-forms-title--main" id="example-group-title">Group Title</span>
-		<span class="o-forms-title--prompt" id="example-group-info">Group Info</span>
+		<span class="o-forms-title__main" id="example-group-title">Group Title</span>
+		<span class="o-forms-title__prompt" id="example-group-info">Group Info</span>
 	</span>
 	<span class="o-forms-input o-forms-input--checkbox">
 		<label>
