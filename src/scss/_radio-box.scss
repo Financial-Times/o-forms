@@ -45,6 +45,7 @@
 				}
 			}
 		}
+
 		@include oGridRespondTo(S) {
 			&.o-forms-input--inline .o-forms-input__state {
 				position: relative;
