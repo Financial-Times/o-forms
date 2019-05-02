@@ -9,6 +9,45 @@ All Sass mixins have been removed, and have been replaced with two public mixins
 - `oForms()`
 - `oFormsAddCustom()`
 
+The markup has been changed entirely to accomodate the following structure:
+```
+┌— field container (.o-forms-field) —————┐
+|      (one of div or label)             |
+|                                        |
+|  ┌ title container (.o-forms-title) ┐  |
+|  |    (group titles or              |  |
+|  |     individual input labels)     |  |
+|  └——————————————————————————————————┘  |
+|                                        |
+|  ┌ input container (.o-forms-input) ┐  |
+|  |    (group inputs or              |  |
+|  |     individual inputs)           |  |
+|  └——————————————————————————————————┘  |
+└————————————————————————————————————————┘
+```
+The root `o-forms` is no longer used. Instead, there are modifiers for each type of container illustrated above, and some modifiers that only work for specific inputs:
+- Field container modifiers:
+	- `.o-forms-field--optional`
+	- `.o-forms-field--inline`
+	- `.o-forms-field--inverse`
+- Title container modifiers:
+	- `.o-forms-title`
+	- `.o-forms-title--shrink`
+	- `.o-forms-title--vertical-center`
+- Input container modifiers:
+	- `.o-forms-input--pseudo-radio-box`
+	- `.o-forms-input--checkbox`
+	- `.o-forms-input--date`
+	- `.o-forms-input--inline`
+	- `.o-forms-input--invalid`
+	- `.o-forms-input--radio-box`
+	- `.o-forms-input--radio-round`
+	- `.o-forms-input--select`
+	- `.o-forms-input--text-area`
+	- `.o-forms-input--text-input`
+	- `.o-forms-input--toggle`
+	- `.o-forms-input--valid`
+
 ### Migrating from v5 to v6
 Version 6 uses a new major version of o-loading. Make sure your project is compatible with o-loading@3.0.0
 
