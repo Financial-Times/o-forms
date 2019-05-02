@@ -10,8 +10,7 @@ Forms can present a challenge when it comes to accessibility, most specifically 
 - [Form Validation](#form-validation)
 
 ## Single inputs
-`o-forms` considers these types of input 'single input fields`  
-(Currently, they represent the input types that we provide styling for):
+`o-forms` considers these types of input 'single input fields`:
 - `input[type=text]` 
 - `input[type=password]`
 - `select`
@@ -37,10 +36,10 @@ The base structure for all of these types of input is as follows:
 	</span>
 </label>
 ```
-AT will read this markup correctly, by identifying the type of input declared, and the label for it. As long as our markup is semantic, this should be read out as intended. 
+AT will read this markup correctly by identifying the type of input declared, and the label for it. As long as our markup is semantic, this should be read out as intended. 
 
 ## Multiple inputs
-`o-forms` considers these types of input 'multiple input fields` (currently, they represent the input types that we provide styling for):
+`o-forms` considers these types of input 'multiple input fields`:
 - `input[type=radio]` 
 - `input[type=checkbox]`
 
@@ -56,7 +55,7 @@ The base structure for these types of input (ignoring some modifiers) is:
 
 	<span class="o-forms-input o-forms-input--checkbox">
 		<label>
-			<input type="checkbox" name="default" value="checkbox1" checked=>
+			<input type="checkbox" name="default" value="checkbox1" checked>
 			<span class="o-forms-input__label">Checkbox 1</span>
 		</label>
 
@@ -189,25 +188,31 @@ Browsers have native form validation. This could mean different implementation d
 
 This means that invalid inputs will recieve messages tailored to describe the condition that has _not_ been met. These messages are presented in the language that the user has chosen for their browser. In addition to that, the browser will shift focus onto the first invalid input. Depending on the browser, the AT will read out the generated error message. 
 
+The main problem with this approach is that there is no guarantee that the experience is consistent. Since browsers process this information differently and interact with screen readers differently, relying on native validation could lead to confusing behaviour for ATs. 
+
+
 #### Non native validation
 
-We do _not_ style the tool tip that the browser's message appears in, so frequently forms are given the `novalidate` attribute, which doesn't run any native validation on submit. This means that the messages can be overriden and styled according to the FT's design and the beahviour determined by the product's needs.
+We do _not_ style the tool tip that the browser's message appears in, so frequently forms are given the `novalidate` attribute, which doesn't run any native validation on submit. This means that the messages can be overriden and styled according to the FT's design and the behaviour determined by the product's needs.
 
-Primarily because of the above, `o-forms` doesn't make any decisions about validation in terms of behaviour.
+Primarily because of this, we've chosen to default to non-native validation, using [custom errors](./README.md#custom-errors) and to producing an [error summary](#error-summary) instead.
 
 #### `aria-live` regions
 
-At its core, `aria-live` is an attribute that can be set to an area of a document to denote that the AT should pick up changes to that area. It is possible to determine what kind of changes it should recognise (additions, changes to text, etc), how forceful it should be in informing the user of the change (polite, assertive), alongside a few more advanced features.
+At its core, `aria-live` is an attribute that can be set to an area of a document to denote that the AT should pick up changes to that area. It is possible to determine what kind of changes it should recognise (additions, changes to text, etc), how forceful it should be in informing the user of the change (polite, assertive), alongside a few more advanced features. 
 
-Things to note about `aria-live`:
-- it needs to be set on the markup so that the AT can register it when the document loads. Dynamically added regions won't be recognised. 
-	- `o-forms` cannot add it to a form or its elements
+If you choose not to use the error summary functionality that comes with `o-forms`, please consider using the `aria-live` attribute, keeping the following in mind:
+- this attribute accepts three politeness settings: off, polite or assertive. We recommend using polite, which will avoid interfering with any other actions the AT may be reading out.
+- `aria-live` needs to be set on the markup so that the AT can register it when the document loads. Dynamically added regions won't be recognised. 
+	- this means `o-forms` cannot add it to a form or its elements
 - it shoud **not** be set to the document `<body>`, as it could overrun the AT with unnecessary information. 
 	- in forms with many inputs we might end up with many live regions
 - the information a region relays can get lost or confusing amidst a users interaction with the page
-	- the validation–and change to the region– could happen on blur, on change, on input, on submit ...
+	- the validation–and change to the region–could happen on blur, on change, on input, on submit, &c
 
-#### What to do?
+You can read more about [`aria-live` on MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
+
+#### Error summary
 
 GDS has a [very good reference](https://design-system.service.gov.uk/components/error-summary/) for error handling.
 
@@ -218,5 +223,7 @@ Overall, it outlines that:
 - Each invalid input should *also* have the error beneath/beside/above it
 
 This means that not only will ATs have clear access to what has happend on the page, but it will be clear for any other user of the product's form.
+
+`o-forms` implements this behaviour for you if the [error summary options is enabled](#TODO)
 
 If you would like help implementing anything you've read here, please [get in touch with the team](./README.md#contact). 
