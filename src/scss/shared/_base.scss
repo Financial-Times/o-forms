@@ -1,16 +1,19 @@
 /// @access private
 /// @output Shared base state styles for all form elements.
 @mixin _oFormsBase() {
+	@include _oFormsValidityStates();
+
 	.o-forms-field,
 	.o-forms-title,
 	.o-forms-input {
 		@include oTypographySans(0);
 	}
 	
-	.o-forms-field {
-		@include oTypographyMargin($bottom: 5);
+	.o-forms-field {	
+		@include oTypographyMargin($bottom: 6);
 		display: flex;
 		flex-direction: column;
+		position: relative;
 
 		label {
 			display: block;
@@ -22,6 +25,14 @@
 			@include oTypographyMargin($bottom: 0);
 		}
 	}
+	
+	.o-forms-field--optional .o-forms-title--main:after {
+		@include oTypographySize($scale: -1);
+		content: '(optional)';
+		color: _oFormsGet('default-prompt-text');
+		font-weight: 400;
+		margin-left: 4px;
+	}
 
 	.o-forms-title--main {
 		@include oTypographyBold('sans');
@@ -32,74 +43,9 @@
 		@include oTypographySize($scale: -1);
 		color: _oFormsGet('default-prompt-text');
 		display: block;
-		padding-right: $_o-forms-input-spacing;
-	}
-
-	.o-forms__error-summary {
-		@include oTypographySans($scale: 0);
-		@include oTypographyMargin($bottom: 4);
-		border: 1px solid _oFormsGet('invalid-base');
-		padding: 12px;
-
-		h3 {
-			@include oTypographyBold('sans');
-			margin: 0;
-		}
-
-		ul {
-			@include oTypographyMargin($top: 0, $bottom: 0);
-			list-style-type: none;
-			padding: 0;
-		}
-
-		a {
-			color: _oFormsGet('invalid-base');
-			display: inline-block;
-			font-weight: 400;
-			margin-top: 4px;
-			text-decoration: none;
-			border-bottom: 1px solid _oFormsGet('invalid-base');
-		}
 	}
 
 	.o-forms-input {
 		@include oTypographyMargin($top: 3);
-	}
-
-	.o-forms-field--optional .o-forms-title--main:after {
-		@include oTypographySize($scale: -1);
-		content: '(optional)';
-		color: _oFormsGet('default-prompt-text');
-		font-weight: 400;
-		margin-left: 4px;
-	}
-
-	.o-forms-input--valid {
-		*:valid:not(:disabled) {
-			color: _oFormsGet('valid-base');
-			border-color: _oFormsGet('valid-base');
-		}
-	}
-
-	*:invalid {
-		box-shadow: none;
-	}
-
-	.o-forms-input__error {
-		display: none;
-	}
-
-	.o-forms-input--invalid {
-		*:invalid:not(:disabled) {
-			color: _oFormsGet('invalid-base');
-			border-color: _oFormsGet('invalid-base');
-		}
-
-		.o-forms-input__error {
-			@include oTypographyMargin($top: 1);
-			@include oTypographySize($scale: -1);
-			color: _oFormsGet('invalid-base');
-			display: block;
-		}
 	}
 }

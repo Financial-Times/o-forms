@@ -50,9 +50,5 @@
 				outline: none;
 			}
 		}
-
-		.o-forms-input__error {
-			@include oTypographyMargin($top: 2);
-		}
 	}
 };

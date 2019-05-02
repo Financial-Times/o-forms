@@ -28,18 +28,16 @@ $custom-theme: (
 
 $icon-list: ('grid', 'list');
 
-.demo-custom-anchor-theme {
-	@include oFormsCustom(
-		$input: 'anchor',
-		$icons: $icon-list,
-		$theme: $custom-theme
-	);
-}
+@include oFormsAddCustom(
+	$input: 'anchor',
+	$class: 'demo-anchor',
+	$icons: $icon-list,
+	$theme: $custom-theme
+);
 
-.demo-custom-radio-theme {
-	@include oFormsCustom(
-		$input: 'radio',
-		$icons: $icon-list,
-		$theme: $custom-theme
-	);
-}
+@include oFormsAddCustom(
+	$input: 'radio',
+	$class: 'demo-radio',
+	$icons: $icon-list,
+	$theme: $custom-theme
+);
