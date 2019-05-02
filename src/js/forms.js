@@ -1,3 +1,7 @@
+import Input from './input';
+import State from './state';
+import ErrorSummary from './error-summary';
+
 class Forms {
 	/**
 	* Class constructor.
@@ -5,32 +9,30 @@ class Forms {
 	* @param {Object} [options={}] - An options object for configuring the form
 	*/
 	constructor(formElement, options) {
-		this.formEl = formElement;
-		this.inputFields = Array.from(formElement.querySelectorAll('input', 'select', 'textarea'));
-
-		this.opts = Object.assign({
-			useBrowserValidation: true
-		}, options);
-
-		this.className = {
-			invalid: 'o-forms-input--invalid',
-			valid: 'o-forms-input--valid'
-		};
-
-		if (!this.opts.useBrowserValidation) {
-			this.formEl.setAttribute('novalidate', true);
-			this.formEl.addEventListener('submit', this);
-		} else {
-			this.formEl.removeAttribute('novalidate');
-			let submit = this.formEl.querySelector('input[type=submit]');
-			submit.addEventListener('click', this);
-			submit.addEventListener('keydown', this);
+		if (formElement.nodeName !== 'FORM') {
+			throw new Error(`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`);
 		}
 
-		this.inputFields.forEach(input => {
-			input.addEventListener('blur', this);
-			input.addEventListener('input', this);
-		});
+		this.form = formElement;
+		this.formInputs = Array.from(this.form.elements, element => new Input(element));
+		this.stateElements = [];
+
+		this.opts = Object.assign({
+			useBrowserValidation: false,
+			errorSummary: true
+		}, options);
+
+		if (!this.opts.useBrowserValidation) {
+			this.form.setAttribute('novalidate', true);
+			this.form.addEventListener('submit', this);
+		} else {
+			this.form.removeAttribute('novalidate');
+			this.submits = this.form.querySelectorAll('[type=submit]');
+			this.submits.forEach(submit => {
+				submit.addEventListener('click', this);
+				submit.addEventListener('keydown', this);
+			});
+		}
 	}
 
 	/**
@@ -38,28 +40,27 @@ class Forms {
 	 * @param {Object} event - The event emitted by element/window interactions
 	 */
 	handleEvent(e) {
-		let field = e.target.closest('.o-forms-input');
-		if (e.type === 'blur') {
-			field.querySelectorAll('input').forEach(input => this.validate(input));
-		}
-
-		if (e.type === 'input') {
-			if (e.target.validity.valid && field.classList.contains(this.className.invalid)) {
-				field.classList.replace(this.className.invalid, this.className.valid);
-			}
-		}
-
 		const RETURN_KEY = 13;
 		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
-			if (!this.formEl.reportValidity()) {
-				this.inputFields.forEach(input => this.validate(input));
+			if (this.form.checkValidity() === false) {
+				this.validateFormInputs();
 			}
 		}
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			let validatedInputs = this.inputFields.map(input => this.validate(input));
-			if (validatedInputs.includes(false)) {
+			let checkedElements = this.validateFormInputs();
+
+			if (checkedElements.some(input => input.valid === false)) {
+				if (this.opts.errorSummary) {
+					if (this.summary) {
+						this.summary = this.form.replaceChild(new ErrorSummary(checkedElements), this.summary);
+					} else {
+						this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
+					}
+					this.summary.querySelector('a').focus();
+				}
+
 				return;
 			}
 
@@ -68,16 +69,61 @@ class Forms {
 	}
 
 	/**
-	 * Input validation
-	 * @param {Element} input - The input to validate
-	 */
-	validate(input) {
-		if (!input.validity.valid) {
-			input.closest('.o-forms-input').classList.add(this.className.invalid);
-			return false;
-		}
+	* Form validation
+	* Validates every element in the form and creates input objects for the error summary
+	*/
+	validateFormInputs () {
+		return this.formInputs.map(element => {
+			let valid = element.validate();
+			let input = element.input;
+			let field = input.closest('.o-forms-field');
+			let label = field ? field.querySelector('.o-forms-title--main').innerHTML : null;
+			let errorElement = field ? field.querySelector('.o-forms-input__error') : null;
+			let error = errorElement ? errorElement.innerHTML : input.validationMessage;
+			return {
+				id: input.id,
+				valid,
+				error: !valid ? error : null,
+				label
+			};
+		});
+	}
 
-		return true;
+	/**
+	* Input state
+	* @param {String} [name] - name of the input fields to add state to
+	* @param {String} [state] - type of state to apply — one of 'saving', 'saved', 'none'
+	*/
+	setState(state, name) {
+		let object = this.stateElements.find(item => item.name === name);
+		if (!object) {
+			object = {
+				name,
+				element: new State(this.form.elements[name])
+			};
+
+			this.stateElements.push(object);
+		}
+		object.element.set(state);
+	}
+
+	/**
+	* Destroy form instance
+	*/
+	destroy() {
+		if (!this.opts.useBrowserValidation) {
+			this.form.removeEventListener('submit', this);
+		} else {
+			this.submits.forEach(submit => {
+				submit.removeEventListener('click', this);
+				submit.removeEventListener('keydown', this);
+			});
+		}
+		this.form = null;
+		this.formInputs.forEach(input => input.destroy());
+		this.formInputs = null;
+		this.stateElements = null;
+		this.opts = null;
 	}
 
 	/**
