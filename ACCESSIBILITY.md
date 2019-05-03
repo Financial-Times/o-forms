@@ -150,7 +150,7 @@ By defining what the label of the input is and hiding the actual label from the 
 
 _Note 1: `aria-label` also accepts an id if you would rather set an id on the input's label_
 
-_Note 2: `aria-hidden` has often been used to visually hide/show elements. However, it's primary functionality is to hide the contents of an element from the AT_
+_Note 2: `aria-hidden` is sometimes used as a CSS selector to visually hide/show elements. However, it's primary functionality is to hide the contents of an element from the AT_
 
 
 #### Example
