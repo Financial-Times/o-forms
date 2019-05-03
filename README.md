@@ -446,6 +446,36 @@ _Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so t
 
 _Note 2: It's important to remember that not all features will apply to all input types. If there are any features you would like to see added to an input, please [get in touch with the team](#contact)._
 
+### State
+
+The only input that accepts state is the [box-styled `input[type=radio]`](#inputtyperadio-box).
+
+`o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method that allows the project to control this.
+
+In order to set up a state, you'll need to use a method on an existing form instance. 
+
+This method accepts a state and a name argument. State can be one of 'saving', 'saved' or 'none', 'none' being responsible for removing the state from the input. The name argument must be the name of the inputs that will be recieving the state. For example:
+```html
+<form data-o-component="o-forms">
+	...
+		<label>
+			<span class="o-forms-input__label">Daily</span>
+			<input type="radio" name="my-radio-box"/>
+		</label>
+			<label>
+			<span class="o-forms-input__label">Weekly</span>
+			<input type="radio" name="my-radio-box"/>
+		</label>
+	...
+</form>
+``` 
+```js
+import oForms from 'o-forms';
+let myForm = oForms.init();
+// on event, e.g. click
+myForm.setState('saving', 'my-radio-box');
+```
+
 ### Customisation
 
 There is one public mixin to customise two types of input: [anchors](#anchors) and [box-styled `input[type=radio]`](#inputttyperadio-box).
