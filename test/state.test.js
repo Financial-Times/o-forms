@@ -66,4 +66,23 @@ describe('State', () => {
 			proclaim.isFalse(stateClass('saved'));
 		});
 	});
+
+	context.only('opts', () => {
+		before(() => {
+			document.body.innerHTML = formFixture;
+			form = document.forms[0];
+			nodeList = form.elements['radioBox'];
+		});
+
+		after(() => {
+			document.body.innerHTML = null;
+		});
+
+		it('accepts an options object with iconOnly key', () => {
+			state = new State(nodeList, { iconOnly: true });
+			state.set('saving');
+			let icon = document.querySelector('.o-forms-input__state--icon-only');
+			proclaim.isNotNull(icon);
+		});
+	});
 });
