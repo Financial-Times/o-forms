@@ -202,7 +202,7 @@ Primarily because of this, we've chosen to default to non-native validation, usi
 
 At its core, `aria-live` is an attribute that can be set to an area of a document to denote that the AT should announce changes to that area. It is possible to determine what kind of changes it should recognise (additions, changes to text, etc), how forceful it should be in informing the user of the change (polite, assertive), alongside a few more advanced features. 
 
-If you choose not to use the error summary functionality that comes with `o-forms`, please consider using the `aria-live` attribute, keeping the following in mind:
+If you choose not to use the error summary functionality that comes with `o-forms`, please consider adding the `aria-live` attribute to your markup, keeping the following in mind:
 - this attribute accepts three politeness settings: off, polite or assertive. We recommend using polite, which will avoid interfering with any other actions the AT may be reading out.
 - `aria-live` needs to be set on the markup so that the AT can register it when the document loads. Dynamically added regions won't be recognised. 
 	- this means `o-forms` cannot add it to a form or its elements
