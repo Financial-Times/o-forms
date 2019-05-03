@@ -25,7 +25,8 @@ The base structure for all of these types of input is as follows:
 		</span>
 	</span>
 
-	<span class="o-forms-input ...modifiers">
+	<!-- the input container below accepts a number of different modifiers, which are outlined in the README -->
+	<span class="o-forms-input"> 
 		<input type="text"/>
 		<!-- or --> 
 		<input type="password"/>
@@ -224,6 +225,6 @@ Overall, it outlines that:
 
 This means that not only will ATs have clear access to what has happend on the page, but it will be clear for any other user of the product's form.
 
-`o-forms` implements this behaviour for you if the [error summary options is enabled](#TODO)
+`o-forms` implements this behaviour for you if the [error summary options is enabled](./README#form-instance)
 
 If you would like help implementing anything you've read here, please [get in touch with the team](./README.md#contact). 
