@@ -20,6 +20,9 @@ FT-branded styles for form elements.
 	- [Shared Modifiers](#shared-modifiers)
 		- [Field modifiers](#field-modifiers)
 		- [Input modifiers](#input-modifiers)
+	- [Errors](#errors)
+		- [Custom errors](#custom-errors)
+		- [Error summary](#error-summary)
 - [Sass](#sass)
 	- [Options](#options)
 	- [Customisation](#customisation)
@@ -376,6 +379,30 @@ The following modifiers are available for the `o-forms-field` element:
 ```
 - `o-forms-input--inline`: inlines all inputs with each other (usually only used on multiple input fields).
 
+
+### Errors
+
+In trms of invalid inputs, `o-forms` has a build in mechanism to display custom errors and an error summary. If neither of these work for your product, you can also default to [native browser validation](#form-instance).
+
+#### Custom Errors
+In order to provide customised error messages for an invalid input field, you'll need to add the message to the markup. In any of the structures shown in the markup above, the error message will need to live within the input container as a sibling to the input elements:
+```html
+...
+	<span class="o-forms-input">
+		<!-- inputs -->
+		<span class="o-forms-input__error">This is the error message</span>
+	</span>
+...
+```
+The message is hidden by default, until the input field become invalid. 
+
+#### Error Summary
+`o-forms` also generates an error message element when a form is submitted and invalid inputs are recognised.
+
+This feature will collect the custom messages of the invalid fields if they are present in the markup, or will default to the browsers native error message if they aren't. It will associate the message to the title of the input that is invalid, generate a list of links at the top of the form, and focus on the first link.
+
+This markup will always generated dynamically if the [errorSummary option](#form-instance) is set to `true`.
+
 ## Sass
 You can include styles for every input type and feature by calling the `o-forms` primary mixin:
 ```scss
@@ -477,6 +504,7 @@ oForms.init(null, {
 	errorSummary: false
 })
 ```
+You can also set these values to the data attributes `data-o-forms-use-browser-validation` and `data-o-forms-error-summary` on the `<form>` element if you are not initialising the `oForms` instance in your product.
 
 ### Individual Inputs
 
