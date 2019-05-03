@@ -212,11 +212,12 @@ The input container accepts one of two modifiers at a time:
 - `o-forms-input--saving`
 - `o-forms-input--saved`
 
+`o-forms` JavaScript will add the state dynamically, and [exposes an API](#state) to control the state.
+
 The markup will need to be updated to look like this:
 ```diff
 ...
--	<span class="o-forms-input o-forms-input--radio-box">
-+	<span class="o-forms-input o-forms-input--radio-box">
+	<span class="o-forms-input o-forms-input--radio-box">
 		<div class="o-forms-input--radio-box__container">
 			<label>
 				<input type="radio" name="my-box-radio"/>
