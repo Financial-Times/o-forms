@@ -18,7 +18,7 @@
 		@include _oFormsControlsBoxBase();
 		box-sizing: border-box;
 		color: _oFormsGet('controls-base', $from: $theme);
-		padding: 6px;
+		padding: $_o-forms-spacing-two;
 		position: relative;
 		text-decoration: none;
 
@@ -32,7 +32,7 @@
 		}
 
 		&:not(:first-of-type) {
-			border-left: 1px solid _oFormsGet('default-border');
+			border-left: $_o-forms-border;
 		}
 	}
 }

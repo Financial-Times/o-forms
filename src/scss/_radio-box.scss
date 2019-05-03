@@ -20,14 +20,14 @@
 			@include _oFormsControlsBoxBase();
 
 			&:not(:first-of-type) {
-				border-left: 1px solid _oFormsGet('default-border');
+				border-left: $_o-forms-border;
 			}
 
 			.o-forms-input__label {
 				box-sizing: border-box;
 				display: inline-block;
-				max-height: 28px;
-				padding: 4px;
+				max-height: $_o-forms-spacing-controls;
+				padding: $_o-forms-spacing-one;
 				transition: 0.3s background-color, 0.15s color ease-out;
 				white-space: nowrap;
 				width: 100%;
@@ -55,11 +55,11 @@
 
 		.o-forms-input__state {
 			position: absolute;
-			bottom: -22px;
+			bottom: -($_o-forms-spacing-five + $_o-forms-spacing-half);
 		}
 
 		.o-forms-input__error {
-			bottom: -16px;
+			bottom: -$_o-forms-spacing-four;
 		}
 	}
 }
