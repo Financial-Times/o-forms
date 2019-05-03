@@ -6,7 +6,9 @@
       "custom": true,
       "field": {
         "type": "radio-box",
-        "aria": "radio-box-group-title"
+        "aria": {
+          "label": "radio-box-group-title"
+        }
       },
       "title": {
         "main": "Custom radio buttons and anchor"
@@ -45,7 +47,10 @@
       "custom": true,
       "field": {
         "type": "radio-box",
-        "aria": "radio-box-group-title"
+        "aria": {
+          "label": "radio-box-group-title",
+          "info": "radio-box-group-info"
+        }
       },
       "title": {
         "main": "Custom radio buttons and anchor",

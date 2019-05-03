@@ -4,7 +4,10 @@
       "optional": true,
       "field": {
         "type": "toggle",
-        "aria": "toggle-group-title"
+        "aria": {
+          "label": "toggle-group-title",
+          "info": "toggle-group-info"
+        }
       },
       "title": {
         "main": "Default toggle inputs",
@@ -27,7 +30,9 @@
     {
       "field": {
         "type": "toggle",
-        "aria": "inlined-toggle-group-title",
+        "aria": {
+          "label": "inlined-toggle-group-title"
+        },
         "modifiers": [ "inline" ]
       },
       "title": {
@@ -50,7 +55,9 @@
     {
       "field": {
         "type": "toggle",
-        "aria": "disabed-toggle-group-title"
+        "aria": {
+          "label": "disabed-toggle-group-title"
+        }
       },
       "title": {
         "main": "Disabled toggle inputs"
@@ -74,7 +81,9 @@
     {
       "field": {
         "type": "toggle",
-        "aria": "error-toggle-group-title",
+        "aria": {
+          "label": "error-toggle-group-title"
+        },
         "error": "Something has gone wrong.",
         "modifiers": [ "invalid" ]
       },
@@ -99,7 +108,9 @@
       "inline-field": true,
       "field": {
         "type": "toggle",
-        "aria": "inline-field-toggle-group-title"
+        "aria": {
+          "label": "inline-field-toggle-group-title"
+        }
       },
       "title": {
         "main": "Inline field with toggle"
@@ -122,7 +133,9 @@
       "inline-field": true,
       "field": {
         "type": "toggle",
-        "aria": "inline-field-toggle-group-title",
+        "aria": {
+          "label": "inline-field-toggle-group-title"
+        },
         "modifiers": [ "inline" ]
       },
       "title": {
@@ -147,7 +160,9 @@
       "optional": true,
       "field": {
         "type": "toggle",
-        "aria": "inverse-toggle-group-title"
+        "aria": {
+          "label": "inverse-toggle-group-title"
+        }
       },
       "title": {
         "main": "Inverse checkboxes",
