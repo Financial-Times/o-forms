@@ -3,8 +3,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import formFixture from './helpers/fixtures';
-
-const Forms = require('./../main');
+import Forms from './../main';
 
 describe('Forms', () => {
 	let formEl;

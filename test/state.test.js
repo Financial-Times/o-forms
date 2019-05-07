@@ -2,8 +2,7 @@
 
 import proclaim from 'proclaim';
 import formFixture from './helpers/fixtures';
-
-const State = require('../src/js/state');
+import State from '../src/js/state';
 
 describe('State', () => {
 	let form;

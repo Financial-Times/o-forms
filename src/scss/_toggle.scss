@@ -16,14 +16,14 @@
 				top: 0;
 				left: 0;
 			}
-			
+
 			&:before {
-				background-color: _oFormsGet('default-text');
+				background-color: _oFormsGet('toggle');
 				border-radius: $_o-forms-input-height;
 				height: 24px;
 				width: $_o-forms-input-height;
 			}
-			
+
 			&:after {
 				background-color: oColorsGetColorFor(page, background);
 				border: 2px solid _oFormsGet('default-text');
@@ -33,29 +33,38 @@
 				width: $_o-forms-control-size;
 				transition: left 75ms ease-in-out;
 			}
-			
 		}
-		
+
 		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 			position: relative;
 			left: $_o-forms-control-size / 2;
 
-			&:checked + .o-forms-input__label:after {
-				left: 16px;
+			&:checked + .o-forms-input__label {
+				&:before {
+					background-color: _oFormsGet('toggle-selected');
+				}
+				&:after {
+					left: 16px;
+					border-color: _oFormsGet('toggle-selected');
+				}
+			}
+
+			&:invalid:not(:disabled) + .o-forms-input__label:after {
+				border-color: inherit;
 			}
 		}
 
 		@if $disabled {
 			input[type=checkbox]:disabled + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
 				color: _oFormsGet('disabled-text');
-				
-				&:before,
+
 				&:after {
-					border-color: _oFormsGet('disabled-base');
+					border-color: _oFormsGet('toggle-disabled');
+					background-color: _oFormsGet('toggle-knob-disabled');
 				}
 
 				&:before {
-					background-color: _oFormsGet('disabled-base');
+					background-color: _oFormsGet('toggle-disabled');
 				}
 			}
 		}

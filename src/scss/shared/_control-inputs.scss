@@ -6,8 +6,11 @@
 	width: $_o-forms-control-size;
 	height: $_o-forms-control-size;
 
-	&:checked + .o-forms-input__label:after {
-		opacity: 1;
+	&:checked,
+	&:indeterminate {
+		+ .o-forms-input__label:after {
+			opacity: 1;
+		}
 	}
 
 	@if $disabled {

@@ -1,0 +1,35 @@
+/// @access private
+/// @output styles for error summary
+@mixin _oFormsErrorSummary() {  
+	.o-forms__error-summary {
+		@include oTypographySans($scale: 0);
+		@include oTypographyMargin($bottom: 4);
+		background-color: oColorsMix('crimson', $percentage: 10);
+		padding: 16px;
+
+		h4 {
+			@include oTypographyBold('sans');
+			color: oColorsMix('black', 'crimson', $percentage: 12.5);
+			margin: 0 0 4px;
+		}
+
+		ul {
+			@include oTypographyMargin($top: 0, $bottom: 0);
+			list-style-type: none;
+			padding: 0;
+
+			span {
+				@include oTypographyBold('sans');
+			}
+		}
+
+		a {
+			color: oColorsMix('black', 'crimson', $percentage: 12.5);
+			display: inline-block;
+			font-weight: 400;
+			margin-top: 4px;
+			text-decoration: none;
+			border-bottom: 1px solid _oFormsGet('invalid-base');
+		}
+	}
+}

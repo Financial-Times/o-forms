@@ -2,7 +2,9 @@
 /// @output styles for state animation for the box-styled radio inputs
 @mixin _oFormsState() {
 	.o-forms-input__state {
-		@include oTypographySize($scale: -1, $line-height: 1);
+		// the loading spinner and tick icons for state are mismatched in terms of size/padding, 
+		// the custom line-height aligns them as closely as possible (with minimal style changes)
+		@include oTypographySize($scale: -1, $line-height: 1.75);
 		color: inherit;
 		display: block;
 
@@ -39,7 +41,6 @@
 
 		.o-forms-input__state {
 			margin-left: -4px;
-			margin-top: -4px;
 
 			&:after {
 				content: 'Saved';
@@ -76,7 +77,6 @@
 
 			&.o-forms-input--saved .o-forms-input__state {
 				padding: 0 12px 0 8px;
-				margin-top: -4px;
 			}
 		}
 	}

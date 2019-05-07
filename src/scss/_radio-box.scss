@@ -45,12 +45,28 @@
 				}
 			}
 		}
+
+		@include oGridRespondTo(S) {
+			&.o-forms-input--inline .o-forms-input__state {
+				position: relative;
+				bottom: 0;
+			}
+		}
+
+		.o-forms-input__state {
+			position: absolute;
+			bottom: -22px;
+		}
+
+		.o-forms-input__error {
+			bottom: -16px;
+		}
 	}
 }
 
 /// @access private
 /// @param {Map|null} $theme Custom theme map
-/// Outpus styling for box-styled radio inputs
+/// @output styling for box-styled radio inputs
 @mixin _oFormsRadioBoxInputStyles($theme: null) {
 	$theme: _oFormsThemeToBrandVariants($theme);
 

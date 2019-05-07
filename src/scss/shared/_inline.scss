@@ -1,5 +1,5 @@
 /// @access private
-/// @output Styling for inlining labels and inputs
+/// @output styles for inlining labels and inputs
 @mixin _oFormsInline() {
 	/* inline field titles and inputs
 		[title] [input]
@@ -14,6 +14,15 @@
 		
 			.o-forms-title {
 				flex: 0 1 50%;
+				margin-right: oTypographySpacingSize(3);
+				
+				&.o-forms-title--shrink {
+					flex-basis: auto;
+				}
+				
+				&.o-forms-title--vertical-center {
+					align-self: center;
+				}
 			}
 		
 			.o-forms-input {

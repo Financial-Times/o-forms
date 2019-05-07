@@ -1,7 +1,7 @@
 {{#variants}}
 
 {{#anchor}}
-	<div class="o-forms-input o-forms-input--pseudo-radio-box {{#custom}}demo-custom-anchor-theme{{/custom}}">
+	<div class="o-forms-input o-forms-input--pseudo-radio-box {{#modifiers}}o-forms-input--{{.}}{{/modifiers}}">
 		{{#inputs}}
 			<a class="o-forms__anchor
 					{{#current}} o-forms__anchor--current{{/current}}
@@ -36,7 +36,6 @@
 
 			{{#inputs}}
 				<label {{#label}}class="{{.}}"{{/label}}>
-					{{#pattern}}<span class="o-forms-input__label" aria-hidden="true">{{date}}</span>{{/pattern}}
 					<input 
 						type="{{type}}" 
 						name="{{name}}"
@@ -44,16 +43,17 @@
 						{{#pattern}}pattern={{.}}{{/pattern}} 
 						aria-label="{{value}}" 
 						{{#checked}}checked{{/checked}} 
-						{{#disabled}}disabled{{/disabled}}>
-					
+						{{#disabled}}disabled{{/disabled}}
+						{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
+
 					{{#name}}
 						<span class="o-forms-input__label
 									{{#modifier}} o-forms-input__label--{{.}}{{/modifier}}
 									{{#icon}} o-forms-input__label__{{.}}-icon{{/icon}}" aria-hidden="true">
-									{{value}}
+									{{#pattern}}{{date}}{{/pattern}}{{^pattern}}{{value}}{{/pattern}}
 						</span>
 					{{/name}}
-					
+
 					{{#additionalContent}}
 						<span class="o-forms-input__label" aria-hidden="true">{{.}}<span>
 					{{/additionalContent}}
