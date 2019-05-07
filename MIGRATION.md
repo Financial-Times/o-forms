@@ -3,11 +3,46 @@
 
 ### Migrating from v6 to v7
 
-Version 7 introduces a complete redesign to the `o-forms` markup and API, and makes small design changes and additions.
+Version 7 introduces a complete redesign to the `o-forms` markup, Sass and JavaScript API, and makes small design changes and additions.
 
 All Sass mixins have been removed, and have been replaced with two public mixins:
 - `oForms()`
 - `oFormsAddCustom()`
+
+The primary mixin makes an options map public, which allows you to output styles specific to the elements that you want to use in your form. `o-forms` [no longer supports custom classes](https://github.com/Financial-Times/origami-proposals/issues/4). 
+
+The following example would output small text inputs and regular checkboxes:
+
+```diff
+-@include oFormsBaseFeatures();
+-@include oFormsRadioCheckboxFeatures();
+-@include oFormsSmallFeature();
+
++@include oForms($opts: (
++	'elements': (
++		'text', 
++		'checkbox'
++	),
++	'features': (
++		'small'
++	)
++))
+```
+
+The customisation mixin outputs a custom modifier, and can be applied as follows:
+```diff
+-.o-forms__radio-button.o-forms__radio-button--my-theme {
+-	@include oFormsRadioButtonsStyledTheme($theme: $my-theme);
+-}
+
++@include oFormsAddCustom(
++	$input: 'radio',
++	$class: 'my-theme',
++	$theme: $my-theme
++);
+
+// the custom class modifier will be: .o-forms-input--my-theme
+```
 
 The markup has been changed entirely to accomodate the following structure:
 ```
@@ -25,6 +60,7 @@ The markup has been changed entirely to accomodate the following structure:
 |  └——————————————————————————————————┘  |
 └————————————————————————————————————————┘
 ```
+
 The root `o-forms` class is no longer used. Instead, there are modifiers for each type of container (field, title, input) illustrated above, and some modifiers that only work for specific inputs:
 - Field container modifiers:
 	- `.o-forms-field--optional`
@@ -47,6 +83,11 @@ The root `o-forms` class is no longer used. Instead, there are modifiers for eac
 	- `.o-forms-input--text-input`
 	- `.o-forms-input--toggle`
 	- `.o-forms-input--valid`
+
+
+The JavaScript for `o-forms` now accepts two options:
+- `useBrowserValidation`: whether to use the browsers validtion and error messages. Defaults to `false`
+- `errorSummary`: whether to display a summary of invalid fields on form submit. Defaults to `true`
 
 ### Migrating from v5 to v6
 Version 6 uses a new major version of o-loading. Make sure your project is compatible with o-loading@3.0.0
