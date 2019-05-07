@@ -10,10 +10,12 @@ FT-branded styles for form elements.
 		- [`select`](#select)
 		- [Modifiers](#modifiers)
 	- [Multiple input fields](#multiple-input-fields)
-		- [`input[type=radio]` (Round)](#inputtyperadio-round)
-		- [`input[type=radio]` (Box)](#input[type=radio-box)
-		- [`input[type=checkbox]` (Square)](#inputtype=checkbox-square)
-		- [`input[type=checkbox]` (Toggle)](#inputtypecheckbox-toggle)
+		- [`input[type=radio]`](#inputtyperadio)
+			- [Round](#round)
+			- [Box](#box)
+		- [`input[type=checkbox]`](#inputtypecheckbox)
+			- [Square](#square)
+			- [Toggle](#toggle)
 	- [Uncategorised input fields](#uncategorised-input-fields)
 		- [`Date inputs`](#date-inputs)
 		- [`Anchors`](#anchors)
@@ -30,13 +32,14 @@ FT-branded styles for form elements.
 - [JavaScript](#javascript)
 	- [Form Instance](#form-instance)
 	- [Individual Inputs](#individual-inputs)
+	- [State](#state)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
 
 ## Markup
-`o-forms` defines form elements as a combination of 'fields' and 'inputs'. At its core, a field holds the information about an input and the input itself.
+`o-forms` defines form elements as a combination of 'fields' and 'inputs'. At its core, a field holds the information about an input (such as a label) and the input itself.
 
 Regardless of the input type used, all elements follow the same structure:
 ```
@@ -55,7 +58,7 @@ Regardless of the input type used, all elements follow the same structure:
 └————————————————————————————————————————┘
 ```
 
-Bearing that in mind, all form elements are divided into main two categories, with a couple of outliers: 
+Bearing that in mind, all form elements are divided into two main categories, with a couple of outliers: 
 - [single input fields](#single-input-fields)
 - [multiple input fields](#multiple-input-fields)
 - [uncategorised input fields](#uncategorised-input-fields)
@@ -71,8 +74,8 @@ Every single input field requires a root structure that looks like this:
 ```html
 <label class="o-forms-field">
 	<span class="o-forms-title">
-		<span class="o-forms-title--main"> Label for input here </span>
-		<span class="o-forms-title--prompt"> Optional text to describe the input here </span>
+		<span class="o-forms-title__main"> Label for input here </span>
+		<span class="o-forms-title__prompt"> Optional text to describe the input here </span>
 	</span>
 
 	<span class="o-forms-input">
@@ -146,8 +149,8 @@ All single input fields accept the following modifiers on the input container:
 +<div class="o-forms-field o-forms-field--inline">
 -	<span class="o-forms-title">
 +	<span class="o-forms-title o-forms-title--shrink">
-		<span class="o-forms-title--main"> Label for input here </span>
-		<span class="o-forms-title--prompt"> Optional text to describe the input here </span>
+		<span class="o-forms-title__main"> Label for input here </span>
+		<span class="o-forms-title__prompt"> Optional text to describe the input here </span>
 	</span>
 	...
 </div>
@@ -159,8 +162,8 @@ Every multiple input field requires a root structure that looks like this:
 ```html
 <div class="o-forms-field">
 	<span class="o-forms-title">
-		<span class="o-forms-title--main">Group Title</span>
-		<span class="o-forms-title--prompt">Group info</span>
+		<span class="o-forms-title__main">Group Title</span>
+		<span class="o-forms-title__prompt">Group info</span>
 	</span>
 
 	<span class="o-forms-input">
@@ -168,9 +171,11 @@ Every multiple input field requires a root structure that looks like this:
 	</span>
 </div>
 ```
-Both radio and checkbox inputs have two different styles in `o-forms`, and those can be output with different modifiers:
 
-#### `input[type=radio]` (Round)
+#### `input[type=radio]`
+There are two different visual styles available for radio inputs, which we've called 'Round' and 'Box'. They can be output using specific modifier classes:
+
+##### Round
 For a regular, round radio button, you'll need the following markup:
 ```html
 ...
@@ -188,7 +193,7 @@ For a regular, round radio button, you'll need the following markup:
 ```
 [_See the full markup for a round radio button in the registry_](https://registry.origami.ft.com/components/o-forms#radio-round)
 
-#### `input[type=radio]` (Box)
+##### Box
 For a box-like, rectangular radio button, you'll need the following markup:
 ```html
 ...
@@ -254,7 +259,10 @@ This input type also accepts a 'negative' modifier `o-forms-input__label--negati
 ```
 [_See the full markup for a box-style radio button in the registry_](https://registry.origami.ft.com/components/o-forms#radio-box)
 
-#### `input[type=checkbox]` (Square)
+#### `input[type=radio]`
+There are two different visual styles available for checkbox inputs, which are a default square checkbox or a toggle checkbox. They can be output using specific modifier classes:
+
+##### Square
 For a regular, squared checkbox, you'll need the following markup:
 ```html
 ...
@@ -271,8 +279,7 @@ For a regular, squared checkbox, you'll need the following markup:
 ...
 ```
 
-Checkboxes accept a specific modifier that will align the checkbox to the **right** of its label. This is a combinatio of modifiers that looks like this:
-For a regular, squared checkbox, you'll need the following markup:
+To align the checkbox to the **right** of its label, you can add the `o-forms-input__right` class:
 ```diff
 ...
 <span class="o-forms-input o-forms-input--checkbox">
@@ -287,7 +294,7 @@ For a regular, squared checkbox, you'll need the following markup:
 
 [_See the full markup for regular checkboxes in the registry_](https://registry.origami.ft.com/components/o-forms#checkboxes)
 
-#### `input[type=checkbox]` (Toggle)
+##### Toggle
 
 For a toggle checkbox, you'll need the following markup:
 ```html
@@ -361,7 +368,7 @@ Anchors are an entirely separate entity. They _look_ like a form element but do 
 
 
 ### Shared Modifiers
-The markup structure outlined at the beginning of this section indicates containers for a form field that accept modifiers.
+The markup structure outlined at the [beginning of this section](#markup) indicates containers for a form field that accept modifiers.
 
 #### Field Modifiers
 The following modifiers are available for the `o-forms-field` element:
@@ -383,7 +390,7 @@ The following modifiers are available for the `o-forms-field` element:
 
 ### Errors
 
-In trms of invalid inputs, `o-forms` has a build in mechanism to display custom errors and an error summary. If neither of these work for your product, you can also default to [native browser validation](#form-instance).
+In terms of invalid inputs, `o-forms` has a built in mechanism to display custom errors and an error summary. If neither of these work for your product, you can also choose to use [native browser validation](#form-instance).
 
 #### Custom Errors
 In order to provide customised error messages for an invalid input field, you'll need to add the message to the markup. In any of the structures shown in the markup above, the error message will need to live within the input container as a sibling to the input elements:
@@ -395,14 +402,14 @@ In order to provide customised error messages for an invalid input field, you'll
 	</span>
 ...
 ```
-The message is hidden by default, until the input field become invalid. 
+The message is hidden by default, until the input field becomes invalid. 
 
 #### Error Summary
 `o-forms` also generates an error message element when a form is submitted and invalid inputs are recognised.
 
 This feature will collect the custom messages of the invalid fields if they are present in the markup, or will default to the browsers native error message if they aren't. It will associate the message to the title of the input that is invalid, generate a list of links at the top of the form, and focus on the first link.
 
-This markup will always generated dynamically if the [errorSummary option](#form-instance) is set to `true`.
+This markup will always be generated dynamically if the [errorSummary option](#form-instance) is set to `true`.
 
 ## Sass
 You can include styles for every input type and feature by calling the `o-forms` primary mixin:
@@ -446,35 +453,6 @@ _Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so t
 
 _Note 2: It's important to remember that not all features will apply to all input types. If there are any features you would like to see added to an input, please [get in touch with the team](#contact)._
 
-### State
-
-The only input that accepts state is the [box-styled `input[type=radio]`](#inputtyperadio-box).
-
-`o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method that allows the project to control this.
-
-In order to set up a state, you'll need to use a method on an existing form instance. 
-
-This method accepts a state and a name argument. State can be one of 'saving', 'saved' or 'none', 'none' being responsible for removing the state from the input. The name argument must be the name of the inputs that will be recieving the state. For example:
-```html
-<form data-o-component="o-forms">
-	...
-		<label>
-			<span class="o-forms-input__label">Daily</span>
-			<input type="radio" name="my-radio-box"/>
-		</label>
-			<label>
-			<span class="o-forms-input__label">Weekly</span>
-			<input type="radio" name="my-radio-box"/>
-		</label>
-	...
-</form>
-``` 
-```js
-import oForms from 'o-forms';
-let myForm = oForms.init();
-// on event, e.g. click
-myForm.setState('saving', 'my-radio-box');
-```
 
 ### Customisation
 
@@ -543,6 +521,36 @@ In the case where a single input is enough for a product but requires validation
 ```js
 import Input from 'o-forms/src/js/input';
 new Input(myInputEl);
+```
+
+### State
+
+The only input that accepts state is the [box-styled `input[type=radio]`](#inputtyperadio-box).
+
+`o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method that allows the project to control this (shown below).
+
+In order to set up a state, you'll need to use a method on an existing form instance. 
+
+This method accepts a state and a name argument. State can be one of 'saving', 'saved' or 'none', 'none' being responsible for removing the state from the input. The name argument must be the name of the inputs that will be recieving the state. For example:
+```html
+<form data-o-component="o-forms">
+	...
+		<label>
+			<span class="o-forms-input__label">Daily</span>
+			<input type="radio" name="my-radio-box"/>
+		</label>
+			<label>
+			<span class="o-forms-input__label">Weekly</span>
+			<input type="radio" name="my-radio-box"/>
+		</label>
+	...
+</form>
+``` 
+```js
+import oForms from 'o-forms';
+let myForm = oForms.init();
+// on event, e.g. click
+myForm.setState('saving', 'my-radio-box');
 ```
 
 ## Migration

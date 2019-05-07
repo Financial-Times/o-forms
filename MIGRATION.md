@@ -25,7 +25,7 @@ The markup has been changed entirely to accomodate the following structure:
 |  └——————————————————————————————————┘  |
 └————————————————————————————————————————┘
 ```
-The root `o-forms` is no longer used. Instead, there are modifiers for each type of container illustrated above, and some modifiers that only work for specific inputs:
+The root `o-forms` class is no longer used. Instead, there are modifiers for each type of container (field, title, input) illustrated above, and some modifiers that only work for specific inputs:
 - Field container modifiers:
 	- `.o-forms-field--optional`
 	- `.o-forms-field--inline`
