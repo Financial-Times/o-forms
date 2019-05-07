@@ -215,33 +215,6 @@ For a box-like, rectangular radio button, you'll need the following markup:
 ...
 ```
 
-This is currently the only input type that accepts state. In order to add a spinner or tick to the radio box.
-The input container accepts one of two modifiers at a time:
-- `o-forms-input--saving`
-- `o-forms-input--saved`
-
-`o-forms` JavaScript will add the state dynamically, and [exposes an API](#state) to control the state.
-
-The markup will need to be updated to look like this:
-```diff
-...
-	<span class="o-forms-input o-forms-input--radio-box">
-		<div class="o-forms-input--radio-box__container">
-			<label>
-				<input type="radio" name="my-box-radio"/>
-				<span class="o-forms-input__label">Radio 1</span>
-			</label>
-			<label>
-				<input type="radio" name="my-box-radio"/>
-				<span class="o-forms-input__label">Radio 2</span>
-			</label>
-		</div>
-+		<span class="o-forms-input__state"></span>
-	</span>
-...
-```
-You can also add `o-forms-input__state--icon-only` to the `<span>` to avoid displaying the status text.
-
 This input type also accepts a 'negative' modifier `o-forms-input__label--negative`, which changes the background colour of an input when selected (usually for a negative choice):
 ```html
 <div class="o-forms-field">
@@ -415,7 +388,9 @@ This feature will collect the custom messages of the invalid fields if they are 
 This markup will always be generated dynamically if the [errorSummary option](#form-instance) is set to `true`.
 
 ## Sass
-You can include styles for every input type and feature by calling the `o-forms` primary mixin:
+`o-forms` has a primary mixin; `oForms()`.
+
+You can include styles for every input type and feature by calling that mixin:
 ```scss
 @import 'o-forms';
 @include oForms();
@@ -527,8 +502,7 @@ new Input(myInputEl);
 ```
 
 ### State
-
-The only input that accepts state is the [box-styled `input[type=radio]`](#inputtyperadio-box).
+`o-forms` offers the ability to display a 'saving' or 'saved' state. However, currently the only input that accepts state is the [box-styled `input[type=radio]`](#inputtyperadio-box). If you would like to apply state to any other input, please [get in touch with the team](#contact).
 
 `o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method that allows the project to control this (shown below).
 
@@ -555,6 +529,13 @@ let myForm = oForms.init();
 // on event, e.g. click
 myForm.setState('saving', 'my-radio-box');
 ```
+
+You also have the option of displaying state as an icon without text. In order to do this, you can call the method above with an extra argument:
+
+```js
+myForm.setState('saving', 'my-radio-box', iconOnly: true);
+```
+
 
 ## Migration
 
