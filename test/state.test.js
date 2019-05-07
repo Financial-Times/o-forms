@@ -67,7 +67,7 @@ describe('State', () => {
 		});
 	});
 
-	context.only('opts', () => {
+	context('opts', () => {
 		before(() => {
 			document.body.innerHTML = formFixture;
 			form = document.forms[0];
