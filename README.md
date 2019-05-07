@@ -70,6 +70,8 @@ If a particular form element has a unique modifier, it will be under its markup 
 
 ### Single input fields
 
+`o-forms` consideres a single input field to be a field that has **one** input, like a text input, rather than multiple children, such as radio buttons.
+
 Every single input field requires a root structure that looks like this:
 ```html
 <label class="o-forms-field">
@@ -83,7 +85,8 @@ Every single input field requires a root structure that looks like this:
 	</span>
 </label>
 ```
-And each input in this structure input relies on a different modifier.
+
+`o-forms` provides a different modifier class for each input type, as shown in the examples below:
 
 #### `input[type=text]`
 ```html
