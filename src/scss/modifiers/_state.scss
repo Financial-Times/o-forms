@@ -31,7 +31,7 @@
 			
 			&:before {
 				@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
-				margin: 0 8px 0 0;
+				margin: 0 $_o-forms-spacing-two 0 0;
 			}
 		}
 	}
@@ -40,7 +40,7 @@
 		display: block;
 
 		.o-forms-input__state {
-			margin-left: -4px;
+			margin-left: -$_o-forms-spacing-one;
 
 			&:after {
 				content: 'Saved';
@@ -48,7 +48,7 @@
 			}
 
 			&:before {
-				@include oIconsGetIcon('tick', _oFormsGet('valid-base'), 28px);
+				@include oIconsGetIcon('tick', _oFormsGet('valid-base'), $_o-forms-spacing-seven);
 				vertical-align: middle;
 				padding: 0;
 			}
@@ -72,11 +72,11 @@
 			}
 
 			&.o-forms-input--saving .o-forms-input__state {
-				padding: 0 12px;
+				padding: 0 $_o-forms-spacing-three;
 			}
 
 			&.o-forms-input--saved .o-forms-input__state {
-				padding: 0 12px 0 8px;
+				padding: 0 $_o-forms-spacing-three 0 $_o-forms-spacing-two;
 			}
 		}
 	}

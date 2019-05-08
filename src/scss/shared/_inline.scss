@@ -14,7 +14,7 @@
 		
 			.o-forms-title {
 				flex: 0 1 50%;
-				margin-right: oTypographySpacingSize(3);
+				margin-right: $_o-forms-spacing-three;
 				
 				&.o-forms-title--shrink {
 					flex-basis: auto;
@@ -45,7 +45,7 @@
 			flex-flow: row wrap;
 				
 			label {
-				margin: 0 16px 12px 0;
+				margin: 0 $_o-forms-spacing-four $_o-forms-spacing-three 0;
 				max-width: 75%;
 			}
 

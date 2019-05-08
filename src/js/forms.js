@@ -125,12 +125,12 @@ class Forms {
 	* @param {String} [name] - name of the input fields to add state to
 	* @param {String} [state] - type of state to apply — one of 'saving', 'saved', 'none'
 	*/
-	setState(state, name) {
+	setState(state, name, iconOnly = false) {
 		let object = this.stateElements.find(item => item.name === name);
 		if (!object) {
 			object = {
 				name,
-				element: new State(this.form.elements[name])
+				element: new State(this.form.elements[name], { iconOnly })
 			};
 
 			this.stateElements.push(object);
