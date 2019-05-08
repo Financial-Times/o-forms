@@ -3,14 +3,11 @@
 @mixin _oFormsControlsBase($disabled: null) {
 	position: absolute;
 	padding: 0;
-	width: $_o-forms-control-size;
-	height: $_o-forms-control-size;
+	width: $_o-forms-spacing-six;
+	height: $_o-forms-spacing-six;
 
-	&:checked,
-	&:indeterminate {
-		+ .o-forms-input__label:after {
-			opacity: 1;
-		}
+	&:checked + .o-forms-input__label:after {
+		opacity: 1;
 	}
 
 	@if $disabled {
@@ -32,8 +29,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: $_o-forms-control-size;
-	height: $_o-forms-control-size;
+	width: $_o-forms-spacing-six;
+	height: $_o-forms-spacing-six;
 	box-sizing: border-box;
 }
 
@@ -44,8 +41,8 @@
 	cursor: pointer;
 	float: left;
 	margin: 0;
-	min-height: 28px;
-	min-width: 60px;
+	min-height: $_o-forms-spacing-seven;
+	min-width: oTypographySpacingSize(15);
 }
 
 /// @access private
@@ -54,8 +51,8 @@
 	@include oTypographySize($scale: -1, $line-height: unset);
 	@include oTypographyBold('sans');
 	box-sizing: border-box;
-	border: 1px solid _oFormsGet('default-border');
+	border: $_o-forms-border;
 	display: inline-block;
-	padding: 2px;
+	padding: $_o-forms-spacing-half;
 	text-align: center;
 }

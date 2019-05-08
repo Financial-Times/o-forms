@@ -22,7 +22,7 @@
 			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
 			appearance: none;
 			background-repeat: no-repeat;
-			background-size: auto $_o-forms-control-size;
+			background-size: auto $_o-forms-spacing-six;
 			border-radius: 0;
 			background-clip: padding-box;
 			color: _oFormsGet('default-text');
@@ -33,7 +33,7 @@
 			// Handles background sizing and positioning issues with IE10+
 			// sass-lint:disable no-duplicate-properties no-vendor-prefixes no-misspelled-properties
 			background-position: right center;
-			background-position: right 8px center;
+			background-position: right $_o-forms-spacing-two center;
 			-ms-background-position-x: right -75%;
 			-ms-background-position-y: center;
 			// sass-lint:enable no-duplicate-properties no-vendor-prefixes no-misspelled-properties

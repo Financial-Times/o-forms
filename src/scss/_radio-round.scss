@@ -6,7 +6,7 @@
 ) {
 	.o-forms-input--radio-round {
 		.o-forms-input__label {
-			padding: 2px 0 2px $_o-forms-control-label-spacing;
+			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half $_o-forms-spacing-controls;
 			display: inline-block;
 
 			&:before,
@@ -19,15 +19,15 @@
 
 			&:before {
 				@include oColorsFor(page, background);
-				border: 1px solid _oFormsGet('default-border');
+				border: $_o-forms-border;
 			}
 
 			&:after {
 				background-color: _oFormsGet('controls-base');
 				border-radius: 50%;
-				height: $_o-forms-control-size / 2;
-				width: $_o-forms-control-size / 2;
-				margin: 6px;
+				height: $_o-forms-spacing-three;
+				width: $_o-forms-spacing-three;
+				margin: $_o-forms-spacing-three / 2;
 				opacity: 0;
 				// sass-lint:disable no-vendor-prefixes
 				@media screen and (-ms-high-contrast: active) {
@@ -46,7 +46,7 @@
 
 			&:focus {
 				border-color: $o-normalise-focus-color;
-				box-shadow: 0 0 0 2px $o-normalise-focus-color;
+				box-shadow: 0 0 0 $_o-forms-spacing-half $o-normalise-focus-color;
 				outline: none;
 			}
 		}

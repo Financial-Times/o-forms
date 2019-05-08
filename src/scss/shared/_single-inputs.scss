@@ -5,10 +5,10 @@
 	font-family: inherit;
 	font-size: inherit;
 	background-color: _oFormsGet('default-background');
-	border: 1px solid _oFormsGet('default-border');
+	border: $_o-forms-border;
 	box-sizing: border-box;
-	min-height: $_o-forms-input-height;
-	padding: $_o-forms-input-spacing;
+	min-height: $_o-forms-spacing-ten;
+	padding: $_o-forms-spacing-two;
 	width: 100%;
 
 	@if $disabled {
@@ -33,8 +33,8 @@
 	&.o-forms-input--small {
 		#{$element} {
 			@include oTypographySize($scale: -1, $line-height: 1.65);
-			min-height: $_o-forms-small-input-height;
-			padding: 0 $_o-forms-input-spacing;
+			min-height: $_o-forms-spacing-seven;
+			padding: 0 $_o-forms-spacing-two;
 		}
 	}
 }
@@ -48,7 +48,7 @@
 
 		#{$element} {
 			flex: 1;
-			margin-right: $_o-forms-input-spacing;
+			margin-right: $_o-forms-spacing-two;
 		}
 	}
 }
