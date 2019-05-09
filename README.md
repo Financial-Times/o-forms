@@ -235,7 +235,7 @@ This input type also accepts a 'negative' modifier `o-forms-input__label--negati
 ```
 [_See the full markup for a box-style radio button in the registry_](https://registry.origami.ft.com/components/o-forms#radio-box)
 
-#### `input[type=radio]`
+#### `input[type=checkbox]`
 There are two different visual styles available for checkbox inputs, which are a default square checkbox or a toggle checkbox. They can be output using specific modifier classes:
 
 ##### Square
