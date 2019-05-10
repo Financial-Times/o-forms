@@ -3,8 +3,10 @@
 {{#anchor}}
 	<div class="o-forms-input o-forms-input--pseudo-radio-link {{#modifiers}}o-forms-input--{{.}}{{/modifiers}}">
 		{{#inputs}}
-			<a class="{{#current}} o-forms-input__link--current{{/current}}
-					{{#icon}} o-forms-input__link--{{.}}-icon{{/icon}}" href={{href}}>{{value}}</a>
+			<a class="
+				o-forms-input__link
+				{{#current}} o-forms-input__link--current{{/current}}
+				{{#icon}} o-forms-input__link--{{.}}-icon{{/icon}}" href={{href}}>{{value}}</a>
 		{{/inputs}}
 	</div>
 {{/anchor}}

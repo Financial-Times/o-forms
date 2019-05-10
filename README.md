@@ -336,8 +336,8 @@ Anchor elements are an entirely separate entity. They _look_ like a form element
 
 ```html
 <div class="o-forms-input o-forms-input--pseudo-radio-link">
-		<a class="o-forms-input__link--current" href="#">Link A</a>
-		<a href="#">Link B</a>
+		<a class="o-forms-input__link o-forms-input__link--current" href="#">Link A</a>
+		<a class="o-forms-input__link" href="#">Link B</a>
 </div>
 ```
 [_See the full markup for an anchor element in the registry_](https://registry.origami.ft.com/components/o-forms#pseudo-radio-links)
