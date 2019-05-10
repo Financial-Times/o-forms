@@ -29,7 +29,7 @@
 		},
 		{
 			"anchor": true,
-			"modifiers": [ "demo-anchor" ],
+			"modifiers": [ "demo-pseudo-radio-link" ],
 			"inputs": [
 				{
 					"value": "Anchor Link A",
@@ -74,7 +74,7 @@
 		},
 		{
 			"anchor": true,
-			"modifiers": [ "demo-anchor" ],
+			"modifiers": [ "demo-pseudo-radio-link" ],
 			"inputs": [
 				{
 					"value": "Grid Link",

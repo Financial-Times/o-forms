@@ -9,10 +9,10 @@
 
 @mixin oForms($opts: (
 	'elements': (
-		'anchor', 
 		'checkbox', 
 		'date',
 		'password',
+		'pseudo-radio-link', 
 		'radio-round',
 		'radio-box',
 		'select',
@@ -45,8 +45,8 @@
 
 	@include _oFormsBase();
 
-	@if index($elements, 'anchor') {
-		@include _oFormsAnchorBox();
+	@if index($elements, 'pseudo-radio-link') {
+		@include _oFormsPseudoRadioLink();
 	}
 
 	@if index($elements, 'checkbox') {
