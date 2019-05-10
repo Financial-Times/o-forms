@@ -31,7 +31,7 @@
 		min-width: unset;
 	}
 
-	a.o-forms-input__link--current,
+	a.o-forms-input__link--current, // sass-lint:disable-line no-qualifying-elements
 	input[type=radio]:checked + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
 		&:after {
 			display: block;
