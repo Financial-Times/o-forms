@@ -17,8 +17,8 @@ FT-branded styles for form elements.
 			- [Square](#square)
 			- [Toggle](#toggle)
 	- [Uncategorised input fields](#uncategorised-input-fields)
-		- [`Date inputs`](#date-inputs)
-		- [`Anchors`](#anchors)
+		- [Date inputs](#date-inputs)
+		- [Pseudo Radio Links](#pseudo-radio-links)
 	- [Shared Modifiers](#shared-modifiers)
 		- [Field modifiers](#field-modifiers)
 		- [Input modifiers](#input-modifiers)
@@ -307,7 +307,7 @@ For this you'll need to add the `o-forms-field--inverse` to the parent element:
 
 
 ### Uncategorised input fields
-Date inputs and anchor with box-like styling are outliers to the rules above.
+Date inputs and anchor elements with box-like styling are outliers to the rules above.
 
 #### Date inputs
 We do not use `input[type=date]`, but instead combine three `input[type=text]` within the [base structure for a multiple input field](#multiple-input-fields), as shown below:
@@ -331,16 +331,16 @@ We do not use `input[type=date]`, but instead combine three `input[type=text]` w
 ```
 [_See the full markup for date inputs in the registry_](https://registry.origami.ft.com/components/o-forms#date)
 
-#### Anchors
-Anchors are an entirely separate entity. They _look_ like a form element but do not function as one.
+#### Pseudo Radio Links
+Anchor elements are an entirely separate entity. They _look_ like a form element but do not function as one. They are styled to look like a box-like radio button.
 
 ```html
-<div class="o-forms-input o-forms-input--pseudo-radio-box ">
-		<a class="o-forms__anchor o-forms__anchor--current" href="#">Anchor Link A</a>
-		<a class="o-forms__anchor" href="#">Anchor Link B</a>
+<div class="o-forms-input o-forms-input--pseudo-radio-link">
+		<a class="o-forms-input__link--current" href="#">Link A</a>
+		<a href="#">Link B</a>
 </div>
 ```
-[_See the full markup for an anchor in the registry_](https://registry.origami.ft.com/components/o-forms#anchors)
+[_See the full markup for an anchor element in the registry_](https://registry.origami.ft.com/components/o-forms#pseudo-radio-links)
 
 
 ### Shared Modifiers
@@ -408,10 +408,10 @@ If you would like to be more specific about what aspects of the styles get outpu
 `o-forms` has many options due to its comprehensive nature.  
 The `$opts` map accepts two lists with the following options:
 - `'elements'`:
-	- `'anchor'`
 	- `'checkbox'`
 	- `'date'`
 	- `'password'`
+	- `'pseudo-radio-link'`
 	- `'radio-round'`
 	- `'radio-box'`
 	- `'select'`
@@ -434,9 +434,9 @@ _Note 2: It's important to remember that not all features will apply to all inpu
 
 ### Customisation
 
-There is one public mixin to customise two types of input: [anchors](#anchors) and [box-styled `input[type=radio]`](#inputttyperadio-box).
+There is one public mixin to customise two types of input: [pseudo radio links](#pseudo-radio-links) and [box-styled `input[type=radio]`](#inputttyperadio-box).
 It accepts four arguments:
-- `$input`: (required) either `'anchor'` or `'radio'`
+- `$input`: (required) either `'pseudo-radio-link'` or `'radio'`
 - `$modifier`: (required) this will name the modifier to add to the input container class list
 - `$icons`: (optional) accepts an icon or a list of icons to output according to the custom theme
 - `$theme`: (required) a map of the colors that define the custom theme:
