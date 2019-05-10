@@ -37,11 +37,11 @@
 	},
 	"demos": [
 		{
-			"name": "anchors",
-			"title": "Anchors",
+			"name": "pseudo-radio-links",
+			"title": "Pseudo Radio Links",
 			"template": "/demos/src/multiple-input-field.mustache",
-			"description": "Anchors that imitate box-style radio inputs",
-			"data": "/demos/src/data/anchor.json"
+			"description": "Anchor elements that imitate box-style radio inputs",
+			"data": "/demos/src/data/pseudo-radio-links.json"
 		},
 		{
 			"name": "checkboxes",
@@ -52,7 +52,7 @@
 		},
 		{
 			"name": "custom",
-			"title": "Customised anchors/radio-boxes",
+			"title": "Customised pseudo-radio-links/radio-boxes",
 			"template": "/demos/src/multiple-input-field.mustache",
 			"description": "Custom theme example for box-styled anchors and radio inputs",
 			"data": "/demos/src/data/custom.json",

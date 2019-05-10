@@ -31,7 +31,7 @@
 		min-width: unset;
 	}
 
-	.o-forms__anchor.o-forms__anchor--current,
+	a.o-forms-input__link--current, // sass-lint:disable-line no-qualifying-elements
 	input[type=radio]:checked + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
 		&:after {
 			display: block;
@@ -51,7 +51,7 @@
 	@if $input == 'radio' {
 		$element: 'label .o-forms-input__label.o-forms-input__label__#{$icon}-icon';
 	} @else {
-		$element: '.o-forms__anchor.o-forms__anchor__#{$icon}-icon';
+		$element: 'a.o-forms-input__link--#{$icon}-icon';
 	} 
 	
 	#{$element} {
@@ -115,8 +115,8 @@
 	$theme: _oFormsThemeToBrandVariants($theme);
 
 	.o-forms-input--#{$class} {
-		@if $input == 'anchor' {
-			@include _oFormsAnchorBoxStyles($theme);
+		@if $input == 'pseudo-radio-link' {
+			@include _oFormsPseudoRadioLinkStyles($theme);
 		} @else if $input == 'radio' {
 			@include _oFormsRadioBoxInputStyles($theme);
 		} @else {
