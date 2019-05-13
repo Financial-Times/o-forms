@@ -1,5 +1,6 @@
 {
-	"description": "These components are used as the building blocks for creating all types of forms. These forms should be able to be used on all devices ie desktop, mobile and tablet.",
+	"description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
+	"keywords": [ "form", "input", "field", "fieldset", "submit" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
@@ -37,11 +38,11 @@
 	},
 	"demos": [
 		{
-			"name": "anchors",
-			"title": "Anchors",
+			"name": "pseudo-radio-links",
+			"title": "Pseudo Radio Links",
 			"template": "/demos/src/multiple-input-field.mustache",
-			"description": "Anchors that imitate box-style radio inputs",
-			"data": "/demos/src/data/anchor.json"
+			"description": "Anchor elements that imitate box-style radio inputs",
+			"data": "/demos/src/data/pseudo-radio-links.json"
 		},
 		{
 			"name": "checkboxes",
@@ -52,7 +53,7 @@
 		},
 		{
 			"name": "custom",
-			"title": "Customised anchors/radio-boxes",
+			"title": "Customised pseudo-radio-links/radio-boxes",
 			"template": "/demos/src/multiple-input-field.mustache",
 			"description": "Custom theme example for box-styled anchors and radio inputs",
 			"data": "/demos/src/data/custom.json",

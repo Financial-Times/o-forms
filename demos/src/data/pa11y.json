@@ -5,7 +5,9 @@
 				"optional": true,
 				"field": {
 					"type": "checkbox",
-					"aria": "checkbox-group-title"
+					"aria": {
+						"label": "checkbox-group-title"
+					}
 				},
 				"title": {
 					"main": "Stacked checkboxes",
@@ -34,7 +36,9 @@
 			{
 				"field": {
 					"type": "checkbox",
-					"aria": "disabed-checkbox-group-title"
+					"aria": {
+						"label": "disabed-checkbox-group-title"
+					}
 				},
 				"title": {
 					"main": "Disabled checkboxes"
@@ -59,7 +63,10 @@
 				"optional": true,
 				"field": {
 					"type": "date",
-					"aria": "date-group-title"
+					"aria": {
+						"label": "date-group-title",
+						"info": "date-group-info"
+					}
 				},
 				"title": {
 					"main": "Date input",
@@ -86,7 +93,9 @@
 			{
 				"field": {
 					"type": "date",
-					"aria": "error-date-group-title",
+					"aria": {
+						"label": "error-date-group-title"
+					},
 					"error": "Not a valid date",
 					"modifiers": [
 						"invalid"
@@ -121,7 +130,10 @@
 				"optional": true,
 				"field": {
 					"type": "radio-box",
-					"aria": "radio-box-group-title"
+					"aria": {
+						"label": "radio-box-group-title",
+						"info": "radio-box-group-info"
+					}
 				},
 				"title": {
 					"main": "Box style radio buttons",
@@ -145,7 +157,9 @@
 				"radioBox": true,
 				"field": {
 					"type": "radio-box",
-					"aria": "multiple-radio-box-group-title"
+					"aria": {
+						"label": "multiple-radio-box-group-title"
+					}
 				},
 				"title": {
 					"main": "Multiple checkboxes"
@@ -174,7 +188,10 @@
 				"inline-field": true,
 				"field": {
 					"type": "radio-box",
-					"aria": "saving-state-group-title",
+					"aria": {
+						"label": "saving-state-group-title",
+						"info": "saving-state-group-info"
+					},
 					"modifiers": [
 						"saving",
 						"inline"
@@ -203,7 +220,10 @@
 				"optional": true,
 				"field": {
 					"type": "radio-round",
-					"aria": "radio-round-group-title"
+					"aria": {
+						"label": "radio-round-group-title",
+						"info": "radio-round-group-info"
+					}
 				},
 				"title": {
 					"main": "Default radio buttons",
@@ -226,7 +246,9 @@
 			{
 				"field": {
 					"type": "radio-round",
-					"aria": "disabed-radio-round-group-title"
+					"aria": {
+						"label": "disabed-radio-round-group-title"
+					}
 				},
 				"title": {
 					"main": "Disabled radio buttons"
@@ -251,7 +273,10 @@
 				"optional": true,
 				"field": {
 					"type": "toggle",
-					"aria": "toggle-group-title"
+					"aria": {
+						"label": "toggle-group-title",
+						"info": "toggle-group-info"
+					}
 				},
 				"title": {
 					"main": "Default toggle checkboxes",
@@ -276,7 +301,10 @@
 				"optional": true,
 				"field": {
 					"type": "toggle",
-					"aria": "inverse-toggle-group-title"
+					"aria": {
+						"label": "inverse-toggle-group-title",
+						"info": "inverse-toggle-group-info"
+					}
 				},
 				"title": {
 					"main": "Inverse checkboxes",

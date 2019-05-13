@@ -5,7 +5,9 @@
 			"optional": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "radio-box-group-title",
+				"aria": {
+					"label": "radio-box-group-title"
+				},
 				"modifiers": [ "demo-radio" ]
 			},
 			"title": {
@@ -27,7 +29,7 @@
 		},
 		{
 			"anchor": true,
-			"modifiers": [ "demo-anchor" ],
+			"modifiers": [ "demo-pseudo-radio-link" ],
 			"inputs": [
 				{
 					"value": "Anchor Link A",
@@ -44,7 +46,10 @@
 			"radioBox": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "radio-box-group-title",
+				"aria": {
+					"label": "radio-box-group-title",
+					"info": "radio-box-group-info"
+				},
 				"modifiers": [ "demo-radio" ]
 			},
 			"title": {
@@ -69,7 +74,7 @@
 		},
 		{
 			"anchor": true,
-			"modifiers": [ "demo-anchor" ],
+			"modifiers": [ "demo-pseudo-radio-link" ],
 			"inputs": [
 				{
 					"value": "Grid Link",

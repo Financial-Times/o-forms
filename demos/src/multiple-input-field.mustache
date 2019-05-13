@@ -1,11 +1,12 @@
 {{#variants}}
 
 {{#anchor}}
-	<div class="o-forms-input o-forms-input--pseudo-radio-box {{#modifiers}}o-forms-input--{{.}}{{/modifiers}}">
+	<div class="o-forms-input o-forms-input--pseudo-radio-link {{#modifiers}}o-forms-input--{{.}}{{/modifiers}}">
 		{{#inputs}}
-			<a class="o-forms__anchor
-					{{#current}} o-forms__anchor--current{{/current}}
-					{{#icon}} o-forms__anchor__{{.}}-icon{{/icon}}" href={{href}}>{{value}}</a>
+			<a class="
+				o-forms-input__link
+				{{#current}} o-forms-input__link--current{{/current}}
+				{{#icon}} o-forms-input__link--{{.}}-icon{{/icon}}" href={{href}}>{{value}}</a>
 		{{/inputs}}
 	</div>
 {{/anchor}}
@@ -18,12 +19,15 @@
 		{{#inline-field}} o-forms-field--inline{{/inline-field}}
 		{{#inverse}} o-forms-field--inverse{{/inverse}}
 		{{#optional}} o-forms-field--optional{{/optional}}
-		" role="group" aria-labelledby="{{field.aria}}">
+		{{#custom}} demo-custom-radio-theme{{/custom}}" 
+		role="group" 
+		aria-labelledby="{{field.aria.label}}"
+		aria-describedby="{{field.aria.info}}">
 		
 		<span	class="o-forms-title" aria-hidden="true">
-			<span class="o-forms-title__main" id="{{field.aria}}">{{title.main}}</span>
+			<span class="o-forms-title--main" id="{{field.aria.label}}">{{title.main}}</span>
 			{{#title.prompt}}
-				<span class="o-forms-title__prompt">{{.}}</span>
+				<span class="o-forms-title--prompt" id={{field.aria.info}}>{{.}}</span>
 			{{/title.prompt}}
 		</span>
 

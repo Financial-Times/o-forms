@@ -5,7 +5,10 @@
 			"optional": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "radio-box-group-title"
+				"aria": {
+					"label": "radio-box-group-title",
+					"info": "radio-box-group-info"
+				}
 			},
 			"title": {
 				"main": "Box style radio buttons",
@@ -29,7 +32,10 @@
 			"radioBox": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "negative-radio-box-group-title",
+				"aria": {
+					"label": "negative-radio-box-group-title",
+					"info": "negative-radio-box-group-info"
+				},
 				"modifiers": ["inline"]
 			},
 			"title": {
@@ -55,7 +61,9 @@
 			"radioBox": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "multiple-radio-box-group-title"
+				"aria": {
+					"label": "multiple-radio-box-group-title"
+				}
 			},
 			"title": {
 				"main": "Multiple box-styled radio buttons"
@@ -83,7 +91,9 @@
 			"radioBox": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "disabed-radio-box-group-title"
+				"aria": {
+					"label": "disabed-radio-box-group-title"
+				}
 			},
 			"title": {
 				"main": "Disabled box-styled radio buttons"
@@ -108,7 +118,9 @@
 			"radioBox": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "error-radio-box-group-title",
+				"aria": {
+					"label": "error-radio-box-group-title"
+				},
 				"error": "Please select an option",
 				"modifiers": [ "invalid" ]
 			},
@@ -133,7 +145,9 @@
 			"inline-field": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "inline-radio-box-group-title",
+				"aria": {
+					"label": "inline-radio-box-group-title"
+				},
 				"modifiers": ["inline"],
 				"state": true
 			},
@@ -160,7 +174,10 @@
 			"inline-field": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "saving-state-group-title",
+				"aria": {
+					"label": "saving-state-group-title",
+					"info": "saving-state-group-info"
+				},
 				"modifiers": ["saving"],
 				"state": true
 			},
@@ -187,7 +204,9 @@
 			"inline-field": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "saved-state-group-title",
+				"aria": {
+					"label": "saved-state-group-title"
+				},
 				"modifiers": ["saved", "inline"],
 				"state": true
 			},
@@ -213,7 +232,10 @@
 			"inline-field": true,
 			"field": {
 				"type": "radio-box",
-				"aria": "saving-state-group-title",
+				"aria": {
+					"label": "saving-state-group-title",
+					"info": "saving-state-group-info"
+				},
 				"modifiers": [ "saving", "inline" ],
 				"state": true,
 				"icon": true

@@ -29,8 +29,8 @@ $custom-theme: (
 $icon-list: ('grid', 'list');
 
 @include oFormsAddCustom(
-	$input: 'anchor',
-	$class: 'demo-anchor',
+	$input: 'pseudo-radio-link',
+	$class: 'demo-pseudo-radio-link',
 	$icons: $icon-list,
 	$theme: $custom-theme
 );

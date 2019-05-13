@@ -4,7 +4,10 @@
 			"optional": true,
 			"field": {
 				"type": "checkbox",
-				"aria": "checkbox-group-title"
+				"aria": {
+					"label": "checkbox-group-title",
+					"info": "checkbox-group-info"
+				}
 			},
 			"title": {
 				"main": "Stacked checkboxes",
@@ -33,7 +36,9 @@
 		{
 			"field": {
 				"type": "checkbox",
-				"aria": "disabed-checkbox-group-title"
+				"aria": {
+					"label": "disabed-checkbox-group-title"
+				}
 			},
 			"title": {
 				"main": "Disabled checkboxes"
@@ -57,7 +62,9 @@
 		{
 			"field": {
 				"type": "checkbox",
-				"aria": "error-checkbox-group-title",
+				"aria": {
+					"label": "error-checkbox-group-title"
+				},
 				"error": "Please select at least one option",
 				"modifiers": [ "invalid" ]
 			},
@@ -80,7 +87,9 @@
 		{
 			"field": {
 				"type": "checkbox",
-				"aria": "inline-checkbox-group-title",
+				"aria": {
+					"label": "inline-checkbox-group-title"
+				},
 				"modifiers": [
 					"inline"
 				]
@@ -111,7 +120,9 @@
 			"inline-field": true,
 			"field": {
 				"type": "checkbox",
-				"aria": "inline-field-checkbox-group-title",
+				"aria": {
+					"label": "inline-field-checkbox-group-title"
+				},
 				"modifiers": [ "inline" ]
 			},
 			"title": {
@@ -135,7 +146,9 @@
 			"inline-field": true,
 			"field": {
 				"type": "checkbox",
-				"aria": "inline-field-checkbox-group-title"
+				"aria": {
+					"label": "inline-field-checkbox-group-title"
+				}
 			},
 			"title": {
 				"main": "Inline field and stacked checkboxes"
@@ -163,7 +176,10 @@
 		{
 			"field": {
 				"type": "checkbox",
-				"aria": "password-checkbox-group-title",
+				"aria": {
+					"label": "password-checkbox-group-title",
+					"info": "password-checkbox-group-info"
+				},
 				"modifiers": [ "password" ]
 			},
 			"title": {
@@ -186,7 +202,10 @@
 		{
 			"field": {
 				"type": "checkbox",
-				"aria": "extra-content-checkbox-group-title"
+				"aria": {
+					"label": "extra-content-checkbox-group-title",
+					"info": "extra-content-checkbox-group-info"
+				}
 			},
 			"title": {
 				"main": "Checkboxes with extra content",

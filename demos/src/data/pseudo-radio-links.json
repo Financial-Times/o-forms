@@ -4,12 +4,12 @@
 			"anchor": true,
 			"inputs": [
 				{
-					"value": "Anchor Link A",
+					"value": "Link A",
 					"href": "#",
 					"current": true
 				},
 				{
-					"value": "Anchor Link B",
+					"value": "Link B",
 					"href": "#"
 				}
 			]
