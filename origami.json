@@ -1,5 +1,6 @@
 {
-	"description": "These components are used as the building blocks for creating all types of forms. These forms should be able to be used on all devices ie desktop, mobile and tablet.",
+	"description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
+	"keywords: [ "form", "input", "field", "fieldset", "submit" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
