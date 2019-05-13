@@ -21,13 +21,15 @@
 		{{#optional}} o-forms-field--optional{{/optional}}
 		{{#custom}} demo-custom-radio-theme{{/custom}}" 
 		role="group" 
-		aria-labelledby="{{field.aria.label}}"
-		aria-describedby="{{field.aria.info}}">
+		{{#field.aria}}
+			aria-labelledby="{{label}}"
+			{{#info}}aria-describedby="{{info}}"{{/info}}
+		{{/field.aria}}>
 		
 		<span	class="o-forms-title" aria-hidden="true">
 			<span class="o-forms-title__main" id="{{field.aria.label}}">{{title.main}}</span>
 			{{#title.prompt}}
-				<span class="o-forms-title__prompt" id={{field.aria.info}}>{{.}}</span>
+				<span class="o-forms-title__prompt" {{#field.aria.info}} id={{field.aria.info}} {{/field.aria.info}}>{{.}}</span>
 			{{/title.prompt}}
 		</span>
 

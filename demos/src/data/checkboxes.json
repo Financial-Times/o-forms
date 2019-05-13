@@ -121,7 +121,7 @@
 			"field": {
 				"type": "checkbox",
 				"aria": {
-					"label": "inline-field-checkbox-group-title"
+					"label": "inline-field-inline-checkbox-group-title"
 				},
 				"modifiers": [ "inline" ]
 			},
@@ -189,6 +189,7 @@
 			"inputs": [
 				{
 					"type": "password",
+					"name": "password",
 					"value": "password"
 				},
 				{
