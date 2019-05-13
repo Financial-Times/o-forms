@@ -15,7 +15,6 @@
 		"slack": "financialtimes/ft-origami"
 	},
 	"supportStatus": "active",
-	"keywords": "tickbox radio input checkbox error",
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-forms"
 	},
