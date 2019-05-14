@@ -31,8 +31,8 @@
 	
 					&:before,
 					&:after {
-						right: 0;
-						left: unset;
+						// right: 0;
+						left: calc(100% - #{$_o-forms-spacing-six});
 					}
 				}
 			}

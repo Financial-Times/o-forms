@@ -15,7 +15,8 @@
 			.o-forms-title {
 				flex: 0 1 50%;
 				margin-right: $_o-forms-spacing-three;
-				
+				box-sizing: border-box;
+
 				&.o-forms-title--shrink {
 					flex-basis: auto;
 				}
