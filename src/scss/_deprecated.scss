@@ -19,7 +19,7 @@
 
 /// Standard Input Colours
 @include oColorsSetUseCase(o-forms-field-standard, text, 'black-80');
-@include oColorsSetUseCase(o-forms-field-standard, border, 'black-30');
+@include oColorsSetUseCase(o-forms-field-standard, border, 'black-50');
 @include oColorsSetUseCase(o-forms-field-standard, background, 'white');
 @include oColorsSetUseCase(o-forms-field-standard, _deprecated, 'Please contact Origami if you need this usecase.');
 @include oColorsSetUseCase(o-forms-field-placholder, text, 'black-60');
@@ -53,7 +53,7 @@
 
 /// Radios Styled As Buttons Colours
 @include oColorsSetUseCase(o-forms-radio-buttons-styled, text, 'teal');
-@include oColorsSetUseCase(o-forms-radio-buttons-styled, border, 'black-30');
+@include oColorsSetUseCase(o-forms-radio-buttons-styled, border, 'black-50');
 @include oColorsSetUseCase(o-forms-radio-buttons-styled, _deprecated, 'Please contact Origami if you need this usecase.');
 @include oColorsSetUseCase(o-forms-radio-buttons-styled-checked, text, 'white');
 @include oColorsSetUseCase(o-forms-radio-buttons-styled-checked, background, 'teal');
