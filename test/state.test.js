@@ -71,8 +71,8 @@ describe('State', () => {
 		});
 
 		it('`saved` state with custom label', () => {
-			state.set('saving', 'sent');
-			proclaim.isTrue(stateClass('loading'));
+			state.set('saved', 'sent');
+			proclaim.isTrue(stateClass('success'));
 			proclaim.equal(getStateText(), 'sent');
 		});
 
