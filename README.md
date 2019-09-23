@@ -237,7 +237,7 @@ This input type also accepts a 'negative' modifier `o-forms-input__label--negati
 </div>
 ```
 
-Box style radio buttons may also support saving and saved states with modifier classes `loading` and `success`, with an added `o-forms-input__state-label` and `o-forms-input__state-label` element.
+Box style radio buttons may also support saving and saved states. Add a modifier classes `o-forms-input--loading` or `o-forms-input--success`, and the `o-forms-input__state-label` element with your copy.
 
 _We recommend using the [setState method](#state) instead of adding this markup manually._
 
@@ -499,7 +499,7 @@ It accepts four arguments:
 	- `'controls-negative-checked-background'`: the background color for a 'negative' checked input
 
 ```scss
-@include oFormsAddCustom({
+@include oFormsAddCustom((
 	$input: 'radio',
 	$modifier: 'my-theme', // outputs the class 'o-forms-input--my-theme',
 	$icons: 'burger'
@@ -508,7 +508,7 @@ It accepts four arguments:
 		controls-checked-base: 'white',
 		controls-negative-checked-background: 'claret-30'
 	)
-})
+));
 ```
 
 ## Accessibility
