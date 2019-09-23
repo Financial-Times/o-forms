@@ -2,6 +2,8 @@ class State {
 	/**
 	* Class constructor.
 	* @param {RadioNodeList} [inputs] - A NodeList of radio input elements
+	 * @param {Boolean|Object} opts - an object of options
+	 * @param {String} options.iconOnly [null] - when true display an icon only, hiding the status label
 	*/
 	constructor(inputs, opts) {
 		let radioInputs = inputs instanceof RadioNodeList;
@@ -18,8 +20,8 @@ class State {
 		}, opts);
 
 		this.className = {
-			saving: 'o-forms-input--saving',
-			saved: 'o-forms-input--saved'
+			saving: 'o-forms-input--loading',
+			saved: 'o-forms-input--success'
 		};
 	}
 
@@ -29,6 +31,8 @@ class State {
 	*/
 	_generateStateEl() {
 		this.stateEl = document.createElement('span');
+		this.stateElLabel = document.createElement('span');
+		this.stateEl.appendChild(this.stateElLabel);
 		let classNames = this.opts.iconOnly ? ['o-forms-input__state', 'o-forms-input__state--icon-only'] : ['o-forms-input__state'];
 		 this.stateEl.classList.add(...classNames);
 		this.parent.append(this.stateEl);
@@ -36,17 +40,18 @@ class State {
 
 	/**
 	* State setter
-	* @param {String} [state] type of state to display
+	* @param {String} state type of state to display
+	* @param {String} label customise the label of the state, e.g. the saved state defaults to "Saving" but could be "Sent"
 	*/
-	set(state) {
+	set(state, label) {
 		if (!this.stateEl) {
 			this._generateStateEl();
 		}
 
 		if (state === 'saving') {
-			this._saving();
+			this._saving(label);
 		} else if (state === 'saved') {
-			this._saved();
+			this._saved(label);
 		} else if (state === 'none') {
 			this._remove();
 		} else {
@@ -58,7 +63,9 @@ class State {
 	* Saving state
 	* @access private
 	*/
-	_saving() {
+	_saving(label) {
+		this.stateElLabel.textContent = label || 'Saving';
+		this.parent.classList.remove(this.className.saved);
 		this.parent.classList.add(this.className.saving);
 	}
 
@@ -66,8 +73,10 @@ class State {
 	* Saved state
 	* @access private
 	*/
-	_saved() {
-		this.parent.classList.replace(this.className.saving, this.className.saved);
+	_saved(label) {
+		this.stateElLabel.textContent = label || 'Saved';
+		this.parent.classList.remove(this.className.saving);
+		this.parent.classList.add(this.className.saved);
 	}
 
 	/**
@@ -75,6 +84,7 @@ class State {
 	* @access private
 	*/
 	_remove() {
+		this.parent.classList.remove(this.className.saving);
 		this.parent.classList.remove(this.className.saved);
 		this.parent.removeChild(this.stateEl);
 		this.stateEl = null;

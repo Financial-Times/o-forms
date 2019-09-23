@@ -148,8 +148,7 @@
 				"aria": {
 					"label": "inline-radio-box-group-title"
 				},
-				"modifiers": ["inline"],
-				"state": true
+				"modifiers": ["inline"]
 			},
 			"title": {
 				"main": "V-centered inline radio box",
@@ -178,8 +177,8 @@
 					"label": "saving-state-group-title",
 					"info": "saving-state-group-info"
 				},
-				"modifiers": ["saving"],
-				"state": true
+				"modifiers": ["loading"],
+				"state": "Saving"
 			},
 			"title": {
 				"main": "Inline box-style radio buttons",
@@ -207,8 +206,8 @@
 				"aria": {
 					"label": "saved-state-group-title"
 				},
-				"modifiers": ["saved", "inline"],
-				"state": true
+				"modifiers": ["success", "inline"],
+				"state": "Saved"
 			},
 			"title": {
 				"main": "Inline saved state"
@@ -236,8 +235,8 @@
 					"label": "saving-state-group-title",
 					"info": "saving-state-group-info"
 				},
-				"modifiers": [ "saving", "inline" ],
-				"state": true,
+				"modifiers": [ "loading", "inline" ],
+				"state": "Saving",
 				"icon": true
 			},
 			"title": {

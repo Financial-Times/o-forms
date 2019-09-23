@@ -8,8 +8,8 @@ let inputs = formEl.querySelectorAll('input[type="radio"]');
 for (let input of inputs) {
 	input.addEventListener('click', (e) => {
 		let name = e.target.name;
-		form.setState('saving', name);
-		setTimeout(() => form.setState('saved', name), 400);
+		form.setState('saving', name, { iconLabel: 'pretend saving'});
+		setTimeout(() => form.setState('saved', name, { iconLabel: 'pretend saved'}), 400);
 		setTimeout(() => form.setState('none', name), 1000);
 	});
 }

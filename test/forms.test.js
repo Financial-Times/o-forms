@@ -119,19 +119,19 @@ describe('Forms', () => {
 
 		it('`saving` to named input', () => {
 			form.setState('saving', name);
-			proclaim.isTrue(parentClass(radioInputs[0], 'saving'));
+			proclaim.isTrue(parentClass(radioInputs[0], 'loading'));
 		});
 
 		it('`saved` to named input', () => {
 			form.setState('saved', name);
-			proclaim.isFalse(parentClass(radioInputs[0], 'saving'));
-			proclaim.isTrue(parentClass(radioInputs[0], 'saved'));
+			proclaim.isFalse(parentClass(radioInputs[0], 'loading'));
+			proclaim.isTrue(parentClass(radioInputs[0], 'success'));
 		});
 
 		it('`none` to named input', () => {
 			form.setState('none', name);
-			proclaim.isFalse(parentClass(radioInputs[0], 'saving'));
-			proclaim.isFalse(parentClass(radioInputs[0], 'saved'));
+			proclaim.isFalse(parentClass(radioInputs[0], 'loading'));
+			proclaim.isFalse(parentClass(radioInputs[0], 'success'));
 		});
 	});
 

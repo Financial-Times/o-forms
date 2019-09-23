@@ -36,34 +36,50 @@ describe('State', () => {
 
 	context('.set()', () => {
 		let stateClass;
+		let getStateText;
 
-		before(() => {
+		beforeEach(() => {
 			document.body.innerHTML = formFixture;
 			form = document.forms[0];
 			nodeList = form.elements['radioBox'];
 			state = new State(nodeList);
 			stateClass = (state) => nodeList[0].closest('.o-forms-input').classList.contains(`o-forms-input--${state}`);
+			getStateText = () => nodeList[0].closest('.o-forms-input').querySelector('.o-forms-input__state').textContent;
 		});
 
-		after(() => {
+		afterEach(() => {
 			document.body.innerHTML = null;
 		});
 
 		it('`saving` state', () => {
 			state.set('saving');
-			proclaim.isTrue(stateClass('saving'));
+			proclaim.isTrue(stateClass('loading'));
+			proclaim.equal(getStateText(), 'Saving');
+		});
+
+		it('`saving` state with custom label', () => {
+			state.set('saving', 'sending');
+			proclaim.isTrue(stateClass('loading'));
+			proclaim.equal(getStateText(), 'sending');
 		});
 
 		it('`saved` state', () => {
 			state.set('saved');
-			proclaim.isFalse(stateClass('saving'));
-			proclaim.isTrue(stateClass('saved'));
+			proclaim.isFalse(stateClass('loading'));
+			proclaim.isTrue(stateClass('success'));
+			proclaim.equal(getStateText(), 'Saved');
+		});
+
+		it('`saved` state with custom label', () => {
+			state.set('saving', 'sent');
+			proclaim.isTrue(stateClass('loading'));
+			proclaim.equal(getStateText(), 'sent');
 		});
 
 		it('`none` state', () => {
 			state.set('none');
-			proclaim.isFalse(stateClass('saving'));
-			proclaim.isFalse(stateClass('saved'));
+			proclaim.isFalse(stateClass('loading'));
+			proclaim.isFalse(stateClass('success'));
 		});
 	});
 

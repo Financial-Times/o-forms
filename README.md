@@ -236,6 +236,57 @@ This input type also accepts a 'negative' modifier `o-forms-input__label--negati
 	</span>
 </div>
 ```
+
+Box style radio buttons may also support saving and saved states with modifier classes `loading` and `success`, with an added `o-forms-input__state-label` and `o-forms-input__state-label` element.
+
+_We recommend using the [setState method](#state) instead of adding this markup manually._
+
+```diff
+<div class="o-forms-field">
+	...
+-	<span class="o-forms-input o-forms-input--radio-box">
++	<span class="o-forms-input o-forms-input--radio-box o-forms-input--loading">
+		<div class="o-forms-input--radio-box__container">
+			<label>
+				<input type="radio" name="negative" value="Yes">
+				<span class="o-forms-input__label">Yes</span>
+			</label>
+			<label>
+				<input type="radio" name="negative" value="No"checked>
+				<span class="o-forms-input__label o-forms-input__label--negative">No</span>
+			</label>
+		</div>
++		<span class="o-forms-input__state">
++			<span class="o-forms-input__state-label">Saving</span>
++		</span>
+	</span>
+</div>
+```
+
+Previously `o-forms-input--loading` was `o-forms-input--saving` and `o-forms-input--success` was `o-forms-input--saved`. These are now deprecated. They included the state label via CSS which can not be customised or localised reliably.
+
+_This example is deprecated. Use the above markup or the [setState method](#state) instead._
+
+```diff
+<div class="o-forms-field">
+	...
+-	<span class="o-forms-input o-forms-input--radio-box">
++	<span class="o-forms-input o-forms-input--radio-box o-forms-input--saving">
+		<div class="o-forms-input--radio-box__container">
+			<label>
+				<input type="radio" name="negative" value="Yes">
+				<span class="o-forms-input__label">Yes</span>
+			</label>
+			<label>
+				<input type="radio" name="negative" value="No"checked>
+				<span class="o-forms-input__label o-forms-input__label--negative">No</span>
+			</label>
+		</div>
++		<span class="o-forms-input__state"></span>
+	</span>
+</div>
+```
+
 [_See the full markup for a box-style radio button in the registry_](https://registry.origami.ft.com/components/o-forms#radio-box)
 
 #### `input[type=checkbox]`
@@ -507,11 +558,10 @@ new Input(myInputEl);
 ### State
 `o-forms` offers the ability to display a 'saving' or 'saved' state. However, currently the only input that accepts state is the [box-styled `input[type=radio]`](#inputtyperadio-box). If you would like to apply state to any other input, please [get in touch with the team](#contact).
 
-`o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method that allows the project to control this (shown below).
+`o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method `setState` that allows the project to control this.
 
-In order to set up a state, you'll need to use a method on an existing form instance.
+The `setState` method accepts three arguments: the state, name, and label. State can be one of 'saving', 'saved' or 'none'. 'none' removes any state from the input. The name argument must be the name of the inputs that will be recieving the state. Label is used in the user interface to describe the state. Label is optional and defaults to 'Saving' for the saving state and 'Saved' for the saving state.
 
-This method accepts a state and a name argument. State can be one of 'saving', 'saved' or 'none', 'none' being responsible for removing the state from the input. The name argument must be the name of the inputs that will be recieving the state. For example:
 ```html
 <form data-o-component="o-forms">
 	...
@@ -526,6 +576,7 @@ This method accepts a state and a name argument. State can be one of 'saving', '
 	...
 </form>
 ```
+
 ```js
 import oForms from 'o-forms';
 let myForm = oForms.init();
@@ -533,12 +584,22 @@ let myForm = oForms.init();
 myForm.setState('saving', 'my-radio-box');
 ```
 
-You also have the option of displaying state as an icon without text. In order to do this, you can call the method above with an extra argument:
+To change the saving label pass a third argument, e.g. to update the label from "Saving" to "Sending":
 
-```js
-myForm.setState('saving', 'my-radio-box', iconOnly: true);
+```diff
+-myForm.setState('saving', 'my-radio-box');
++myForm.setState('saving', 'my-radio-box', {
++	iconLabel: 'Sending'
++});
 ```
 
+You also have the option of displaying state as an icon without text. In order to do this, you can call the method above with an extra options argument:
+
+```js
+myForm.setState('saving', 'my-radio-box', {
+	iconOnly: true
+});
+```
 
 ## Migration
 
