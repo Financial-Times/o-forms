@@ -283,7 +283,7 @@ To show no state label add the `o-forms-input__state--icon-only` modifier class.
 </div>
 ```
 
-If you would like custom copy for the "saving" or "saved" state put in within the `o-forms-input__state` element, and add the modifier class `o-forms-input__state--custom`. _We recommend setting a custom label using the [setState method](#state) JS method instead of adding this markup manually._
+If you would like custom copy for the "saving" or "saved" state put it within the `o-forms-input__state` element, and add the modifier class `o-forms-input__state--custom`. _We recommend setting a custom label using the [setState method](#state) JS method instead of adding this markup manually._
 
 ```diff
 <div class="o-forms-field">
