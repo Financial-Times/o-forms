@@ -139,6 +139,7 @@ class Forms {
 		// Handle deprecated interface.
 		// setState(state, name, iconOnly)
 		if (typeof options === 'boolean') {
+			console.warn('The `setState` method accepting a boolean third argument has been deprecated and will be removed in a later version. Please use an options object with a boolean `iconOnly` property instead.');
 			options = {
 				iconOnly: options
 			};
