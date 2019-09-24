@@ -136,7 +136,7 @@ class Forms {
 	 * @param {Boolean} options.iconOnly [false] - when true display an icon only, hiding the status label
 	 */
 	setState(state, name, options = { iconLabel: null, iconOnly: false }) {
-		// Handle deprecated interface.
+		// @deprecated: this condition handles the deprecated use of a boolean third argument
 		// setState(state, name, iconOnly)
 		if (typeof options === 'boolean') {
 			console.warn('The `setState` method accepting a boolean third argument has been deprecated and will be removed in a later version. Please use an options object with a boolean `iconOnly` property instead.');
