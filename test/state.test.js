@@ -53,33 +53,31 @@ describe('State', () => {
 
 		it('`saving` state', () => {
 			state.set('saving');
-			proclaim.isTrue(stateClass('loading'));
-			proclaim.equal(getStateText(), 'Saving');
+			proclaim.isTrue(stateClass('saving'));
 		});
 
 		it('`saving` state with custom label', () => {
 			state.set('saving', 'sending');
-			proclaim.isTrue(stateClass('loading'));
+			proclaim.isTrue(stateClass('saving'));
 			proclaim.equal(getStateText(), 'sending');
 		});
 
 		it('`saved` state', () => {
 			state.set('saved');
-			proclaim.isFalse(stateClass('loading'));
-			proclaim.isTrue(stateClass('success'));
-			proclaim.equal(getStateText(), 'Saved');
+			proclaim.isFalse(stateClass('saving'));
+			proclaim.isTrue(stateClass('saved'));
 		});
 
 		it('`saved` state with custom label', () => {
 			state.set('saved', 'sent');
-			proclaim.isTrue(stateClass('success'));
+			proclaim.isTrue(stateClass('saved'));
 			proclaim.equal(getStateText(), 'sent');
 		});
 
 		it('`none` state', () => {
 			state.set('none');
-			proclaim.isFalse(stateClass('loading'));
-			proclaim.isFalse(stateClass('success'));
+			proclaim.isFalse(stateClass('saving'));
+			proclaim.isFalse(stateClass('saved'));
 		});
 	});
 

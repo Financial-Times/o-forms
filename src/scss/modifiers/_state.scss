@@ -6,28 +6,38 @@
 		// the custom line-height aligns them as closely as possible (with minimal style changes)
 		@include oTypographySize($scale: -1, $line-height: 1.75);
 		color: inherit;
-		display: block;
+		display: flex;
+		align-items: center;
 
-		> .o-forms-input__state-label,
 		&:before,
 		&:after {
 			content: '';
-			vertical-align: middle;
 		}
 	}
 
-	.o-forms-input__state--icon-only .o-forms-input__state-label,
 	.o-forms-input__state--icon-only:after {
 		@include oNormaliseVisuallyHidden;
 	}
 
-	// Generic loading (for custom copy) and saving status styles.
-	.o-forms-input--loading,
+	// Hide pseudo element text for saving and saved status.
+	// So the user can provide custom copy.
+	// E.g. they may chooise "Sent" instead of "Saved",
+	// or need to localise the copy.
+	.o-forms-input__state--custom:after {
+		display: none;
+	}
+
+	// Saving status styles.
 	.o-forms-input--saving {
 		display: block;
 
+
 		.o-forms-input__state {
 			padding: 0;
+
+			&:after {
+				content: 'Saving';
+			}
 
 			&:before {
 				@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
@@ -36,54 +46,26 @@
 		}
 	}
 
-	// Generic success (for custom copy) and saved status styles.
-	.o-forms-input--success,
+	// Saved status styles.
 	.o-forms-input--saved {
 		display: block;
+		color: _oFormsGet('valid-base');
 
 		.o-forms-input__state {
 			margin-left: -$_o-forms-spacing-one;
 
-			&:after,
-			> .o-forms-input__state-label {
-				color: _oFormsGet('valid-base');
+			&:after {
+				content: 'Saved';
 			}
 
 			&:before {
 				@include oIconsGetIcon('tick', _oFormsGet('valid-base'), $_o-forms-spacing-seven);
-				vertical-align: middle;
-				padding: 0;
 			}
-		}
-	}
-
-	// Hide label copy for saving and saved status.
-	// Copy is provided with a pseudo element.
-	.o-forms-input--saved,
-	.o-forms-input--saving {
-		.o-forms-input__state > .o-forms-input__state-label {
-			display: none;
-		}
-	}
-
-	// Saving status copy.
-	.o-forms-input--saving {
-		.o-forms-input__state:after {
-			content: 'Saving';
-		}
-	}
-
-	// Saved status copy.
-	.o-forms-input--saved {
-		.o-forms-input__state:after {
-			content: 'Saved';
 		}
 	}
 
 	@include oGridRespondTo(S) {
 		.o-forms-input--inline {
-			&.o-forms-input--loading,
-			&.o-forms-input--success,
 			&.o-forms-input--saving,
 			&.o-forms-input--saved {
 				flex-direction: row-reverse;
@@ -98,12 +80,10 @@
 				}
 			}
 
-			&.o-forms-input--loading .o-forms-input__state,
 			&.o-forms-input--saving .o-forms-input__state {
 				padding: 0 $_o-forms-spacing-three;
 			}
 
-			&.o-forms-input--success .o-forms-input__state,
 			&.o-forms-input--saved .o-forms-input__state {
 				padding: 0 $_o-forms-spacing-three 0 $_o-forms-spacing-two;
 			}

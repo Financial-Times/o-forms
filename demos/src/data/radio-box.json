@@ -177,7 +177,7 @@
 					"label": "saving-state-group-title",
 					"info": "saving-state-group-info"
 				},
-				"modifiers": ["loading"],
+				"modifiers": ["saving"],
 				"state": "Saving"
 			},
 			"title": {
@@ -206,7 +206,7 @@
 				"aria": {
 					"label": "saved-state-group-title"
 				},
-				"modifiers": ["success", "inline"],
+				"modifiers": ["saved", "inline"],
 				"state": "Saved"
 			},
 			"title": {
@@ -235,7 +235,7 @@
 					"label": "saving-state-group-title",
 					"info": "saving-state-group-info"
 				},
-				"modifiers": [ "loading", "inline" ],
+				"modifiers": [ "saving", "inline" ],
 				"state": "Saving",
 				"icon": true
 			},

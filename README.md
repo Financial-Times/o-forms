@@ -237,35 +237,9 @@ This input type also accepts a 'negative' modifier `o-forms-input__label--negati
 </div>
 ```
 
-Box style radio buttons may also support saving and saved states. Add a modifier classes `o-forms-input--loading` or `o-forms-input--success`, and the `o-forms-input__state-label` element with your copy.
+Box style radio buttons may also support saving and saved states. Add a modifier classes `o-forms-input--saving` or `o-forms-input--saved`, and the `o-forms-input__state` element.
 
 _We recommend using the [setState method](#state) instead of adding this markup manually._
-
-```diff
-<div class="o-forms-field">
-	...
--	<span class="o-forms-input o-forms-input--radio-box">
-+	<span class="o-forms-input o-forms-input--radio-box o-forms-input--loading">
-		<div class="o-forms-input--radio-box__container">
-			<label>
-				<input type="radio" name="negative" value="Yes">
-				<span class="o-forms-input__label">Yes</span>
-			</label>
-			<label>
-				<input type="radio" name="negative" value="No"checked>
-				<span class="o-forms-input__label o-forms-input__label--negative">No</span>
-			</label>
-		</div>
-+		<span class="o-forms-input__state">
-+			<span class="o-forms-input__state-label">Saving</span>
-+		</span>
-	</span>
-</div>
-```
-
-Previously `o-forms-input--loading` was `o-forms-input--saving` and `o-forms-input--success` was `o-forms-input--saved`. These are now deprecated. They included the state label via CSS which can not be customised or localised reliably.
-
-_This example is deprecated. Use the above markup or the [setState method](#state) instead._
 
 ```diff
 <div class="o-forms-field">
@@ -283,6 +257,53 @@ _This example is deprecated. Use the above markup or the [setState method](#stat
 			</label>
 		</div>
 +		<span class="o-forms-input__state"></span>
+	</span>
+</div>
+```
+
+To show no state label add the `o-forms-input__state--icon-only` modifier class.
+```diff
+<div class="o-forms-field">
+	...
+-	<span class="o-forms-input o-forms-input--radio-box">
++	<span class="o-forms-input o-forms-input--radio-box o-forms-input--saving">
+		<div class="o-forms-input--radio-box__container">
+			<label>
+				<input type="radio" name="negative" value="Yes">
+				<span class="o-forms-input__label">Yes</span>
+			</label>
+			<label>
+				<input type="radio" name="negative" value="No"checked>
+				<span class="o-forms-input__label o-forms-input__label--negative">No</span>
+			</label>
+		</div>
+-		<span class="o-forms-input__state"></span>
++		<span class="o-forms-input__state o-forms-input__state--icon-only"></span>
+	</span>
+</div>
+```
+
+If you would like custom copy for the "saving" or "saved" state put in within the `o-forms-input__state` element, and add the modifier class `o-forms-input__state--custom`. _We recommend setting a custom label using the [setState method](#state) JS method instead of adding this markup manually._
+
+```diff
+<div class="o-forms-field">
+	...
+-	<span class="o-forms-input o-forms-input--radio-box">
++	<span class="o-forms-input o-forms-input--radio-box o-forms-input--saving">
+		<div class="o-forms-input--radio-box__container">
+			<label>
+				<input type="radio" name="negative" value="Yes">
+				<span class="o-forms-input__label">Yes</span>
+			</label>
+			<label>
+				<input type="radio" name="negative" value="No"checked>
+				<span class="o-forms-input__label o-forms-input__label--negative">No</span>
+			</label>
+		</div>
+-		<span class="o-forms-input__state"></span>
++		<span class="o-forms-input__state o-forms-input__state--custom">
++			Processing
++		</span>
 	</span>
 </div>
 ```

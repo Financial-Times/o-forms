@@ -10,6 +10,6 @@ for (let input of inputs) {
 		let name = e.target.name;
 		form.setState('saving', name, { iconLabel: 'pretend saving'});
 		setTimeout(() => form.setState('saved', name, { iconLabel: 'pretend saved'}), 400);
-		setTimeout(() => form.setState('none', name), 1000);
+
 	});
 }

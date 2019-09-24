@@ -20,8 +20,8 @@ class State {
 		}, opts);
 
 		this.className = {
-			saving: 'o-forms-input--loading',
-			saved: 'o-forms-input--success'
+			saving: 'o-forms-input--saving',
+			saved: 'o-forms-input--saved'
 		};
 	}
 
@@ -31,8 +31,6 @@ class State {
 	*/
 	_generateStateEl() {
 		this.stateEl = document.createElement('span');
-		this.stateElLabel = document.createElement('span');
-		this.stateEl.appendChild(this.stateElLabel);
 		let classNames = this.opts.iconOnly ? ['o-forms-input__state', 'o-forms-input__state--icon-only'] : ['o-forms-input__state'];
 		 this.stateEl.classList.add(...classNames);
 		this.parent.append(this.stateEl);
@@ -64,9 +62,17 @@ class State {
 	* @access private
 	*/
 	_saving(label) {
-		this.stateElLabel.textContent = label || 'Saving';
+		// Remove other state classes.
 		this.parent.classList.remove(this.className.saved);
+		// Add saving state class.
 		this.parent.classList.add(this.className.saving);
+		// Add custom state label if given.
+		// Default label copy is added via the CSS `content` attribute.
+		this.stateEl.classList.toggle('o-forms-input__state--custom', Boolean(label));
+		this.stateEl.textContent = label && !this.opts.iconOnly ? label : '';
+		// When icon-only is set there is no copy when given a custom label so
+		// add an aria label.
+		this.stateEl.setAttribute('aria-label', label || 'Saving');
 	}
 
 	/**
@@ -74,9 +80,17 @@ class State {
 	* @access private
 	*/
 	_saved(label) {
-		this.stateElLabel.textContent = label || 'Saved';
+		// Remove other state classes.
 		this.parent.classList.remove(this.className.saving);
+		// Add saved state class.
 		this.parent.classList.add(this.className.saved);
+		// Add custom state label if given.
+		// Default label copy is added via the CSS `content` attribute.
+		this.stateEl.classList.toggle('o-forms-input__state--custom', Boolean(label));
+		this.stateEl.textContent = label && !this.opts.iconOnly ? label : '';
+		// When icon-only is set there is no copy when given a custom label so
+		// add an aria label.
+		this.stateEl.setAttribute('aria-label', label || 'Saved');
 	}
 
 	/**
