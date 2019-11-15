@@ -15,9 +15,9 @@
 		}
 
 		$theme: (
-			controls-base: oColorsGetPaletteColor(map-get($theme, 'controls-base')),
-			controls-checked-base: oColorsGetPaletteColor(map-get($theme, 'controls-checked-base')),
-			controls-negative-checked-background: oColorsGetPaletteColor(map-get($theme, 'controls-negative-checked-background'))
+			controls-base: oColorsByName(map-get($theme, 'controls-base')),
+			controls-checked-base: oColorsByName(map-get($theme, 'controls-checked-base')),
+			controls-negative-checked-background: oColorsByName(map-get($theme, 'controls-negative-checked-background'))
 		);
 	}
 
@@ -52,8 +52,8 @@
 		$element: 'label .o-forms-input__label.o-forms-input__label__#{$icon}-icon';
 	} @else {
 		$element: 'a.o-forms-input__link--#{$icon}-icon';
-	} 
-	
+	}
+
 	#{$element} {
 		padding-left: $_o-forms-spacing-six;
 		padding-right: $_o-forms-spacing-two;
@@ -70,22 +70,20 @@
 		}
 
 		&:before {
-			@include oIconsGetIcon(
+			@include oIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-base', $from: $theme),
-				$apply-base-styles: false,
-				$high-contrast-fallback: true,
-				$container-width: $_o-forms-spacing-six
+				$size: $_o-forms-spacing-six,
+				$include-base-styles: false
 			);
 		}
 
 		&:after {
-			@include oIconsGetIcon(
+			@include oIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-checked-base', $from: $theme),
-				$apply-base-styles: false,
-				$high-contrast-fallback: true,
-				$container-width: $_o-forms-spacing-six
+				$size: $_o-forms-spacing-six,
+				$include-base-styles: false
 			);
 			display: none;
 		}
@@ -99,7 +97,7 @@
 /// @param {Map|null} $theme Custom theme map
 @mixin oFormsAddCustom(
 	$input: null,
-	$class: null, 
+	$class: null,
 	$icons: null,
 	$theme: null
 ) {
