@@ -97,6 +97,63 @@ describe('Forms', () => {
 				proclaim.isNull(summary);
 			});
 		});
+
+		it('does not attempt to validate other o-forms on submit', () => {
+			// Add a second form.
+			const secondFormString = `
+				<form action="#" id="second-initialised-form">
+					<span class="o-forms-input o-forms-input--checkbox">
+						<label>
+							<input type="checkbox" name="my-checkbox"/>
+							<span class="o-forms-input__label">Checkbox 1</span>
+						</label>
+					</span>
+					<input class="o-buttons o-buttons--secondary" type="submit">
+				</form>
+			`;
+			const range = document.createRange();
+			const secondFormDocumentFragment = range.createContextualFragment(secondFormString);
+			document.body.appendChild(secondFormDocumentFragment)
+			const secondFormEl = document.getElementById('second-initialised-form');
+			// initialise the first form
+			const form = new Forms(formEl);
+			const formSpy = sinon.spy(form, 'validateFormInputs');
+			// initialise the second form
+			const secondForm = new Forms(secondFormEl);
+			const secondFormSpy = sinon.spy(secondForm, 'validateFormInputs');
+			// submit the first form
+			submit.click();
+			// the first form is validated, the second is not
+			proclaim.isTrue(formSpy.called, 'The first form was submitted but not validated.');
+			proclaim.isTrue(secondFormSpy.notCalled, 'The second form was not submitted but was validated.');
+		});
+
+		it('does not attempt to validate other uninitialised forms on submit', () => {
+			// Add a second form.
+			const secondFormString = `
+				<form action="#" id="second-form">
+					<span class="o-forms-input o-forms-input--checkbox">
+						<label>
+							<input type="checkbox" name="my-checkbox"/>
+							<span class="o-forms-input__label">Checkbox 1</span>
+						</label>
+					</span>
+					<input class="o-buttons o-buttons--secondary" type="submit">
+				</form>
+			`;
+			const range = document.createRange();
+			const secondFormDocumentFragment = range.createContextualFragment(secondFormString);
+			document.body.appendChild(secondFormDocumentFragment)
+			const secondFormEl = document.getElementById('second-form');
+			const secondFormSubmitEl = secondFormEl.querySelector('[type="submit"]');
+			// initialise the first form only
+			const form = new Forms(formEl);
+			const formSpy = sinon.spy(form, 'validateFormInputs');
+			// submit the second form
+			secondFormSubmitEl.click();
+			// the first form is not validated
+			proclaim.isTrue(formSpy.notCalled, 'The first form was validated even though it was not submitted.');
+		});
 	});
 
 	context('.setState()', () => {
