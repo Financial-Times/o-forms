@@ -113,7 +113,7 @@ describe('Forms', () => {
 			`;
 			const range = document.createRange();
 			const secondFormDocumentFragment = range.createContextualFragment(secondFormString);
-			document.body.appendChild(secondFormDocumentFragment)
+			document.body.appendChild(secondFormDocumentFragment);
 			const secondFormEl = document.getElementById('second-initialised-form');
 			// initialise the first form
 			const form = new Forms(formEl);
@@ -143,7 +143,7 @@ describe('Forms', () => {
 			`;
 			const range = document.createRange();
 			const secondFormDocumentFragment = range.createContextualFragment(secondFormString);
-			document.body.appendChild(secondFormDocumentFragment)
+			document.body.appendChild(secondFormDocumentFragment);
 			const secondFormEl = document.getElementById('second-form');
 			const secondFormSubmitEl = secondFormEl.querySelector('[type="submit"]');
 			// initialise the first form only
