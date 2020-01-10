@@ -70,14 +70,14 @@ describe('Forms', () => {
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
 				listItems = summary.querySelectorAll('a');
-				proclaim.equal(listItems.length, 4);
+				proclaim.equal(listItems.length, 2);
 			});
 
 			it('the summary gets updated on second submit if a form field has been amended', () => {
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
 				listItems = summary.querySelectorAll('a');
-				proclaim.equal(listItems.length, 4);
+				proclaim.equal(listItems.length, 2);
 
 				textInput = formEl.elements['text'];
 				textInput.value = 'something';
@@ -85,7 +85,7 @@ describe('Forms', () => {
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
 				listItems = summary.querySelectorAll('a');
-				proclaim.equal(listItems.length, 3);
+				proclaim.equal(listItems.length, 1);
 			});
 
 			it('does not error if there is no field title for an input', () => {
