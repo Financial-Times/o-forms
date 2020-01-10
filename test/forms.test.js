@@ -102,12 +102,15 @@ describe('Forms', () => {
 			// Add a second form.
 			const secondFormString = `
 				<form action="#" id="second-initialised-form">
-					<span class="o-forms-input o-forms-input--checkbox">
-						<label>
-							<input type="checkbox" name="my-checkbox"/>
-							<span class="o-forms-input__label">Checkbox 1</span>
-						</label>
-					</span>
+					<label class="o-forms-field">
+						<span class="o-forms-title">
+							<span class="o-forms-title__main">Required text input</span>
+						</span>
+
+						<span class="o-forms-input o-forms-input--text">
+							<input id="text" type="text" name="form-two-required" value="" required>
+						</span>
+					</label>
 					<input class="o-buttons o-buttons--secondary" type="submit">
 				</form>
 			`;
@@ -131,13 +134,16 @@ describe('Forms', () => {
 		it('does not attempt to validate other uninitialised forms on submit', () => {
 			// Add a second form.
 			const secondFormString = `
-				<form action="#" id="second-form">
-					<span class="o-forms-input o-forms-input--checkbox">
-						<label>
-							<input type="checkbox" name="my-checkbox"/>
-							<span class="o-forms-input__label">Checkbox 1</span>
-						</label>
-					</span>
+				<form action="" id="second-form">
+					<label class="o-forms-field">
+						<span class="o-forms-title">
+							<span class="o-forms-title__main">Required text input</span>
+						</span>
+
+						<span class="o-forms-input o-forms-input--text">
+							<input id="text" type="text" name="form-two-required" value="" required>
+						</span>
+					</label>
 					<input class="o-buttons o-buttons--secondary" type="submit">
 				</form>
 			`;

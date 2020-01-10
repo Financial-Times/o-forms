@@ -1,5 +1,5 @@
 export default `
-<form action="#" data-o-component="o-forms">
+<form action="" data-o-component="o-forms">
 
 	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
 		<span class="o-forms-title" aria-hidden="true">
