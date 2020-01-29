@@ -467,13 +467,13 @@ This markup will always be generated dynamically if the [errorSummary option](#f
 
 You can include styles for every input type and feature by calling that mixin:
 ```scss
-@import 'o-forms';
+@import 'o-forms/main';
 @include oForms();
 ```
 
 If you would like to be more specific about what aspects of the styles get output, then you'll need to provide the primary mixin with an `$opts` map. For example, in order to output styles for text inputs and checkboxes, and add the ability to inlne them, you would use the following:
 ```scss
-@import 'o-forms';
+@import 'o-forms/main';
 @include oForms($opts: (
 	'elements': ('text', 'checkbox'),
 	'features': ('inline')
@@ -582,7 +582,7 @@ new Input(myInputEl);
 
 `o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method `setState` that allows the project to control this.
 
-The `setState` method accepts three arguments: the state, name, and label. State can be one of 'saving', 'saved' or 'none'. 'none' removes any state from the input. The name argument must be the name of the inputs that will be recieving the state. Label is used in the user interface to describe the state. Label is optional and defaults to 'Saving' for the saving state and 'Saved' for the saving state.
+The `setState` method accepts three arguments: the state, name, and label. State can be one of 'saving', 'saved' or 'none'. 'none' removes any state from the input. The name argument must be the name of the inputs that will be recieving the state. Label is used in the user interface to describe the state. Label is optional and defaults to 'Saving' for the saving state and 'Saved' for the saved state.
 
 ```html
 <form data-o-component="o-forms">
