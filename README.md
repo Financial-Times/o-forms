@@ -469,20 +469,20 @@ If you are not using `o-forms` JavaScript you may manually create the error summ
 
 ```html
 <div class="o-forms__error-summary" aria-labelledby="error-summary" role="alert">
-    <h4 class="o-forms__error-summary__heading">There is a problem</h4>
-    <ul class="o-forms__error-summary__list">
-        <li class="o-forms__error-summary__item">
+	<h4 class="o-forms__error-summary__heading">There is a problem</h4>
+	<ul class="o-forms__error-summary__list">
+		<li class="o-forms__error-summary__item">
 			<!-- link to the invalid input -->
-            <a href="#my-date-input">
+			<a href="#my-date-input">
 				<!-- the name of the invalid input -->
 				<span class="o-forms__error-summary__item-overview">My date input</span>:
 				<!-- a description of what is wrong and how to fix it -->
-                <span class="o-forms__error-summary__item-detail">
+				<span class="o-forms__error-summary__item-detail">
 					Please use the format (DD/MM/YYYY)
 				</span>
-            </a>
-        </li>
-    </ul>
+			</a>
+		</li>
+	</ul>
 </div>
 ```
 
