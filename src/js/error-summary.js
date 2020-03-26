@@ -116,8 +116,8 @@ class ErrorSummary {
 	 */
 	static _getItemContent(input) {
 		return '<span class="o-forms__error-summary__item-overview">' +
-			`${input.label}</span>: ` + `
-			<span class="o-forms__error-summary__item-detail">${input.error}</span>`;
+			`${input.label}</span>: ` +
+			`<span class="o-forms__error-summary__item-detail">${input.error}</span>`;
 	}
 }
 
