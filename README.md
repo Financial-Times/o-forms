@@ -468,8 +468,9 @@ This markup will always be generated dynamically if the [errorSummary option](#f
 If you are not using `o-forms` JavaScript you may manually create the error summary within an `o-forms` element using the following markup:
 
 ```html
-<div class="o-forms__error-summary" aria-labelledby="error-summary" role="alert">
-	<h4 class="o-forms__error-summary__heading">There is a problem</h4>
+<!-- error summary, `labelledby` the error heading  -->
+<div class="o-forms__error-summary" aria-labelledby="my-error-summary" role="alert">
+	<h4 id="my-error-summary" class="o-forms__error-summary__heading">There is a problem</h4>
 	<ul class="o-forms__error-summary__list">
 		<li class="o-forms__error-summary__item">
 			<!-- link to the invalid input -->
