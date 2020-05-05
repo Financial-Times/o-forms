@@ -20,7 +20,7 @@
 			border-color: _oFormsGet('toggle-inverse');
 		}
 
-		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
+		input[type=checkbox]:checked { // stylelint-disable selector-no-qualifying-type
 			+ .o-forms-input__label:before {
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}
@@ -29,5 +29,6 @@
 				border-color: _oFormsGet('toggle-inverse-selected');
 			}
 		}
+		// stylelint-enable selector-no-qualifying-type
 	}
 }

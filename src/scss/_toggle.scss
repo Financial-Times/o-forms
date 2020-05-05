@@ -36,7 +36,7 @@
 			}
 		}
 
-		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
+		input[type=checkbox] { // stylelint-disable selector-no-qualifying-type
 			&:checked + .o-forms-input__label {
 				&:before {
 					background-color: _oFormsGet('toggle-selected');
@@ -51,9 +51,10 @@
 				border-color: inherit;
 			}
 		}
+		// stylelint-enable selector-no-qualifying-type
 
 		@if $disabled {
-			input[type=checkbox]:disabled + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
+			input[type=checkbox]:disabled + .o-forms-input__label { // stylelint-disable selector-no-qualifying-type
 				color: _oFormsGet('disabled-text');
 
 				&:after {
@@ -65,6 +66,7 @@
 					background-color: _oFormsGet('toggle-disabled');
 				}
 			}
+			// stylelint-enable selector-no-qualifying-type
 		}
 	}
 }

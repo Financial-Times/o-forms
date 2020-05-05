@@ -28,15 +28,13 @@
 				width: $_o-forms-spacing-three;
 				margin: $_o-forms-spacing-three / 2;
 				opacity: 0;
-				// sass-lint:disable no-vendor-prefixes
 				@media screen and (-ms-high-contrast: active) {
 					background-color: windowText;
 				}
-				// sass-lint:enable no-vendor-prefixes
 			}
 		}
 
-		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
+		input[type=radio] { // stylelint-disable selector-no-qualifying-type
 			@include _oFormsControlsBase($disabled);
 			@include oNormaliseVisuallyHidden;
 
@@ -50,5 +48,6 @@
 				outline: none;
 			}
 		}
+		// stylelint-enable selector-no-qualifying-type
 	}
 }

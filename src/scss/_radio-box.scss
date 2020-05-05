@@ -34,7 +34,7 @@
 			}
 		}
 
-		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
+		input[type=radio] { // stylelint-disable selector-no-qualifying-type
 			position: absolute;
 			opacity: 0;
 
@@ -45,6 +45,7 @@
 				}
 			}
 		}
+		// stylelint-enable selector-no-qualifying-type
 
 		@include oGridRespondTo(S) {
 			&.o-forms-input--inline .o-forms-input__state {
@@ -76,7 +77,7 @@
 		border-color: _oFormsGet('default-border', $from: $theme);
 	}
 
-	input[type=radio] { // sass-lint:disable-line no-qualifying-elements
+	input[type=radio] { // stylelint-disable selector-no-qualifying-type
 		& + .o-forms-input__label {
 			color: _oFormsGet('controls-base', $from: $theme);
 		}
@@ -100,4 +101,5 @@
 			}
 		}
 	}
+	// stylelint-enable selector-no-qualifying-type
 }
