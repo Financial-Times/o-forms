@@ -30,10 +30,8 @@
 			outline: none;
 
 			// For iOS 6 that doesn't support 4-value background-position
-			// stylelint-disable declaration-block-no-duplicate-properties
 			background-position: right center;
-			background-position: right $_o-forms-spacing-two center;
-			// stylelint-enable declaration-block-no-duplicate-properties
+			background-position: right $_o-forms-spacing-two center; // stylelint-disable-line declaration-block-no-duplicate-properties
 
 			// Hide stock browser arrow in IE 10+
 			&::-ms-expand {

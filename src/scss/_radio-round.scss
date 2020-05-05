@@ -34,20 +34,19 @@
 			}
 		}
 
-		input[type=radio] { // stylelint-disable selector-no-qualifying-type
+		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
 			@include _oFormsControlsBase($disabled);
 			@include oNormaliseVisuallyHidden;
 
-			&:checked + .o-forms-input__label:before {
+			&:checked + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
 				border-color: _oFormsGet('controls-base');
 			}
 
-			&:focus + .o-forms-input__label:before {
+			&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
 				border-color: oColorsByUsecase('focus', 'outline', $fallback: null);
 				box-shadow: 0 0 0 $_o-forms-spacing-half oColorsByUsecase('focus', 'outline', $fallback: null);
 				outline: none;
 			}
 		}
-		// stylelint-enable selector-no-qualifying-type
 	}
 }

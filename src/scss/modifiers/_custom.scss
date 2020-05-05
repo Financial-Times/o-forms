@@ -42,14 +42,13 @@
 		min-width: unset;
 	}
 
-	// stylelint-disable selector-no-qualifying-type
+	// stylelint-disable-next-line selector-no-qualifying-type
 	a.o-forms-input__link.o-forms-input__link--current,
-	input[type=radio]:checked + .o-forms-input__label {
+	input[type=radio]:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 		&:after {
 			display: block;
 		}
 	}
-	// stylelint-enable selector-no-qualifying-type
 }
 
 /// @access public
