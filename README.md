@@ -53,9 +53,11 @@ Form fields may support [single input fields](#single-input-fields), such as tex
 
 ### Single input fields
 
-For fields which have one input element, the input element goes within the `o-forms-input` element. In addition a modifier class is added to the `o-forms-input` element which matches the type of input.
+Single input fields are created with a `label` element and class `o-forms-field`. All label copy is wrapped within a child `o-forms-title` element, and the input itself is wrapped within a child `o-forms-input` element.
 
-For example use the following markup for a text input. Note the input and its title are associated since they are both within a [`label` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label). Association enables a screenreader to read out the label when the user is focused on the input. Association also means clicking the label will focus the input.
+The input and its label copy are associated since they are both within a [`label` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label). Association enables a screenreader to read out the label when the user is focused on the input. Association also means clicking the label will focus the input.
+
+The following example shows a text input:
 
 ```html
 <label class="o-forms-field">
@@ -69,7 +71,7 @@ For example use the following markup for a text input. Note the input and its ti
 </label>
 ```
 
-Other fields which use a single input element follow the same structure. E.g. for a [`textarea` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea):
+For a different single input, update the input element within `o-forms-input` and a matching modifier to `o-forms-input` element. E.g. for a [`textarea` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea):
 
 ```diff
 <label class="o-forms-field">
