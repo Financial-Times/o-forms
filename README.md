@@ -119,7 +119,7 @@ To create a password input use a [single input](#single-input-fields) field stru
 
 #### Textarea input
 
-To create a select input use a [single input](#single-input-fields) field structure, with a `o-forms-input--password` modifier class on the `o-forms-input` element and a [`textarea` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
+To create a textarea input use a [single input](#single-input-fields) field structure, with a `o-forms-input--password` modifier class on the `o-forms-input` element and a [`textarea` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
 ```html
 <label class="o-forms-field">
@@ -135,7 +135,7 @@ To create a select input use a [single input](#single-input-fields) field struct
 
 #### Select Input
 
-To create a password input use a [single input](#single-input-fields) field structure, with a `o-forms-input--select` modifier class on the `o-forms-input` element and a [`select` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
+To create a select input use a [single input](#single-input-fields) field structure, with a `o-forms-input--select` modifier class on the `o-forms-input` element and a [`select` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
 
 ```html
 <label class="o-forms-field">
