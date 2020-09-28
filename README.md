@@ -49,10 +49,7 @@ All form fields follow the same structure:
 └————————————————————————————————————————┘
 ```
 
-
-Form fields may support [single input fields](#single-input-fields) such a text inputs or [multiple input fields](#multiple-input-fields) such as checkboxes.
-
-There are also a number of [field modifiers](#field-modifiers) for example to change the layout of form fields, and [input modifiers](#input-modifiers) to highlight a forms validity.
+Form fields may support [single input fields](#single-input-fields), such as text or select boxes. Or [multiple input fields](#multiple-input-fields), such as check boxes or toggles. There are also a number of modifying classes to change the layout or fields, e.g. to show inputs inline with their label, or to visually display an inputs validity.
 
 ### Single input fields
 
