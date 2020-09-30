@@ -71,7 +71,7 @@ The following example shows a text input:
 </label>
 ```
 
-For a different single input, update the input element within `o-forms-input` and a matching modifier to `o-forms-input` element. E.g. for a [`textarea` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea):
+For a different single input, update the input element within `o-forms-input` and add a matching modifier to the `o-forms-input` element. E.g. for a [`textarea` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea):
 
 ```diff
 <label class="o-forms-field">
@@ -121,7 +121,7 @@ To create a password input use a [single input](#single-input-fields) field stru
 
 #### Textarea input
 
-To create a textarea input use a [single input](#single-input-fields) field structure, with an `o-forms-input--password` modifier class on the `o-forms-input` element and a [`textarea` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
+To create a textarea input use a [single input](#single-input-fields) field structure, with an `o-forms-input--textarea` modifier class on the `o-forms-input` element and a [`textarea` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
 ```html
 <label class="o-forms-field">
@@ -197,7 +197,7 @@ For example to for a group of radio buttons:
 </div>
 ```
 
-Note that to associate the field title to the group of inputs we should use a [fieldset and legend element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend). However `o-forms` instead relies on an `role="group"` attribute along with an `aria-labelledby` attribute and associated `id`, `example-group-title` in the label above.
+Note that to associate the field title to the group of inputs we should use a [fieldset and legend element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend). However `o-forms` instead relies on a `role="group"` attribute along with an `aria-labelledby` attribute and associated `id`, `example-group-title` in the label above.
 
 _We chose not to work with a fieldset because they are [especially difficult to style consistently](https://thatemil.com/blog/2015/01/03/reset-your-fieldset/) _and_ we wanted to provide visual flexibility for our users._
 
@@ -285,7 +285,7 @@ The below example shows a box style radio button with a positive "yes" and negat
 </div>
 ```
 
-To show a state label with no text set the modifier class `o-forms-input__state--icon-only` on the `o-forms-input__state` state element. Or to use custom copy for the saving and saved states add the modifier class `o-forms-input__state--custom` and put your copy within the state element. However, as mentioned previously, we recommend setting a custom label using the [setState method](#state) JavaScript method instead of adding this markup manually.
+To show a state label with no text set the modifier class `o-forms-input__state--icon-only` on the `o-forms-input__state` state element. Or to use custom copy for the saving and saved states add the modifier class `o-forms-input__state--custom` and put your copy within the state element. However, as mentioned previously, we recommend setting a custom label using the [setState JavaScript method](#state) instead of adding this markup manually.
 
 ##### Pseudo box radio inputs
 
