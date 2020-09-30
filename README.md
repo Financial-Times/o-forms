@@ -89,7 +89,7 @@ For a different single input, update the input element within `o-forms-input` an
 
 #### Text input
 
-To create a text input use a [single input](#single-input-fields) field structure, with a `o-forms-input--text` modifier class on the `o-forms-input` element and an input type of `type="text"`.
+To create a text input use a [single input](#single-input-fields) field structure, with an `o-forms-input--text` modifier class on the `o-forms-input` element and an input type of `type="text"`.
 
 ```html
 <label class="o-forms-field">
@@ -105,7 +105,7 @@ To create a text input use a [single input](#single-input-fields) field structur
 
 #### Password input
 
-To create a password input use a [single input](#single-input-fields) field structure, with a `o-forms-input--password` modifier class on the `o-forms-input` element and an input type of `type="password"`.
+To create a password input use a [single input](#single-input-fields) field structure, with an `o-forms-input--password` modifier class on the `o-forms-input` element and an input type of `type="password"`.
 
 ```html
 <label class="o-forms-field">
@@ -121,7 +121,7 @@ To create a password input use a [single input](#single-input-fields) field stru
 
 #### Textarea input
 
-To create a textarea input use a [single input](#single-input-fields) field structure, with a `o-forms-input--password` modifier class on the `o-forms-input` element and a [`textarea` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
+To create a textarea input use a [single input](#single-input-fields) field structure, with an `o-forms-input--password` modifier class on the `o-forms-input` element and a [`textarea` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
 ```html
 <label class="o-forms-field">
@@ -137,7 +137,7 @@ To create a textarea input use a [single input](#single-input-fields) field stru
 
 #### Select Input
 
-To create a select input use a [single input](#single-input-fields) field structure, with a `o-forms-input--select` modifier class on the `o-forms-input` element and a [`select` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
+To create a select input use a [single input](#single-input-fields) field structure, with an `o-forms-input--select` modifier class on the `o-forms-input` element and a [`select` input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
 
 ```html
 <label class="o-forms-field">
@@ -158,7 +158,7 @@ To create a select input use a [single input](#single-input-fields) field struct
 
 For text-like input types where `o-forms` does not provide a specific modifier class the `o-forms-input--text` modifier may be used. [_See more example in the Origami Registry._](https://registry.origami.ft.com/components/o-forms#text-input)
 
-E.g. to create an email input use a [single input](#single-input-fields) field structure, with a `o-forms-input--text` modifier class on the `o-forms-input` element and an input type of `type="email"`.
+E.g. to create an email input use a [single input](#single-input-fields) field structure, with an `o-forms-input--text` modifier class on the `o-forms-input` element and an input type of `type="email"`.
 
 ```html
 <label class="o-forms-field">
@@ -231,7 +231,7 @@ Other fields which use multiple input elements follow the same structure. E.g. f
 
 ##### Round radio inputs
 
-To create a radio input use a [multiple input](#multiple-input-fields) field structure, with a `o-forms-input--radio-round` modifier class on the `o-forms-input` element and child [radio input elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) within labels.
+To create a radio input use a [multiple input](#multiple-input-fields) field structure, with an `o-forms-input--radio-round` modifier class on the `o-forms-input` element and child [radio input elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) within labels.
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title" role="group">
@@ -302,7 +302,7 @@ Its possible to achieve the look of box style radio inputs with anchor elements 
 
 ##### Square checkbox inputs
 
-To create a checkbox input use a [multiple input](#multiple-input-fields) field structure, with a `o-forms-input--checkbox` modifier class on the `o-forms-input` element and child [checkbox input elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) within labels.
+To create a checkbox input use a [multiple input](#multiple-input-fields) field structure, with an `o-forms-input--checkbox` modifier class on the `o-forms-input` element and child [checkbox input elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) within labels.
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title">
@@ -365,7 +365,7 @@ Toggles have an inverse theme. Set `o-forms-field--inverse` on the field element
 
 We do not use `input[type=date]`, but instead combine three `input[type=text]` inputs. We use `inputmode="numeric"` to show a numeric keyboard in mobile browsers which support the attribute. And use a `pattern` attribute for basic client side date validation.
 
-To create our date input use a [multiple input](#multiple-input-fields) field structure, with a `o-forms-input--date` modifier class on the `o-forms-input` element, containing inputs as shown:
+To create our date input use a [multiple input](#multiple-input-fields) field structure, with an `o-forms-input--date` modifier class on the `o-forms-input` element, containing inputs as shown:
 
 ```html
 <div class="o-forms-field" aria-labelledby="example-group-title">
