@@ -11,7 +11,7 @@
 	*:invalid {
 		box-shadow: none;
 	}
-	
+
 	.o-forms-input__error {
 		display: none;
 	}
@@ -31,8 +31,9 @@
 			@include oTypographySize($scale: -1);
 			color: _oFormsGet('invalid-base');
 			display: block;
-			position: absolute;
-			bottom: -$_o-forms-spacing-five;
+			position: relative;
+			margin-top: $_o-forms-spacing-one;
+			margin-bottom: -$_o-forms-spacing-five;
 		}
 	}
 }
