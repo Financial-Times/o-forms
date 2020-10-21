@@ -3,7 +3,7 @@
 	"keywords": [ "form", "input", "field", "fieldset", "submit" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiVersion": 2,
 	"brands" : [
 		"master",
 		"internal",
