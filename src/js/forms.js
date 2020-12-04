@@ -38,7 +38,7 @@ class Forms {
 	/**
 	 * Get the data attributes from the formElement. If the form is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
-	 * @param {HTMLElement} formElement - The message element in the DOM
+	 * @param {HTMLElement} formElement - The form element in the DOM
 	 */
 	static getDataAttributes(formElement) {
 		if (!(formElement instanceof HTMLElement)) {
@@ -46,13 +46,13 @@ class Forms {
 		}
 
 		return Object.keys(formElement.dataset).reduce((options, key) => {
-			// Ignore data-o-component
-			if (key === 'oComponent') {
+			// Ignore keys which are not in the component's namespace
+			if (!key.match(/^oForms(\w)(\w+)$/)) {
 				return options;
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oMessage(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(/^oForms(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
 			const value = formElement.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
